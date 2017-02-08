@@ -1,0 +1,16 @@
+{
+  "name": "ifrs-ps-theme",
+  "private": true,
+  "dependencies": {
+    "open-sans": "^1.1.0",
+    "html5shiv": "*",
+    "respond-minmax": "*",
+    "jquery": "~1.*",
+    "bootstrap-sass": "~3.*",
+    "bootstrapaccessibilityplugin": "~1.*",
+    "prettyPhoto": "scaron/prettyphoto",
+    "datatables": "*",
+    "masonry": "*",
+    "jQuery-Flex-Vertical-Center": "*"
+  }
+}

@@ -1,0 +1,7 @@
+.no-borderimage {
+    .content,
+    .well {
+        border: 2px solid $cor-border;
+        background: #fff;
+    }
+}

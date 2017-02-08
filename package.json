@@ -1,0 +1,20 @@
+{
+  "name": "ifrs-ps-theme",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "*",
+    "grunt": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-favicons": "*",
+    "grunt-modernizr": "^1.0.2",
+    "grunt-postcss": "*",
+    "pixrem": "*"
+  }
+}

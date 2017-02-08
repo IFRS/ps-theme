@@ -1,0 +1,3 @@
+@mixin decorated-border() {
+    border-image: url('../img/border.png') 30 fill / 30px round;
+}

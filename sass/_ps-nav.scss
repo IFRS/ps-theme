@@ -1,0 +1,54 @@
+#inicio-menu,
+#fim-menu {
+    color: #000;
+}
+
+#menu {
+    background: url('../img/bg-menu.png') center center repeat-x;
+    background-size: contain;
+    margin-bottom: $grid-gutter-width / 2;
+
+    .navbar {
+        margin-bottom: 10px;
+        margin-top: 15px;
+    }
+}
+
+.navbar-custom {
+    .navbar-nav {
+        >li {
+            background-color: $cor-menu-item;
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            margin-right: 8px;
+            text-transform: uppercase;
+
+            >a {
+                color: #333;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+
+        .active {
+            background: $cor-menu-item;
+            color: #000;
+
+            >a {
+                // color: #000;
+                font-weight: bold;
+            }
+        }
+    }
+    .navbar-toggle {
+      border-color: $cor-menu-item;
+      &:hover,
+      &:focus {
+        background-color: $cor-menu-item;
+      }
+      .icon-bar {
+        background-color: #ccc;
+      }
+    }
+}

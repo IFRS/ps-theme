@@ -1,0 +1,14 @@
+header {
+    background: url('../img/bg-header.png') center center no-repeat;
+    background-size: auto $header-height;
+
+    .container {
+        height: $header-height;
+        max-height: $header-height;
+        min-height: 200px;
+    }
+
+    h1 {
+        color: #fff;
+    }
+}
