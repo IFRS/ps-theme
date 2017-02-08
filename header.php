@@ -45,4 +45,4 @@
 
     <a href="#inicio-conteudo" id="inicio-conteudo" class="sr-only">In&iacute;cio do conte&uacute;do</a>
 
-    <?php breadcrumb_ps(); ?>
+    <?php ps_breadcrumb(); ?>
