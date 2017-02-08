@@ -28,8 +28,8 @@ require_once('lib/script_conditional.php');
 require_once('lib/assets.php');
 
 // Widgets
-require_once('lib/widgets.php');
-require_once('lib/resultados_widget.php');
+require_once('lib/widgets/widgets.php');
+require_once('lib/widgets/resultados_widget.php');
 
 // Tamanho do resumo e resumo em páginas
 require_once('lib/page-excerpt.php');
