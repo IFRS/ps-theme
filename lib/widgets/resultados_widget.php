@@ -77,45 +77,12 @@ class Resultados_Widget extends WP_Widget {
 					if ($resultados_query->have_posts()) {
 						while ($resultados_query->have_posts()) {
 							$resultados_query->the_post();
-
-							// $formasingresso = wp_get_post_terms(get_the_ID(), 'formaingresso', array('fields' => 'ids'));
-							// $formaingresso_id = $formasingresso[0];
-							//
-							// $campi = wp_get_post_terms(get_the_ID(), 'campus', array('fields' => 'ids'));
-							// $campus_id = $campi[0];
-							//
-							// $modalidades = wp_get_post_terms(get_the_ID(), 'modalidade', array('fields' => 'ids'));
-							// $modalidade_id = $modalidades[0];
-
 							$resultados[$id1][$id2][$id3][] = get_post();
 						}
 					}
 				}
 			}
 		}
-		//
-		// $resultados_query = new WP_Query(array(
-		// 	'post_type' => 'resultado',
-		// 	'post_status' => 'publish',
-		// 	'posts_per_page' => '-1',
-		// ));
-		//
-		// if ($resultados_query->have_posts()) {
-		// 	while ($resultados_query->have_posts()) {
-		// 		$resultados_query->the_post();
-		//
-		// 		$formasingresso = wp_get_post_terms(get_the_ID(), 'formaingresso', array('fields' => 'ids'));
-		// 		$formaingresso_id = $formasingresso[0];
-		//
-		// 		$campi = wp_get_post_terms(get_the_ID(), 'campus', array('fields' => 'ids'));
-		// 		$campus_id = $campi[0];
-		//
-		// 		$modalidades = wp_get_post_terms(get_the_ID(), 'modalidade', array('fields' => 'ids'));
-		// 		$modalidade_id = $modalidades[0];
-		//
-		// 		$resultados[$formaingresso_id][$campus_id][$modalidade_id][] = get_post();
-		// 	}
-		// }
 
 		echo $args['before_widget'];
 		if ( ! empty( $instance['title'] ) ) {
