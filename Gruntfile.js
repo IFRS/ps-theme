@@ -58,6 +58,7 @@ grunt.initConfig({
         options: {
             html: 'partials/favicons.php',
             HTMLPrefix: '<?php echo get_stylesheet_directory_uri(); ?>/favicons/',
+            precomposed: false,
             tileBlackWhite: false,
         },
         icons: {
