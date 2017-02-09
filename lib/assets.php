@@ -4,7 +4,7 @@ function ps_load_styles() {
 
     wp_enqueue_style('css-ps', get_stylesheet_directory_uri().(WP_DEBUG ? '/css/ps-style.css' : '/css/ps-style.min.css'), array(), false, 'all');
 
-    wp_enqueue_style( 'css-prettyphoto', get_stylesheet_directory_uri().(WP_DEBUG ? '/vendor/prettyphoto/css/prettyPhoto.css' : '/vendor/prettyphoto/css/prettyPhoto.css'), array(), false, 'screen' );
+    wp_enqueue_style( 'css-fancybox', get_stylesheet_directory_uri().'/vendor/fancybox/source/jquery.fancybox.css', array(), false, 'screen' );
 
     wp_register_style( 'css-datatables', get_stylesheet_directory_uri().(WP_DEBUG ? '/vendor/datatables/media/css/jquery.dataTables.css' : '/vendor/datatables/media/css/jquery.dataTables.min.css'), array(), false, 'screen' );
 
@@ -42,8 +42,8 @@ function ps_load_scripts() {
 
     wp_enqueue_script( 'bootstrap-accessibility', get_stylesheet_directory_uri().(WP_DEBUG ? '/vendor/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility.js' : '/vendor/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility.min.js'), array('bootstrap'), false, false );
 
-    wp_enqueue_script( 'jquery-prettyphoto', get_stylesheet_directory_uri().'/vendor/prettyphoto/js/jquery.prettyPhoto.js', array('jquery'), false, true );
-    wp_enqueue_script('prettyphoto-config', get_stylesheet_directory_uri().(WP_DEBUG ? '/src/prettyphoto-config.js' : '/js/prettyphoto-config.min.js'), array(), false, true);
+    wp_enqueue_script( 'jquery-fancybox', get_stylesheet_directory_uri().'/vendor/fancybox/source/jquery.fancybox.pack.js', array('jquery'), false, true );
+    wp_enqueue_script('fancybox-config', get_stylesheet_directory_uri().(WP_DEBUG ? '/src/fancybox-config.js' : '/js/fancybox-config.min.js'), array('jquery-fancybox'), false, true);
 
     wp_register_script( 'jquery-datatables', get_stylesheet_directory_uri().(WP_DEBUG ? '/vendor/datatables/media/js/jquery.dataTables.js' : '/vendor/datatables/media/js/jquery.dataTables.min.js'), array('jquery'), false, true );
     wp_register_script( 'jquery-datatables-bootstrap', get_stylesheet_directory_uri().(WP_DEBUG ? '/vendor/datatables/media/js/dataTables.bootstrap.js' : '/vendor/datatables/media/js/dataTables.bootstrap.min.js'), array('jquery','jquery-dataTables'), false, true );

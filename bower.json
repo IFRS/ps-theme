@@ -4,13 +4,13 @@
   "dependencies": {
     "open-sans": "^1.1.0",
     "html5shiv": "^3.7.3",
+    "respond": "^1.4.2",
     "jquery": "~1.x",
     "bootstrap-sass": "~3.x",
     "bootstrapaccessibilityplugin": "~1.x",
-    "prettyphoto": "scaron/prettyphoto",
-    "datatables": "^1.10.13",
     "masonry": "^4.1.1",
     "jQuery-Flex-Vertical-Center": "^1.0.0",
-    "respond": "^1.4.2"
+    "datatables": "^1.10.13",
+    "fancybox": "^2.1.6"
   }
 }

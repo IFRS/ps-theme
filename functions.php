@@ -36,7 +36,7 @@ require_once('lib/page-excerpt.php');
 require_once('lib/excerpt.php');
 
 // Adicionar PrettyPhoto automaticamente.
-require_once('lib/prettyphoto_rel.php');
+require_once('lib/fancybox_rel.php');
 
 // Paginação personalizada
 require_once('lib/pagination.php');
