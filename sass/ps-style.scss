@@ -6,7 +6,8 @@
 @import '../vendor/bootstrapaccessibilityplugin/src/sass/bootstrap-accessibility';
 
 // @import 'fonts';
-@import "../vendor/open-sans/scss/open-sans";
+$open-sans-path: '../vendor/open-sans/fonts';
+@import '../vendor/open-sans/scss/open-sans';
 
 @import 'barra-brasil-fix';
 @import 'mixins';
