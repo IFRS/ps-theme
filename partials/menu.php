@@ -1,6 +1,6 @@
 <a href="#inicio-menu" id="inicio-menu" class="sr-only">In&iacute;cio do menu</a>
 
-<nav class="navbar navbar-custom" role="navigation">
+<nav class="navbar navbar-custom">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-principal">
             <span class="sr-only">Alternar navega&ccedil;&atilde;o</span>
