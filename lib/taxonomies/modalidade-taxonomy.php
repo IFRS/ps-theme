@@ -3,21 +3,21 @@ if ( ! function_exists( 'modalidade_taxonomy' ) ) {
     // Register Custom Taxonomy
     function modalidade_taxonomy() {
         $labels = array(
-            'name'                       => _x( 'Modalidades', 'Taxonomy General Name', 'ingresso' ),
-            'singular_name'              => _x( 'Modalidade', 'Taxonomy Singular Name', 'ingresso' ),
-            'menu_name'                  => __( 'Modalidades', 'ingresso' ),
-            'all_items'                  => __( 'Todas as Modalidades', 'ingresso' ),
-            'parent_item'                => __( 'Modalidade pai', 'ingresso' ),
-            'parent_item_colon'          => __( 'Modalidade pai:', 'ingresso' ),
-            'new_item_name'              => __( 'Nova Modalidade', 'ingresso' ),
-            'add_new_item'               => __( 'Adicionar Nova Modalidade', 'ingresso' ),
-            'edit_item'                  => __( 'Editar Modalidade', 'ingresso' ),
-            'update_item'                => __( 'Atualizar Modalidade', 'ingresso' ),
-            'separate_items_with_commas' => __( 'Modalidades separadas por vírgula', 'ingresso' ),
-            'search_items'               => __( 'Buscar Modalidade', 'ingresso' ),
-            'add_or_remove_items'        => __( 'Adicionar ou remover Modalidades', 'ingresso' ),
-            'choose_from_most_used'      => __( 'Escolher pela Modalidade mais usada', 'ingresso' ),
-            'not_found'                  => __( 'Não encontrado', 'ingresso' ),
+            'name'                       => _x( 'Modalidades', 'Taxonomy General Name', 'ifrs-ps-theme' ),
+            'singular_name'              => _x( 'Modalidade', 'Taxonomy Singular Name', 'ifrs-ps-theme' ),
+            'menu_name'                  => __( 'Modalidades', 'ifrs-ps-theme' ),
+            'all_items'                  => __( 'Todas as Modalidades', 'ifrs-ps-theme' ),
+            'parent_item'                => __( 'Modalidade pai', 'ifrs-ps-theme' ),
+            'parent_item_colon'          => __( 'Modalidade pai:', 'ifrs-ps-theme' ),
+            'new_item_name'              => __( 'Nova Modalidade', 'ifrs-ps-theme' ),
+            'add_new_item'               => __( 'Adicionar Nova Modalidade', 'ifrs-ps-theme' ),
+            'edit_item'                  => __( 'Editar Modalidade', 'ifrs-ps-theme' ),
+            'update_item'                => __( 'Atualizar Modalidade', 'ifrs-ps-theme' ),
+            'separate_items_with_commas' => __( 'Modalidades separadas por vírgula', 'ifrs-ps-theme' ),
+            'search_items'               => __( 'Buscar Modalidade', 'ifrs-ps-theme' ),
+            'add_or_remove_items'        => __( 'Adicionar ou remover Modalidades', 'ifrs-ps-theme' ),
+            'choose_from_most_used'      => __( 'Escolher pela Modalidade mais usada', 'ifrs-ps-theme' ),
+            'not_found'                  => __( 'Não encontrado', 'ifrs-ps-theme' ),
         );
         $capabilities = array(
     		'manage_terms'       => 'manage_modalidade',
@@ -46,7 +46,7 @@ if ( ! function_exists( 'modalidade_taxonomy' ) ) {
 $single_term_modalidade = new Taxonomy_Single_Term( 'modalidade' );
 $single_term_modalidade->set( 'priority', 'default' );
 // $single_term_modalidade->set( 'context', 'normal' );
-// $single_term_modalidade->set( 'metabox_title', __( 'Custom Metabox Title', 'ps20162' ) );
+// $single_term_modalidade->set( 'metabox_title', __( 'Custom Metabox Title', 'ifrs-ps-theme' ) );
 $single_term_modalidade->set( 'force_selection', true );
 $single_term_modalidade->set( 'indented', false );
 $single_term_modalidade->set( 'allow_new_terms', false );

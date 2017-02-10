@@ -10,8 +10,8 @@ class Resultados_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'resultados_widget', // Base ID
-			__( 'Resultados', 'ps20171' ), // Name
-			array( 'description' => __( 'Resultados do Processo Seletivo', 'ps20171' ), ) // Args
+			__( 'Resultados', 'ifrs-ps-theme' ), // Name
+			array( 'description' => __( 'Resultados do Processo Seletivo', 'ifrs-ps-theme' ), ) // Args
 		);
 	}
 
@@ -164,7 +164,7 @@ class Resultados_Widget extends WP_Widget {
 	 * @param array $instance Previously saved values from database.
 	 */
 	public function form( $instance ) {
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Resultados', 'ps20171' );
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Resultados', 'ifrs-ps-theme' );
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
