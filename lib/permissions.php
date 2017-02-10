@@ -14,7 +14,7 @@ add_action('init', function() {
 
         'assign_campus'     => true,
         'assign_turno'      => true,
-        'assign_modalidade' => true,
+        'assign_modalidade' => true
     ));
 
     // Resultados Role
@@ -22,14 +22,15 @@ add_action('init', function() {
         remove_role( 'cadastrador_resultados' );
     }
     add_role('cadastrador_resultados', __('Cadastrador de Resultados'), array(
-        'read'              => true,
-        'upload_files'      => true,
+        'read'                 => true,
+        'upload_files'         => true,
 
-        'create_resultados' => true,
-        'edit_resultados'   => true,
-        'manage_resultados' => false,
+        'create_resultados'    => true,
+        'edit_resultados'      => true,
+        'manage_resultados'    => false,
 
-        'assign_campus'     => true,
-        'assign_modalidade' => true,
+        'assign_campus'        => true,
+        'assign_modalidade'    => true,
+        'assign_formaingresso' => true
     ));
 });
