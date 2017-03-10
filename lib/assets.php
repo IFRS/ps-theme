@@ -47,7 +47,7 @@ function ps_load_scripts() {
 
     wp_register_script( 'jquery-datatables', get_stylesheet_directory_uri().(WP_DEBUG ? '/vendor/datatables/media/js/jquery.dataTables.js' : '/vendor/datatables/media/js/jquery.dataTables.min.js'), array('jquery'), false, true );
     wp_register_script( 'jquery-datatables-bootstrap', get_stylesheet_directory_uri().(WP_DEBUG ? '/vendor/datatables/media/js/dataTables.bootstrap.js' : '/vendor/datatables/media/js/dataTables.bootstrap.min.js'), array('jquery','jquery-dataTables'), false, true );
-    wp_register_script( 'datatables-pt_BR', get_stylesheet_directory_uri().(WP_DEBUG ? '/src/dataTables-pt_BR.js' : '/js/dataTables-pt_BR.min.js'), array('jquery', 'jquery-dataTables'), false, true );
+    wp_register_script( 'datatables-pt_BR', get_stylesheet_directory_uri().(WP_DEBUG ? '/src/dataTables-pt_BR.js' : '/js/dataTables-pt_BR.min.js'), array('jquery', 'jquery-datatables'), false, true );
 
     wp_enqueue_script('jquery-flex-vertical', get_stylesheet_directory_uri().'/vendor/jQuery-Flex-Vertical-Center/jquery.flexverticalcenter.js', array('jquery'), false, true);
     wp_enqueue_script('vertical-align', get_stylesheet_directory_uri().(WP_DEBUG ? '/src/vertical-align.js' : '/js/vertical-align.min.js'), array('jquery-flex-vertical'), false, true);
