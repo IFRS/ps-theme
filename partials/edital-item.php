@@ -1,5 +1,5 @@
 <?php $parent = wp_get_post_parent_id(get_the_ID()); ?>
-<a href="<?php echo wp_get_attachment_url(get_post_meta(get_the_ID(), 'upload_file', true)); ?>" rel="bookmark" class="list-group-item<?php echo (empty($parent) ? ' active' : ' child'); ?>" target="_blank" title="<?php the_title(); ?> (abre em uma nova p&aacute;gina)">
+<a href="<?php echo get_post_meta(get_the_ID(), '_edital_arquivo', true); ?>" rel="bookmark" class="list-group-item<?php echo (empty($parent) ? ' active' : ' child'); ?>" target="_blank" title="<?php the_title(); ?> (abre em uma nova p&aacute;gina)">
     <h4 class="list-group-item-heading"><?php the_title(); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span><span class="glyphicon glyphicon-new-window pull-right"></span></h4>
     <p class="list-group-item-text">
         <small>
