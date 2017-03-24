@@ -69,26 +69,47 @@ if ( ! function_exists('edital_post_type') ) {
     }
 
     // Hook into the 'init' action
-    add_action( 'init', 'edital_post_type', 0 );
+    add_action( 'init', 'edital_post_type', 1 );
 }
 
 // MetaBox
-add_filter( 'rwmb_meta_boxes', 'editais_meta_boxes' );
-function editais_meta_boxes( $meta_boxes ) {
-    $meta_boxes[] = array(
-        'title'      => __( 'Arquivo Associado', 'ifrs-ps-theme' ),
-        'post_types' => 'edital',
-        'fields'     => array(
-            array(
-                // TODO: mudar o id para 'edital_file'.
-                'id'               => 'upload_file',
-                'name'             => __( 'Arquivo', 'ifrs-ps-theme' ),
-                'type'             => 'file_advanced',
-                'max_file_uploads' => 1,
-                'desc'             => 'Clique no botão acima para enviar um documento. Após o término do envio, clique em "Selecionar". ',
-            ),
-        ),
-    );
+add_action( 'cmb2_admin_init', 'edital_metaboxes', 1 );
+/**
+ * Define the metabox and field configurations.
+ */
+function edital_metaboxes() {
+    // Start with an underscore to hide fields from custom fields list
+    $prefix = '_edital_';
 
-    return $meta_boxes;
+    /**
+     * Initiate the metabox
+     */
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'metabox',
+        'title'         => __( 'Arquivo Associado', 'ifrs-ps-theme' ),
+        'object_types'  => array( 'edital', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Arquivo', 'ifrs-ps-theme'),
+        'desc'    => __( 'Clique no botão acima para enviar um documento (somente PDF).', 'ifrs-ps-theme' ),
+        'id'      => $prefix . 'arquivo',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        // 'text'    => array(
+            // 'add_upload_file_text' => 'Add File' // Change upload button text. Default: "Add or Upload File"
+        // ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => 'application/pdf', // Make library only display PDFs.
+        ),
+    ) );
 }

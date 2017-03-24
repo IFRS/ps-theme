@@ -69,30 +69,51 @@ if ( ! function_exists('curso_post_type') ) {
     }
 
     // Hook into the 'init' action
-    add_action( 'init', 'curso_post_type', 0 );
+    add_action( 'init', 'curso_post_type', 1 );
 }
 
 // MetaBox
-add_filter( 'rwmb_meta_boxes', 'cursos_meta_boxes' );
-function cursos_meta_boxes( $meta_boxes ) {
-    $meta_boxes[] = array(
-        'title'      => __( 'Informa&ccedil;&otilde;es do Curso', 'ifrs-ps-theme' ),
-        'post_types' => 'curso',
-        'fields'     => array(
-            array(
-                'id'   => 'vagas',
-                'name' => __( 'Total de Vagas', 'ifrs-ps-theme' ),
-                'type' => 'number',
-                'desc' => 'Somente números.',
-            ),
-            array(
-                'id'   => 'duracao',
-                'name' => __( 'Dura&ccedil;&atilde;o', 'ifrs-ps-theme' ),
-                'type' => 'text',
-                'desc' => 'p.ex.: "2 anos", "4 semestres", "1300 horas", etc.',
-            ),
-        ),
-    );
+add_action( 'cmb2_admin_init', 'curso_metaboxes', 1 );
+/**
+ * Define the metabox and field configurations.
+ */
+function curso_metaboxes() {
+    // Start with an underscore to hide fields from custom fields list
+    $prefix = '_curso_';
 
-    return $meta_boxes;
+    /**
+     * Initiate the metabox
+     */
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'metabox',
+        'title'         => __( 'Informa&ccedil;&otilde;es do Curso', 'ifrs-ps-theme' ),
+        'object_types'  => array( 'curso', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Total de Vagas', 'ifrs-ps-theme' ),
+        'desc'    => __( 'Somente números.' ),
+        // 'default' => 'standard value (optional)',
+        'id'      => $prefix . 'vagas',
+        'type'    => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb'       => 'absint',
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Dura&ccedil;&atilde;o', 'ifrs-ps-theme' ),
+        'desc'    => __( 'p.ex.: "2 anos", "4 semestres", "1300 horas", etc.' ),
+        // 'default' => 'standard value (optional)',
+        'id'      => $prefix . 'duracao',
+        'type'    => 'text',
+    ) );
 }
