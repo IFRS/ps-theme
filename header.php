@@ -10,7 +10,7 @@
     <meta name="keywords" content="ifrs, processo, seletivo, 2016/2, vestibular, ingresso">
     <meta property="creator.productor" content="http://estruturaorganizacional.dados.gov.br/id/unidade-organizacional/100918">
     <?php echo get_template_part('partials/title'); ?>
-    <link rel="alternate" type="application/rss+xml" title="<?= get_bloginfo('name'); ?> Feed" href="<?= esc_url(get_feed_link()); ?>">
+    <link rel="alternate" type="application/rss+xml" title="<?php echo esc_attr( get_bloginfo('name') ); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
     <!-- Favicon -->
     <?php echo get_template_part('partials/favicons'); ?>
     <!-- CSS, JS & etc. -->
@@ -27,7 +27,7 @@
             <div class="row">
                 <?php if (get_header_image() != '') : ?>
                 <div class="col-xs-12">
-                    <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>" id="header-link"><img src="<?php header_image(); ?>" alt="Marca do IFRS" class="center-block img-responsive" id="header-image"/></a>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="header-link"><img src="<?php header_image(); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="center-block img-responsive" id="header-image"/></a>
                 </div>
                 <?php endif; ?>
             </div>
