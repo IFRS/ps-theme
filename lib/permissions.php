@@ -18,7 +18,7 @@ add_action('init', function() {
     ));
 
     // Resultados Role
-    if (!get_role( 'cadastrador_resultados' )) {
+    if (get_role( 'cadastrador_resultados' )) {
         remove_role( 'cadastrador_resultados' );
     }
     add_role('cadastrador_resultados', __('Cadastrador de Resultados'), array(
@@ -30,7 +30,6 @@ add_action('init', function() {
         'manage_resultados'    => false,
 
         'assign_campus'        => true,
-        'assign_modalidade'    => true,
         'assign_formaingresso' => true
     ));
 });

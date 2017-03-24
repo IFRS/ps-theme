@@ -35,7 +35,7 @@ if ( ! function_exists( 'modalidade_taxonomy' ) ) {
             'show_tagcloud'     => false,
             'capabilities'      => $capabilities,
         );
-        register_taxonomy( 'modalidade', array( 'curso', 'resultado' ), $args );
+        register_taxonomy( 'modalidade', array( 'curso' ), $args );
     }
 
     // Hook into the 'init' action

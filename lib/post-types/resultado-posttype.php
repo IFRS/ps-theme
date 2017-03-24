@@ -47,7 +47,7 @@ if ( ! function_exists('resultado_post_type') ) {
 			'description'           => __( 'Resultados do Processo Seletivo', 'ifrs-ps-theme' ),
 			'labels'                => $labels,
 			'supports'              => array( 'title', 'editor', 'revisions' ),
-			'taxonomies'            => array( 'campus', 'modalidade' ),
+			'taxonomies'            => array( 'campus', 'formaingresso'),
 			'hierarchical'          => false,
 			'public'                => true,
 			'show_ui'               => true,
@@ -69,24 +69,73 @@ if ( ! function_exists('resultado_post_type') ) {
 	}
 
 	// Hook into the 'init' action
-	add_action( 'init', 'resultado_post_type', 0 );
+	add_action( 'init', 'resultado_post_type', 1 );
 }
 
 // MetaBox
-add_filter( 'rwmb_meta_boxes', 'resultados_meta_boxes' );
-function resultados_meta_boxes( $meta_boxes ) {
-    $meta_boxes[] = array(
-        'title'      => __( 'Arquivos do Resultado', 'ifrs-ps-theme' ),
-        'post_types' => 'resultado',
-        'fields'     => array(
-			array(
-                'id'   => 'resultado_files',
-                'name' => __( 'Lista de Arquivos', 'ifrs-ps-theme' ),
-                'type' => 'file_advanced',
-                'desc' => 'Selecione os arquivos relacionados a este resultado. Lembrete: preencha corretamente o título e o texto alternativo de cada arquivo.',
-            ),
-        ),
-    );
+add_action( 'cmb2_admin_init', 'resultado_metaboxes', 1 );
+/**
+ * Define the metabox and field configurations.
+ */
+function resultado_metaboxes() {
+    // Start with an underscore to hide fields from custom fields list
+    $prefix = '_resultado_arquivos_';
 
-    return $meta_boxes;
+    /**
+     * Initiate the metabox
+     */
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'metabox',
+        'title'         => __( 'Resultados da Chamada', 'ifrs-ps-theme' ),
+        'object_types'  => array( 'resultado', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ) );
+
+	$group_field_id = $cmb->add_field( array(
+	    'id'          => $prefix . 'group',
+	    'type'        => 'group',
+	    // 'description' => __( 'Arquivos por modalidade.', 'ifrs-ps-theme' ),
+	    // 'repeatable'  => false, // use false if you want non-repeatable group
+	    'options'     => array(
+	        'group_title'   => __( 'Resultado {#}', 'ifrs-ps-theme' ), // since version 1.1.4, {#} gets replaced by row number
+	        'add_button'    => __( 'Adicionar outro Resultado', 'ifrs-ps-theme' ),
+	        'remove_button' => __( 'Remover Resultado', 'ifrs-ps-theme' ),
+	        // 'sortable'      => true, // beta
+	        // 'closed'        => true, // true to have the groups closed by default
+	    ),
+	) );
+
+	// Id's for group's fields only need to be unique for the group. Prefix is not needed.
+	$cmb->add_group_field( $group_field_id, array(
+	    'name'             => 'Modalidade',
+	    'desc'             => 'Selecione uma modalidade.',
+	    'id'               => 'modalidade',
+	    'type'             => 'select',
+	    'show_option_none' => true,
+	    // 'default'          => 'custom',
+	    'options'          => get_terms(array('taxonomy' => 'modalidade', 'fields' => 'id=>name')),
+		'attributes'  => array(
+			'required' => 'required'
+		)
+	) );
+
+	$cmb->add_group_field( $group_field_id, array(
+	    'name' => 'Arquivos',
+	    'desc' => 'Selecione os arquivos relacionados a este resultado. Lembrete: preencha corretamente o título de cada arquivo.',
+	    'id'   => 'arquivos',
+	    'type' => 'file_list',
+	    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+	    // Optional, override default text strings
+	    // 'text' => array(
+	    //     'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+	    //     'remove_image_text' => 'Replacement', // default: "Remove Image"
+	    //     'file_text' => 'Replacement', // default: "File:"
+	    //     'file_download_text' => 'Replacement', // default: "Download"
+	    //     'remove_text' => 'Replacement', // default: "Remove"
+	    // ),
+	) );
 }

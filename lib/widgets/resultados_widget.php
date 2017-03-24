@@ -40,45 +40,33 @@ class Resultados_Widget extends WP_Widget {
 			'orderby' => 'name',
 			'fields' => 'ids',
 		));
-		$modalidades_all = get_terms(array(
-			'taxonomy' => 'modalidade',
-			'orderby' => 'name',
-			'fields' => 'ids',
-		));
 
 		$resultados = array();
 
 		foreach ($formasingresso_all as $id1) {
 			foreach ($campi_all as $id2) {
-				foreach ($modalidades_all as $id3) {
-					$resultados_query = new WP_Query(array(
-						'post_type' => 'resultado',
-						'post_status' => 'publish',
-						'posts_per_page' => '-1',
-						'tax_query' => array(
-							'relation' => 'AND',
-							array(
-								'taxonomy' => 'formaingresso',
-								'field'    => 'term_id',
-								'terms'    => $id1,
-							),
-							array(
-								'taxonomy' => 'campus',
-								'field'    => 'term_id',
-								'terms'    => $id2,
-							),
-							array(
-								'taxonomy' => 'modalidade',
-								'field'    => 'term_id',
-								'terms'    => $id3,
-							),
-						)
-					));
-					if ($resultados_query->have_posts()) {
-						while ($resultados_query->have_posts()) {
-							$resultados_query->the_post();
-							$resultados[$id1][$id2][$id3][] = get_post();
-						}
+				$resultados_query = new WP_Query(array(
+					'post_type' => 'resultado',
+					'post_status' => 'publish',
+					'posts_per_page' => '-1',
+					'tax_query' => array(
+						'relation' => 'AND',
+						array(
+							'taxonomy' => 'formaingresso',
+							'field'    => 'term_id',
+							'terms'    => $id1,
+						),
+						array(
+							'taxonomy' => 'campus',
+							'field'    => 'term_id',
+							'terms'    => $id2,
+						),
+					)
+				));
+				if ($resultados_query->have_posts()) {
+					while ($resultados_query->have_posts()) {
+						$resultados_query->the_post();
+						$resultados[$id1][$id2][] = get_post();
 					}
 				}
 			}
@@ -107,42 +95,32 @@ class Resultados_Widget extends WP_Widget {
 									<li class="active"><?php echo $formaingresso_obj->name; ?></li>
 								</ol>
 								<p>Selecione o seu Campus.</p>
-								<?php foreach ($campi as $campus_id => $modalidades) : ?>
+								<?php foreach ($campi as $campus_id => $chamada) : ?>
 									<?php $campus_obj = get_term($campus_id); ?>
-									<a class="btn btn-campus toggle" href="#modalidades-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" title="<?php echo $campus_obj->name; ?>"><?php echo $campus_obj->name; ?></a>
-									<div id="modalidades-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="modalidades">
+									<a class="btn btn-campus toggle" href="#resultados-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" title="<?php echo $campus_obj->name; ?>"><?php echo $campus_obj->name; ?></a>
+									<div id="resultados-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="resultados">
 										<ol class="breadcrumb">
 											<li><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
 											<li><a href="#campi-<?php echo $formaingresso_obj->slug; ?>" class="breadcrumb-campus"><?php echo $formaingresso_obj->name; ?></a></li>
 											<li class="active"><?php echo $campus_obj->name; ?></li>
 										</ol>
-										<p>Selecione a modalidade.</p>
-										<?php foreach ($modalidades as $modalidade_id => $resultados) : ?>
-											<?php $modalidade_obj = get_term($modalidade_id); ?>
-											<a class="btn btn-modalidade btn-lg toggle" href="#resultados-<?php echo $modalidade_obj->slug; ?>-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" title="<?php echo $modalidade_obj->name; ?>"><?php echo $modalidade_obj->name; ?></a>
-											<div id="resultados-<?php echo $modalidade_obj->slug; ?>-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="resultados">
-												<ol class="breadcrumb">
-													<li><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
-													<li><a href="#campi-<?php echo $formaingresso_obj->slug; ?>" class="breadcrumb-campus"><?php echo $formaingresso_obj->name; ?></a></li>
-													<li><a href="#modalidades-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="breadcrumb-modalidade"><?php echo $campus_obj->name; ?></a></li>
-													<li class="active"><?php echo $modalidade_obj->name; ?></li>
-												</ol>
-												<p>Veja abaixo as chamadas já realizadas.</p>
-												<div class="list-group">
-												<?php foreach ($resultados as $key => $resultado_obj) : ?>
-													<a href="<?php echo get_permalink($resultado_obj); ?>" rel="bookmark" class="list-group-item">
-		                                                <h4 class="list-group-item-heading">
-															<?php echo $resultado_obj->post_title; ?>&nbsp;
-															<span class="label label-modalidade"><?php echo $modalidade_obj->name; ?></span>&nbsp;
-															<span class="label label-campus"><?php echo $campus_obj->name; ?></span>&nbsp;
-															<span class="label label-formaingresso"><?php echo $formaingresso_obj->name; ?></span>
-														</h4>
-		                                                <p class="list-group-item-text"><small><?php echo get_the_time('d/m/Y', $resultado_obj); ?></small></p>
-		                                            </a>
-												<?php endforeach; ?>
-												</div>
-											</div>
+										<p>Veja abaixo as chamadas já realizadas.</p>
+										<div class="list-group">
+										<?php foreach ($chamada as $resultado_obj) : ?>
+											<a href="<?php echo get_permalink($resultado_obj); ?>" rel="bookmark" class="list-group-item">
+                                                <h4 class="list-group-item-heading">
+													<?php echo $resultado_obj->post_title; ?>
+													<small>
+													<?php $modalidades = get_post_meta($resultado_obj->ID, '_resultado_arquivos_group'); ?>
+													<?php foreach ($modalidades[0] as $id => $modalidade) : ?>
+														<span class="label label-modalidade"><?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?></span>&nbsp;
+													<?php endforeach; ?>
+													</small>
+												</h4>
+                                                <p class="list-group-item-text"><small><?php echo get_the_time('d/m/Y', $resultado_obj); ?></small></p>
+                                            </a>
 										<?php endforeach; ?>
+										</div>
 									</div>
 								<?php endforeach; ?>
 							</div>
