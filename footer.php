@@ -2,9 +2,7 @@
 
 <a href="#fim-conteudo" id="fim-conteudo" class="sr-only">Fim do conte&uacute;do</a>
 
-<div id="footer-decoration" aria-hidden="true">
-    <div class="container"></div>
-</div>
+<div id="footer-decoration" aria-hidden="true"></div></div>
 
 <!-- Rodapé -->
 <?php if ( has_nav_menu( 'main' ) ) : ?>
