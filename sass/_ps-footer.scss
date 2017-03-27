@@ -1,33 +1,8 @@
 #footer-decoration {
-    // margin-top: $grid-gutter-width;
-
-    .container {
-        background: url('../img/bg-footer-top.png') center center no-repeat;
-        background-color: transparent;
-        background-size: contain;
-        background-clip: border-box;
-        height: 55px;
-        padding: 0;
-        position: relative;
-        &:after,
-        &:before {
-            content: '';
-            position: absolute;
-            display: block;
-            height: 100%;
-            background: $cor-rodape;
-        }
-
-        &:after {
-            left: -100%;
-            right: 100%;
-        }
-
-        &:before {
-            right: -100%;
-            left: 100%;
-        }
-    }
+    background: url('../img/bg-footer-top.png') center center repeat-x;
+    background-color: transparent;
+    height: 69px;
+    padding: 0;
 }
 
 #site-map {
