@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-var target = grunt.option('target') || false;
+var deploy_to = grunt.option('path') || false;
 grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -106,6 +106,18 @@ grunt.initConfig({
         }
     },
 
+    rsync: {
+        options: {
+            args: ['-avzh', '--stats', '--delete'],
+        },
+        prod: {
+            options: {
+                src: './dist/',
+                dest: deploy_to,
+            },
+        },
+    },
+
     uglify: {
         options: {
             mangle: false,
@@ -157,6 +169,7 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-favicons');
     grunt.loadNpmTasks('grunt-modernizr');
     grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-rsync');
 
 
     // Tasks
@@ -185,4 +198,5 @@ grunt.initConfig({
         'build',
         'copy'
     ]);
+    grunt.registerTask('deploy', ['rsync']);
 };
