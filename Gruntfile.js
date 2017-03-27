@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-var target = grunt.option('target') || false;
+var deploy_to = grunt.option('path') || false;
 grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -58,6 +58,7 @@ grunt.initConfig({
         options: {
             html: 'partials/favicons.php',
             HTMLPrefix: '<?php echo get_stylesheet_directory_uri(); ?>/favicons/',
+            precomposed: false,
             tileBlackWhite: false,
         },
         icons: {
@@ -103,6 +104,18 @@ grunt.initConfig({
         dist: {
             src: 'css/*.css'
         }
+    },
+
+    rsync: {
+        options: {
+            args: ['-avzh', '--stats', '--delete'],
+        },
+        prod: {
+            options: {
+                src: './dist/',
+                dest: deploy_to,
+            },
+        },
     },
 
     uglify: {
@@ -156,6 +169,7 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-favicons');
     grunt.loadNpmTasks('grunt-modernizr');
     grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-rsync');
 
 
     // Tasks
@@ -184,4 +198,5 @@ grunt.initConfig({
         'build',
         'copy'
     ]);
+    grunt.registerTask('deploy', ['rsync']);
 };

@@ -8,20 +8,10 @@
             <article class="content">
                 <div class="row">
                     <div class="col-xs-12 col-md-6 col-lg-7">
-                        <h2 class="post-title">
-                            <?php the_title(); ?>
-                        </h2>
+                        <h2 class="post-title"><?php the_title(); ?></h2>
                     </div>
                     <div class="col-xs-12 col-md-6 col-lg-5">
                         <p class="resultado-labels">
-                        <?php
-                            $modalidades = get_the_terms(get_the_ID(), 'modalidade');
-                            foreach ($modalidades as $key => $modalidade) :
-                        ?>
-                                <span class="label label-modalidade"><?php echo $modalidade->name; ?></span>
-                        <?php
-                            endforeach;
-                        ?>
                         <?php
                             $campi = get_the_terms(get_the_ID(), 'campus');
                             foreach ($campi as $key => $campus) :
@@ -48,23 +38,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <?php $arquivos = rwmb_meta('resultado_files'); ?>
-                        <?php if (!empty($arquivos)) : ?>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <strong>Arquivos</strong>
-                                </div>
-                                <div class="list-group">
-                                    <?php foreach ($arquivos as $key => $file): ?>
-                                        <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-info"><?php echo $file['title']; ?></a>
-                                    <?php endforeach; ?>
+                <?php $resultados = get_post_meta(get_the_ID(), '_resultado_arquivos_group'); ?>
+                <?php if (!empty($resultados)) : ?>
+                    <div class="row">
+                        <?php foreach ($resultados[0] as $resultado) : ?>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <strong><?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
+                                    </div>
+                                    <div class="list-group">
+                                        <?php foreach ($resultado['arquivos'] as $id => $url): ?>
+                                            <a href="<?php echo esc_url($url); ?>" class="list-group-item list-group-item-info"><?php echo get_the_title($id); ?></a>
+                                        <?php endforeach; ?>
+                                    </div>
                                 </div>
                             </div>
-                        <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
-                </div>
+                <?php endif; ?>
                 <hr/>
                 <div class="row post-meta">
                     <div class="col-xs-12">

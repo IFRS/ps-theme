@@ -1,6 +1,5 @@
 <?php
-function breadcrumb_ps()
-{
+function ps_breadcrumb() {
     $home      = 'Home';
     $before    = '<li class="active">';
     $sep       = '';

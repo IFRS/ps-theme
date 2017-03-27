@@ -1,3 +1,6 @@
 @mixin decorated-border() {
-    border-image: url('../img/border.png') 30 fill / 30px round;
+    // border-image: url('../img/border.png') 30 fill / 30px round;
+    background-color: #fff;
+    border: 3px solid #0a698e;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.4);
 }

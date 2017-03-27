@@ -2,9 +2,9 @@
 // Habilita a personalização de cabeçalho
 add_theme_support('custom-header', array(
     'default-image'          => '',
-	'width'                  => 1008,
-	'height'                 => 320,
-	'flex-height'            => false,
+	'width'                  => 1140,
+	'height'                 => 350,
+	'flex-height'            => true,
 	'flex-width'             => false,
 	'uploads'                => true,
 	'random-default'         => false,

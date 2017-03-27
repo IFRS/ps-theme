@@ -2,21 +2,21 @@
 if ( ! function_exists('curso_post_type') ) {
     function curso_post_type() {
         $labels = array(
-            'name'                => _x( 'Cursos', 'Post Type General Name', 'ingresso' ),
-            'singular_name'       => _x( 'Curso', 'Post Type Singular Name', 'ingresso' ),
-            'menu_name'           => __( 'Cursos', 'ingresso' ),
-            'name_admin_bar'      => __( 'Cursos', 'ingresso' ),
-            'parent_item_colon'   => __( 'Curso Pai:', 'ingresso' ),
-            'all_items'           => __( 'Todos os Cursos', 'ingresso' ),
-            'add_new_item'        => __( 'Adicionar Novo Curso', 'ingresso' ),
-            'add_new'             => __( 'Adicionar Novo', 'ingresso' ),
-            'new_item'            => __( 'Novo Curso', 'ingresso' ),
-            'edit_item'           => __( 'Editar Curso', 'ingresso' ),
-            'update_item'         => __( 'Atualizar Curso', 'ingresso' ),
-            'view_item'           => __( 'Ver Curso', 'ingresso' ),
-            'search_items'        => __( 'Buscar Curso', 'ingresso' ),
-            'not_found'           => __( 'Não encontrado', 'ingresso' ),
-            'not_found_in_trash'  => __( 'Não encontrado na Lixeira', 'ingresso' ),
+            'name'                => _x( 'Cursos', 'Post Type General Name', 'ifrs-ps-theme' ),
+            'singular_name'       => _x( 'Curso', 'Post Type Singular Name', 'ifrs-ps-theme' ),
+            'menu_name'           => __( 'Cursos', 'ifrs-ps-theme' ),
+            'name_admin_bar'      => __( 'Cursos', 'ifrs-ps-theme' ),
+            'parent_item_colon'   => __( 'Curso Pai:', 'ifrs-ps-theme' ),
+            'all_items'           => __( 'Todos os Cursos', 'ifrs-ps-theme' ),
+            'add_new_item'        => __( 'Adicionar Novo Curso', 'ifrs-ps-theme' ),
+            'add_new'             => __( 'Adicionar Novo', 'ifrs-ps-theme' ),
+            'new_item'            => __( 'Novo Curso', 'ifrs-ps-theme' ),
+            'edit_item'           => __( 'Editar Curso', 'ifrs-ps-theme' ),
+            'update_item'         => __( 'Atualizar Curso', 'ifrs-ps-theme' ),
+            'view_item'           => __( 'Ver Curso', 'ifrs-ps-theme' ),
+            'search_items'        => __( 'Buscar Curso', 'ifrs-ps-theme' ),
+            'not_found'           => __( 'Não encontrado', 'ifrs-ps-theme' ),
+            'not_found_in_trash'  => __( 'Não encontrado na Lixeira', 'ifrs-ps-theme' ),
         );
         $capabilities = array(
 			// meta caps (don't assign these to roles)
@@ -43,8 +43,8 @@ if ( ! function_exists('curso_post_type') ) {
 			'edit_published_posts'   => 'edit_cursos',
 		);
         $args = array(
-            'label'               => __( 'curso', 'ingresso' ),
-            'description'         => __( 'Curso do Portal de Ingresso', 'ingresso' ),
+            'label'               => __( 'curso', 'ifrs-ps-theme' ),
+            'description'         => __( 'Curso do Portal de Ingresso', 'ifrs-ps-theme' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'revisions' ),
             'taxonomies'          => array( 'campus', 'turno', 'modalidade' ),
@@ -69,30 +69,51 @@ if ( ! function_exists('curso_post_type') ) {
     }
 
     // Hook into the 'init' action
-    add_action( 'init', 'curso_post_type', 0 );
+    add_action( 'init', 'curso_post_type', 1 );
 }
 
 // MetaBox
-add_filter( 'rwmb_meta_boxes', 'cursos_meta_boxes' );
-function cursos_meta_boxes( $meta_boxes ) {
-    $meta_boxes[] = array(
-        'title'      => __( 'Informações do Curso', 'ps20162' ),
-        'post_types' => 'curso',
-        'fields'     => array(
-            array(
-                'id'   => 'vagas',
-                'name' => __( 'Total de Vagas', 'ps20162' ),
-                'type' => 'number',
-                'desc' => 'Somente números.',
-            ),
-            array(
-                'id'   => 'duracao',
-                'name' => __( 'Dura&ccedil;&atilde;o', 'ps20162' ),
-                'type' => 'text',
-                'desc' => 'p.ex.: "2 anos", "4 semestres", "1300 horas", etc.',
-            ),
-        ),
-    );
+add_action( 'cmb2_admin_init', 'curso_metaboxes', 1 );
+/**
+ * Define the metabox and field configurations.
+ */
+function curso_metaboxes() {
+    // Start with an underscore to hide fields from custom fields list
+    $prefix = '_curso_';
 
-    return $meta_boxes;
+    /**
+     * Initiate the metabox
+     */
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'metabox',
+        'title'         => __( 'Informa&ccedil;&otilde;es do Curso', 'ifrs-ps-theme' ),
+        'object_types'  => array( 'curso', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Total de Vagas', 'ifrs-ps-theme' ),
+        'desc'    => __( 'Somente números.' ),
+        // 'default' => 'standard value (optional)',
+        'id'      => $prefix . 'vagas',
+        'type'    => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb'       => 'absint',
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Dura&ccedil;&atilde;o', 'ifrs-ps-theme' ),
+        'desc'    => __( 'p.ex.: "2 anos", "4 semestres", "1300 horas", etc.' ),
+        // 'default' => 'standard value (optional)',
+        'id'      => $prefix . 'duracao',
+        'type'    => 'text',
+    ) );
 }

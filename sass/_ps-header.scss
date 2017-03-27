@@ -1,11 +1,8 @@
 header {
-    background: url('../img/bg-header.png') center center no-repeat;
-    background-size: auto $header-height;
-
     .container {
-        height: $header-height;
-        max-height: $header-height;
-        min-height: 200px;
+        height: 350px;
+        max-height: 360px;
+        min-height: 300px;
     }
 
     h1 {

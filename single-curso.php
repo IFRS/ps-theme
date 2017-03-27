@@ -24,7 +24,7 @@
                         <p>
                             <strong>Dura&ccedil;&atilde;o: </strong>
                             <?php
-                                $duracao = get_post_meta(get_the_ID(), 'duracao', true);
+                                $duracao = get_post_meta(get_the_ID(), '_curso_duracao', true);
                                 if (!empty($duracao)) {
                                     echo $duracao;
                                 } else {
@@ -36,7 +36,7 @@
                         <p>
                             <strong>Vagas: </strong>
                             <?php
-                                $vagas = get_post_meta(get_the_ID(), 'vagas', true);
+                                $vagas = get_post_meta(get_the_ID(), '_curso_vagas', true);
                                 if (!empty($vagas)) {
                                     echo $vagas;
                                 } else {

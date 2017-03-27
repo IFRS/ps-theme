@@ -55,7 +55,7 @@
                                         <?php endforeach; ?>
                                     </td>
                                     <td>
-                                        <p><?php echo get_post_meta(get_the_ID(), 'vagas', true); ?></p>
+                                        <p><?php echo get_post_meta(get_the_ID(), '_curso_vagas', true); ?></p>
                                     </td>
                                 </tr>
                             <?php endwhile;?>

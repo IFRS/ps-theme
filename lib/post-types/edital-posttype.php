@@ -2,21 +2,21 @@
 if ( ! function_exists('edital_post_type') ) {
     function edital_post_type() {
         $labels = array(
-            'name'               => _x( 'Editais', 'Post Type General Name', 'ingresso' ),
-            'singular_name'      => _x( 'Edital', 'Post Type Singular Name', 'ingresso' ),
-            'menu_name'          => __( 'Editais', 'ingresso' ),
-            'name_admin_bar'     => __( 'Editais', 'ingresso' ),
-            'parent_item_colon'  => __( 'Edital principal:', 'ingresso' ),
-            'all_items'          => __( 'Todos os Editais', 'ingresso' ),
-            'add_new_item'       => __( 'Adicionar Novo Edital', 'ingresso' ),
-            'add_new'            => __( 'Adicionar Novo', 'ingresso' ),
-            'new_item'           => __( 'Novo Edital', 'ingresso' ),
-            'edit_item'          => __( 'Editar Edital', 'ingresso' ),
-            'update_item'        => __( 'Atualizar Edital', 'ingresso' ),
-            'view_item'          => __( 'Ver Edital', 'ingresso' ),
-            'search_items'       => __( 'Buscar Edital', 'ingresso' ),
-            'not_found'          => __( 'Não encontrado', 'ingresso' ),
-            'not_found_in_trash' => __( 'Não encontrado na Lixeira', 'ingresso' ),
+            'name'               => _x( 'Editais', 'Post Type General Name', 'ifrs-ps-theme' ),
+            'singular_name'      => _x( 'Edital', 'Post Type Singular Name', 'ifrs-ps-theme' ),
+            'menu_name'          => __( 'Editais', 'ifrs-ps-theme' ),
+            'name_admin_bar'     => __( 'Editais', 'ifrs-ps-theme' ),
+            'parent_item_colon'  => __( 'Edital principal:', 'ifrs-ps-theme' ),
+            'all_items'          => __( 'Todos os Editais', 'ifrs-ps-theme' ),
+            'add_new_item'       => __( 'Adicionar Novo Edital', 'ifrs-ps-theme' ),
+            'add_new'            => __( 'Adicionar Novo', 'ifrs-ps-theme' ),
+            'new_item'           => __( 'Novo Edital', 'ifrs-ps-theme' ),
+            'edit_item'          => __( 'Editar Edital', 'ifrs-ps-theme' ),
+            'update_item'        => __( 'Atualizar Edital', 'ifrs-ps-theme' ),
+            'view_item'          => __( 'Ver Edital', 'ifrs-ps-theme' ),
+            'search_items'       => __( 'Buscar Edital', 'ifrs-ps-theme' ),
+            'not_found'          => __( 'Não encontrado', 'ifrs-ps-theme' ),
+            'not_found_in_trash' => __( 'Não encontrado na Lixeira', 'ifrs-ps-theme' ),
         );
         $capabilities = array(
 			// meta caps (don't assign these to roles)
@@ -43,8 +43,8 @@ if ( ! function_exists('edital_post_type') ) {
 			'edit_published_posts'   => 'edit_editais',
 		);
         $args = array(
-            'label'               => __( 'edital', 'ingresso' ),
-            'description'         => __( 'Editais', 'ingresso' ),
+            'label'               => __( 'edital', 'ifrs-ps-theme' ),
+            'description'         => __( 'Editais', 'ifrs-ps-theme' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'revisions', 'page-attributes' ),
             'taxonomies'          => array(),
@@ -69,26 +69,47 @@ if ( ! function_exists('edital_post_type') ) {
     }
 
     // Hook into the 'init' action
-    add_action( 'init', 'edital_post_type', 0 );
+    add_action( 'init', 'edital_post_type', 1 );
 }
 
 // MetaBox
-add_filter( 'rwmb_meta_boxes', 'editais_meta_boxes' );
-function editais_meta_boxes( $meta_boxes ) {
-    $meta_boxes[] = array(
-        'title'      => __( 'Arquivo Associado', 'ps20162' ),
-        'post_types' => 'edital',
-        'fields'     => array(
-            array(
-                // TODO: mudar o id para 'edital_file'.
-                'id'               => 'upload_file',
-                'name'             => __( 'Arquivo', 'ps20162' ),
-                'type'             => 'file_advanced',
-                'max_file_uploads' => 1,
-                'desc'             => 'Clique no botão acima para enviar um documento. Após o término do envio, clique em "Selecionar". ',
-            ),
-        ),
-    );
+add_action( 'cmb2_admin_init', 'edital_metaboxes', 1 );
+/**
+ * Define the metabox and field configurations.
+ */
+function edital_metaboxes() {
+    // Start with an underscore to hide fields from custom fields list
+    $prefix = '_edital_';
 
-    return $meta_boxes;
+    /**
+     * Initiate the metabox
+     */
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'metabox',
+        'title'         => __( 'Arquivo Associado', 'ifrs-ps-theme' ),
+        'object_types'  => array( 'edital', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Arquivo', 'ifrs-ps-theme'),
+        'desc'    => __( 'Clique no botão acima para enviar um documento (somente PDF).', 'ifrs-ps-theme' ),
+        'id'      => $prefix . 'arquivo',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        // 'text'    => array(
+            // 'add_upload_file_text' => 'Add File' // Change upload button text. Default: "Add or Upload File"
+        // ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => 'application/pdf', // Make library only display PDFs.
+        ),
+    ) );
 }
