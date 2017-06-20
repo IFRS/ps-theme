@@ -10,9 +10,5 @@
 # JS
 /js/
 
-# Favicons
-/favicons/
-/partials/favicons.php
-
 # Build & Distribution
 /dist/
