@@ -13,9 +13,6 @@ grunt.initConfig({
         js: {
             src: ['js'],
         },
-        favicons: {
-            src: ['favicons', 'partials/favicons.php'],
-        },
     },
 
     compass: {
@@ -51,19 +48,6 @@ grunt.initConfig({
                 dest: 'css',
                 ext: '.min.css',
             }],
-        },
-    },
-
-    favicons: {
-        options: {
-            html: 'partials/favicons.php',
-            HTMLPrefix: '<?php echo get_stylesheet_directory_uri(); ?>/favicons/',
-            precomposed: false,
-            tileBlackWhite: false,
-        },
-        icons: {
-            src: 'img/favicon.source.png',
-            dest: 'favicons',
         },
     },
 
@@ -142,10 +126,6 @@ grunt.initConfig({
             files: '**/*.php',
             tasks: [],
         },
-        favicon: {
-            files: 'img/favicon.source.png',
-            tasks: ['favicons'],
-        },
         less: {
             files: 'sass/*.scss',
             tasks: ['css'],
@@ -166,7 +146,6 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-favicons');
     grunt.loadNpmTasks('grunt-modernizr');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-rsync');
@@ -176,8 +155,7 @@ grunt.initConfig({
     grunt.registerTask('default', ['build']);
 
     grunt.registerTask('images', [
-        'imagemin',
-        'favicons'
+        'imagemin'
     ]);
     grunt.registerTask('css', [
         'compass',
