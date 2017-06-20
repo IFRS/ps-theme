@@ -12,7 +12,6 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-favicons": "^0.8.0",
     "grunt-modernizr": "^1.0.2",
     "grunt-postcss": "^0.8.0",
     "grunt-rsync": "^2.0.0",
