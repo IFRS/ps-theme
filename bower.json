@@ -9,7 +9,6 @@
     "bootstrap-sass": "~3.x",
     "bootstrapaccessibilityplugin": "~1.x",
     "masonry": "^4.1.1",
-    "jQuery-Flex-Vertical-Center": "^1.0.0",
     "datatables": "^1.10.13",
     "fancybox": "^2.1.6"
   }
