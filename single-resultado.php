@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="list-group">
                                         <?php foreach ($resultado['arquivos'] as $id => $url): ?>
-                                            <a href="<?php echo esc_url($url); ?>" class="list-group-item list-group-item-info" target="_blank"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span> <span class="glyphicon glyphicon-new-window pull-right"></span></a>
+                                            <a href="<?php echo esc_url($url); ?>" class="list-group-item list-group-item-info" target="_blank"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
