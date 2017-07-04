@@ -46,7 +46,7 @@ if ( ! function_exists('resultado_post_type') ) {
 			'label'                 => __( 'Resultado', 'ifrs-ps-theme' ),
 			'description'           => __( 'Resultados do Processo Seletivo', 'ifrs-ps-theme' ),
 			'labels'                => $labels,
-			'supports'              => array( 'title', 'editor', 'revisions' ),
+			'supports'              => array( 'title', 'editor', 'revisions', 'author' ),
 			'taxonomies'            => array( 'campus', 'formaingresso'),
 			'hierarchical'          => false,
 			'public'                => true,
