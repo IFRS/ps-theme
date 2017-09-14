@@ -27,6 +27,9 @@ require_once('lib/script_conditional.php');
 // Scripts & Styles
 require_once('lib/assets.php');
 
+// Menu do Bootstrap
+require_once('lib/vendor/wp_bootstrap_navwalker.php');
+
 // Widgets
 require_once('lib/widgets/widgets.php');
 require_once('lib/widgets/resultados_widget.php');
@@ -57,13 +60,13 @@ require_once('lib/taxonomies/turno-taxonomy.php');
 require_once('lib/taxonomies/formaingresso-taxonomy.php');
 
 // Edital Post Type
-require_once('lib/post-types/edital-posttype.php');
+require_once('lib/post-types/edital.php');
 
 // Curso Post Type
-require_once('lib/post-types/curso-posttype.php');
+require_once('lib/post-types/curso.php');
 
+// Publicação Post Type
+require_once('lib/post-types/publicacao.php');
 
-// Menu do Bootstrap
-require_once('lib/vendor/wp_bootstrap_navwalker.php');
 // Chamada Post Type
 require_once('lib/post-types/chamada.php');
