@@ -62,8 +62,8 @@ require_once('lib/post-types/edital-posttype.php');
 // Curso Post Type
 require_once('lib/post-types/curso-posttype.php');
 
-// Resultado Post Type
-require_once('lib/post-types/resultado-posttype.php');
 
 // Menu do Bootstrap
 require_once('lib/vendor/wp_bootstrap_navwalker.php');
+// Chamada Post Type
+require_once('lib/post-types/chamada.php');

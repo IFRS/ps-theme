@@ -1,50 +1,50 @@
 <?php
-if ( ! function_exists('resultado_post_type') ) {
-	function resultado_post_type() {
+if ( ! function_exists('chamada_post_type') ) {
+	function chamada_post_type() {
 		$labels = array(
-			'name'               => _x( 'Resultados', 'Post Type General Name', 'ifrs-ps-theme' ),
-			'singular_name'      => _x( 'Resultado', 'Post Type Singular Name', 'ifrs-ps-theme' ),
-			'menu_name'          => __( 'Resultados', 'ifrs-ps-theme' ),
-			'name_admin_bar'     => __( 'Resultados', 'ifrs-ps-theme' ),
-			'parent_item_colon'  => __( 'Resultado pai:', 'ifrs-ps-theme' ),
-			'all_items'          => __( 'Todos os Resultados', 'ifrs-ps-theme' ),
-			'add_new_item'       => __( 'Adicionar Novo Resultado', 'ifrs-ps-theme' ),
-			'add_new'            => __( 'Adicionar Novo', 'ifrs-ps-theme' ),
-			'new_item'           => __( 'Novo Resultado', 'ifrs-ps-theme' ),
-			'edit_item'          => __( 'Editar Resultado', 'ifrs-ps-theme' ),
-			'update_item'        => __( 'Atualizar Resultado', 'ifrs-ps-theme' ),
-			'view_item'          => __( 'Ver Resultado', 'ifrs-ps-theme' ),
-			'search_items'       => __( 'Procurar Resultado', 'ifrs-ps-theme' ),
-			'not_found'          => __( 'Não Encontrado', 'ifrs-ps-theme' ),
-			'not_found_in_trash' => __( 'Não Encontrado na Lixeira', 'ifrs-ps-theme' ),
+			'name'               => _x( 'Chamadas', 'Post Type General Name', 'ifrs-ps-theme' ),
+			'singular_name'      => _x( 'Chamada', 'Post Type Singular Name', 'ifrs-ps-theme' ),
+			'menu_name'          => __( 'Chamadas', 'ifrs-ps-theme' ),
+			'name_admin_bar'     => __( 'Chamadas', 'ifrs-ps-theme' ),
+			'parent_item_colon'  => __( 'Chamada mãe:', 'ifrs-ps-theme' ),
+			'all_items'          => __( 'Todas os Chamadas', 'ifrs-ps-theme' ),
+			'add_new_item'       => __( 'Adicionar Nova Chamada', 'ifrs-ps-theme' ),
+			'add_new'            => __( 'Adicionar Nova', 'ifrs-ps-theme' ),
+			'new_item'           => __( 'Nova Chamada', 'ifrs-ps-theme' ),
+			'edit_item'          => __( 'Editar Chamada', 'ifrs-ps-theme' ),
+			'update_item'        => __( 'Atualizar Chamada', 'ifrs-ps-theme' ),
+			'view_item'          => __( 'Ver Chamada', 'ifrs-ps-theme' ),
+			'search_items'       => __( 'Procurar Chamada', 'ifrs-ps-theme' ),
+			'not_found'          => __( 'Não Encontrada', 'ifrs-ps-theme' ),
+			'not_found_in_trash' => __( 'Não Encontrada na Lixeira', 'ifrs-ps-theme' ),
 		);
 		$capabilities = array(
 			// meta caps (don't assign these to roles)
-			'edit_post'              => 'edit_resultado',
-			'read_post'              => 'read_resultado',
-			'delete_post'            => 'delete_resultado',
+			'edit_post'              => 'edit_chamada',
+			'read_post'              => 'read_chamada',
+			'delete_post'            => 'delete_chamada',
 
 			// primitive/meta caps
-			'create_posts'           => 'create_resultados',
+			'create_posts'           => 'create_chamadas',
 
 			// primitive caps used outside of map_meta_cap()
-			'edit_posts'             => 'edit_resultados',
-			'edit_others_posts'      => 'manage_resultados',
-			'publish_posts'          => 'create_resultados',
+			'edit_posts'             => 'edit_chamadas',
+			'edit_others_posts'      => 'manage_chamadas',
+			'publish_posts'          => 'create_chamadas',
 			'read_private_posts'     => 'read',
 
 			// primitive caps used inside of map_meta_cap()
 			'read'                   => 'read',
-			'delete_posts'           => 'manage_resultados',
-			'delete_private_posts'   => 'manage_resultados',
-			'delete_published_posts' => 'manage_resultados',
-			'delete_others_posts'    => 'manage_resultados',
-			'edit_private_posts'     => 'edit_resultados',
-			'edit_published_posts'   => 'edit_resultados',
+			'delete_posts'           => 'manage_chamadas',
+			'delete_private_posts'   => 'manage_chamadas',
+			'delete_published_posts' => 'manage_chamadas',
+			'delete_others_posts'    => 'manage_chamadas',
+			'edit_private_posts'     => 'edit_chamadas',
+			'edit_published_posts'   => 'edit_chamadas',
 		);
 		$args = array(
-			'label'                 => __( 'Resultado', 'ifrs-ps-theme' ),
-			'description'           => __( 'Resultados do Processo Seletivo', 'ifrs-ps-theme' ),
+			'label'                 => __( 'Chamada', 'ifrs-ps-theme' ),
+			'description'           => __( 'Chamadas do Processo Seletivo', 'ifrs-ps-theme' ),
 			'labels'                => $labels,
 			'supports'              => array( 'title', 'editor', 'revisions', 'author' ),
 			'taxonomies'            => array( 'campus', 'formaingresso'),
@@ -60,26 +60,26 @@ if ( ! function_exists('resultado_post_type') ) {
 			'has_archive'           => true,
 			'exclude_from_search'   => false,
 			'publicly_queryable'    => true,
-			'capability_type'       => array('resultado', 'resultados'),
+			'capability_type'       => array('chamada', 'chamadas'),
 			'map_meta_cap'          => true,
             'capabilities'          => $capabilities,
-			'rewrite'             => array('slug' => 'resultados'),
+			'rewrite'             => array('slug' => 'chamadas'),
 		);
-		register_post_type( 'resultado', $args );
+		register_post_type( 'chamada', $args );
 	}
 
 	// Hook into the 'init' action
-	add_action( 'init', 'resultado_post_type', 1 );
+	add_action( 'init', 'chamada_post_type', 1 );
 }
 
 // MetaBox
-add_action( 'cmb2_admin_init', 'resultado_metaboxes', 1 );
+add_action( 'cmb2_admin_init', 'chamada_metaboxes', 1 );
 /**
  * Define the metabox and field configurations.
  */
-function resultado_metaboxes() {
+function chamada_metaboxes() {
     // Start with an underscore to hide fields from custom fields list
-    $prefix = '_resultado_arquivos_';
+    $prefix = '_chamada_resultados_';
 
     /**
      * Initiate the metabox
@@ -87,7 +87,7 @@ function resultado_metaboxes() {
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'metabox',
         'title'         => __( 'Resultados da Chamada', 'ifrs-ps-theme' ),
-        'object_types'  => array( 'resultado', ), // Post type
+        'object_types'  => array( 'chamada', ), // Post type
         'context'       => 'normal',
         'priority'      => 'high',
         'show_names'    => true, // Show field names on the left
