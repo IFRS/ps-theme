@@ -20,7 +20,7 @@
                 'container_id'      => 'menu-principal',
                 'menu_class'        => 'nav navbar-nav',
                 'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker())
+                'walker'            => new WP_Bootstrap_Navwalker())
             );
         ?>
     </div>
