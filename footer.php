@@ -2,7 +2,7 @@
 
 <a href="#fim-conteudo" id="fim-conteudo" class="sr-only">Fim do conte&uacute;do</a>
 
-<div id="footer-decoration" aria-hidden="true"></div></div>
+<div id="footer-decoration" aria-hidden="true"></div>
 
 <!-- Rodapé -->
 <?php if ( has_nav_menu( 'main' ) ) : ?>
@@ -12,15 +12,14 @@
             <div class="col-xs-12">
             <?php
                 wp_nav_menu( array(
-                    'menu'              => 'main',
                     'theme_location'    => 'main',
                     'depth'             => 2,
                     'container'         => false,
-                    'container_class'   => 'collapse navbar-collapse',
-                    'container_id'      => 'menu-principal',
+                    'container_class'   => false,
+                    'container_id'      => false,
                     'menu_id'           => 'footer-menu',
-                    'fallback_cb'       => false)
-                );
+                    'fallback_cb'       => false
+                ));
             ?>
             </div>
         </div>
