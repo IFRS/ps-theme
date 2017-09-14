@@ -35,16 +35,16 @@
     </header>
 
     <!-- Menu -->
-    <div id="menu">
+    <section id="menu">
         <div class="container">
             <div class="row">
                 <?php echo get_template_part('partials/menu'); ?>
             </div>
         </div>
-    </div>
+    </section>
 
     <a href="#inicio-conteudo" id="inicio-conteudo" class="sr-only">In&iacute;cio do conte&uacute;do</a>
 
     <?php ps_breadcrumb(); ?>
 
-    <div id="body">
+    <main role="main">
