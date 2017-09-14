@@ -51,17 +51,6 @@ grunt.initConfig({
         },
     },
 
-    imagemin: {
-        dynamic: {
-            files: [{
-                expand: true,
-                cwd: 'img/',
-                src: ['*.{png,jpg,gif}'],
-                dest: 'img/',
-            }],
-        },
-    },
-
     modernizr: {
         dist: {
             "crawl": false,
@@ -88,18 +77,6 @@ grunt.initConfig({
         dist: {
             src: 'css/*.css'
         }
-    },
-
-    rsync: {
-        options: {
-            args: ['-avzh', '--stats', '--delete'],
-        },
-        prod: {
-            options: {
-                src: './dist/',
-                dest: deploy_to,
-            },
-        },
     },
 
     uglify: {
@@ -142,14 +119,11 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-modernizr');
     grunt.loadNpmTasks('grunt-postcss');
-    grunt.loadNpmTasks('grunt-rsync');
-
 
     // Tasks
     grunt.registerTask('default', ['build']);
@@ -168,7 +142,6 @@ grunt.initConfig({
     ]);
     grunt.registerTask('build', [
         'clean',
-        'images',
         'css',
         'js'
     ]);
@@ -176,5 +149,4 @@ grunt.initConfig({
         'build',
         'copy'
     ]);
-    grunt.registerTask('deploy', ['rsync']);
 };
