@@ -9,9 +9,6 @@ register_nav_menus(
 // Permissions & Roles
 require_once('lib/permissions.php');
 
-// Fix SSL
-require_once('lib/ssl-fix.php');
-
 // Custom Header
 require_once('lib/custom-header.php');
 
