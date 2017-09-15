@@ -7,7 +7,6 @@
 }
 
 .home-aviso {
-    @include decorated-border();
     padding: 20px;
 
     .aviso-data-wrapper {

@@ -1,5 +1,4 @@
 .content {
-    @include decorated-border();
     padding: $grid-gutter-width;
 
     .post-title {
@@ -73,8 +72,6 @@
 }
 
 .well {
-    @include decorated-border();
-
     h3 {
         margin-bottom: $grid-gutter-width / 2;
         margin-top: $grid-gutter-width / 2;
