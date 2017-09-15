@@ -8,17 +8,25 @@
 $open-sans-path: '../vendor/open-sans/fonts';
 @import '../vendor/open-sans/scss/open-sans';
 
-@import 'barra-brasil-fix';
 @import 'mixins';
-@import 'modernizr';
 
-@import "ps-general";
+@import 'barra-brasil-fix';
 
-@import "ps-header";
+@import "header-banner";
 
 @import "ps-nav";
 
-@import "ps-banners-widgets";
+@import 'home-atalhos';
+
+@import 'home-info';
+
+@import 'home-publicacoes';
+
+@import 'home-noticias';
+
+@import 'home-jumbo';
+
+@import 'widget-jumbo';
 
 @import "ps-avisos";
 
