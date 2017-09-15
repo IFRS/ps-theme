@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-var deploy_to = grunt.option('path') || false;
 grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -15,16 +14,21 @@ grunt.initConfig({
         },
     },
 
-    compass: {
-        dist: {
+    sass: {
+        dev: {
             options: {
-                config: 'compass.rb',
-                sassDir: 'sass',
-                cssDir: 'css',
-                environment: 'production',
-                outputStyle: 'expanded',
+                compass: true,
+                noCache: true,
+                style: 'expanded'
             },
-        },
+            files: [{
+                expand: true,
+                cwd: 'sass/',
+                src: ['*.scss'],
+                dest: 'css/',
+                ext: '.css'
+            }]
+        }
     },
 
     copy: {
@@ -103,9 +107,9 @@ grunt.initConfig({
             files: '**/*.php',
             tasks: [],
         },
-        less: {
+        sass: {
             files: 'sass/*.scss',
-            tasks: ['css'],
+            tasks: ['sass'],
         },
         js: {
             files: 'src/*.js',
@@ -116,7 +120,6 @@ grunt.initConfig({
 
     // Plugins
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -126,13 +129,11 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-postcss');
 
     // Tasks
-    grunt.registerTask('default', ['build']);
-
-    grunt.registerTask('images', [
-        'imagemin'
+    grunt.registerTask('default', [
+        'build'
     ]);
     grunt.registerTask('css', [
-        'compass',
+        'sass',
         'postcss',
         'cssmin'
     ]);
