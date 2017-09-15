@@ -1,0 +1,61 @@
+.home-publicacoes {
+    &__title {
+        @include box();
+
+        align-items: center;
+        background: #DC203D url('../img/bg-publicacoes.png') no-repeat 98% center;
+        color: #ffffff;
+        display: flex;
+        margin-bottom: 20px;
+        min-height: 105px;
+        text-align: left;
+
+        h3 {
+            font-size: 30px;
+            margin: 0;
+            padding: 20px 100px 20px 20px;
+        }
+    }
+
+    &__body {
+        @include box();
+
+        background: #ffffff;
+        border: 1px solid #DC203D;
+        padding: 20px 100px 20px 30px;
+        text-align: left;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__item {
+        border-bottom: 1px solid #cccccc;
+    }
+
+    &__item-meta {
+        font-size: 0.95em;
+        margin-bottom: 3px;
+    }
+
+    &__item-date {
+        color: lighten(#DC203D, 20%);
+        margin-right: 20px;
+    }
+
+    &__item-time {
+        color: #999999;
+    }
+
+    &__item-title {
+        color: #DC203D;
+        margin-bottom: 3px;
+        margin-top: 0;
+
+        a {
+            color: #DC203D;
+        }
+    }
+}
