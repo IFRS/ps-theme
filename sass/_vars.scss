@@ -3,7 +3,7 @@ $icon-font-path:                  "../vendor/bootstrap-sass/assets/fonts/bootstr
 
 $link-color:                      #596cdf;
 
-$cor-menu-bg:                     #0a698e;
+$cor-menu-bg:                     #147D68;
 $cor-menu-item:                   #fff7ea;
 
 $cor-border:                      #3C48B8;
@@ -13,7 +13,7 @@ $cor-leia-mais:                   $cor-titulo-aviso;
 
 $cor-campi:                       #B13A0D;
 
-$cor-rodape:                      $cor-menu-bg;
+$cor-rodape:                      darken($cor-menu-bg, 5%);
 
 $cor-verde-claro:                 #dae2da;
 $cor-verde-escuro:                #0e552c;
