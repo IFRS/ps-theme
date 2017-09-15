@@ -2,8 +2,6 @@
 
 <a href="#fim-conteudo" id="fim-conteudo" class="sr-only">Fim do conte&uacute;do</a>
 
-<div id="footer-decoration" aria-hidden="true"></div>
-
 <!-- Rodapé -->
 <?php if ( has_nav_menu( 'main' ) ) : ?>
 <div id="site-map">
@@ -26,8 +24,6 @@
     </div>
 </div>
 <?php endif; ?>
-
-<div id="footer-separator"></div>
 
 <footer>
     <div class="container">

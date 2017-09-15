@@ -1,12 +1,7 @@
-#footer-decoration {
-    background: url('../img/bg-footer-top.png') center center repeat-x;
-    background-color: transparent;
-    height: 69px;
-    padding: 0;
-}
-
 #site-map {
-    background-color: $cor-rodape;
+    background-color: $cor-menu-bg;
+    border-bottom: 10px solid #36A58E;
+    border-top: 5px solid #36A58E;
     color: #fff;
     padding-top: 24px;
     padding-bottom: 32px;
@@ -40,14 +35,6 @@
             text-transform: none;
         }
     }
-}
-
-#footer-separator {
-    background-color: #eee;
-    border: none;
-    height: 5px;
-    margin: 0;
-    padding: 0;
 }
 
 footer {
