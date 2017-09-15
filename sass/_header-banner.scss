@@ -1,0 +1,32 @@
+.header-banner {
+    background: url('../img/bg-header.jpg') no-repeat center center;
+    background-size: cover;
+    border-bottom: 10px solid $cor-menu-bg;
+    max-height: 430px;
+
+    img {
+        display: inline-block;
+        margin: 0;
+    }
+
+    .header-foto {
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+    }
+
+    .header-ps {
+        @media screen and (max-width: 991px) {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .header-selo {
+        vertical-align: top;
+
+        @media screen and (max-width: 1199px) {
+            display: none;
+        }
+    }
+}

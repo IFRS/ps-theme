@@ -1,7 +1,7 @@
 <?php
 // Habilita a personalização de cabeçalho
 add_theme_support('custom-header', array(
-    'default-image'          => '',
+    'default-image'          => get_stylesheet_directory_uri() . '/img/header-ps.png',
 	'width'                  => 1140,
 	'height'                 => 350,
 	'flex-height'            => true,
