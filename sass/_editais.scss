@@ -1,3 +1,14 @@
+.editais {
+    @include box();
+
+    margin-bottom: $grid-gutter-width;
+    padding: 15px 10px;
+
+    &__title {
+        margin-top: 0;
+    }
+}
+
 .list-group {
     .active {
         small,
