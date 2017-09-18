@@ -46,7 +46,7 @@ if ( ! function_exists('publicacao_post_type') ) {
             'label'               => __( 'publicacao', 'ifrs-ps-theme' ),
             'description'         => __( 'Publicações', 'ifrs-ps-theme' ),
             'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'revisions' ),
+            'supports'            => array( 'title', 'editor', 'excerpt', 'revisions' ),
             'taxonomies'          => array(),
             'hierarchical'        => false,
             'public'              => true,
