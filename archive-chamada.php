@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="container" id="content">
+<section class="container">
     <div class="row">
         <div class="col-xs-12 col-md-8">
             <div class="widget-home widget_resultados_widget">

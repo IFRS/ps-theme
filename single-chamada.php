@@ -5,10 +5,10 @@
 <section class="container">
     <div class="row">
         <div class="col-xs-12 col-md-8">
-            <article class="content">
+            <article class="post">
                 <div class="row">
                     <div class="col-xs-12 col-md-6 col-lg-7">
-                        <h2 class="post-title"><?php the_title(); ?></h2>
+                        <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                     <div class="col-xs-12 col-md-6 col-lg-5">
                         <p class="resultado-labels">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="post-content">
+                        <div class="post__content">
                             <?php the_content(); ?>
                         </div>
                     </div>
