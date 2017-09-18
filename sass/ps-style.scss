@@ -10,11 +10,13 @@ $open-sans-path: '../vendor/open-sans/fonts';
 
 @import 'mixins';
 
+@import 'base';
+
 @import 'barra-brasil-fix';
 
-@import "header-banner";
+@import 'menu';
 
-@import "ps-nav";
+@import 'header-banner';
 
 @import 'home-atalhos';
 
@@ -28,14 +30,18 @@ $open-sans-path: '../vendor/open-sans/fonts';
 
 @import 'widget-jumbo';
 
-@import "ps-avisos";
+@import 'aside';
 
-@import "ps-content";
+@import 'post';
 
-@import "ps-editais";
+@import 'publicacao';
 
-@import "ps-cursos";
+@import 'cursos';
+
+@import 'modalidades';
+
+@import 'editais';
 
 @import "ps-resultados";
 
-@import "ps-footer";
+@import 'footer';
