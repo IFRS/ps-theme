@@ -55,21 +55,6 @@ grunt.initConfig({
         },
     },
 
-    modernizr: {
-        dist: {
-            "crawl": false,
-            "customTests": [],
-            "dest": "js/modernizr.min.js",
-            "tests": [
-                "borderimage"
-            ],
-            "options": [
-                "setClasses"
-            ],
-            "uglify": true
-        }
-    },
-
     postcss: {
         options: {
             map: true,
@@ -125,7 +110,6 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-modernizr');
     grunt.loadNpmTasks('grunt-postcss');
 
     // Tasks
@@ -138,16 +122,12 @@ grunt.initConfig({
         'cssmin'
     ]);
     grunt.registerTask('js', [
-        'modernizr',
         'uglify'
     ]);
     grunt.registerTask('build', [
         'clean',
         'css',
-        'js'
-    ]);
-    grunt.registerTask('dist', [
-        'build',
+        'js',
         'copy'
     ]);
 };
