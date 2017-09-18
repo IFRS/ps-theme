@@ -24,16 +24,16 @@ add_action('after_switch_theme', function() {
         ));
     }
 
-    // Resultados Role
-    if (!get_role( 'cadastrador_resultados' )) {
-        add_role('cadastrador_resultados', __('Cadastrador de Resultados'), array(
+    // Chamadas Role
+    if (!get_role( 'cadastrador_chamadas' )) {
+        add_role('cadastrador_chamadas', __('Cadastrador de Chamadas'), array(
             'read'                 => true,
             'upload_files'         => true,
             'manage_files'         => true,
 
-            'create_resultados'    => true,
-            'edit_resultados'      => true,
-            'manage_resultados'    => false,
+            'create_chamadas'      => true,
+            'edit_chamadas'        => true,
+            'manage_chamadas'      => false,
 
             'assign_campus'        => true,
             'assign_formaingresso' => true
@@ -45,7 +45,7 @@ add_action('switch_theme', function() {
     if (get_role( 'cadastrador_cursos' )) {
         remove_role( 'cadastrador_cursos' );
     }
-    if (get_role( 'cadastrador_resultados' )) {
-        remove_role( 'cadastrador_resultados' );
+    if (get_role( 'cadastrador_chamadas' )) {
+        remove_role( 'cadastrador_chamadas' );
     }
 });
