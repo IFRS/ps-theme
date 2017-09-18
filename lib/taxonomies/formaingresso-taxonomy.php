@@ -35,7 +35,7 @@ if ( ! function_exists( 'formaingresso_taxonomy' ) ) {
             'show_tagcloud'     => false,
             'capabilities'      => $capabilities,
         );
-        register_taxonomy( 'formaingresso', array( 'resultado' ), $args );
+        register_taxonomy( 'formaingresso', array( 'chamada' ), $args );
     }
 
     // Hook into the 'init' action
