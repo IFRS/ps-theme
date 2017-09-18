@@ -1,4 +1,4 @@
-#site-map {
+.site-map {
     background-color: $cor-menu-bg;
     border-bottom: 10px solid #36A58E;
     border-top: 5px solid #36A58E;
@@ -11,7 +11,7 @@
     }
 }
 
-#footer-menu {
+.footer-menu {
     list-style: none;
     padding: 0;
 
@@ -60,13 +60,13 @@ footer {
         margin-right: 5px;
     }
 
-    #footer-logo {
+    .footer-logo {
         >img {
             margin-bottom: 8px;
         }
     }
 
-    #footer-address {
+    .footer-address {
         text-align: center;
         p {
             margin-bottom: 3px;
@@ -74,7 +74,7 @@ footer {
     }
 }
 
-#footer-bottom {
+.footer-bottom {
     background-color: #fff;
     p {
         padding-top: 10px;
