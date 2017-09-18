@@ -20,7 +20,7 @@
     <!-- Cabeçalho -->
     <header>
         <h1 class="sr-only"><?php bloginfo('name'); ?></h1>
-        <section class="menu-top">
+        <section class="menu-main">
             <div class="container">
                 <div class="row">
                     <?php echo get_template_part('partials/menu'); ?>

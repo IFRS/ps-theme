@@ -9,21 +9,17 @@
             <span class="icon-bar"></span>
         </button>
     </div>
-    <div class="collapse navbar-collapse" id="menu-principal">
-        <?php
-            wp_nav_menu( array(
-                'menu'              => 'main',
-                'theme_location'    => 'main',
-                'depth'             => 2,
-                'container'         => false,
-                'container_class'   => 'collapse navbar-collapse',
-                'container_id'      => 'menu-principal',
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new WP_Bootstrap_Navwalker())
-            );
-        ?>
-    </div>
+    <?php
+        wp_nav_menu( array(
+            'theme_location'    => 'main',
+            'depth'             => 2,
+            'container'         => 'div',
+            'container_class'   => 'collapse navbar-collapse',
+            'menu_class'        => 'nav navbar-nav',
+            'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+            'walker'            => new WP_Bootstrap_Navwalker())
+        );
+    ?>
 </nav>
 
 <a href="#fim-menu" id="fim-menu" class="sr-only">Fim do menu</a>
