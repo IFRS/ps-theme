@@ -14,7 +14,7 @@
                     'post_type' => 'post',
                     'posts_per_page' => 4
                 );
-            
+
                 $noticias = new WP_Query($args);
             ?>
             <?php if ($noticias->have_posts()) : ?>
@@ -38,7 +38,7 @@
                 </ul>
             <?php else : ?>
                 <div class="alert alert-warning" role="alert">
-                    <p><strong>Ops!</strong> Ainda não existem publicações cadastradas.</p>
+                    <p><strong>Ops!</strong> Ainda não existem notícias cadastradas.</p>
                 </div>
             <?php endif; ?>
             </div>
