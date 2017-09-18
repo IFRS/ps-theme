@@ -1,0 +1,17 @@
+table {
+    @extend .table;
+}
+
+.alignleft {
+    @extend .pull-left;
+    margin-right: 10px;
+}
+
+.alignright {
+    @extend .pull-right;
+    margin-left: 10px;
+}
+
+.wp-caption-text {
+    font-size: 0.8em;
+}
