@@ -8,20 +8,11 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-9">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2 class="title cat-title"><?php single_cat_title( 'Categoria&nbsp;', true ); ?></h2>
-                </div>
-            </div>
-            <div id="ms-grid">
-                <?php echo get_template_part('partials/loop-avisos'); ?>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-3">
-            <?php if (!dynamic_sidebar('banner')) : endif; ?>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <h2 class="category__title"><?php single_cat_title( 'Categoria&nbsp;', true ); ?></h2>
         </div>
     </div>
+    <?php echo get_template_part('partials/loop-avisos'); ?>
 </section>
 
 <?php get_footer(); ?>

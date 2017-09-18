@@ -1,0 +1,39 @@
+.aviso {
+    @include box();
+
+    margin-bottom: $grid-gutter-width;
+    padding: 15px 10px;
+
+    &__date {
+        font-size: 0.85em;
+    }
+
+    &__categories {
+        display: inline-block;
+        list-style: none;
+        padding: 0;
+
+        li {
+            display: inline-block;
+
+            &:after {
+                content: ', ';
+            }
+
+            &:last-child {
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+.category {
+    &__title {
+        @include box();
+
+        margin-bottom: $grid-gutter-width;
+        padding: 10px;
+    }
+}
