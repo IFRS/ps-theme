@@ -1,0 +1,48 @@
+.post {
+    @include box();
+
+    margin-bottom: $grid-gutter-width;
+    padding: $grid-gutter-width;
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    &__thumb {
+        width: 50%;
+        height: auto;
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 15px;
+    }
+
+    &__content {
+        margin-top: $grid-gutter-width / 2;
+
+        img {
+            @extend .img-responsive;
+        }
+    }
+
+    &__meta {
+        margin-top: 10px;
+    }
+
+    &__date {
+        font-size: 12px;
+        font-style: italic;
+    }
+
+    &__categories {
+        font-size: 0.9em;
+        list-style: none;
+        text-align: right;
+
+        li {
+            display: inline-block;
+            margin-left: 4px;
+            margin-bottom: 4px;
+        }
+    }
+}

@@ -5,18 +5,18 @@
 <section class="container">
     <div class="row">
         <div class="col-xs-12 col-md-8">
-            <article class="post content">
+            <article class="post">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2 class="post-title"><?php the_title(); ?></h2>
+                        <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="post-content">
+                        <div class="post__content">
                             <?php
                                 if (has_post_thumbnail()) {
-                                    the_post_thumbnail('full', array('class' => 'post-thumb'));
+                                    the_post_thumbnail('full', array('class' => 'post__thumb'));
                                 }
                             ?>
                             <?php the_content(); ?>
@@ -26,37 +26,31 @@
             </article>
         </div>
         <div class="col-xs-12 col-md-4">
-            <div class="row">
-                <div class="col-xs-12">
-                    <?php if (!dynamic_sidebar('banner')) : endif; ?>
-                    <br/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <!-- Outras páginas. -->
-                    <?php
-                        global $post;
+            <aside>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Outras páginas. -->
+                        <?php
+                            global $post;
 
-                        $cat_ID = array();
-                        $categories = get_the_category();
+                            $cat_ID = array();
+                            $categories = get_the_category();
 
-                        foreach ($categories as $category) {
-                            array_push($cat_ID, $category->cat_ID);
-                        }
+                            foreach ($categories as $category) {
+                                array_push($cat_ID, $category->cat_ID);
+                            }
 
-                        $args = array(
-                            'orderby' => 'date',
-                            'order' => 'DESC',
-                            'post_type' => 'page',
-                            'numberposts' => 5,
-                            'post__not_in' => array($post->ID),
-                        );
+                            $args = array(
+                                'orderby' => 'date',
+                                'order' => 'DESC',
+                                'post_type' => 'page',
+                                'numberposts' => 5,
+                                'post__not_in' => array($post->ID),
+                            );
 
-                        $cat_posts = get_posts($args);
-                    ?>
-                    <?php if (!empty($cat_posts)) : ?>
-                        <div class="well">
+                            $cat_posts = get_posts($args);
+                        ?>
+                        <?php if (!empty($cat_posts)) : ?>
                             <h3>Outros Conte&uacute;dos</h3>
                             <?php foreach ($cat_posts as $cat_post) : ?>
                                 <div class="media">
@@ -75,10 +69,10 @@
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
 </section>
