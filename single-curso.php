@@ -5,15 +5,15 @@
 <section class="container">
     <div class="row">
         <div class="col-xs-12 col-md-8">
-            <article class="content post">
+            <article class="post">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2 class="post-title"><?php the_title(); ?></h2>
+                        <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="post-content">
+                        <div class="post__content">
                             <?php the_content(); ?>
                         </div>
                     </div>
@@ -90,51 +90,47 @@
             </article>
         </div>
         <div class="col-xs-12 col-md-4">
-            <div class="row">
-                <div class="col-xs-12">
-                    <?php if (!dynamic_sidebar('banner')) : endif; ?>
-                    <br/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <!-- Outros cursos do mesmo Campus. -->
-                    <?php
-                        global $post;
+            <aside>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Outros cursos do mesmo Campus. -->
+                        <?php
+                            global $post;
 
-                        $camp_slug = array();
+                            $camp_slug = array();
 
-                        foreach ($campus as $camp) {
-                            array_push($camp_slug, $camp->slug);
-                        }
+                            foreach ($campus as $camp) {
+                                array_push($camp_slug, $camp->slug);
+                            }
 
-                        $args = array(
-                            'orderby' => 'date',
-                            'order' => 'DESC',
-                            'post_type' => 'curso',
-                            'numberposts' => -1,
-                            'post__not_in' => array($post->ID),
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'campus',
-                                    'field' => 'slug',
-                                    'terms' => $camp_slug,
+                            $args = array(
+                                'orderby' => 'date',
+                                'order' => 'DESC',
+                                'post_type' => 'curso',
+                                'numberposts' => -1,
+                                'post__not_in' => array($post->ID),
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'campus',
+                                        'field' => 'slug',
+                                        'terms' => $camp_slug,
+                                    ),
                                 ),
-                            ),
-                        );
+                            );
 
-                        $cat_posts = get_posts($args);
-                    ?>
-                    <?php if (!empty($cat_posts)) : ?>
-                        <div class="well">
-                            <h3>Cursos no mesmo Campus</h3>
-                            <?php foreach ($cat_posts as $cat_post) : ?>
-                                <p><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></p>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
+                            $cat_posts = get_posts($args);
+                        ?>
+                        <?php if (!empty($cat_posts)) : ?>
+                            <div class="well">
+                                <h3>Cursos no mesmo Campus</h3>
+                                <?php foreach ($cat_posts as $cat_post) : ?>
+                                    <p><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></p>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
 </section>

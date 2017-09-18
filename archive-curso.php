@@ -2,10 +2,10 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
-            <div class="content">
+        <div class="col-xs-12">
+            <div class="cursos">
                 <?php echo is_search(); ?>
-                <h2 class="title">Lista de Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
+                <h2 class="cursos__title">Lista de Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
                 <div class="row">
                     <div class="col-xs-12 col-md-6">
                         <form class="inline-form" method="get" action="." role="form">
@@ -23,7 +23,7 @@
 
                 <?php if ( ! is_search()) : ?>
                     <!-- Nav tabs -->
-                    <?php get_template_part('partials/cursos', 'nav'); ?>
+                    <?php get_template_part('partials/cursos-nav'); ?>
                 <?php endif; ?>
 
                 <!-- Tab panes -->
@@ -92,9 +92,6 @@
                 </div>
                 <?php get_template_part('partials/cursos', 'alert-vagas'); ?>
             </div>
-        </div>
-        <div class="col-xs-12 col-md-4">
-            <?php if (!dynamic_sidebar('banner')) : endif; ?>
         </div>
     </div>
 </section>

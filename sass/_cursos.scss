@@ -1,3 +1,14 @@
+.cursos {
+    @include box();
+
+    margin-bottom: $grid-gutter-width;
+    padding: 15px 10px;
+
+    &__title {
+        margin-top: 0;
+    }
+}
+
 .list-campi {
     list-style: none;
     padding: 0;
@@ -26,19 +37,5 @@
 
     .dataTables_info {
         font-size: 0.9em;
-    }
-}
-
-.modalidades-title {
-    margin-bottom: 10px;
-    margin-top: 20px;
-
-    h2 {
-        display: inline-block;
-        margin: 0;
-    }
-
-    .dropdown {
-        display: inline-block;
     }
 }
