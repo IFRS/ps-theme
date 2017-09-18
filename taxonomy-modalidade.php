@@ -2,9 +2,9 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
-            <div class="content">
-                <div class="modalidades-title">
+        <div class="col-xs-12">
+            <div class="modalidades">
+                <div class="modalidades__title">
                     <h2>Cursos na modalidade de ensino<span class="">&nbsp;<?php single_term_title(); ?></span>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownModalidades" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -115,9 +115,6 @@
                 <?php get_template_part('partials/cursos','alert-vagas'); ?>
                 <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Voltar para a lista com todos os Cursos</a>
             </div>
-        </div>
-        <div class="col-xs-12 col-md-4">
-            <?php if (!dynamic_sidebar('banner')) : endif; ?>
         </div>
     </div>
 </section>

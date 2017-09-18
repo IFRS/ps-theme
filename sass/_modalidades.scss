@@ -1,0 +1,20 @@
+.modalidades {
+    @include box();
+    
+    margin-bottom: $grid-gutter-width;
+    padding: 15px 10px;
+    
+    &__title {
+        margin-bottom: 10px;
+        margin-top: 20px;
+    
+        h2 {
+            display: inline-block;
+            margin: 0;
+        }
+    
+        .dropdown {
+            display: inline-block;
+        }
+    }
+}
