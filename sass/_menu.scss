@@ -20,14 +20,15 @@
                 color: #ffffff;
                 padding: 10px 0;
 
-                &:focus,
+                &:active,
                 &:visited {
                     background-color: transparent;
                     color: #ffffff;
                     outline: none;
                 }
 
-                &:hover {
+                &:hover,
+                &:focus {
                     color: #ffffff;
                     background-color: transparent;
                     border-bottom: 2px solid #ffffff;
