@@ -95,4 +95,8 @@
             color: #666;
         }
     }
+
+    &__btn {
+        @include button-variant(#ffffff, #36A58E, lighten(#36A58E, 5%));
+    }
 }

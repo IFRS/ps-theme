@@ -58,4 +58,8 @@
             color: #DC203D;
         }
     }
+
+    &__btn {
+        @include button-variant(#ffffff, #DC203D, lighten(#DC203D, 5%));
+    }
 }

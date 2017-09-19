@@ -36,6 +36,7 @@
                     </li>
                 <?php endwhile; ?>
                 </ul>
+                <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="btn home-noticias__btn">Todas as not&iacute;cias</a>
             <?php else : ?>
                 <div class="alert alert-warning" role="alert">
                     <p><strong>Ops!</strong> Ainda não existem notícias cadastradas.</p>
