@@ -29,7 +29,6 @@ require_once('lib/vendor/wp-bootstrap-navwalker.php');
 
 // Widgets
 require_once('lib/widgets/widgets.php');
-require_once('lib/widgets/resultados_widget.php');
 
 // Tamanho do resumo e resumo em páginas
 require_once('lib/page-excerpt.php');
