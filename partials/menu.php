@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-custom">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-principal">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-principal">
             <span class="sr-only">Alternar navega&ccedil;&atilde;o</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -15,6 +15,7 @@
             'depth'             => 2,
             'container'         => 'div',
             'container_class'   => 'collapse navbar-collapse',
+            'container_id'      => 'navbar-principal',
             'menu_class'        => 'nav navbar-nav',
             'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
             'walker'            => new WP_Bootstrap_Navwalker())
