@@ -1,0 +1,24 @@
+.edital {
+    @include box();
+
+    margin-bottom: $grid-gutter-width;
+    padding: $grid-gutter-width;
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    &__meta {
+
+    }
+
+    &__date {
+        font-size: 12px;
+        font-style: italic;
+    }
+
+    &__content {
+        margin-top: $grid-gutter-width / 2;
+    }
+}

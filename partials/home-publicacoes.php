@@ -11,7 +11,7 @@
             <div class="col-xs-12">
             <?php
                 $args = array(
-                    'post_type' => 'publicacao',
+                    'post_type' => array('edital', 'publicacao'),
                     'posts_per_page' => 4
                 );
 
