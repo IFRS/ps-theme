@@ -1,5 +1,7 @@
 .home-noticias {
     &__title {
+        @include box();
+
         align-items: center;
         background: #36A58E url('../img/bg-noticias.png') no-repeat 98% center;
         color: #ffffff;
@@ -7,8 +9,6 @@
         margin-bottom: 20px;
         min-height: 105px;
         text-align: left;
-
-        @include box();
 
         h3 {
             font-size: 30px;
