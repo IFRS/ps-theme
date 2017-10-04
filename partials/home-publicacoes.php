@@ -12,7 +12,7 @@
             <?php
                 $args = array(
                     'post_type' => array('edital', 'publicacao'),
-                    'posts_per_page' => 4
+                    'posts_per_page' => 6
                 );
 
                 $publicacoes = new WP_Query($args);
