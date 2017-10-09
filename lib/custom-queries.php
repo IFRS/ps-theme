@@ -19,8 +19,8 @@ function ps_custom_queries( $query ) {
             $query->query_vars['posts_per_page'] = -1;
             $query->query_vars['nopaging'] = true;
             $query->query_vars['post_parent'] = 0;
-            $query->query_vars['orderby'] = 'menu_order';
-            $query->query_vars['order'] = 'ASC';
+            $query->query_vars['orderby'] = 'date';
+            $query->query_vars['order'] = 'DESC';
         }
 
         if ($query->is_post_type_archive('curso') || $query->is_tax('modalidade')) {
