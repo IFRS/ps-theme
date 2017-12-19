@@ -1,0 +1,70 @@
+.widget_chamadas_widget {
+    background-color: transparent;
+    margin-top: 200px;
+
+    &__title {
+        @include box();
+
+        align-items: center;
+        background: #254898 url('../img/bg-aprovados.png') no-repeat 98% center;
+        color: #ffffff;
+        display: flex;
+        margin-bottom: 20px;
+        min-height: 105px;
+        text-align: left;
+
+        h2 {
+            font-size: 30px;
+            margin: 0;
+            padding: 20px 100px 20px 20px;
+        }
+    }
+}
+
+#chamadas {
+    @include box();
+    
+    background-color: $cor-verde-claro;
+    margin-top: -5px;
+    padding: ($grid-gutter-width / 2) $grid-gutter-width;
+
+    .breadcrumb {
+        > li {
+            > a {
+                font-weight: bold;
+
+                &.breadcrumb-formaingresso {
+                    color: $cor-formasingresso;
+                }
+
+                &.breadcrumb-campus {
+                    color: $cor-campi;
+                }
+
+                &.breadcrumb-modalidade {
+                    color: $cor-modalidades;
+                }
+            }
+        }
+    }
+
+    .btn {
+        margin-bottom: 10px;
+    }
+}
+
+.btn-formaingresso {
+    @include button-variant(#fff, $cor-formasingresso, $cor-formasingresso);
+    border-radius: 0;
+}
+
+.btn-modalidade {
+    @include button-variant(#fff, $cor-modalidades, $cor-modalidades);
+    border-radius: 0;
+}
+
+@media (min-width: $screen-md-min) {
+    .chamada-labels {
+        float: right;
+    }
+}
