@@ -1,7 +1,12 @@
 .home-chamadas {
+    background: #ffffff url('../img/bg-home-chamadas.png') repeat-x right center;
+    box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.75);
+    position: relative;
+    z-index: 3;
     .container {
         background: url('../img/bg-chamadas.png') no-repeat center center;
         background-size: cover;
-        min-height: 773px;
+        // min-height: 773px;
+        min-height: 666px;
     }
 }
