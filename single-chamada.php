@@ -4,14 +4,14 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12">
             <article class="post">
                 <div class="row">
                     <div class="col-xs-12 col-md-6 col-lg-7">
                         <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                     <div class="col-xs-12 col-md-6 col-lg-5">
-                        <p class="resultado-labels">
+                        <p class="chamada-labels">
                         <?php
                             $campi = get_the_terms(get_the_ID(), 'campus');
                             foreach ($campi as $key => $campus) :
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <?php $resultados = get_post_meta(get_the_ID(), '_resultado_arquivos_group'); ?>
+                <?php $resultados = get_post_meta(get_the_ID(), '_chamada_resultados_group'); ?>
                 <?php if (!empty($resultados)) : ?>
                     <div class="row">
                         <?php foreach ($resultados[0] as $resultado) : ?>
@@ -64,13 +64,6 @@
                     </div>
                 </div>
             </article>
-        </div>
-        <div class="col-xs-12 col-md-4">
-            <div class="row">
-                <div class="col-xs-12">
-                    <?php if (!dynamic_sidebar('banner')) : endif; ?>
-                </div>
-            </div>
         </div>
     </div>
 </section>
