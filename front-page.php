@@ -28,12 +28,6 @@
     </div>
 </section>
 
-<section class="home-galeria">
-    <div class="container">
-    
-    </div>
-</section>
-
 <?php if (is_active_sidebar('home_jumbo')) : ?>
     <section class="home-jumbo">
         <div class="container">
