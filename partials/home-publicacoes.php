@@ -12,7 +12,9 @@
             <?php
                 $args = array(
                     'post_type' => array('edital', 'publicacao'),
-                    'posts_per_page' => 6
+                    'posts_per_page' => 6,
+                    'order' => 'DESC',
+                    'orderby' => 'modified'
                 );
 
                 $publicacoes = new WP_Query($args);

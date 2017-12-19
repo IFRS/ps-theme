@@ -1,4 +1,16 @@
 <?php get_header(); ?>
+
+<?php
+    $args = array(
+        'post_type' => array('edital', 'publicacao'),
+        'posts_per_page' => 6,
+        'order' => 'DESC',
+        'orderby' => 'date'
+    );
+
+    $publicacoes = new WP_Query($args);
+?>
+
 <div class="container">
     <article class="home-publicacoes">
         <div class="home-publicacoes__title">
@@ -11,9 +23,9 @@
         <div class="home-publicacoes__body">
             <div class="row">
                 <div class="col-xs-12">
-                <?php if (have_posts()) : ?>
+                <?php if ($publicacoes->have_posts()) : ?>
                     <ul class="home-publicacoes__list">
-                    <?php while (have_posts()) : the_post(); ?>
+                    <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
                         <li class="home-publicacoes__item">
                             <p class="home-publicacoes__item-meta"><span class="home-publicacoes__item-date"><?php echo get_the_date('d/m/Y'); ?></span>&nbsp;<span class="home-publicacoes__item-time"><?php echo get_the_time('G\hi'); ?></span></p>
                             <h4 class="home-publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
