@@ -1,6 +1,6 @@
 .widget_chamadas_widget {
     background-color: transparent;
-    margin-top: 200px;
+    margin-top: 50px;
 
     &__title {
         @include box();
@@ -14,7 +14,7 @@
         text-align: left;
 
         h2 {
-            font-size: 30px;
+            font-size: 32px;
             margin: 0;
             padding: 20px 100px 20px 20px;
         }
@@ -23,9 +23,10 @@
 
 #chamadas {
     @include box();
-    
+
     background-color: $cor-verde-claro;
     margin-top: -5px;
+    opacity: 0.95;
     padding: ($grid-gutter-width / 2) $grid-gutter-width;
 
     .breadcrumb {
@@ -55,12 +56,12 @@
 
 .btn-formaingresso {
     @include button-variant(#fff, $cor-formasingresso, $cor-formasingresso);
-    border-radius: 0;
+    // border-radius: 0;
 }
 
 .btn-modalidade {
     @include button-variant(#fff, $cor-modalidades, $cor-modalidades);
-    border-radius: 0;
+    // border-radius: 0;
 }
 
 @media (min-width: $screen-md-min) {

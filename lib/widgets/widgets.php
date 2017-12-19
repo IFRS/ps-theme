@@ -6,8 +6,8 @@ function ps_widgets_init() {
 		'description'   => 'Chamadas na página inicial.',
 		'before_widget' => '<div id="%1$s" class="col-xs-12 col-md-6 col-md-offset-5 col-lg-6 col-lg-offset-5 widget widget-chamadas %2$s">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<div class="widget_chamadas_widget__title"><h2>',
-		'after_title'   => '</h2></div>',
+		'before_title'  => '<div class="widget_chamadas_widget__title"><h2><strong>',
+		'after_title'   => '</strong></h2></div>',
 	));
 	register_sidebar(array(
 		'name'          => 'Home Atalhos',
