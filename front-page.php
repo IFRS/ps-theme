@@ -1,5 +1,15 @@
 <?php get_header(); ?>
 
+<?php if (is_active_sidebar('home_chamadas')) : ?>
+<section class="home-chamadas">
+    <div class="container">
+        <div class="row">
+            <?php dynamic_sidebar('home_chamadas'); ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
 <?php if (is_active_sidebar('home_atalhos')) : ?>
     <section class="home-atalhos">
         <div class="container">
