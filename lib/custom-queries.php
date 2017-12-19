@@ -8,13 +8,6 @@ function ps_custom_queries( $query ) {
             }
         }
 
-        if ($query->is_category('faq')) {
-            $query->query_vars['posts_per_page'] = -1;
-            $query->query_vars['nopaging'] = true;
-            $query->query_vars['orderby'] = 'title';
-            $query->query_vars['order'] = 'ASC';
-        }
-
         if ($query->is_post_type_archive('edital')) {
             $query->query_vars['posts_per_page'] = -1;
             $query->query_vars['nopaging'] = true;
