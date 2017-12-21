@@ -56,12 +56,10 @@
 
 .btn-formaingresso {
     @include button-variant(#fff, $cor-formasingresso, $cor-formasingresso);
-    // border-radius: 0;
 }
 
 .btn-modalidade {
     @include button-variant(#fff, $cor-modalidades, $cor-modalidades);
-    // border-radius: 0;
 }
 
 @media (min-width: $screen-md-min) {
