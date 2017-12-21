@@ -1,7 +1,9 @@
+require('jquery-bridget');
+require('masonry-layout');
+
 $(window).load(function() {
     $('#ms-grid').masonry({
         itemSelector: '.ms-item',
-        // columnWidth: '.ms-item',
         percentPosition: true
     });
 });

@@ -24,12 +24,6 @@ class Chamadas_Widget extends WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
-		if (WP_DEBUG) {
-			wp_enqueue_script( 'chamadas', get_stylesheet_directory_uri().'/src/chamadas.js', array(), false, true );
-		} else {
-			wp_enqueue_script( 'chamadas', get_stylesheet_directory_uri().'/js/chamadas.min.js', array(), false, true );
-		}
-
 		$formasingresso_all = get_terms(array(
 			'taxonomy' => 'formaingresso',
 			'orderby' => 'name',

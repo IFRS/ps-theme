@@ -1,12 +1,11 @@
-@import '../vendor/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 @import 'vars';
 
-@import '../vendor/bootstrap-sass/assets/stylesheets/bootstrap';
-@import '../vendor/bootstrapaccessibilityplugin/src/sass/bootstrap-accessibility';
-
-$open-sans-path: '../vendor/open-sans/fonts';
-@import '../vendor/open-sans/scss/open-sans';
+@import '../node_modules/npm-font-open-sans/open-sans.scss';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../node_modules/jquery-fancybox/source/scss/jquery.fancybox';
+@import '../node_modules/datatables.net-bs/css/dataTables.bootstrap';
 
 @import 'mixins';
 

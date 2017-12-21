@@ -1,3 +1,6 @@
+require('datatables.net');
+require('datatables.net-bs');
+
 $(document).ready( function() {
     $('.table-cursos').DataTable({
         searching: false,

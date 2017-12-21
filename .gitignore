@@ -1,8 +1,11 @@
+# dotenv
+.env
+
 # NPM
 /node_modules/
 
-# Bower
-/vendor/
+# SASS
+.sass-cache/
 
 # CSS
 /css/
@@ -10,5 +13,11 @@
 # JS
 /js/
 
-# Build & Distribution
+# Fonts
+/fonts/
+
+#Vendor Images
+/img/vendor/
+
+# Build
 /dist/
