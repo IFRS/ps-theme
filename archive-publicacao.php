@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
 <?php
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $args = array(
         'post_type' => array('edital', 'publicacao'),
         'posts_per_page' => 12,
         'order' => 'DESC',
-        'orderby' => 'date'
+        'orderby' => 'date',
+        'paged' => $paged
     );
 
     $publicacoes = new WP_Query($args);
@@ -40,6 +42,7 @@
                 <?php endif; ?>
                 </div>
             </div>
+            <?php wp_reset_query(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="text-center">
