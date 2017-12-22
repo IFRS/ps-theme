@@ -62,6 +62,18 @@
     @include button-variant(#fff, $cor-modalidades, $cor-modalidades);
 }
 
+.label-formaingresso {
+    @include label-variant($cor-formasingresso);
+}
+
+.label-modalidade {
+    @include label-variant($cor-modalidades);
+}
+
+.label-campus {
+    @include label-variant($cor-campi);
+}
+
 @media (min-width: $screen-md-min) {
     .chamada-labels {
         float: right;
