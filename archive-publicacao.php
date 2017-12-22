@@ -3,7 +3,7 @@
 <?php
     $args = array(
         'post_type' => array('edital', 'publicacao'),
-        'posts_per_page' => 6,
+        'posts_per_page' => 12,
         'order' => 'DESC',
         'orderby' => 'date'
     );
@@ -33,7 +33,6 @@
                         </li>
                     <?php endwhile; ?>
                     </ul>
-                    <a href="<?php echo get_post_type_archive_link('publicacao'); ?>" class="btn home-publicacoes__btn">Todas as Publica&ccedil;&otilde;es</a>
                 <?php else : ?>
                     <div class="alert alert-warning" role="alert">
                         <p><strong>Ops!</strong> Ainda não existem publicações cadastradas.</p>
