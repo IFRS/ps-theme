@@ -20,14 +20,17 @@ require('dotenv').config();
 
 var dist = [
     '**',
-    '!.**',
     '!dist{,/**}',
     '!node_modules{,/**}',
     '!sass{,/**}',
     '!src{,/**}',
+    '!.**',
+    '!docker-compose.override.yml',
+    '!docker-compose.yml',
+    '!Dockerfile',
     '!gulpfile.js',
-    '!package.json',
-    '!package-lock.json'
+    '!package-lock.json',
+    '!package.json'
 ];
 
 gulp.task('default', function() {
