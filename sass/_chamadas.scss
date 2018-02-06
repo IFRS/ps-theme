@@ -4,14 +4,7 @@
 
     &__title {
         @include box();
-
-        align-items: center;
-        background: #254898 url('../img/bg-aprovados.png') no-repeat 98% center;
-        color: #ffffff;
-        display: flex;
-        margin-bottom: 20px;
-        min-height: 105px;
-        text-align: left;
+        @include box-title(#254898, '../img/bg-aprovados.png');
 
         h2 {
             font-size: 32px;

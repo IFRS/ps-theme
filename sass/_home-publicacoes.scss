@@ -3,14 +3,7 @@
 
     &__title {
         @include box();
-
-        align-items: center;
-        background: #DC203D url('../img/bg-publicacoes.png') no-repeat 98% center;
-        color: #ffffff;
-        display: flex;
-        margin-bottom: 20px;
-        min-height: 105px;
-        text-align: left;
+        @include box-title(#DC203D, '../img/bg-publicacoes.png');
 
         h3 {
             font-size: 30px;
@@ -21,11 +14,7 @@
 
     &__body {
         @include box();
-
-        background: #ffffff;
-        border: 1px solid #DC203D;
-        padding: 20px 100px 20px 30px;
-        text-align: left;
+        @include box-body(#DC203D);
     }
 
     &__list {

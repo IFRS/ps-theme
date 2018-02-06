@@ -1,14 +1,7 @@
 .home-noticias {
     &__title {
         @include box();
-
-        align-items: center;
-        background: #36A58E url('../img/bg-noticias.png') no-repeat 98% center;
-        color: #ffffff;
-        display: flex;
-        margin-bottom: 20px;
-        min-height: 105px;
-        text-align: left;
+        @include box-title(#36A58E, '../img/bg-noticias.png');
 
         h3 {
             font-size: 30px;
@@ -19,11 +12,7 @@
 
     &__body {
         @include box();
-
-        background: #ffffff;
-        border: 1px solid #36A58E;
-        padding: 20px 100px 20px 30px;
-        text-align: left;
+        @include box-body(#36A58E);
     }
 
     &__list {
