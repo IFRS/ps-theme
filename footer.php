@@ -41,19 +41,7 @@
                 </address>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <?php get_search_form(); ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <a href="http://www.facebook.com/IFRSOficial" class="social-link" title="Facebook do IFRS"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icon-facebook.png" alt="Facebook do IFRS"/></a>
-                        <a href="http://www.twitter.com/if_rs" class="social-link" title="Twitter do IFRS"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icon-twitter.png" alt="Twitter do IFRS"/></a>
-                        <a href="http://www.youtube.com/user/ComunicaIFRS" class="social-link" title="Canal do IFRS no YouTube"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icon-youtube.png" alt="Canal do IFRS no YouTube"/></a>
-                        <a href="http://instagram.com/IFRSOficial" class="social-link" title="Instagram do IFRS"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icon-instagram.png" alt="Instagram do IFRS"/></a>
-                    </div>
-                </div>
+                <?php get_search_form(); ?>
             </div>
         </div>
     </div>
