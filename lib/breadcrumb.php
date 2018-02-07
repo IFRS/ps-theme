@@ -1,21 +1,22 @@
 <?php
 function ps_breadcrumb() {
     $home      = 'Home';
-    $before    = '<li class="active">';
+    $before    = '<li class="breadcrumb-item active" aria-current="page">';
     $sep       = '';
     $after     = '</li>';
 
     if (!is_home() && !is_front_page() || is_paged()) {
-		echo '<div class="container" id="breadcrumb"><div class="row"><div class="col-xs-12">';
+        echo '<div class="container" id="breadcrumb">';
+        echo '<nav aria-label="breadcrumb">';
 		echo '<ol class="breadcrumb">';
-		echo 'Voc&ecirc; est&aacute; em: ';
+		echo 'Voc&ecirc; est&aacute; em:&nbsp;';
 
         global $post;
         $homeLink = home_url();
 		$siteprincipal = get_home_url('1','/');
         $nomesite = get_bloginfo('name');
 
-        echo '<li><a href="' . $homeLink . '">' . $nomesite . '</a> '.$sep. '</li> ';
+        echo '<li class="breadcrumb-item"><a href="' . $homeLink . '">' . $nomesite . '</a> ' . $sep . '</li> ';
 
         if (is_category()) {
             global $wp_query;
