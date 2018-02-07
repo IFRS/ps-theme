@@ -21,7 +21,7 @@
         margin-top: $grid-gutter-width / 2;
 
         img {
-            @extend .img-responsive;
+            @extend .img-fluid;
         }
     }
 

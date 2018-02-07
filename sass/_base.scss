@@ -8,12 +8,12 @@ table {
 }
 
 .alignleft {
-    @extend .pull-left;
+    @extend .float-left;
     margin-right: 10px;
 }
 
 .alignright {
-    @extend .pull-right;
+    @extend .float-right;
     margin-left: 10px;
 }
 

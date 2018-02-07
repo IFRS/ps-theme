@@ -93,12 +93,12 @@ gulp.task('webpack', function(done) {
         },
         output: {
             path: path.resolve(__dirname, 'js'),
-            filename: '[name].js',
+            filename: '[name].js'
         },
         resolve: {
             alias: {
                 jquery: 'jquery/src/jquery',
-                bootstrap: 'bootstrap-sass'
+                bootstrap: 'bootstrap/dist/js/bootstrap.bundle'
             }
         },
         plugins: [

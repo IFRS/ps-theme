@@ -3,7 +3,7 @@
   "private": true,
   "devDependencies": {
     "autoprefixer": "^7.2.5",
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap": "^4.0.0",
     "browser-sync": "^2.23.6",
     "datatables.net": "^1.10.16",
     "datatables.net-bs": "^1.10.16",

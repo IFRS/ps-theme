@@ -56,18 +56,18 @@
 }
 
 .label-formaingresso {
-    @include label-variant($cor-formasingresso);
+    @include badge-variant($cor-formasingresso);
 }
 
 .label-modalidade {
-    @include label-variant($cor-modalidades);
+    @include badge-variant($cor-modalidades);
 }
 
 .label-campus {
-    @include label-variant($cor-campi);
+    @include badge-variant($cor-campi);
 }
 
-@media (min-width: $screen-md-min) {
+@include media-breakpoint-up(md) {
     .chamada-labels {
         float: right;
     }
