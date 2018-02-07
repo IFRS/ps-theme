@@ -56,14 +56,9 @@ require_once('lib/taxonomies/modalidade-taxonomy.php');
 require_once('lib/taxonomies/turno-taxonomy.php');
 require_once('lib/taxonomies/formaingresso-taxonomy.php');
 
-// Edital Post Type
+// Post Types
 require_once('lib/post-types/edital.php');
-
-// Curso Post Type
 require_once('lib/post-types/curso.php');
-
-// Publicação Post Type
+require_once('lib/post-types/pergunta.php');
 require_once('lib/post-types/publicacao.php');
-
-// Chamada Post Type
 require_once('lib/post-types/chamada.php');

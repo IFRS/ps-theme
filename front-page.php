@@ -48,4 +48,19 @@
     </section>
 <?php endif; ?>
 
+<section class="home-ajuda">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <?php echo get_template_part('partials/home-faq'); ?>
+            </div>
+            <div class="col-12 col-lg-6">
+                <?php if (is_active_sidebar('home_contato')) : ?>
+                    <?php dynamic_sidebar('home_contato'); ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php get_footer(); ?>

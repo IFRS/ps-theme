@@ -6,7 +6,7 @@ function ps_widgets_init() {
 		'description'   => 'Chamadas na página inicial.',
 		'before_widget' => '<div id="%1$s" class="col-xs-12 col-md-6 col-md-offset-5 col-lg-6 col-lg-offset-5 widget widget-chamadas %2$s">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<div class="widget_chamadas_widget__title"><h2><strong>',
+		'before_title'  => '<div class="widget-chamadas__title"><h2><strong>',
 		'after_title'   => '</strong></h2></div>',
 	));
 	register_sidebar(array(
@@ -25,6 +25,15 @@ function ps_widgets_init() {
 		'before_widget' => '<div id="%1$s" class="col-xs-12 widget widget-jumbo %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-jumbo__title">',
+		'after_title'   => '</h2>',
+	));
+	register_sidebar(array(
+		'name'          => 'Home Contato',
+		'id'            => 'home_contato',
+		'description'   => 'Widgets com formas de entrar em contato com o IFRS.',
+		'before_widget' => '<div class="row"><div id="%1$s" class="col-12 widget widget-contato %2$s">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<h2 class="widget-contato__title">',
 		'after_title'   => '</h2>',
 	));
 }
