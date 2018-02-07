@@ -25,7 +25,7 @@ require_once('lib/script_conditional.php');
 require_once('lib/assets.php');
 
 // Menu do Bootstrap
-require_once('lib/vendor/wp-bootstrap-navwalker.php');
+require_once('lib/vendor/bootstrap-navwalker.php');
 
 // Widgets
 require_once('lib/widgets/widgets.php');
