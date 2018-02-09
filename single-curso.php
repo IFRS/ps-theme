@@ -121,11 +121,13 @@
                             $cat_posts = get_posts($args);
                         ?>
                         <?php if (!empty($cat_posts)) : ?>
-                            <div class="well">
-                                <h3>Cursos no mesmo Campus</h3>
-                                <?php foreach ($cat_posts as $cat_post) : ?>
-                                    <p><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></p>
-                                <?php endforeach; ?>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Cursos no mesmo Campus</h3>
+                                    <?php foreach ($cat_posts as $cat_post) : ?>
+                                        <p class="card-text"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></p>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         <?php endif; ?>
                     </div>
