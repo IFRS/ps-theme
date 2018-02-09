@@ -1,14 +1,14 @@
 <article class="home-publicacoes">
     <div class="home-publicacoes__title">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <h3>&Uacute;ltimas <strong>Publica&ccedil;&otilde;es</strong></h3>
             </div>
         </div>
     </div>
     <div class="home-publicacoes__body">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
             <?php
                 $args = array(
                     'post_type' => array('edital', 'publicacao'),

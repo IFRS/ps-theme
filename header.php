@@ -28,7 +28,7 @@
         <section class="header-banner">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="center-block img-responsive header-foto"/></a>
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php header_image(); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="center-block img-responsive header-ps"/></a>
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-selo.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="center-block img-responsive header-selo"/></a>

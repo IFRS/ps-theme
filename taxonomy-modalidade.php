@@ -2,7 +2,7 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <div class="modalidades">
                 <div class="modalidades__title">
                     <h2>Cursos na modalidade de ensino<span class="">&nbsp;<?php single_term_title(); ?></span>

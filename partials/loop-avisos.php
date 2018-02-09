@@ -1,7 +1,7 @@
 <?php if (have_posts()) : ?>
     <div class="row ms-grid">
     <?php while (have_posts()) : the_post(); ?>
-        <div class="col-xs-12 col-md-6 ms-item">
+        <div class="col-12 col-lg-6 ms-item">
             <article class="aviso">
                 <div class="aviso__title">
                   <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <nav class="text-center">
                 <?php echo custom_pagination(); ?>
             </nav>

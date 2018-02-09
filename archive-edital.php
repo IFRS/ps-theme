@@ -2,7 +2,7 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <div class="editais">
                 <h2 class="editais__title">Editais</h2>
                 <?php echo get_template_part('partials/loop', 'editais'); ?>

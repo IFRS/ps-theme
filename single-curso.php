@@ -4,15 +4,15 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
+        <div class="col-12 col-lg-8">
             <article class="post">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <div class="post__content">
                             <?php the_content(); ?>
                         </div>
@@ -20,7 +20,7 @@
                 </div>
                 <hr/>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <p>
                             <strong>Dura&ccedil;&atilde;o: </strong>
                             <?php
@@ -61,7 +61,7 @@
                             ?>
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <?php $modalidades = get_the_terms(get_the_ID(), 'modalidade'); ?>
                         <p>
                             <strong>Modalidade de ensino: </strong>
@@ -89,10 +89,10 @@
                 </div>
             </article>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-12 col-lg-4">
             <aside>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <!-- Outros cursos do mesmo Campus. -->
                         <?php
                             global $post;

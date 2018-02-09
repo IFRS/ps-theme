@@ -2,15 +2,15 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
+        <div class="col-12 col-lg-8">
             <div class="content">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <h2 class="title">Perguntas Frequentes<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 col-md-offset-6">
+                    <div class="col-12 col-lg-6 col-lg-offset-6">
                         <form class="inline-form" method="get" action="." role="form">
                             <div class="input-group">
                                 <label class="sr-only" for="s">Termo da busca</label>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <div class="panel-group" id="accordion">
                         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                             <div class="panel panel-default">
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-12 col-lg-4">
             <?php if (!dynamic_sidebar('banner')) : endif; ?>
         </div>
     </div>

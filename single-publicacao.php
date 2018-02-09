@@ -4,23 +4,23 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
+        <div class="col-12 col-lg-8">
             <article class="publicacao">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <h2 class="publicacao__title"><?php the_title(); ?></h2>
                     </div>
                 </div>
                 <div class="row publicacao__meta">
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <p class="publicacao__date">Publicado em <?php the_date('d/m/Y'); ?></p>
                     </div>
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <p class="publicacao__date">Atualizado em <?php the_modified_date('d/m/Y'); ?></p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <div class="publicacao__content">
                             <?php the_content(); ?>
                         </div>
@@ -29,7 +29,7 @@
                 <?php $files = get_post_meta( get_the_ID(), '_publicacao_arquivos', true ); ?>
                 <?php if (!empty($files)) : ?>
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-12">
                             <h3>Arquivos</h3>
                             <div class="list-group">
                             <?php foreach ($files as $id => $file) : ?>
@@ -41,10 +41,10 @@
                 <?php endif; ?>
             </article>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-12 col-lg-4">
             <aside>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <!-- Outras publicações. -->
                         <?php
                             global $post;

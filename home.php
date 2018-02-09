@@ -2,7 +2,7 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <h2><?php echo get_the_title(get_option( 'page_for_posts' )); ?></h2>
         </div>
     </div>

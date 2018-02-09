@@ -10,7 +10,7 @@
 
     <?php if (is_search()) : ?>
     <div class="row content">
-      <div class="col-xs-12">
+      <div class="col-12">
         <h2 class="title">Resultados da busca por &quot;<?php the_search_query(); ?>&quot;</h2>
       </div>
     </div>

@@ -4,15 +4,15 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
+        <div class="col-12 col-lg-8">
             <article class="post">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <div class="post__content">
                             <?php
                                 if (has_post_thumbnail()) {
@@ -25,10 +25,10 @@
                 </div>
             </article>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-12 col-lg-4">
             <aside>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <!-- Outras páginas. -->
                         <?php
                             global $post;

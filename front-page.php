@@ -23,15 +23,15 @@
 <section class="home-info">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <h2 class="home-info__title">Saiba mais!</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-md-7">
+            <div class="col-12 col-lg-7">
                 <?php echo get_template_part('partials/home-publicacoes'); ?>
             </div>
-            <div class="col-xs-12 col-md-5">
+            <div class="col-12 col-lg-5">
                 <?php echo get_template_part('partials/home-noticias'); ?>
             </div>
         </div>

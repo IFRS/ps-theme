@@ -2,12 +2,12 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <div class="cursos">
                 <?php echo is_search(); ?>
                 <h2 class="cursos__title">Lista de Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
                 <div class="row">
-                    <div class="col-xs-12 col-md-6">
+                    <div class="col-12 col-lg-6">
                         <form class="inline-form" method="get" action="." role="form">
                             <div class="input-group">
                                 <label class="sr-only" for="s">Termo da busca</label>

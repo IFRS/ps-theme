@@ -4,15 +4,15 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-8">
+        <div class="col-12 col-lg-8">
             <article class="post">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <div class="post__content">
                             <?php
                                 if (has_post_thumbnail()) {
@@ -24,10 +24,10 @@
                     </div>
                 </div>
                 <div class="row post__meta">
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <p class="post__date">Publicado em <?php the_date('d/m/Y'); ?></p>
                     </div>
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <?php $cats = get_the_category(); ?>
                         <?php if (!empty($cats)) : ?>
                             <ul class="post__categories">
@@ -40,10 +40,10 @@
                 </div>
             </article>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-12 col-lg-4">
             <aside>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <!-- Outros posts das mesmas categorias. -->
                         <?php
                             global $post;

@@ -8,7 +8,7 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="col-12 col-lg-6 col-lg-offset-3">
             <h2 class="category__title"><?php single_cat_title( 'Categoria&nbsp;', true ); ?></h2>
         </div>
     </div>

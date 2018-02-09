@@ -4,13 +4,13 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <article class="post">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 col-lg-7">
+                    <div class="col-12 col-lg-6 col-xl-7">
                         <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
-                    <div class="col-xs-12 col-md-6 col-lg-5">
+                    <div class="col-12 col-lg-6 col-xl-5">
                         <p class="chamada-labels">
                         <?php
                             $campi = get_the_terms(get_the_ID(), 'campus');
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <div class="post__content">
                             <?php the_content(); ?>
                         </div>
@@ -42,7 +42,7 @@
                 <?php if (!empty($resultados)) : ?>
                     <div class="row">
                         <?php foreach ($resultados[0] as $resultado) : ?>
-                            <div class="col-xs-12 col-md-6">
+                            <div class="col-12 col-lg-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <strong><?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
@@ -59,7 +59,7 @@
                 <?php endif; ?>
                 <hr/>
                 <div class="row post-meta">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <p class="post-date">Publicado em <?php the_date('d/m/Y'); ?></p>
                     </div>
                 </div>

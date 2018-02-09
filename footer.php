@@ -7,7 +7,7 @@
 <div class="site-map">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
             <?php
                 wp_nav_menu( array(
                     'theme_location'    => 'main',
@@ -29,10 +29,10 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-3">
+            <div class="col-12 col-lg-3">
                 <a href="http://ifrs.edu.br/" title="Portal do IFRS" class="footer-logo"><img class="center-block img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ifrs-branco.png" alt="Marca do IFRS"/></a>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="col-12 col-md-6 col-lg-6">
                 <address class="footer-address">
                     <p>Rua General Os&oacute;rio, 348 | Bairro Centro</p>
                     <p>CEP: 95700-086 | Bento Gon&ccedil;alves/RS</p>
@@ -40,7 +40,7 @@
                     <p>Telefone: (54) 3449-3300</p>
                 </address>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <?php get_search_form(); ?>
             </div>
         </div>
@@ -50,7 +50,7 @@
 <div class="footer-bottom">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <p>
                     <!-- Wordpress -->
                     <a href="http://br.wordpress.org/" target="blank">Desenvolvido com Wordpress<span class="sr-only"> (abre uma nova p&aacute;gina)</span></a> <span class="glyphicon glyphicon-new-window"></span>

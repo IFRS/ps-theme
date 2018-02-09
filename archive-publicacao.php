@@ -17,14 +17,14 @@
     <article class="home-publicacoes">
         <div class="home-publicacoes__title">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-12">
                     <h3><strong>Publica&ccedil;&otilde;es</strong></h3>
                 </div>
             </div>
         </div>
         <div class="home-publicacoes__body">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-12">
                 <?php if ($publicacoes->have_posts()) : ?>
                     <ul class="home-publicacoes__list">
                     <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
@@ -44,7 +44,7 @@
             </div>
             <?php wp_reset_query(); ?>
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-12">
                     <nav class="text-center">
                         <?php echo custom_pagination(); ?>
                     </nav>
