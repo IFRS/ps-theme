@@ -54,17 +54,15 @@
                             <h3>Outros Conte&uacute;dos</h3>
                             <?php foreach ($cat_posts as $cat_post) : ?>
                                 <div class="media">
-                                    <div class="media-left media-middle">
-                                        <a href="<?php echo get_permalink($cat_post->ID); ?>">
-                                            <?php if (has_post_thumbnail($cat_post->ID)) : ?>
-                                                <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'media-object')); ?>
-                                            <?php else : ?>
-                                                <img class="media-object" src="<?php echo get_stylesheet_directory_uri(); ?>/img/placeholder-content.png" alt="<?php echo $cat_post->post_title; ?>"/>
-                                            <?php endif; ?>
-                                        </a>
-                                    </div>
+                                    <a href="<?php echo get_permalink($cat_post->ID); ?>">
+                                        <?php if (has_post_thumbnail($cat_post->ID)) : ?>
+                                            <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'align-self-center mr-3')); ?>
+                                        <?php else : ?>
+                                            <img class="align-self-center mr-3" src="<?php echo get_stylesheet_directory_uri(); ?>/img/placeholder-content.png" alt="<?php echo $cat_post->post_title; ?>"/>
+                                        <?php endif; ?>
+                                    </a>
                                     <div class="media-body">
-                                        <h4 class="media-heading"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
+                                        <h4><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
                                         <p><?php echo $cat_post->post_excerpt; ?></p>
                                     </div>
                                 </div>
