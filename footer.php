@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-3">
-                <a href="http://ifrs.edu.br/" title="Portal do IFRS" class="footer-logo"><img class="center-block img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ifrs-branco.png" alt="Marca do IFRS"/></a>
+                <a href="http://ifrs.edu.br/" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ifrs-branco.png" alt="Marca do IFRS"/></a>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <address class="footer-address">
