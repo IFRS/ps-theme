@@ -29,9 +29,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="m-auto img-fluid header-foto"/></a>
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php header_image(); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="m-auto img-fluid header-ps"/></a>
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-selo.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="m-auto img-fluid header-selo"/></a>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="m-auto img-fluid header-foto"/></a><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php header_image(); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="m-auto img-fluid header-ps"/></a><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-selo.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="m-auto img-fluid header-selo"/></a>
                     </div>
                 </div>
             </div>
