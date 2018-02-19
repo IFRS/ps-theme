@@ -3,7 +3,7 @@
 
     &__title {
         @include box();
-        //@include box-title(#DC203D, '../img/bg-publicacoes.png');
+        @include box-title($cor-base, '../img/bg-publicacoes.png');
 
         h3 {
             font-size: 30px;
@@ -14,6 +14,6 @@
 
     &__body {
         @include box();
-        //@include box-body(#DC203D);
+        @include box-body($cor-base);
     }
 }

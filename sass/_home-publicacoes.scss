@@ -3,7 +3,7 @@
 
     &__title {
         @include box();
-        @include box-title(#DC203D, '../img/bg-publicacoes.png');
+        @include box-title($cor-base, '../img/bg-publicacoes.png');
 
         h3 {
             font-size: 30px;
@@ -14,7 +14,7 @@
 
     &__body {
         @include box();
-        @include box-body(#DC203D);
+        @include box-body($cor-base);
     }
 
     &__list {
@@ -37,7 +37,7 @@
     }
 
     &__item-date {
-        color: lighten(#DC203D, 20%);
+        color: lighten($cor-base, 20%);
         margin-right: 20px;
     }
 
@@ -56,6 +56,6 @@
     }
 
     &__btn {
-        @include button-variant(#ffffff, #DC203D, lighten(#DC203D, 5%));
+        @include button-variant(#ffffff, $cor-base, lighten($cor-base, 5%));
     }
 }

@@ -1,7 +1,7 @@
 .home-noticias {
     &__title {
         @include box();
-        @include box-title(#36A58E, '../img/bg-noticias.png');
+        @include box-title($cor-apoio-box, '../img/bg-noticias.png');
 
         h3 {
             font-size: 30px;
@@ -12,7 +12,7 @@
 
     &__body {
         @include box();
-        @include box-body(#36A58E);
+        @include box-body($cor-apoio-box);
     }
 
     &__list {
@@ -57,7 +57,7 @@
     }
 
     &__item-meta {
-        background: #36A58E;
+        background: $cor-apoio-box;
         color: #ffffff;
         font-size: 28px;
         line-height: 32px;
@@ -86,6 +86,6 @@
     }
 
     &__btn {
-        @include button-variant(#ffffff, #36A58E, lighten(#36A58E, 5%));
+        @include button-variant(#ffffff, $cor-apoio-box, lighten($cor-apoio-box, 5%));
     }
 }
