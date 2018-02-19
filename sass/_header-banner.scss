@@ -10,13 +10,13 @@
     }
 
     .header-foto {
-        @media screen and (max-width: 991px) {
+        @include media-breakpoint-down(md) {
             display: none;
         }
     }
 
     .header-ps {
-        @media screen and (max-width: 991px) {
+        @include media-breakpoint-down(md) {
             display: block;
             margin: 0 auto;
         }
@@ -25,7 +25,7 @@
     .header-selo {
         vertical-align: top;
 
-        @media screen and (max-width: 1199px) {
+        @include media-breakpoint-down(lg) {
             display: none;
         }
     }
