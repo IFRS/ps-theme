@@ -5,20 +5,23 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <?php
-        wp_nav_menu( array(
-            'theme_location'    => 'main',
-            'depth'             => 2,
-            'container'         => 'div',
-            'container_class'   => 'collapse navbar-collapse',
-            'container_id'      => 'navbarSupportedContent',
-            'menu_class'        => 'navbar-nav mr-auto',
-            //'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-            //'walker'            => new WP_Bootstrap_Navwalker()
-            'walker'            => new Bootstrap_NavWalker(),
-			'fallback_cb'       => 'Bootstrap_NavWalker::fallback'
-        ));
-    ?>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <?php
+            wp_nav_menu( array(
+                'theme_location'    => 'main',
+                'depth'             => 2,
+                'container'         => false,
+                'container_class'   => 'collapse navbar-collapse',
+                'container_id'      => 'navbarSupportedContent',
+                'menu_class'        => 'navbar-nav mr-auto',
+                //'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                //'walker'            => new WP_Bootstrap_Navwalker()
+                'walker'            => new Bootstrap_NavWalker(),
+                'fallback_cb'       => 'Bootstrap_NavWalker::fallback'
+            ));
+        ?>
+        <?php get_search_form(); ?>
+    </div>
 </nav>
 
 <a href="#fim-menu" id="fim-menu" class="sr-only">Fim do menu</a>

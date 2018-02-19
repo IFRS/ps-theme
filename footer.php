@@ -29,19 +29,16 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-md-3">
                 <a href="http://ifrs.edu.br/" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ifrs-branco.png" alt="Marca do IFRS"/></a>
             </div>
-            <div class="col-12 col-md-6 col-lg-6">
+            <div class="col-12 col-md-9">
                 <address class="footer-address">
                     <p>Rua General Os&oacute;rio, 348 | Bairro Centro</p>
                     <p>CEP: 95700-086 | Bento Gon&ccedil;alves/RS</p>
                     <p>E-mail: <a href="mailto:pssolicitacoes@ifrs.edu.br">pssolicitacoes@ifrs.edu.br</a></p>
                     <p>Telefone: (54) 3449-3300</p>
                 </address>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <?php get_search_form(); ?>
             </div>
         </div>
     </div>
