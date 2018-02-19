@@ -27,14 +27,5 @@ function ps_widgets_init() {
 		'before_title'  => '<h2 class="widget-jumbo__title">',
 		'after_title'   => '</h2>',
 	));
-	register_sidebar(array(
-		'name'          => 'Home Contato',
-		'id'            => 'home_contato',
-		'description'   => 'Widgets com formas de entrar em contato com o IFRS.',
-		'before_widget' => '<div class="row"><div id="%1$s" class="col-12 widget widget-contato %2$s">',
-		'after_widget'  => '</div></div>',
-		'before_title'  => '<h2 class="widget-contato__title">',
-		'after_title'   => '</h2>',
-	));
 }
 add_action( 'widgets_init', 'ps_widgets_init' );
