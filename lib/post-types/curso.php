@@ -54,7 +54,7 @@ if ( ! function_exists('curso_post_type') ) {
             'show_in_menu'        => true,
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
+            'menu_position'       => 25,
             'menu_icon'           => 'dashicons-welcome-learn-more',
             'can_export'          => true,
             'has_archive'         => true,
@@ -69,11 +69,11 @@ if ( ! function_exists('curso_post_type') ) {
     }
 
     // Hook into the 'init' action
-    add_action( 'init', 'curso_post_type', 1 );
+    add_action( 'init', 'curso_post_type', 2 );
 }
 
 // MetaBox
-add_action( 'cmb2_admin_init', 'curso_metaboxes', 1 );
+add_action( 'cmb2_admin_init', 'curso_metaboxes', 2 );
 /**
  * Define the metabox and field configurations.
  */

@@ -52,7 +52,7 @@ if ( ! function_exists('chamada_post_type') ) {
 			'public'                => true,
 			'show_ui'               => true,
 			'show_in_menu'          => true,
-			'menu_position'         => 5,
+			'menu_position'         => 25,
 			'menu_icon'             => 'dashicons-media-spreadsheet',
 			'show_in_admin_bar'     => true,
 			'show_in_nav_menus'     => true,
@@ -69,11 +69,11 @@ if ( ! function_exists('chamada_post_type') ) {
 	}
 
 	// Hook into the 'init' action
-	add_action( 'init', 'chamada_post_type', 1 );
+	add_action( 'init', 'chamada_post_type', 5 );
 }
 
 // MetaBox
-add_action( 'cmb2_admin_init', 'chamada_metaboxes', 1 );
+add_action( 'cmb2_admin_init', 'chamada_metaboxes', 5 );
 /**
  * Define the metabox and field configurations.
  */

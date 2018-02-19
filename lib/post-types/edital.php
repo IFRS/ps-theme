@@ -54,7 +54,7 @@ if ( ! function_exists('edital_post_type') ) {
             'show_in_menu'        => true,
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
+            'menu_position'       => 25,
             'menu_icon'           => 'dashicons-media-text',
             'can_export'          => true,
             'has_archive'         => true,

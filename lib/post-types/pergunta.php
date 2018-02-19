@@ -54,7 +54,7 @@ if ( ! function_exists('pergunta_post_type') ) {
             'show_in_menu'        => true,
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
+            'menu_position'       => 25,
             'menu_icon'           => 'dashicons-lightbulb',
             'can_export'          => true,
             'has_archive'         => true,
@@ -69,5 +69,5 @@ if ( ! function_exists('pergunta_post_type') ) {
     }
 
     // Hook into the 'init' action
-    add_action( 'init', 'pergunta_post_type', 1 );
+    add_action( 'init', 'pergunta_post_type', 3 );
 }
