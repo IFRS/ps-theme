@@ -1,9 +1,8 @@
-$cor-base:               #ee444d;
-$cor-base-secundaria:    #7f1626;
-$cor-apoio:              #137168;
-$cor-apoio-secundaria:   #165c2a;
-
-$cor-apoio-box:          #36A58E;
+$cor-base:               #da203e;
+$cor-base-secundaria:    #b11933;
+$cor-apoio:              #35a38c;
+$cor-apoio-secundaria:   #137e68;
+$cor-destaque:           #254898;
 
 $cor-menu-bg:            $cor-base;
 $cor-menu-item:          #fff7ea;
@@ -29,3 +28,5 @@ $font-family-sans-serif: "Open Sans", Arial, sans-serif;
 $icon-font-path:         '../fonts/bootstrap/';
 
 $link-color:             $cor-base-secundaria;
+$navbar-dark-color:                 rgba(255,255,255,.80);
+$navbar-dark-hover-color:           rgba(255,255,255,.90);
