@@ -3,7 +3,7 @@
 
     &__title {
         @include box();
-        @include box-title($cor-base, '../img/bg-publicacoes.png');
+        @include box-title($cor-apoio, '../img/bg-faq.png');
 
         h3 {
             font-size: 30px;
@@ -15,5 +15,40 @@
     &__body {
         @include box();
         @include box-body($cor-base);
+
+        max-height: 635px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &__item {
+        border: none;
+        margin-bottom: 5px;
+
+        .card-header {
+            background-color: transparent;
+            border-bottom-color: $cor-apoio;
+            padding: 0;
+
+            a {
+                color: #000000;
+                text-align: left;
+                text-decoration: none;
+                white-space: normal;
+            }
+
+            [data-toggle="collapse"]:before{
+                content: "\25bc";
+            }
+
+            [data-toggle="collapse"].collapsed:before{
+                content: "\25b6";
+            }
+        }
+
+        .card-body {
+            background-color: #ffffff;
+            font-size: 90%;
+        }
     }
 }

@@ -5,4 +5,36 @@
     padding: $grid-gutter-width 0;
     position: relative;
     z-index: 1;
+
+    &__duvida {
+        text-align: center;
+    }
+
+    &__title {
+        color: $cor-base;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0 auto;
+        max-width: 500px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__image {
+        margin: 0 auto;
+    }
+
+    &__box {
+        @include box();
+        @include box-body($cor-base);
+
+        background-color: rgba(255,255,255,0.5);
+        border-top-width: 5px;
+        padding: 20px;
+    }
+
+    &__box-title {
+        color: $cor-apoio-secundaria;
+        text-align: center;
+    }
 }
