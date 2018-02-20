@@ -26,7 +26,7 @@
                     <div class="card home-faq__item">
                         <div class="card-header" id="heading<?php the_ID(); ?>">
                             <h4 class="mb-0 home-faq__item-title">
-                                <a href="<?php the_permalink(); ?>" class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php the_ID(); ?>" aria-expanded="true" aria-controls="collapse<?php the_ID(); ?>">
+                                <a href="<?php the_permalink(); ?>" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse<?php the_ID(); ?>" aria-expanded="true" aria-controls="collapse<?php the_ID(); ?>">
                                     <?php the_title(); ?>
                                 </a>
                             </h4>
