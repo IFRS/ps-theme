@@ -86,6 +86,6 @@
     }
 
     &__btn {
-        @include button-variant(#ffffff, $cor-apoio, lighten($cor-apoio, 5%));
+        @include button-variant($cor-apoio, lighten($cor-apoio, 5%));
     }
 }

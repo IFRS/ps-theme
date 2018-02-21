@@ -49,11 +49,11 @@
 }
 
 .btn-formaingresso {
-    @include button-variant(#fff, $cor-formasingresso, $cor-formasingresso);
+    @include button-variant($cor-formasingresso, $cor-formasingresso);
 }
 
 .btn-modalidade {
-    @include button-variant(#fff, $cor-modalidades, $cor-modalidades);
+    @include button-variant($cor-modalidades, $cor-modalidades);
 }
 
 .label-formaingresso {

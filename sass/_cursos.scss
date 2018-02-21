@@ -29,7 +29,7 @@
 }
 
 .btn-campus {
-    @include button-variant(#fff, $cor-campi, $cor-campi);
+    @include button-variant($cor-campi, $cor-campi);
 }
 
 .tab-content {

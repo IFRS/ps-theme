@@ -56,6 +56,6 @@
     }
 
     &__btn {
-        @include button-variant(#ffffff, $cor-base, lighten($cor-base, 5%));
+        @include button-variant($cor-base, lighten($cor-base, 5%));
     }
 }
