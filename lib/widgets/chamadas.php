@@ -83,8 +83,8 @@ class Chamadas_Widget extends WP_Widget {
 							<a class="btn btn-formaingresso btn-lg toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>" title="<?php echo $formaingresso_obj->name; ?>"><?php echo $formaingresso_obj->name; ?></a>
 							<div id="campi-<?php echo $formaingresso_obj->slug; ?>" class="campi">
 								<ol class="breadcrumb">
-									<li><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
-									<li class="active"><?php echo $formaingresso_obj->name; ?></li>
+									<li class="breadcrumb-item"><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
+									<li class="breadcrumb-item active" aria-current="page"><?php echo $formaingresso_obj->name; ?></li>
 								</ol>
 								<p>Selecione o seu Campus.</p>
 								<?php foreach ($campi as $campus_id => $chamada) : ?>
@@ -92,9 +92,9 @@ class Chamadas_Widget extends WP_Widget {
 									<a class="btn btn-campus toggle" href="#chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" title="<?php echo $campus_obj->name; ?>"><?php echo $campus_obj->name; ?></a>
 									<div id="chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="chamadas">
 										<ol class="breadcrumb">
-											<li><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
-											<li><a href="#campi-<?php echo $formaingresso_obj->slug; ?>" class="breadcrumb-campus"><?php echo $formaingresso_obj->name; ?></a></li>
-											<li class="active"><?php echo $campus_obj->name; ?></li>
+											<li class="breadcrumb-item"><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
+											<li class="breadcrumb-item"><a href="#campi-<?php echo $formaingresso_obj->slug; ?>" class="breadcrumb-campus"><?php echo $formaingresso_obj->name; ?></a></li>
+											<li class="breadcrumb-item active" aria-current="page"><?php echo $campus_obj->name; ?></li>
 										</ol>
 										<p>Confira abaixo as chamadas já realizadas.</p>
 										<div class="list-group">
@@ -105,7 +105,7 @@ class Chamadas_Widget extends WP_Widget {
 													<small>
 													<?php $modalidades = get_post_meta($resultado->ID, '_chamada_resultados_group'); ?>
 													<?php foreach ($modalidades[0] as $id => $modalidade) : ?>
-														<span class="label label-modalidade"><?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?></span>&nbsp;
+														<span class="badge label-modalidade"><?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?></span>&nbsp;
 													<?php endforeach; ?>
 													</small>
 												</h4>
