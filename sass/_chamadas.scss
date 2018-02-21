@@ -1,10 +1,10 @@
-.widget_chamadas_widget {
+.widget-chamadas {
     background-color: transparent;
     margin-top: 50px;
 
     &__title {
         @include box();
-        @include box-title(#254898, '../img/bg-aprovados.png');
+        @include box-title($cor-destaque, '../img/bg-aprovados.png');
 
         h2 {
             font-size: 32px;
@@ -17,10 +17,11 @@
 #chamadas {
     @include box();
 
-    background-color: $cor-verde-claro;
+    background-color: rgba(255,255,255,0.90);
     margin-top: -5px;
     opacity: 0.95;
     padding: ($grid-gutter-width / 2) $grid-gutter-width;
+    text-align: left;
 
     .breadcrumb {
         > li {
