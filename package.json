@@ -2,7 +2,7 @@
   "name": "ifrs-ps-theme",
   "private": true,
   "devDependencies": {
-    "autoprefixer": "^7.2.5",
+    "autoprefixer": "^7.2.6",
     "bootstrap": "^4.0.0",
     "browser-sync": "^2.23.6",
     "datatables.net": "^1.10.16",
@@ -26,6 +26,6 @@
     "pixrem": "^4.0.1",
     "respond.js": "^1.4.2",
     "run-sequence": "^2.2.1",
-    "webpack": "^3.10.0"
+    "webpack": "^3.11.0"
   }
 }
