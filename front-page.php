@@ -38,16 +38,6 @@
     </div>
 </section>
 
-<?php if (is_active_sidebar('home_jumbo')) : ?>
-    <section class="home-jumbo">
-        <div class="container">
-            <div class="row">
-                <?php dynamic_sidebar('home_jumbo'); ?>
-            </div>
-        </div>
-    </section>
-<?php endif; ?>
-
 <section class="home-ajuda">
     <div class="container">
         <div class="row">
@@ -76,5 +66,15 @@
         </div>
     </div>
 </section>
+
+<?php if (is_active_sidebar('home_jumbo')) : ?>
+    <section class="home-jumbo">
+        <div class="container">
+            <div class="row">
+                <?php dynamic_sidebar('home_jumbo'); ?>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
