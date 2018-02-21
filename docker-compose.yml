@@ -2,10 +2,14 @@ version: "3.4"
 
 services:
     wordpress:
-        image: ifrs/ps:latest
-        restart: on-failure=5
+        image: wordpress:4-php7.2-apache
+        restart: on-failure
+        ports:
+            - 80:80
+            - 443:443
         volumes:
-            - uploads:/var/www/html/wp-content/uploads
+            - content:/var/www/html/wp-content
+            - ./:/var/www/html/wp-content/themes/ifrs-ps-theme
         depends_on:
             - mysql
         environment:
@@ -21,10 +25,10 @@ services:
             WORDPRESS_SECURE_AUTH_SALT: "${WORDPRESS_SECURE_AUTH_SALT}"
             WORDPRESS_LOGGED_IN_SALT: "${WORDPRESS_LOGGED_IN_SALT}"
             WORDPRESS_NONCE_SALT: "${WORDPRESS_NONCE_SALT}"
-            WORDPRESS_DEBUG: "false"
+            WORDPRESS_DEBUG: "true"
     mysql:
         image: mysql:5
-        restart: on-failure=5
+        restart: on-failure
         volumes:
             - db_data:/var/lib/mysql
         environment:
@@ -32,6 +36,14 @@ services:
             MYSQL_DATABASE: "${DB_NAME}"
             MYSQL_USER: "${DB_USER}"
             MYSQL_PASSWORD: "${DB_PASSWORD}"
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - 8080:80
+        depends_on:
+            - mysql
+        environment:
+            PMA_HOST: mysql
 volumes:
     db_data:
-    uploads:
+    content:
