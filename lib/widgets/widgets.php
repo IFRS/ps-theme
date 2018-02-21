@@ -4,7 +4,7 @@ function ps_widgets_init() {
 		'name'          => 'Home Chamadas',
 		'id'            => 'home_chamadas',
 		'description'   => 'Chamadas na página inicial.',
-		'before_widget' => '<div id="%1$s" class="col-12 col-lg-6 col-lg-offset-5 col-xl-6 col-xl-offset-5 widget widget-chamadas %2$s">',
+		'before_widget' => '<div id="%1$s" class="col-12 col-lg-6 offset-lg-6 col-xl-6 offset-xl-6 widget widget-chamadas %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<div class="widget-chamadas__title"><h2><strong>',
 		'after_title'   => '</strong></h2></div>',
