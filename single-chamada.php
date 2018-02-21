@@ -16,7 +16,7 @@
                             $campi = get_the_terms(get_the_ID(), 'campus');
                             foreach ($campi as $key => $campus) :
                         ?>
-                                <span class="label label-campus"><?php echo $campus->name; ?></span>
+                                <span class="badge label-campus"><?php echo $campus->name; ?></span>
                         <?php
                             endforeach;
                         ?>
@@ -24,7 +24,7 @@
                             $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
                             foreach ($formasingresso as $key => $formaingresso) :
                         ?>
-                                <span class="label label-formaingresso"><?php echo $formaingresso->name; ?></span>
+                                <span class="badge label-formaingresso"><?php echo $formaingresso->name; ?></span>
                         <?php
                             endforeach;
                         ?>
