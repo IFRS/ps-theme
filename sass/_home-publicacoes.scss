@@ -24,10 +24,12 @@
 
     &__item {
         border-bottom: 1px solid #cccccc;
+        margin-bottom: 15px;
         padding-bottom: 10px;
 
         p {
             color: #666666;
+            margin-bottom: 0;
         }
     }
 
