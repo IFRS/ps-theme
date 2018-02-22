@@ -1,6 +1,4 @@
 .home-faq {
-    margin-bottom: 30px;
-
     &__title {
         @include box();
         @include box-title($cor-apoio, '../img/bg-faq.png');
