@@ -1,23 +1,29 @@
 .editais {
-    @include box();
-
     margin-bottom: $grid-gutter-width;
-    padding: 15px 10px;
 
     &__title {
+        @include box();
+        @include box-title($cor-base, '');
+
         margin-top: 0;
+        padding: 20px;
     }
-}
 
-.list-group {
-    .active {
-        small,
-        .small {
-            color: #fff;
+    &__content {
+        @include box();
+        @include box-body($cor-base);
+    }
+
+    .list-group {
+        .active {
+            small,
+            .small {
+                color: #fff;
+            }
         }
-    }
 
-    .child {
-        padding-left: 30px;
+        .child {
+            padding-left: 30px;
+        }
     }
 }
