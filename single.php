@@ -67,19 +67,15 @@
                             $cat_posts = get_posts($args);
                         ?>
                         <?php if (!empty($cat_posts)) : ?>
-                            <h3>Conte&uacute;do Relacionado</h3>
+                            <h3 class="aside__title">Conte&uacute;do Relacionado</h3>
                             <?php foreach ($cat_posts as $cat_post) : ?>
-                                <div class="media">
-                                    <div class="media-left media-middle">
-                                        <?php if (has_post_thumbnail($cat_post->ID)) : ?>
-                                            <a href="<?php echo get_permalink($cat_post->ID); ?>">
-                                                <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'media-object')); ?>
-                                            </a>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
-                                        <p><?php echo get_the_date('d/m/Y', $cat_post->ID); ?></p>
+                                <div class="card">
+                                    <?php if (has_post_thumbnail($cat_post->ID)) : ?>
+                                        <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'card-img-top')); ?>
+                                    <?php endif; ?>
+                                    <div class="card-body">
+                                        <h4 class="card-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
+                                        <p class="card-subtitle"><?php echo get_the_date('d/m/Y', $cat_post->ID); ?></p>
                                     </div>
                                 </div>
                             <?php endforeach; ?>

@@ -33,13 +33,6 @@
                         <?php
                             global $post;
 
-                            $cat_ID = array();
-                            $categories = get_the_category();
-
-                            foreach ($categories as $category) {
-                                array_push($cat_ID, $category->cat_ID);
-                            }
-
                             $args = array(
                                 'orderby' => 'date',
                                 'order' => 'DESC',
@@ -51,19 +44,15 @@
                             $cat_posts = get_posts($args);
                         ?>
                         <?php if (!empty($cat_posts)) : ?>
-                            <h3>Outros Conte&uacute;dos</h3>
+                            <h3 class="aside__title">Outros Conte&uacute;dos</h3>
                             <?php foreach ($cat_posts as $cat_post) : ?>
-                                <div class="media">
-                                    <a href="<?php echo get_permalink($cat_post->ID); ?>">
-                                        <?php if (has_post_thumbnail($cat_post->ID)) : ?>
-                                            <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'align-self-center mr-3')); ?>
-                                        <?php else : ?>
-                                            <img class="align-self-center mr-3" src="<?php echo get_stylesheet_directory_uri(); ?>/img/placeholder-content.png" alt="<?php echo $cat_post->post_title; ?>"/>
-                                        <?php endif; ?>
-                                    </a>
-                                    <div class="media-body">
-                                        <h4><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
-                                        <p><?php echo $cat_post->post_excerpt; ?></p>
+                                <div class="card">
+                                    <?php if (has_post_thumbnail($cat_post->ID)) : ?>
+                                        <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'card-img-top')); ?>
+                                    <?php endif; ?>
+                                    <div class="card-body">
+                                        <h4 class="card-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
+                                        <p class="card-text"><?php echo $cat_post->post_excerpt; ?></p>
                                     </div>
                                 </div>
                             <?php endforeach; ?>

@@ -1,10 +1,12 @@
 aside {
-    @include box();
-
     margin-bottom: $grid-gutter-width;
-    padding: 15px 10px;
+}
 
-    h3 {
-        margin-top: 0;
+.aside {
+    &__title {
+        @include box();
+        @include box-title($cor-apoio, '');
+
+        padding: 20px;
     }
 }
