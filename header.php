@@ -38,6 +38,5 @@
 
     <a href="#inicio-conteudo" id="inicio-conteudo" class="sr-only">In&iacute;cio do conte&uacute;do</a>
 
-    <?php ps_breadcrumb(); ?>
-
     <main role="main">
+    <?php ps_breadcrumb(); ?>
