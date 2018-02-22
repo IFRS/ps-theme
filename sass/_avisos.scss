@@ -32,8 +32,9 @@
 .category {
     &__title {
         @include box();
+        @include box-title($cor-apoio, '../img/bg-noticias.png');
 
         margin-bottom: $grid-gutter-width;
-        padding: 10px;
+        padding: 20px;
     }
 }

@@ -1,27 +1,29 @@
 <?php if (have_posts()) : ?>
-    <div class="row ms-grid">
-    <?php while (have_posts()) : the_post(); ?>
-        <div class="col-12 col-lg-6 ms-item">
-            <article class="aviso">
-                <div class="aviso__title">
-                  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                </div>
-                <div class="aviso__date">
-                  <p><?php the_date(); ?></p>
-                </div>
-                <div class="aviso__content"><?php the_excerpt(); ?></div>
-                <?php $cats = get_the_category(); ?>
-                <?php if (!empty($cats)) : ?>
-                  <span class="aviso__category-title">Categorias:</span>
-                  <ul class="aviso__categories">
-                      <?php foreach ($cats as $key => $cat) : ?>
-                          <li><a href="<?php echo get_category_link( $cat->term_id ); ?>"><?php echo $cat->name; ?></a></li>
-                      <?php endforeach; ?>
-                  </ul>
-                <?php endif; ?>
-            </article>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-columns">
+            <?php while (have_posts()) : the_post(); ?>
+                <article class="card">
+                    <div class="card-body">
+                        <h2 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <small class="card-subtitle"><?php the_date(); ?></small>
+                        <div class="card-text"><?php the_excerpt(); ?></div>
+                    </div>
+                    <div class="card-footer">
+                    <?php $cats = get_the_category(); ?>
+                    <?php if (!empty($cats)) : ?>
+                        <ul class="list-inline">
+                            <?php foreach ($cats as $key => $cat) : ?>
+                                <li class="list-inline-item"><a href="<?php echo get_category_link( $cat->term_id ); ?>" class="text-muted"><?php echo $cat->name; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                    </div>
+
+                </article>
+            <?php endwhile; ?>
+            </div>
         </div>
-    <?php endwhile; ?>
     </div>
 
     <div class="row">
