@@ -9,11 +9,6 @@
         padding: 20px;
     }
 
-    &__content {
-        @include box();
-        @include box-body($cor-base);
-    }
-
     .list-group {
         .child {
             padding-left: 40px;
