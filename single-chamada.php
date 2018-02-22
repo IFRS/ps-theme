@@ -7,10 +7,7 @@
         <div class="col-12">
             <article class="post">
                 <div class="row">
-                    <div class="col-12 col-lg-6 col-xl-7">
-                        <h2 class="post__title"><?php the_title(); ?></h2>
-                    </div>
-                    <div class="col-12 col-lg-6 col-xl-5">
+                    <div class="col-12">
                         <p class="chamada-labels">
                         <?php
                             $campi = get_the_terms(get_the_ID(), 'campus');
@@ -33,34 +30,36 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="post__content">
-                            <?php the_content(); ?>
-                        </div>
+                        <h2 class="post__title"><?php the_title(); ?></h2>
                     </div>
                 </div>
-                <?php $resultados = get_post_meta(get_the_ID(), '_chamada_resultados_group'); ?>
-                <?php if (!empty($resultados)) : ?>
-                    <div class="row">
-                        <?php foreach ($resultados[0] as $resultado) : ?>
-                            <div class="col-12 col-lg-6">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <strong><?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
-                                    </div>
-                                    <div class="list-group">
-                                        <?php foreach ($resultado['arquivos'] as $id => $url): ?>
-                                            <a href="<?php echo esc_url($url); ?>" class="list-group-item list-group-item-info" target="_blank"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-                <hr/>
-                <div class="row post-meta">
+                <div class="row">
                     <div class="col-12">
-                        <p class="post-date">Publicado em <?php the_date('d/m/Y'); ?></p>
+                        <div class="post__content">
+                            <?php the_content(); ?>
+
+                            <?php $resultados = get_post_meta(get_the_ID(), '_chamada_resultados_group'); ?>
+                            <?php if (!empty($resultados)) : ?>
+                                <div class="row">
+                                    <?php foreach ($resultados[0] as $resultado) : ?>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <strong><?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
+                                                </div>
+                                                <div class="list-group list-group-flush">
+                                                    <?php foreach ($resultado['arquivos'] as $id => $url): ?>
+                                                        <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-info"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                            <hr>
+                            <p class="post__meta">Publicado em <?php the_date('d/m/Y'); ?></p>
+                        </div>
                     </div>
                 </div>
             </article>

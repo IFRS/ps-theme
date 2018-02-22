@@ -68,8 +68,8 @@
     @include badge-variant($cor-campi);
 }
 
-@include media-breakpoint-up(md) {
-    .chamada-labels {
-        float: right;
+.chamada-labels {
+    .badge {
+        font-size: 90%;
     }
 }
