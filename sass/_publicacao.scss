@@ -1,16 +1,13 @@
 .publicacao {
-    @include box();
-
     margin-bottom: $grid-gutter-width;
-    padding: $grid-gutter-width;
 
     &__title {
+        @include box();
+        @include box-title($cor-base, '');
+
         margin-top: 0;
         margin-bottom: 15px;
-    }
-
-    &__meta {
-        
+        padding: 20px;
     }
 
     &__date {
@@ -19,6 +16,9 @@
     }
 
     &__content {
+        @include box();
+        @include box-body($cor-base);
+
         margin-top: $grid-gutter-width / 2;
     }
 }
