@@ -1,12 +1,13 @@
 .edital {
-    @include box();
-
     margin-bottom: $grid-gutter-width;
-    padding: $grid-gutter-width;
 
     &__title {
+        @include box();
+        @include box-title($cor-destaque, '');
+
         margin-top: 0;
         margin-bottom: 15px;
+        padding: 20px;
     }
 
     &__meta {
@@ -19,6 +20,7 @@
     }
 
     &__content {
-        margin-top: $grid-gutter-width / 2;
+        @include box();
+        @include box-body($cor-destaque);
     }
 }
