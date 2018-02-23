@@ -6,7 +6,7 @@
     "bootstrap": "^4.0.0",
     "browser-sync": "^2.23.6",
     "datatables.net": "^1.10.16",
-    "datatables.net-bs": "^1.10.16",
+    "datatables.net-bs4": "^1.10.16",
     "datatables.net-plugins": "^1.10.15",
     "del": "^3.0.0",
     "dotenv": "^5.0.0",

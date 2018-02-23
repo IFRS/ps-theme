@@ -1,5 +1,5 @@
 require('datatables.net');
-require('datatables.net-bs');
+require('datatables.net-bs4');
 
 $(document).ready( function() {
     $('.table-cursos').DataTable({
@@ -7,16 +7,16 @@ $(document).ready( function() {
         paging: false,
         bAutoWidth: false,
         language: {
-            "sEmptyTable": "Nenhum registro encontrado",
-            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
-            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sEmptyTable": "Nenhum curso encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ cursos",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 cursos",
+            "sInfoFiltered": "(Filtrados de _MAX_ cursos)",
             "sInfoPostFix": "",
             "sInfoThousands": ".",
-            "sLengthMenu": "_MENU_ resultados por página",
+            "sLengthMenu": "_MENU_ cursos por página",
             "sLoadingRecords": "Carregando...",
             "sProcessing": "Processando...",
-            "sZeroRecords": "Nenhum registro encontrado",
+            "sZeroRecords": "Nenhum curso encontrado",
             "sSearch": "Pesquisar na tabela",
             "oPaginate": {
                 "sNext": "Próximo",
