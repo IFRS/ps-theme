@@ -1,32 +1,35 @@
-$cor-base:               #da203e;
-$cor-base-secundaria:    #b11933;
-$cor-apoio:              #35a38c;
-$cor-apoio-secundaria:   #137e68;
-$cor-destaque:           #254898;
+$cor-base:                    #da203e;
+$cor-base-secundaria:         #b11933;
+$cor-apoio:                   #35a38c;
+$cor-apoio-secundaria:        #137e68;
+$cor-destaque:                #254898;
 
-$cor-menu-bg:            $cor-base;
-$cor-menu-item:          #fff7ea;
+$cor-menu-bg:                 $cor-base;
+$cor-menu-item:               #fff7ea;
 
-$cor-campi:              $cor-base-secundaria;
+$cor-campi:                   $cor-base-secundaria;
 
-$cor-rodape:             darken($cor-menu-bg, 25%);
+$cor-rodape:                  darken($cor-menu-bg, 25%);
 
-$cor-verde-claro:        #dae2da;
+$cor-verde-claro:             #dae2da;
 
-$cor-azul-resultados:    #1A3D75;
-$cor-modalidades:        #05827e;
-$cor-formasingresso:     #7f1b66;
+$cor-azul-resultados:         #1A3D75;
+$cor-modalidades:             #05827e;
+$cor-formasingresso:          #7f1b66;
 
 // Fonts
-$FontPathOpenSans:       '../fonts/opensans';
+$FontPathOpenSans:            '../fonts/opensans';
 
 // Fancybox
-$image-path:             '../img/vendor/';
+$image-path:                  '../img/vendor/';
 
 // Bootstrap
-$font-family-sans-serif: "Open Sans", Arial, sans-serif;
-$icon-font-path:         '../fonts/bootstrap/';
+$font-family-sans-serif:      "Open Sans", Arial, sans-serif;
+$icon-font-path:              '../fonts/bootstrap/';
 
-$link-color:             $cor-base-secundaria;
-$navbar-dark-color:                 rgba(255,255,255,.80);
-$navbar-dark-hover-color:           rgba(255,255,255,.90);
+$link-color:                  $cor-base-secundaria;
+$navbar-dark-color:           rgba(255,255,255,.80);
+$navbar-dark-hover-color:     rgba(255,255,255,.90);
+
+$nav-pills-link-active-color: #ffffff;
+$nav-pills-link-active-bg:    $cor-campi;

@@ -1,35 +1,23 @@
 .cursos {
-    @include box();
-
     margin-bottom: $grid-gutter-width;
-    padding: 15px 10px;
 
     &__title {
+        @include box();
+        @include box-title($cor-base, '');
+
         margin-top: 0;
+        padding: 20px;
     }
-}
 
-.list-campi {
-    list-style: none;
-    padding: 0;
-
-    > li {
-        display: inline-block;
-        margin-bottom: 5px;
-
-        &:focus,
-        &:active,
-        &.active {
-            > a {
-                font-weight: bold;
-                text-decoration: underline;
-            }
-        }
+    &__content {
+        @include box();
+        @include box-body($cor-base);
     }
-}
 
-.btn-campus {
-    @include button-variant($cor-campi, $cor-campi);
+    .dataTables_wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .tab-content {
