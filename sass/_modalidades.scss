@@ -1,20 +1,30 @@
 .modalidades {
-    @include box();
-    
     margin-bottom: $grid-gutter-width;
-    padding: 15px 10px;
-    
+
     &__title {
-        margin-bottom: 10px;
-        margin-top: 20px;
-    
+        @include box();
+        @include box-title($cor-base, '');
+
+        margin-bottom: 20px;
+        padding: 20px;
+
         h2 {
             display: inline-block;
             margin: 0;
         }
-    
+
         .dropdown {
             display: inline-block;
         }
+    }
+
+    &__content {
+        @include box();
+        @include box-body($cor-base);
+    }
+
+    .dataTables_wrapper {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
