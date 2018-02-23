@@ -15,76 +15,76 @@
                     <div class="col-12">
                         <div class="post__content">
                             <?php the_content(); ?>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <p>
+                                        <strong>Dura&ccedil;&atilde;o: </strong>
+                                        <?php
+                                            $duracao = get_post_meta(get_the_ID(), '_curso_duracao', true);
+                                            if (!empty($duracao)) {
+                                                echo $duracao;
+                                            } else {
+                                                echo '-';
+                                            }
+                                        ?>
+                                    </p>
+
+                                    <p>
+                                        <strong>Vagas: </strong>
+                                        <?php
+                                            $vagas = get_post_meta(get_the_ID(), '_curso_vagas', true);
+                                            if (!empty($vagas)) {
+                                                echo $vagas;
+                                            } else {
+                                                echo '-';
+                                            }
+                                        ?>
+                                    </p>
+
+                                    <?php $turnos = get_the_terms(get_the_ID(), 'turno'); ?>
+                                    <?php $turnos_int = 1; ?>
+                                    <p>
+                                        <strong>Turnos: </strong>
+                                        <?php
+                                            if (!empty($turnos)) {
+                                                foreach ($turnos as $key => $turno) :
+                                                    echo ($turnos_int == sizeof($turnos) ? $turno->name : $turno->name.', ');
+                                                    $turnos_int++;
+                                                endforeach;
+                                            } else {
+                                                echo '-';
+                                            }
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <?php $modalidades = get_the_terms(get_the_ID(), 'modalidade'); ?>
+                                    <p>
+                                        <strong>Modalidade de ensino: </strong>
+                                        <?php if (!empty($modalidades)) : ?>
+                                            <?php foreach ($modalidades as $key => $modalidade) : ?>
+                                                <a href="<?php echo get_term_link($modalidade); ?>"><?php echo $modalidade->name; ?></a>
+                                            <?php endforeach; ?>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </p>
+
+                                    <?php $campus = get_the_terms(get_the_ID(), 'campus'); ?>
+                                    <p>
+                                        <strong>Curso oferecido no Campus: </strong>
+                                        <?php if (!empty($campus)) : ?>
+                                            <?php foreach ($campus as $key => $camp) : ?>
+                                                <?php echo $camp->name; ?>&nbsp;
+                                            <?php endforeach; ?>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <hr/>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <p>
-                            <strong>Dura&ccedil;&atilde;o: </strong>
-                            <?php
-                                $duracao = get_post_meta(get_the_ID(), '_curso_duracao', true);
-                                if (!empty($duracao)) {
-                                    echo $duracao;
-                                } else {
-                                    echo '-';
-                                }
-                            ?>
-                        </p>
-
-                        <p>
-                            <strong>Vagas: </strong>
-                            <?php
-                                $vagas = get_post_meta(get_the_ID(), '_curso_vagas', true);
-                                if (!empty($vagas)) {
-                                    echo $vagas;
-                                } else {
-                                    echo '-';
-                                }
-                            ?>
-                        </p>
-
-                        <?php $turnos = get_the_terms(get_the_ID(), 'turno'); ?>
-                        <?php $turnos_int = 1; ?>
-                        <p>
-                            <strong>Turnos: </strong>
-                            <?php
-                                if (!empty($turnos)) {
-                                    foreach ($turnos as $key => $turno) :
-                                        echo ($turnos_int == sizeof($turnos) ? $turno->name : $turno->name.', ');
-                                        $turnos_int++;
-                                    endforeach;
-                                } else {
-                                    echo '-';
-                                }
-                            ?>
-                        </p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <?php $modalidades = get_the_terms(get_the_ID(), 'modalidade'); ?>
-                        <p>
-                            <strong>Modalidade de ensino: </strong>
-                            <?php if (!empty($modalidades)) : ?>
-                                <?php foreach ($modalidades as $key => $modalidade) : ?>
-                                    <a href="<?php echo get_term_link($modalidade); ?>"><?php echo $modalidade->name; ?></a>
-                                <?php endforeach; ?>
-                            <?php else : ?>
-                                -
-                            <?php endif; ?>
-                        </p>
-
-                        <?php $campus = get_the_terms(get_the_ID(), 'campus'); ?>
-                        <p>
-                            <strong>Curso oferecido no Campus: </strong>
-                            <?php if (!empty($campus)) : ?>
-                                <?php foreach ($campus as $key => $camp) : ?>
-                                    <?php echo $camp->name; ?>&nbsp;
-                                <?php endforeach; ?>
-                            <?php else : ?>
-                                -
-                            <?php endif; ?>
-                        </p>
                     </div>
                 </div>
             </article>
