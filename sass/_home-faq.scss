@@ -37,10 +37,12 @@
 
             [data-toggle="collapse"]:before{
                 content: "\25bc";
+                color: $cor-apoio-secundaria;
             }
 
             [data-toggle="collapse"].collapsed:before{
                 content: "\25b6";
+                color: $cor-apoio-secundaria;
             }
         }
 
