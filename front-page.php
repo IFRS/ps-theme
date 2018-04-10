@@ -51,7 +51,7 @@
             </div>
             <div class="col-12 col-lg-6 home-ajuda__duvida">
                 <h2 class="home-ajuda__title">Voc&ecirc; ainda tem alguma d&uacute;vida?</h2>
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/home-ajuda.png" alt="Você tem alguma dúvida?" class="home-ajuda__image"/>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/home-ajuda.png" alt="Você tem alguma dúvida?" class="img-fluid home-ajuda__image"/>
                 <div class="home-ajuda__box">
                     <div class="row">
                         <div class="col-12">
