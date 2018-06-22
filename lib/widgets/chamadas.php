@@ -102,12 +102,12 @@ class Chamadas_Widget extends WP_Widget {
 											<a href="<?php echo get_permalink($resultado); ?>" rel="bookmark" class="list-group-item list-group-item-action flex-column align-items-start">
 												<div class="d-flex w-100 justify-content-between">
 													<h4 class="mb-1"><?php echo $resultado->post_title; ?></h4>
-													<small>
+													<p>
 														<?php $modalidades = get_post_meta($resultado->ID, '_chamada_resultados_group'); ?>
 														<?php foreach ($modalidades[0] as $id => $modalidade) : ?>
 															<span class="badge label-modalidade"><?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?></span>&nbsp;
 														<?php endforeach; ?>
-													</small>
+													</p>
 												</div>
                                                 <small><?php echo get_the_time('d/m/Y', $resultado); ?></small>
                                             </a>
