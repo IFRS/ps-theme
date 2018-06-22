@@ -56,6 +56,10 @@
     @include button-variant($cor-modalidades, $cor-modalidades);
 }
 
+.btn-campus {
+    @include button-variant($cor-campi, $cor-campi);
+}
+
 .label-formaingresso {
     @include badge-variant($cor-formasingresso);
 }
