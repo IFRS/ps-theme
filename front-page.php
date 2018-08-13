@@ -72,14 +72,17 @@
     </div>
 </section>
 
-<?php if (is_active_sidebar('home_jumbo')) : ?>
-    <section class="home-jumbo">
-        <div class="container">
-            <div class="row">
-                <?php dynamic_sidebar('home_jumbo'); ?>
+<section class="home-cursos">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img class="guria1 rellax" src="<?php echo get_stylesheet_directory_uri(); ?>/img/guria1.png" alt="" data-rellax-speed="2">
+                <img class="guria2 rellax d-none d-sm-block" src="<?php echo get_stylesheet_directory_uri(); ?>/img/guria2.png" alt="" data-rellax-speed="3">
+                <img class="guria3 rellax d-none d-lg-block" src="<?php echo get_stylesheet_directory_uri(); ?>/img/guria3.png" alt="" data-rellax-speed="2">
+                <img class="guria4 rellax d-none d-xl-block" src="<?php echo get_stylesheet_directory_uri(); ?>/img/guria4.png" alt="" data-rellax-speed="1">
             </div>
         </div>
-    </section>
-<?php endif; ?>
+    </div>
+</section>
 
 <?php get_footer(); ?>
