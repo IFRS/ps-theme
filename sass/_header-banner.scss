@@ -2,7 +2,7 @@
     background: url('../img/bg-header.png') no-repeat center center;
     background-size: cover;
     border-bottom: 10px solid $cor-menu-bg;
-    max-height: 370px;
+    max-height: 360px;
 
     img {
         display: inline-block;
@@ -10,6 +10,8 @@
     }
 
     .header-foto {
+        margin-right: 30px;
+
         @include media-breakpoint-down(md) {
             display: none;
         }
@@ -23,7 +25,7 @@
     }
 
     .header-selo {
-        vertical-align: top;
+        margin-left: 60px;
 
         @include media-breakpoint-down(lg) {
             display: none;
