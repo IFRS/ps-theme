@@ -1,17 +1,14 @@
-$cor-base:                    #da203e;
-$cor-base-secundaria:         #b11933;
-$cor-apoio:                   #35a38c;
-$cor-apoio-secundaria:        #137e68;
-$cor-destaque:                #254898;
+$cor-base:                    #e19631;
+$cor-base-secundaria:         #ec8d25;
+$cor-apoio:                   #d16d11;
+$cor-destaque:                #57585A;
 
-$cor-menu-bg:                 $cor-base;
-$cor-menu-item:               #fff7ea;
+$cor-menu-bg:                 $cor-base-secundaria;
+$cor-menu-item:               #ffffff;
 
-$cor-campi:                   $cor-base-secundaria;
+$cor-campi:                   $cor-base;
 
-$cor-rodape:                  darken($cor-menu-bg, 25%);
-
-$cor-verde-claro:             #dae2da;
+$cor-rodape:                  $cor-apoio;
 
 $cor-azul-resultados:         #1A3D75;
 $cor-modalidades:             #05827e;
@@ -27,7 +24,7 @@ $image-path:                  '../img/vendor/';
 $font-family-sans-serif:      "Open Sans", Arial, sans-serif;
 $icon-font-path:              '../fonts/bootstrap/';
 
-$link-color:                  $cor-base-secundaria;
+$link-color:                  #ac5d27;
 $navbar-dark-color:           rgba(255,255,255,.80);
 $navbar-dark-hover-color:     rgba(255,255,255,.90);
 
