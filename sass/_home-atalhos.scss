@@ -1,9 +1,30 @@
 .home-atalhos {
-    background: #ffffff url('../img/bg-atalhos.png') no-repeat center center;
-    background-size: cover;
-    box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.75);
+    background: $cor-base;
     padding: $grid-gutter-width 0;
-    position: relative;
     text-align: center;
-    z-index: 4;
+
+    &__title {
+        color: #ffffff;
+        margin: 0;
+    }
+
+    &__title-pre {
+        background-color: #ffffff;
+        padding-right: 0;
+    }
+
+    &__title-pre-seta {
+        background: url('../img/bg-info-esq.png') left center no-repeat;
+        padding-left: 0;
+    }
+
+    &__title-pos-seta {
+        background: url('../img/bg-info-dir.png') right center no-repeat;
+        padding-right: 0;
+    }
+
+    &__title-pos {
+        background-color: #ffffff;
+        padding-left: 0;
+    }
 }

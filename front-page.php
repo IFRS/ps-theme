@@ -17,6 +17,17 @@
 
 <?php if (is_active_sidebar('home_atalhos')) : ?>
     <section class="home-atalhos">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 home-atalhos__title-pre"></div>
+                <div class="col-md-2 home-atalhos__title-pre-seta"></div>
+                <div class="col-12 col-md-2">
+                    <h2 class="home-atalhos__title">Informa&ccedil;&otilde;es</h2>
+                </div>
+                <div class="col-md-2 home-atalhos__title-pos-seta"></div>
+                <div class="col-md-3 home-atalhos__title-pos"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <?php dynamic_sidebar('home_atalhos'); ?>
