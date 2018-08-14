@@ -1,3 +1,18 @@
 .menu-main {
     background-color: $cor-menu-bg;
+
+    .navbar {
+        align-items: flex-start;
+        height: 75px;
+        padding-top: 0;
+    }
+
+    .menu-item {
+        font-weight: bold;
+        padding: 10px 5px;
+    }
+
+    .current-menu-item {
+        background-color: $cor-apoio;
+    }
 }
