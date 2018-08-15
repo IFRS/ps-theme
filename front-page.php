@@ -18,14 +18,17 @@
 <?php if (is_active_sidebar('home_atalhos')) : ?>
     <section class="home-atalhos">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3 home-atalhos__title-pre"></div>
-                <div class="col-md-2 home-atalhos__title-pre-seta"></div>
-                <div class="col-12 col-md-2">
+            <div class="d-flex flex-row align-items-center">
+                <!--<div class="col-3 col-md-4 col-lg-4 col-xl-4 home-atalhos__title-pre"></div>-->
+                <!--<div class="col-2 col-md-2 col-lg-2 col-xl-2 home-atalhos__title-pre-seta"></div>-->
+                <!--<div class="col-6 col-md-4 col-lg-4 col-xl-4">-->
+                <div class="flex-fill home-atalhos__title-pre"></div>
+                <div class="">
                     <h2 class="home-atalhos__title">Informa&ccedil;&otilde;es</h2>
                 </div>
-                <div class="col-md-2 home-atalhos__title-pos-seta"></div>
-                <div class="col-md-3 home-atalhos__title-pos"></div>
+                <div class="flex-fill home-atalhos__title-pos"></div>
+                <!--<div class="col-2 col-md-2 col-lg-2 col-xl-2 home-atalhos__title-pos-seta"></div>-->
+                <!--<div class="col-3 col-md-4 col-lg-4 col-xl-4 home-atalhos__title-pos"></div>-->
             </div>
         </div>
         <div class="container">
