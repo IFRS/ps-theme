@@ -1,7 +1,9 @@
 .home-cursos {
     background: url('../img/bg-cursos.png') no-repeat center center;
     background-size: cover;
-    box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.75);
+    border-style: solid;
+    border-width: 18px 0px;
+    border-image: url('../img/border-cursos.png') 18 0 round;
     height: 760px;
     overflow: hidden;
     position: relative;
