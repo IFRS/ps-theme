@@ -5,9 +5,8 @@
         @include box-title();
 
         h3 {
-            font-size: 30px;
+            font-size: 1.8rem;
             margin: 0;
-            padding: 20px 100px 20px 20px;
         }
     }
 
@@ -25,36 +24,35 @@
         padding-bottom: 10px;
 
         p {
-            color: #666666;
+            color: $cor-destaque;
             margin-bottom: 0;
         }
     }
 
     &__item-meta {
-        font-size: 95%;
+        font-size: 0.9rem;
         margin-bottom: 3px;
     }
 
     &__item-date {
-        color: lighten($cor-base, 20%);
+        color: $cor-apoio;
         margin-right: 20px;
     }
 
     &__item-time {
-        color: #999999;
+        color: $cor-destaque;
     }
 
     &__item-title {
-        color: #000000;
+        font-weight: bold;
+        font-size: 18px;
         margin-bottom: 3px;
         margin-top: 0;
-
-        a {
-            color: #000000;
-        }
+        text-transform: uppercase;
     }
 
     &__btn {
-        @include button-variant($cor-base, lighten($cor-base, 5%));
+        @include button-variant(#ffffff, #ffffff);
+        @include ps-btn();
     }
 }

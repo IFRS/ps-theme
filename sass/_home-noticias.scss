@@ -1,11 +1,11 @@
 .home-noticias {
+    $n: &;
     &__title {
         @include box-title();
 
         h3 {
             font-size: 30px;
             margin: 0;
-            padding: 20px 100px 20px 20px;
         }
     }
 
@@ -22,6 +22,12 @@
         margin-bottom: 20px;
         padding-bottom: 20px;
 
+        &:hover {
+            #{$n}__item-meta {
+                border: 4px solid $cor-apoio;
+            }
+        }
+
         &:last-child {
             border-bottom: none;
         }
@@ -32,12 +38,14 @@
             padding: 0;
 
             li {
-                color: #999;
+                color: $cor-destaque;
                 display: inline-block;
+                font-size: 14px;
+                font-weight: bold;
                 text-transform: uppercase;
 
                 a {
-                    color: #999;
+                    color: $cor-destaque;
                 }
 
                 &:after {
@@ -54,35 +62,44 @@
     }
 
     &__item-meta {
-        background: $cor-apoio;
-        color: #ffffff;
+        border: 4px solid $cor-base-secundaria;
+        color: $cor-apoio;
         font-size: 28px;
         line-height: 32px;
         margin-bottom: 0;
-        padding: 10px 0;
         text-align: center;
     }
 
     &__item-day {
-        font-weight: bold;
+        border-top: 4px solid #ffffff;
         display: block;
+        font-weight: bold;
+        margin: 0 auto;
+        margin-top: -4px;
+        width: 85%;
     }
 
     &__item-month {
+        border-bottom: 4px solid #ffffff;
         display: block;
+        margin: 0 auto;
+        margin-bottom: -4px;
+        width: 85%;
     }
 
     &__item-title {
-        color: #666;
+        color: $cor-destaque;
+        font-size: 18px;
         margin-bottom: 3px;
         margin-top: 0;
 
         a {
-            color: #666;
+            color: $cor-destaque;
         }
     }
 
     &__btn {
-        @include button-variant($cor-apoio, lighten($cor-apoio, 5%));
+        @include button-variant(#ffffff, #ffffff);
+        @include ps-btn();
     }
 }

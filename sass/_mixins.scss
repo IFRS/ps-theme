@@ -1,9 +1,19 @@
 @mixin box-title() {
     align-items: center;
-    background: $cor-apoio;
+    background-color: $cor-apoio;
+    background-image: url('../img/bg-title-esq.png'), url('../img/bg-title-dir.png');
+    background-position: left center, right center;
+    background-repeat: no-repeat;
     color: #ffffff;
     display: flex;
     margin-bottom: 20px;
-    min-height: 105px;
+    min-height: 77px;
+    padding: 0 85px 0 140px;
     text-align: left;
+}
+
+@mixin ps-btn() {
+    background: #ffffff url('../img/btn.png') 3% center no-repeat;
+    font-weight: bold;
+    padding-left: 40px;
 }
