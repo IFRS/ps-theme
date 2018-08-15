@@ -2,10 +2,6 @@ body {
     font-family: "Open Sans", Arial, sans-serif;
 }
 
-main {
-    background: url('../img/bg.png') repeat;
-}
-
 table {
     @extend .table;
 }
