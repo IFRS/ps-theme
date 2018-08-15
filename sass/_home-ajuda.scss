@@ -24,7 +24,14 @@
     }
 
     &__image {
+        background: url('../img/home-ajuda.png') center center no-repeat;
         margin: 0 auto;
+        min-height: 634px;
+        min-width: 393px;
+
+        &_reverse {
+            background: url('../img/home-ajuda-reverse.png') center center no-repeat;
+        }
     }
 
     &__box {
