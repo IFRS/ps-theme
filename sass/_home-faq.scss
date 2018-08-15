@@ -1,7 +1,6 @@
 .home-faq {
     &__title {
-        @include box();
-        @include box-title($cor-apoio, '../img/bg-faq.png');
+        @include box-title();
 
         h3 {
             font-size: 30px;
@@ -11,9 +10,6 @@
     }
 
     &__body {
-        @include box();
-        @include box-body($cor-base);
-
         max-height: 635px;
         overflow-y: auto;
         overflow-x: hidden;

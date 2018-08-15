@@ -4,8 +4,7 @@ aside {
 
 .aside {
     &__title {
-        @include box();
-        @include box-title($cor-apoio, '');
+        @include box-title();
 
         padding: 20px;
     }

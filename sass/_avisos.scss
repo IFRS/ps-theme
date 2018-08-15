@@ -1,6 +1,4 @@
 .aviso {
-    @include box();
-
     margin-bottom: $grid-gutter-width;
     padding: 15px 10px;
 
@@ -31,8 +29,7 @@
 
 .category {
     &__title {
-        @include box();
-        @include box-title($cor-apoio, '../img/bg-noticias.png');
+        @include box-title();
 
         margin-bottom: $grid-gutter-width;
         padding: 20px;

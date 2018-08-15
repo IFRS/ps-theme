@@ -2,8 +2,7 @@
     margin-bottom: $grid-gutter-width;
 
     &__title {
-        @include box();
-        @include box-title($cor-base, '');
+        @include box-title();
 
         padding: 20px;
     }
@@ -17,8 +16,6 @@
     }
 
     &__content {
-        @include box();
-        @include box-body($cor-base);
         margin-top: $grid-gutter-width / 2;
 
         img {

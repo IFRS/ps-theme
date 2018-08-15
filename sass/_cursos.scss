@@ -2,16 +2,13 @@
     margin-bottom: $grid-gutter-width;
 
     &__title {
-        @include box();
-        @include box-title($cor-base, '');
+        @include box-title();
 
         margin-top: 0;
         padding: 20px;
     }
 
     &__content {
-        @include box();
-        @include box-body($cor-base);
     }
 
     .dataTables_wrapper {
