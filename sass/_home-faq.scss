@@ -1,10 +1,15 @@
 .home-faq {
     &__title {
-        @include box-title();
+        background: url('../img/bg-faq.png') right center no-repeat;
+        background-size: auto;
+        color: #ffffff;
+        margin-bottom: 40px;
+        padding-right: 140px;
 
         h3 {
             font-size: 30px;
             margin: 0;
+            text-transform: uppercase;
         }
     }
 
@@ -16,15 +21,17 @@
 
     &__item {
         border: none;
+        border-bottom: 1px solid $cor-apoio;
         margin-bottom: 5px;
 
         .card-header {
-            background-color: transparent;
-            border-bottom-color: $cor-apoio;
+            background-color: $cor-base;
+            border: none;
             padding: 0;
 
             a {
-                color: #000000;
+                color: #ffffff;
+                font-weight: bold;
                 text-align: left;
                 text-decoration: none;
                 white-space: normal;
@@ -32,16 +39,20 @@
 
             [data-toggle="collapse"]:before{
                 content: "\25bc";
+                color: $cor-apoio;
             }
 
             [data-toggle="collapse"].collapsed:before{
                 content: "\25b6";
+                color: $cor-apoio;
             }
         }
 
         .card-body {
-            background-color: #ffffff;
+            background-color: $cor-base;
+            color: $cor-destaque;
             font-size: 90%;
+            padding-left: 33px;
         }
     }
 }

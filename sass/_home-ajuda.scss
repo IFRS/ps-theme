@@ -1,20 +1,17 @@
 .home-ajuda {
-    background: #ffffff url('../img/bg-ajuda.png') no-repeat center center;
-    background-size: cover;
-    box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.75);
-    padding: $grid-gutter-width 0;
-    position: relative;
-    z-index: 2;
+    background: $cor-base;
+    padding: $grid-gutter-width 0 0 0;
 
     &__duvida {
         text-align: center;
     }
 
     &__title {
-        color: $cor-base;
-        font-size: 250%;
+        color: #ffffff;
+        font-size: 2.5rem;
         font-weight: bold;
         margin: 0 auto;
+        margin-bottom: 30px;
         max-width: 500px;
         text-align: center;
         text-transform: uppercase;
@@ -25,13 +22,15 @@
     }
 
     &__box {
-        background-color: rgba(255,255,255,0.5);
-        border-top-width: 5px;
-        padding: 20px;
+        background-color: $cor-apoio;
+        color: #ffffff;
+        padding: 40px;
         text-align: center;
     }
 
     &__box-title {
+        font-size: 2rem;
+        font-weight: bold;
         text-align: center;
     }
 }
