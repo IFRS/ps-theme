@@ -1,18 +1,21 @@
 .home-ajuda {
     background: $cor-base;
-    padding: $grid-gutter-width 0 0 0;
+    padding: ($grid-gutter-width * 2) 0 0 0;
 
     &__duvida {
         text-align: center;
     }
 
     &__title {
+        border-top: 20px solid $cor-apoio;
         color: #ffffff;
         font-size: 2.5rem;
         font-weight: bold;
         margin: 0 auto;
         margin-bottom: 30px;
+        margin-top: -($grid-gutter-width * 2);
         max-width: 500px;
+        padding-top: $grid-gutter-width + 10px;
         text-align: center;
         text-transform: uppercase;
     }
