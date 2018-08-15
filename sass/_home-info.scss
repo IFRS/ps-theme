@@ -1,20 +1,32 @@
 .home-info {
-    background: url('../img/bg-info.png') no-repeat center center;
-    background-size: cover;
-    box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.75);
     padding-bottom: 40px;
-    position: relative;
     text-align: center;
-    z-index: 3;
+
+    &__title-row {
+        border-bottom: 4px solid $cor-base;
+        border-top: 4px solid $cor-apoio;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
 
     &__title {
-        background: $cor-base-secundaria;
-        color: #ffffff;
-        display: inline-block;
+        color: $cor-apoio;
         font-size: 42px;
         font-weight: bold;
-        margin: 0 0 40px 0;
-        padding: 20px 40px 10px 40px;
+        margin: 0 30px;
         text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__title-pre {
+        background: url('../img/bg-info-esq.png') right center repeat-x;
+        background-color: #ffffff;
+        height: 50px;
+    }
+
+    &__title-pos {
+        background: url('../img/bg-info-dir.png') left center repeat-x;
+        background-color: #ffffff;
+        height: 50px;
     }
 }

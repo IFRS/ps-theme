@@ -3,10 +3,6 @@
     padding: $grid-gutter-width 0;
     text-align: center;
 
-    .container-fluid {
-        padding: 0;
-    }
-
     &__title {
         color: #ffffff;
         margin: 0 10px;
@@ -16,13 +12,13 @@
     }
 
     &__title-pre {
-        background: url('../img/bg-info-esq.png') right center no-repeat;
+        background: url('../img/bg-atalhos-esq.png') right center no-repeat;
         background-color: #ffffff;
         height: 25px;
     }
 
     &__title-pos {
-        background: url('../img/bg-info-dir.png') left center no-repeat;
+        background: url('../img/bg-atalhos-dir.png') left center no-repeat;
         background-color: #ffffff;
         height: 25px;
     }

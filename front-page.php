@@ -18,17 +18,10 @@
 <?php if (is_active_sidebar('home_atalhos')) : ?>
     <section class="home-atalhos">
         <div class="container-fluid">
-            <div class="d-flex flex-row align-items-center">
-                <!--<div class="col-3 col-md-4 col-lg-4 col-xl-4 home-atalhos__title-pre"></div>-->
-                <!--<div class="col-2 col-md-2 col-lg-2 col-xl-2 home-atalhos__title-pre-seta"></div>-->
-                <!--<div class="col-6 col-md-4 col-lg-4 col-xl-4">-->
+            <div class="row d-flex flex-row align-items-center">
                 <div class="flex-fill home-atalhos__title-pre"></div>
-                <div class="">
-                    <h2 class="home-atalhos__title">Informa&ccedil;&otilde;es</h2>
-                </div>
+                <h2 class="align-self-center home-atalhos__title">Informa&ccedil;&otilde;es</h2>
                 <div class="flex-fill home-atalhos__title-pos"></div>
-                <!--<div class="col-2 col-md-2 col-lg-2 col-xl-2 home-atalhos__title-pos-seta"></div>-->
-                <!--<div class="col-3 col-md-4 col-lg-4 col-xl-4 home-atalhos__title-pos"></div>-->
             </div>
         </div>
         <div class="container">
@@ -40,12 +33,14 @@
 <?php endif; ?>
 
 <section class="home-info">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="home-info__title">Saiba mais!</h2>
-            </div>
+    <div class="container-fluid">
+        <div class="row d-flex flex-row align-items-center home-info__title-row">
+            <div class="flex-fill home-info__title-pre"></div>
+            <h2 class="align-self-center home-info__title">Saiba +</h2>
+            <div class="flex-fill home-info__title-pos"></div>
         </div>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-12 col-lg-7">
                 <?php echo get_template_part('partials/home-publicacoes'); ?>
