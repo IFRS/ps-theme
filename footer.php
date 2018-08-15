@@ -36,7 +36,7 @@
                 <address class="footer-address">
                     <p>Rua General Os&oacute;rio, 348 | Bairro Centro</p>
                     <p>CEP: 95700-086 | Bento Gon&ccedil;alves/RS</p>
-                    <p>E-mail: <a href="mailto:pssolicitacoes@ifrs.edu.br">pssolicitacoes@ifrs.edu.br</a></p>
+                    <p>E-mail: <a href="mailto:processoseletivo@ifrs.edu.br">processoseletivo@ifrs.edu.br</a></p>
                     <p>Telefone: (54) 3449-3300</p>
                 </address>
             </div>
