@@ -4,11 +4,6 @@
 <section class="home-chamadas">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h2 class="home-chamadas__title">Voc&ecirc; &eacute; a cara do <strong>#MundoIFRS</strong></h2>
-            </div>
-        </div>
-        <div class="row">
             <?php dynamic_sidebar('home_chamadas'); ?>
         </div>
     </div>
