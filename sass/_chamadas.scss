@@ -3,22 +3,31 @@
     margin-top: 50px;
 
     &__title {
-        @include box-title();
+        @include text-hide;
+        background: url('../img/title-chamadas.png') no-repeat center center;
+        margin-bottom: 10px;
+        min-height: 130px;
+        min-width: 361px;
+        text-indent: -10000px;
 
         h2 {
             font-size: 32px;
             margin: 0;
-            padding: 20px 100px 20px 20px;
         }
     }
 }
 
 #chamadas {
     background-color: rgba(255,255,255,0.90);
-    margin-top: -5px;
     opacity: 0.95;
     padding: ($grid-gutter-width / 2) $grid-gutter-width;
     text-align: left;
+
+    #formasingresso {
+        p {
+            text-align: center;
+        }
+    }
 
     .breadcrumb {
         > li {
@@ -43,18 +52,35 @@
     .btn {
         margin-bottom: 10px;
     }
+
+    .chamadas {
+        .list-group-item {
+            color: $cor-apoio;
+
+            small {
+                color: $cor-destaque;
+            }
+
+            &:hover {
+                color: $cor-base-secundaria;
+            }
+        }
+    }
 }
 
 .btn-formaingresso {
-    @include button-variant($cor-formasingresso, $cor-formasingresso);
+    /*@include button-variant($cor-formasingresso, $cor-formasingresso);*/
+    @include btn-chamadas();
 }
 
 .btn-modalidade {
-    @include button-variant($cor-modalidades, $cor-modalidades);
+    /*@include button-variant($cor-modalidades, $cor-modalidades);*/
+    @include btn-chamadas();
 }
 
 .btn-campus {
-    @include button-variant($cor-campi, $cor-campi);
+    /*@include button-variant($cor-campi, $cor-campi);*/
+    @include btn-chamadas();
 }
 
 .label-formaingresso {

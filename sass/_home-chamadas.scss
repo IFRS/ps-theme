@@ -1,14 +1,29 @@
 .home-chamadas {
-    background: #ffffff url('../img/bg-home-chamadas.png') repeat-x right center;
-    box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.75);
-    position: relative;
+    background: #ffffff url('../img/bg-home-chamadas.png') no-repeat top center;
+    background-size: cover;
+    border-top: 20px solid $cor-base;
+    padding: 30px 0;
     text-align: center;
-    z-index: 5;
 
     .container {
-        background: url('../img/bg-chamadas.png') no-repeat left center;
-        background-size: cover;
-        min-height: 640px;
+        min-height: 350px;
+
+        @include media-breakpoint-up(md) {
+            background: url('../img/bg-chamadas.png') no-repeat left center;
+            background-size: contain;
+        }
+
+        @include media-breakpoint-only(md) {
+            min-height: 390px;
+        }
+
+        @include media-breakpoint-only(lg) {
+            min-height: 600px;
+        }
+
+        @include media-breakpoint-up(xl) {
+            min-height: 640px;
+        }
     }
 
     &__title {
