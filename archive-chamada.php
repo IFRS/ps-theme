@@ -2,13 +2,8 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-12 col-lg-8">
-            <div class="widget-home widget_chamadas_widget">
-                <?php the_widget( 'Chamadas_Widget', array('title' => 'Chamadas do Processo Seletivo', array('before_title' => '<h2>', 'after_title' => '</h2>')) ); ?>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4">
-            <?php if (!dynamic_sidebar('banner')) : endif; ?>
+        <div class="col-12">
+            <?php the_widget( 'Chamadas_Widget', array('title' => 'Chamadas do Processo Seletivo'), array('before_title' => '<div class="widget-chamadas__title"><h3>', 'after_title' => '</h3></div>') ); ?>
         </div>
     </div>
 </section>

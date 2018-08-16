@@ -33,3 +33,14 @@
     }
 
 }
+
+@mixin badge-chamadas() {
+    @include badge-variant($cor-base);
+
+    background-color: $cor-apoio;
+    background-image: url('../img/bg-badge-esq.png'), url('../img/bg-badge-dir.png');
+    background-position: left center, right center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 3px 6px 3px 20px;
+}

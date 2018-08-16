@@ -18,33 +18,29 @@
 }
 
 #chamadas {
-    background-color: rgba(255,255,255,0.90);
-    opacity: 0.95;
     padding: ($grid-gutter-width / 2) $grid-gutter-width;
     text-align: left;
 
     #formasingresso {
-        p {
-            text-align: center;
-        }
+        text-align: center;
     }
 
     .breadcrumb {
-        > li {
-            > a {
+        background-color: $cor-base;
+        color: #ffffff;
+
+        &-item {
+            a {
+                color: #ffffff;
                 font-weight: bold;
+            }
 
-                &.breadcrumb-formaingresso {
-                    color: $cor-formasingresso;
-                }
+            &.active {
+                color: #ffffff;
+            }
 
-                &.breadcrumb-campus {
-                    color: $cor-campi;
-                }
-
-                &.breadcrumb-modalidade {
-                    color: $cor-modalidades;
-                }
+            &:before {
+                color: #ffffff;
             }
         }
     }
@@ -55,7 +51,9 @@
 
     .chamadas {
         .list-group-item {
+            border-left: 10px solid $cor-base;
             color: $cor-apoio;
+            text-align: left;
 
             small {
                 color: $cor-destaque;
@@ -84,15 +82,18 @@
 }
 
 .label-formaingresso {
-    @include badge-variant($cor-formasingresso);
+    /*@include badge-variant($cor-formasingresso);*/
+    @include badge-chamadas();
 }
 
 .label-modalidade {
-    @include badge-variant($cor-modalidades);
+    /*@include badge-variant($cor-modalidades);*/
+    @include badge-chamadas();
 }
 
 .label-campus {
-    @include badge-variant($cor-campi);
+    /*@include badge-variant($cor-campi);*/
+    @include badge-chamadas();
 }
 
 .chamada-labels {
