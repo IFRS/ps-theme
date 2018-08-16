@@ -3,12 +3,14 @@
 
     .navbar {
         align-items: flex-start;
-        height: 75px;
+        justify-content: center;
+        padding-bottom: 0;
         padding-top: 0;
     }
 
     .menu-item {
         font-weight: bold;
+        height: 75px;
         padding: 10px 5px;
     }
 
