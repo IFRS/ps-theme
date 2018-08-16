@@ -40,18 +40,20 @@
         padding: 40px 40px 40px 100px;
         text-align: left;
 
-        &:after {
-            content:'';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -270px;
-            width: 0;
-            height: 0;
-            border-top: solid 80px $cor-apoio;
-            border-left: solid 270px transparent;
-            border-right: solid 270px transparent;
-            z-index: 100;
+        @include media-breakpoint-up(lg) {
+            &:after {
+                content:'';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -270px;
+                width: 0;
+                height: 0;
+                border-top: solid 80px $cor-apoio;
+                border-left: solid 270px transparent;
+                border-right: solid 270px transparent;
+                z-index: 100;
+            }
         }
     }
 
