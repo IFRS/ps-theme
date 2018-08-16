@@ -1,5 +1,35 @@
 aside {
+    color: $cor-destaque;
     margin-bottom: $grid-gutter-width;
+
+    .card {
+        border: none;
+        border-style: solid;
+        border-width: 3px 15px;
+        border-image: url('../img/border-btn.png') 3 10 repeat;
+        margin-bottom: 10px;
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+            background: none;
+            border-image: url('../img/border-btn-hover.png') 3 10 repeat;
+
+            .card-title {
+                a {
+                    color: $cor-base;
+                    transition: all 0.3s ease 0s;
+                }
+            }
+        }
+    }
+
+    .card-title {
+        text-align: center;
+
+        a {
+            color: $cor-destaque;
+        }
+    }
 }
 
 .aside {
@@ -7,5 +37,6 @@ aside {
         @include box-title();
 
         font-size: 1.5rem;
+        padding-left: 130px;
     }
 }
