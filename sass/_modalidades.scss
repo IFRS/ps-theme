@@ -4,8 +4,6 @@
     &__title {
         @include box-title();
 
-        margin-bottom: 20px;
-
         h2 {
             display: inline-block;
             margin: 0;
