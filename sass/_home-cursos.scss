@@ -1,9 +1,10 @@
 .home-cursos {
-    background: url('../img/bg-cursos.png') no-repeat center center;
+    background: #eeeeee url('../img/bg-cursos.png') center center no-repeat;
     background-size: cover;
     border-style: solid;
     border-width: 18px 0px;
     border-image: url('../img/border-cursos.png') 18 0 round;
+    box-sizing: border-box;
     height: 760px;
     overflow: hidden;
     position: relative;
@@ -47,7 +48,7 @@
 
     &__link {
         position: absolute;
-        left: 380px;
+        left: 33%;
         top: 580px;
         z-index: 5;
     }
