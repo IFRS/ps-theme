@@ -29,10 +29,10 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-5 col-lg-4 col-xl-3">
                 <a href="http://ifrs.edu.br/" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ifrs-branco.png" alt="Marca do IFRS"/></a>
             </div>
-            <div class="col-12 col-md-9">
+            <div class="col-12 col-md-7 col-lg-8 col-xl-9">
                 <address class="footer-address">
                     <p>Rua General Os&oacute;rio, 348 | Bairro Centro</p>
                     <p>CEP: 95700-086 | Bento Gon&ccedil;alves/RS</p>
