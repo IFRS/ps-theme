@@ -35,7 +35,7 @@ var dist = [
 
 gulp.task('default', function() {
     browserSync.init({
-        ui: false,
+        ghostMode: false,
         notify: false,
         online: false,
         open: false,
