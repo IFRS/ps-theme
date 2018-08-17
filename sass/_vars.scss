@@ -1,7 +1,7 @@
 $cor-base:                    #e19631;
 $cor-base-secundaria:         #ec8d25;
 $cor-apoio:                   #d16d11;
-$cor-destaque:                #57585A;
+$cor-destaque:                #383838;
 
 $cor-menu-bg:                 $cor-base-secundaria;
 $cor-menu-item:               #ffffff;
@@ -23,8 +23,10 @@ $font-family-sans-serif:      "Open Sans", Arial, sans-serif;
 $icon-font-path:              '../fonts/bootstrap/';
 
 $link-color:                  #ac5d27;
-$navbar-dark-color:           rgba(255,255,255,.80);
-$navbar-dark-hover-color:     rgba(255,255,255,.90);
+$navbar-dark-color:           #ffffff;
+$navbar-dark-hover-color:     rgba(255,255,255,.95);
 
 $nav-pills-link-active-color: #ffffff;
 $nav-pills-link-active-bg:    $cor-campi;
+
+$component-active-bg:         $cor-apoio;
