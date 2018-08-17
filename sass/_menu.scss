@@ -12,6 +12,10 @@
         font-weight: bold;
         height: 75px;
         padding: 10px 5px;
+
+        &:hover {
+            background-color: $cor-apoio;
+        }
     }
 
     .current-menu-item {
