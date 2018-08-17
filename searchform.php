@@ -1,7 +1,7 @@
 <form role="search" method="get" class="form-inline searchform" action="<?php echo esc_url(home_url('/')); ?>">
     <label class="sr-only" for="search-field">Buscar por:</label>
     <div class="input-group">
-        <input type="search" value="<?php echo get_search_query(); ?>" name="s" id="search-field" class="searchform__input form-control form-control-sm" placeholder="Buscar em todo o site" required>
+        <input type="search" value="<?php echo get_search_query(); ?>" name="s" id="search-field" class="form-control form-control-sm searchform__input" placeholder="Buscar em todo o site" required>
         <span class="input-group-append">
             <button type="submit" class="btn-sm searchform__submit" title="Buscar">
                 <span class="sr-only">Buscar</span>
