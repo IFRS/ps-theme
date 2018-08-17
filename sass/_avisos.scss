@@ -1,3 +1,11 @@
+.avisos {
+    &__title {
+        @include box-title();
+
+        margin-bottom: $grid-gutter-width;
+    }
+}
+
 .aviso {
     margin-bottom: $grid-gutter-width;
     padding: 15px 10px;
@@ -32,6 +40,5 @@
         @include box-title();
 
         margin-bottom: $grid-gutter-width;
-        padding: 20px;
     }
 }
