@@ -8,6 +8,7 @@ aside {
         border-width: 3px 15px;
         border-image: url('../img/border-btn.png') 3 10 repeat;
         margin-bottom: 10px;
+        text-align: center;
         transition: all 0.3s ease 0s;
 
         &:hover {
@@ -24,8 +25,6 @@ aside {
     }
 
     .card-title {
-        text-align: center;
-
         a {
             color: $cor-destaque;
         }
