@@ -14,8 +14,8 @@ function custom_pagination() {
         'end_size'           => 1,
         'mid_size'           => 2,
         'prev_next'          => true,
-        'prev_text'          => '<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Mais novos',
-        'next_text'          => 'Mais antigos&nbsp;<span class="glyphicon glyphicon-arrow-right"></span>',
+        'prev_text'          => 'Anterior',
+        'next_text'          => 'Pr&oacute;xima',
         'type'               => 'array',
         'add_args'           => false,
         'add_fragment'       => '',
@@ -30,9 +30,9 @@ function custom_pagination() {
         echo '<ul class="pagination">';
         foreach ( $pages as $page ) {
             if (strpos($page, 'current') !== false) {
-                echo "<li class='active'>$page</li>";
+                echo "<li class='page-item active'>$page</li>";
             } else {
-                echo "<li>$page</li>";
+                echo "<li class='page-item'>$page</li>";
             }
         }
         echo '</ul>';
