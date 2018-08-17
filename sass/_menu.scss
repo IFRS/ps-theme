@@ -8,10 +8,10 @@
         padding-top: 0;
     }
 
-    .menu-item {
+    .nav-link {
         font-weight: bold;
         height: 75px;
-        padding: 10px 5px;
+        padding-top: 15px;
 
         &:hover {
             background-color: $cor-apoio;
