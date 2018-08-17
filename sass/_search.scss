@@ -1,0 +1,7 @@
+.search {
+    &__title {
+        @include box-title();
+
+        margin-bottom: 15px;
+    }
+}
