@@ -2,6 +2,15 @@
     &__title {
         @include box-title();
 
+        margin-bottom: 30px;
+    }
+
+    &__entry {
         margin-bottom: 15px;
+    }
+
+    &__entry-title {
+        font-size: 1.6rem;
+        margin: 0;
     }
 }
