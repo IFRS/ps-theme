@@ -6,6 +6,7 @@ var postcss      = require('gulp-postcss');
 var cssmin       = require('gulp-cssmin');
 var concat       = require('gulp-concat');
 var uglify       = require('gulp-uglify');
+var babel        = require('gulp-babel');
 var imagemin     = require('gulp-imagemin');
 var del          = require('del');
 var pixrem       = require('pixrem');
@@ -119,6 +120,9 @@ gulp.task('webpack', function(done) {
 
 gulp.task('js', ['webpack'], function() {
     return gulp.src(['js/*.js', '!js/*.min.js'])
+    .pipe(babel({
+        presets: ['env']
+    }))
     .pipe(uglify({
         ie8: true,
         mangle: false,
