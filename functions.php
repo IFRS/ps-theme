@@ -62,3 +62,6 @@ require_once('lib/post-types/curso.php');
 require_once('lib/post-types/pergunta.php');
 require_once('lib/post-types/publicacao.php');
 require_once('lib/post-types/chamada.php');
+
+// Shortcodes
+require_once('lib/shortcodes/campi.php');
