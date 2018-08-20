@@ -9,10 +9,12 @@
     }
 
     .nav-link {
+        align-items: center;
+        display: flex;
         font-weight: bold;
         height: 75px;
         min-width: 75px;
-        padding-top: 15px;
+        text-align: center;
 
         &:hover {
             background-color: $cor-apoio;
