@@ -52,13 +52,35 @@ add_action('after_switch_theme', function() {
             'manage_editais'      => false
         ));
     }
+
+    // Publicações
+    if (!get_role( 'cadastrador_publicacoes' )) {
+        add_role('cadastrador_publicacoes', __('Cadastrador de Publicações'), array(
+            'read'                 => true,
+            'upload_files'         => true,
+            'manage_files'         => true,
+
+            'create_publicacoes'   => true,
+            'edit_publicacoes'     => true,
+            'manage_publicacoes'   => false
+        ));
+    }
 });
 
 add_action('switch_theme', function() {
     if (get_role( 'cadastrador_cursos' )) {
         remove_role( 'cadastrador_cursos' );
     }
+
     if (get_role( 'cadastrador_chamadas' )) {
         remove_role( 'cadastrador_chamadas' );
+    }
+
+    if (get_role( 'cadastrador_editais' )) {
+        remove_role( 'cadastrador_editais' );
+    }
+
+    if (get_role( 'cadastrador_publicacoes' )) {
+        remove_role( 'cadastrador_publicacoes' );
     }
 });
