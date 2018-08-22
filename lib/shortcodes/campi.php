@@ -1,6 +1,6 @@
 <?php
 
-function campi_shortcode( $atts, $content = '' ) {
+function campi_list_shortcode( $atts, $content = '' ) {
     $arr = shortcode_atts(
         array(),
         $atts
@@ -15,11 +15,12 @@ function campi_shortcode( $atts, $content = '' ) {
     $string = '';
 
     foreach ($campi as $campus) {
-        $string .= '<h3>' . $campus->name . '</h3>';
+        $string .= '<h4>' . $campus->name . '</h4>';
         $string .= !empty($campus->description) ? '<p>' . nl2br($campus->description) . '</p>' : '';
+        $string .= $content;
     }
 
     return $string;
 }
 
-add_shortcode( 'campi', 'campi_shortcode' );
+add_shortcode( 'campi-list', 'campi_list_shortcode' );
