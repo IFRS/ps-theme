@@ -37,8 +37,12 @@
     &__box {
         background-color: $cor-apoio;
         color: #ffffff;
-        padding: 40px 40px 40px 100px;
+        padding: 20px;
         text-align: left;
+
+        @include media-breakpoint-up(md) {
+            padding: 40px 40px 40px 100px;
+        }
 
         @include media-breakpoint-up(lg) {
             &:after {
@@ -93,6 +97,7 @@
         font-size: 1.5rem;
         font-weight: bold;
         margin-top: 15px;
+        word-break: break-all;
 
         &:hover {
             color: #ffffff;
