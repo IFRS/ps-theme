@@ -47,8 +47,9 @@
 
     &__link {
         position: absolute;
-        left: 33%;
+        left: 50%;
         top: 580px;
+        transform: translate(-50%, 0);
         z-index: 5;
     }
 }
