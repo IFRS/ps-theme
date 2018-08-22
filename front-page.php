@@ -65,7 +65,7 @@
                     <div class="d-flex flex-row justify-content-start">
                         <a href="https://www.instagram.com/IFRSOficial/" title="Instagram" class="home-ajuda__box-instagram"><span class="sr-only">Acesse o perfil do IFRS no Instagram</span></a>
                         <a href="https://www.facebook.com/IFRSOficial/" title="Facebook" class="home-ajuda__box-facebook"><span class="sr-only">Acesse o perfil do IFRS no Facebook</span></a>
-                        <img class="home-ajuda__box-icone" src="<?php echo get_stylesheet_directory_uri(); ?>/img/contato_ifrsoficial.png" alt="https://www.facebook.com/IFRSOficial/">
+                        <img class="d-none d-sm-block img-fluid home-ajuda__box-icone" src="<?php echo get_stylesheet_directory_uri(); ?>/img/contato_ifrsoficial.png" alt="https://www.facebook.com/IFRSOficial/">
                     </div>
                     <div class="row">
                         <div class="col-12">
