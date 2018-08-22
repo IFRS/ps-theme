@@ -17,8 +17,10 @@ function campi_list_shortcode( $atts, $content = '' ) {
     foreach ($campi as $campus) {
         $string .= '<h4>' . $campus->name . '</h4>';
         $string .= !empty($campus->description) ? '<p>' . nl2br($campus->description) . '</p>' : '';
-        $string .= $content;
+        $string .= '<hr>';
     }
+
+    $string .= $content;
 
     return $string;
 }
