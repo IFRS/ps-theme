@@ -1,25 +1,22 @@
-var gulp         = require('gulp');
-var gutil        = require('gulp-util');
-var rename       = require('gulp-rename');
-var sass         = require('gulp-sass');
-var postcss      = require('gulp-postcss');
-var cssmin       = require('gulp-cssmin');
-var concat       = require('gulp-concat');
-var uglify       = require('gulp-uglify');
-var babel        = require('gulp-babel');
-var imagemin     = require('gulp-imagemin');
-var del          = require('del');
-var pixrem       = require('pixrem');
-var autoprefixer = require('autoprefixer');
-var webpack      = require('webpack');
-var path         = require('path');
-var es           = require('event-stream');
-var runSequence  = require('run-sequence');
-var browserSync  = require('browser-sync').create();
+const argv         = require('minimist')(process.argv.slice(2));
+const autoprefixer = require('autoprefixer');
+const babel        = require('gulp-babel');
+const browserSync  = require('browser-sync').create();
+const cssmin       = require('gulp-cssmin');
+const del          = require('del');
+const gulp         = require('gulp');
+const imagemin     = require('gulp-imagemin');
+const path         = require('path');
+const pixrem       = require('pixrem');
+const PluginError  = require('plugin-error');
+const postcss      = require('gulp-postcss');
+const rename       = require('gulp-rename');
+const sass         = require('gulp-sass');
+const through2     = require('through2');
+const uglify       = require('gulp-uglify');
+const webpack      = require('webpack');
 
-require('dotenv').config();
-
-var dist = [
+const dist = [
     '**',
     '!dist{,/**}',
     '!node_modules{,/**}',
@@ -33,31 +30,6 @@ var dist = [
     '!package-lock.json',
     '!package.json'
 ];
-
-gulp.task('default', function() {
-    browserSync.init({
-        ghostMode: false,
-        notify: false,
-        online: false,
-        open: false,
-        host: process.env.BROWSERSYNC_URL,
-        proxy: process.env.BROWSERSYNC_URL,
-    });
-
-    gulp.watch('sass/**/*.scss', ['sass']);
-
-    gulp.watch('src/**/*.js', ['webpack']);
-
-    gulp.watch('**/*.php').on('change', browserSync.reload);
-});
-
-gulp.task('build', ['clean'], function(done) {
-    if (gutil.env.production) {
-        runSequence(['css', 'js', 'assets', 'images'], 'dist', done);
-    } else {
-        runSequence(['sass', 'webpack', 'assets'], done);
-    }
-});
 
 gulp.task('clean', function() {
     return del(['css/', 'js/', 'fonts/', 'img/vendor/', 'dist/']);
@@ -74,17 +46,19 @@ gulp.task('sass', function() {
         outputStyle: 'expanded'
     }).on('error', sass.logError))
     .pipe(postcss(postCSSplugins))
+    .pipe((argv.debug) ? debug({title: 'SASS:'}) : through2.obj())
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
 });
 
-gulp.task('css', ['sass'], function() {
+gulp.task('styles', gulp.series('sass', function css() {
     return gulp.src(['css/*.css', '!css/*.min.css'])
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
+    .pipe((argv.debug) ? debug({title: 'CSS:'}) : through2.obj())
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
-});
+}));
 
 gulp.task('webpack', function(done) {
     webpack({
@@ -109,16 +83,17 @@ gulp.task('webpack', function(done) {
             })
         ],
     }, function(err, stats) {
-        if (err) throw new gutil.PluginError('webpack', err);
-        gutil.log('[webpack]', stats.toString({
-            colors: true
-        }));
+        if (err) throw new PluginError('webpack', {
+            message: stats.toString({
+                colors: true
+            })
+        });
         browserSync.reload();
         done();
     });
 });
 
-gulp.task('js', ['webpack'], function() {
+gulp.task('scripts', gulp.series('webpack', function js() {
     return gulp.src(['js/*.js', '!js/*.min.js'])
     .pipe(babel({
         presets: ['env']
@@ -128,30 +103,57 @@ gulp.task('js', ['webpack'], function() {
         mangle: false,
     }))
     .pipe(rename({suffix: '.min'}))
+    .pipe((argv.debug) ? debug({title: 'JS:'}) : through2.obj())
     .pipe(gulp.dest('js/'))
     .pipe(browserSync.stream());
-});
+}));
 
-gulp.task('assets', function() {
-    var open_sans = gulp.src('node_modules/npm-font-open-sans/fonts/**/*')
+gulp.task('assets_opensans', function() {
+    return gulp.src('node_modules/npm-font-open-sans/fonts/**/*')
+    .pipe((argv.debug) ? debug({title: 'Assets OpenSans:'}) : through2.obj())
     .pipe(gulp.dest('fonts/opensans/'));
-
-    var bootstrap = gulp.src('node_modules/bootstrap-sass/assets/fonts/**/*')
-    .pipe(gulp.dest('fonts/'));
-
-    var fancybox = gulp.src('node_modules/jquery-fancybox/source/img/**/*')
-    .pipe(gulp.dest('img/vendor/'));
-
-    return es.concat(open_sans, bootstrap, fancybox);
 });
+
+gulp.task('assets_fancybox', function() {
+    return gulp.src('node_modules/jquery-fancybox/source/img/**/*')
+    .pipe((argv.debug) ? debug({title: 'Assets Fancybox:'}) : through2.obj())
+    .pipe(gulp.dest('img/vendor/'));
+});
+
+gulp.task('assets',  gulp.parallel('assets_opensans', 'assets_fancybox'));
 
 gulp.task('images', function() {
     return gulp.src('img/*.{png,jpg,gif}')
     .pipe(imagemin())
+    .pipe((argv.debug) ? debug({title: 'Images:'}) : through2.obj())
     .pipe(gulp.dest('img/'));
 });
 
 gulp.task('dist', function() {
     return gulp.src(dist)
+    .pipe((argv.debug) ? debug({title: 'Dist:'}) : through2.obj())
     .pipe(gulp.dest('dist/'));
 });
+
+gulp.task('default', function() {
+    browserSync.init({
+        ghostMode: false,
+        notify: false,
+        online: false,
+        open: false,
+        host: argv.URL || 'localhost',
+        proxy: argv.URL || 'localhost',
+    });
+
+    gulp.watch('sass/**/*.scss', gulp.series('sass'));
+
+    gulp.watch('src/**/*.js', gulp.series('webpack'));
+
+    gulp.watch('**/*.php').on('change', browserSync.reload);
+});
+
+if (argv.production) {
+    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts', 'assets', 'images'), 'dist'));
+} else {
+    gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'webpack', 'assets')));
+}

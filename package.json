@@ -11,11 +11,8 @@
     "datatables.net-bs4": "^1.10.19",
     "datatables.net-plugins": "^1.10.18",
     "del": "^3.0.0",
-    "dotenv": "^5.0.1",
-    "event-stream": "^3.3.4",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-babel": "^7.0.1",
-    "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-postcss": "^7.0.1",
@@ -25,11 +22,13 @@
     "html5shiv": "^3.7.3",
     "jquery": "^3.3.1",
     "jquery-fancybox": "^3.1.0",
+    "minimist": "^1.2.0",
     "npm-font-open-sans": "^1.1.0",
     "pixrem": "^4.0.1",
+    "plugin-error": "^1.0.1",
     "rellax": "^1.6.2",
     "respond.js": "^1.4.2",
-    "run-sequence": "^2.2.1",
+    "through2": "^2.0.3",
     "webpack": "^3.12.0"
   }
 }
