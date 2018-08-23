@@ -1,4 +1,10 @@
 .searchform {
+    margin-bottom: 15px;
+
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 0;
+    }
+
     &__input {
         background-color: $cor-apoio;
         border: none;

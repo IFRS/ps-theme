@@ -14,9 +14,11 @@
     }
 
     &__body {
-        max-height: 850px;
-        overflow-y: auto;
-        overflow-x: hidden;
+        @include media-breakpoint-up(lg) {
+            max-height: 850px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
 
         a {
             color: #000000;
