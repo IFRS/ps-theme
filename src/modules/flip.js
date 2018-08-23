@@ -1,5 +1,3 @@
-require('jquery');
-
 $(document).ready(function() {
     $(window).on('scroll', function() {
         clearTimeout($.data(this, 'scrollTimer'));
