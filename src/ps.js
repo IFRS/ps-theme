@@ -1,3 +1,4 @@
+require('popper.js');
 require('bootstrap');
 
 require('./modules/chamadas');
