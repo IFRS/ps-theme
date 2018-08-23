@@ -1,7 +1,13 @@
-require('datatables.net');
 require('datatables.net-bs4');
 
-$(document).ready( function() {
+$(document).ready(function() {
+    // Javascript to enable link to tab
+    var hash = document.location.hash;
+    if (hash) {
+        $('.list-campi a[href="'+hash+'"]').tab('show');
+    }
+
+    // DataTables Configuration
     $('.table-cursos').DataTable({
         searching: false,
         paging: false,
@@ -30,4 +36,4 @@ $(document).ready( function() {
             }
         }
     });
-} );
+});

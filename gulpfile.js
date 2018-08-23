@@ -64,7 +64,8 @@ gulp.task('webpack', function(done) {
     webpack({
         entry: {
             ie: './src/ie.js',
-            ps: './src/ps.js'
+            ps: './src/ps.js',
+            cursos: './src/cursos.js'
         },
         output: {
             path: path.resolve(__dirname, 'js'),
