@@ -83,6 +83,18 @@ gulp.task('webpack', function(done) {
                 jQuery: 'jquery'
             })
         ],
+        /*optimization: {
+            splitChunks: {
+                chunks: 'all',
+                minSize: 30000,
+                maxSize: 0,
+                minChunks: 1,
+                maxAsyncRequests: 5,
+                maxInitialRequests: 3,
+                automaticNameDelimiter: '-',
+                name: 'vendor',
+            }
+        }*/
     }, function(err, stats) {
         if (err) throw new PluginError('webpack', {
             message: stats.toString({
