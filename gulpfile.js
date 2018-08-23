@@ -124,7 +124,7 @@ gulp.task('scripts', gulp.series('webpack', function js() {
 gulp.task('assets_opensans', function() {
     return gulp.src('node_modules/npm-font-open-sans/fonts/**/*')
     .pipe((argv.debug) ? debug({title: 'Assets OpenSans:'}) : through2.obj())
-    .pipe(gulp.dest('fonts/opensans/'));
+    .pipe(gulp.dest('fonts/'));
 });
 
 gulp.task('assets_fancybox', function() {
