@@ -87,7 +87,7 @@
                 <img class="home-cursos__guria2 rellax d-none d-sm-block" src="<?php echo get_stylesheet_directory_uri(); ?>/img/guria2.png" alt="" data-rellax-speed="3">
                 <img class="home-cursos__guria3 rellax d-none d-lg-block" src="<?php echo get_stylesheet_directory_uri(); ?>/img/guria3.png" alt="" data-rellax-speed="2">
                 <img class="home-cursos__guria4 rellax d-none d-xl-block" src="<?php echo get_stylesheet_directory_uri(); ?>/img/guria4.png" alt="" data-rellax-speed="1">
-                <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>"><img class="home-cursos__link" src="<?php echo get_stylesheet_directory_uri(); ?>/img/cursos-link.png" alt=""></a>
+                <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>"><img class="home-cursos__link" src="<?php echo get_stylesheet_directory_uri(); ?>/img/cursos-link.png" alt="Conheça todos os Cursos"></a>
             </div>
         </div>
     </div>
