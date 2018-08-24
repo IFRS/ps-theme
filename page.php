@@ -33,12 +33,15 @@
                         <?php
                             global $post;
 
+                            $frontpage_id = get_option( 'page_on_front' );
+                            $blog_id = get_option( 'page_for_posts' );
+
                             $args = array(
                                 'orderby' => 'date',
                                 'order' => 'DESC',
                                 'post_type' => 'page',
                                 'numberposts' => 5,
-                                'post__not_in' => array($post->ID),
+                                'post__not_in' => array($post->ID, $frontpage_id, $blog_id),
                             );
 
                             $cat_posts = get_posts($args);
