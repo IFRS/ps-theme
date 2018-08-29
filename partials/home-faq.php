@@ -15,7 +15,7 @@
                     'nopaging ' => true,
                     'posts_per_page' => -1,
                     'order' => 'ASC',
-                    'orderby' => 'title'
+                    'orderby' => 'menu_order'
                 );
 
                 $perguntas = new WP_Query($args);
