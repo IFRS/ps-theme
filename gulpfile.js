@@ -109,7 +109,7 @@ gulp.task('webpack', function(done) {
 gulp.task('scripts', gulp.series('webpack', function js() {
     return gulp.src(['js/*.js', '!js/*.min.js'])
     .pipe(babel({
-        presets: ['env']
+        presets: ['@babel/env']
     }))
     .pipe(uglify({
         ie8: true,
