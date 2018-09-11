@@ -2,12 +2,11 @@
     background: url('../img/bg-header.png') repeat-x center center;
     max-height: 360px;
 
-    img {
-        display: inline-block;
-        margin: 0;
+    &__link {
+        display: block;
     }
 
-    .header-foto {
+    &__foto {
         margin-right: 30px;
 
         @include media-breakpoint-down(md) {
@@ -15,14 +14,14 @@
         }
     }
 
-    .header-ps {
+    &__ps {
         @include media-breakpoint-down(md) {
             display: block;
             margin: 15px auto;
         }
     }
 
-    .header-selo {
+    &__selo {
         margin-left: 60px;
 
         @include media-breakpoint-down(lg) {
