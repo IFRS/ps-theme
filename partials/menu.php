@@ -14,14 +14,13 @@
                 'container_class'   => 'collapse navbar-collapse',
                 'container_id'      => 'navbarSupportedContent',
                 'menu_class'        => 'navbar-nav mr-auto',
-                //'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                //'walker'            => new WP_Bootstrap_Navwalker()
                 'walker'            => new Bootstrap_NavWalker(),
                 'fallback_cb'       => 'Bootstrap_NavWalker::fallback'
             ));
         ?>
+
+        <a href="#fim-menu" id="fim-menu" class="sr-only">Fim do menu</a>
+
         <?php get_search_form(); ?>
     </div>
 </nav>
-
-<a href="#fim-menu" id="fim-menu" class="sr-only">Fim do menu</a>
