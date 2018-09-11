@@ -15,6 +15,8 @@
 </head>
 
 <body>
+    <a href="#main" class="sr-only">Pular para o conte&uacute;do</a>
+
     <?php echo get_template_part('partials/barrabrasil'); ?>
 
     <!-- Cabeçalho -->
@@ -43,5 +45,5 @@
 
     <a href="#inicio-conteudo" id="inicio-conteudo" class="sr-only">In&iacute;cio do conte&uacute;do</a>
 
-    <main role="main">
+    <main role="main" id="main">
     <?php ps_breadcrumb(); ?>
