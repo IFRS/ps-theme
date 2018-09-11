@@ -45,4 +45,4 @@
             </div>
         </div>
     </div>
-</arttcle>
+</article>
