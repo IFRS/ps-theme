@@ -4,6 +4,10 @@
 
     &__link {
         display: block;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     &__foto {
