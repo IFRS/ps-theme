@@ -55,7 +55,7 @@
             </div>
             <div class="col-12 col-lg-7 col-xl-6 home-ajuda__duvida">
                 <h2 class="home-ajuda__title">Voc&ecirc; ainda tem alguma d&uacute;vida?</h2>
-                <div class="home-ajuda__image"></div>
+                <div class="home-ajuda__image" aria-hidden="true"></div>
                 <div class="home-ajuda__box">
                     <div class="row">
                         <div class="col-12">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <a class="home-ajuda__box-email" href="mailto:processoseletivo@ifrs.edu.br">processoseletivo@ifrs.edu.br</a>
+                            <a class="home-ajuda__box-email" href="mailto:processoseletivo@ifrs.edu.br"><span class="sr-only">E-mail: </span>processoseletivo@ifrs.edu.br</a>
                         </div>
                     </div>
                 </div>
