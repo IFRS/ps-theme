@@ -23,7 +23,7 @@
                 <ul class="home-publicacoes__list">
                 <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
                     <li class="home-publicacoes__item">
-                        <p class="home-publicacoes__item-meta"><span class="home-publicacoes__item-date"><?php echo get_the_date('d/m/Y'); ?></span>&nbsp;<span class="home-publicacoes__item-time"><?php echo get_the_time('G\hi'); ?></span></p>
+                        <p class="home-publicacoes__item-meta"><span class="home-publicacoes__item-date"><?php echo get_the_modified_date('d/m/Y'); ?></span>&nbsp;<span class="home-publicacoes__item-time"><?php echo get_the_modified_time('G\hi'); ?></span></p>
                         <h4 class="home-publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                         <?php the_excerpt(); ?>
                     </li>
