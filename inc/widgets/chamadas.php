@@ -75,7 +75,7 @@ class Chamadas_Widget extends WP_Widget {
 		?>
 		<div class="row">
 			<div class="col-12">
-				<div id="chamadas">
+				<div id="chamadas" aria-live="polite">
 					<div id="formasingresso">
 						<p><?php _e('Selecione a sua forma de ingresso.', 'ifrs-ps-theme'); ?><br><small><?php _e('Os resultados de cada forma de ingresso serão divulgados conforme cronograma.', 'ifrs-ps=theme'); ?></small></p><div class="clearfix"></div>
 						<?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
