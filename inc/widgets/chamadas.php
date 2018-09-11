@@ -80,7 +80,7 @@ class Chamadas_Widget extends WP_Widget {
 						<p><?php _e('Selecione a sua forma de ingresso.', 'ifrs-ps-theme'); ?><br><small><?php _e('Os resultados de cada forma de ingresso serão divulgados conforme cronograma.', 'ifrs-ps=theme'); ?></small></p><div class="clearfix"></div>
 						<?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
 							<?php $formaingresso_obj = get_term($formaingresso_id); ?>
-							<a class="btn btn-formaingresso toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>" title="<?php echo $formaingresso_obj->name; ?>"><?php echo $formaingresso_obj->name; ?></a>
+							<a class="btn btn-formaingresso toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>"><span class="sr-only">Ingresso por </span><?php echo $formaingresso_obj->name; ?></a>
 							<div id="campi-<?php echo $formaingresso_obj->slug; ?>" class="campi">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
@@ -89,7 +89,7 @@ class Chamadas_Widget extends WP_Widget {
 								<p>Selecione o seu Campus.</p>
 								<?php foreach ($campi as $campus_id => $chamada) : ?>
 									<?php $campus_obj = get_term($campus_id); ?>
-									<a class="btn btn-campus toggle" href="#chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" title="<?php echo $campus_obj->name; ?>"><?php echo $campus_obj->name; ?></a>
+									<a class="btn btn-campus toggle" href="#chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>"><span class="sr-only">Campus </span><?php echo $campus_obj->name; ?></a>
 									<div id="chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="chamadas">
 										<ol class="breadcrumb">
 											<li class="breadcrumb-item"><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
