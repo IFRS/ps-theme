@@ -30,7 +30,7 @@ if ( ! function_exists('pergunta_post_type') ) {
 			// primitive caps used outside of map_meta_cap()
 			'edit_posts'             => 'edit_perguntas',
 			'edit_others_posts'      => 'manage_perguntas',
-			'publish_posts'          => 'manage_perguntas',
+			'publish_posts'          => 'create_perguntas',
 			'read_private_posts'     => 'read',
 
 			// primitive caps used inside of map_meta_cap()

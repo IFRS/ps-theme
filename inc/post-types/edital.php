@@ -30,7 +30,7 @@ if ( ! function_exists('edital_post_type') ) {
 			// primitive caps used outside of map_meta_cap()
 			'edit_posts'             => 'edit_editais',
 			'edit_others_posts'      => 'manage_editais',
-			'publish_posts'          => 'manage_editais',
+			'publish_posts'          => 'create_editais',
 			'read_private_posts'     => 'read',
 
 			// primitive caps used inside of map_meta_cap()

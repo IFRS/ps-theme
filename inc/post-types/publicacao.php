@@ -30,7 +30,7 @@ if ( ! function_exists('publicacao_post_type') ) {
 			// primitive caps used outside of map_meta_cap()
 			'edit_posts'             => 'edit_publicacoes',
 			'edit_others_posts'      => 'manage_publicacoes',
-			'publish_posts'          => 'manage_publicacoes',
+			'publish_posts'          => 'create_publicacoes',
 			'read_private_posts'     => 'read',
 
 			// primitive caps used inside of map_meta_cap()
