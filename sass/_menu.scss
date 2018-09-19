@@ -22,7 +22,8 @@
         }
     }
 
-    .current-menu-item {
+    .current-menu-item,
+    .current-menu-parent {
         background-color: $cor-apoio;
     }
 }
