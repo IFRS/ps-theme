@@ -11,7 +11,7 @@
     }
 
     &__foto {
-        margin-right: 30px;
+        margin-right: 10px;
 
         @include media-breakpoint-down(md) {
             display: none;
