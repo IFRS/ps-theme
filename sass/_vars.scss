@@ -1,17 +1,15 @@
-$cor-base:                    #e19631;
-$cor-base-secundaria:         #ec8d25;
-$cor-apoio:                   #d16d11;
-$cor-apoio-complementar:      #911b1b;
+$cor-base:                    #84478F;
+$cor-apoio:                   #77377D;
 $cor-destaque:                #383838;
 
-$cor-menu-bg:                 $cor-base-secundaria;
+$cor-menu-bg:                 $cor-base;
 $cor-menu-item:               #ffffff;
 
 $cor-rodape:                  $cor-apoio;
 
 $cor-modalidades:             #05827e;
 $cor-formasingresso:          #7f1b66;
-$cor-campi:                   $cor-base-secundaria;
+$cor-campi:                   $cor-base;
 
 // Fonts
 $FontPathOpenSans:            '../fonts';
@@ -22,7 +20,7 @@ $image-path:                  '../img/vendor/';
 // Bootstrap
 $font-family-sans-serif:      "Open Sans", Arial, sans-serif;
 
-$link-color:                  #ac5d27;
+$link-color:                  darken($cor-apoio, 10%);
 $navbar-dark-color:           #ffffff;
 $navbar-dark-hover-color:     rgba(255,255,255,.95);
 
