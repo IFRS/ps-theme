@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-banner__link">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto<?php echo mt_rand(1, 3); ?>.png" alt="" class="img-fluid header-banner__foto" aria-hidden="true"/>
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto<?php echo mt_rand(1, 2); ?>.png" alt="" class="img-fluid header-banner__foto" aria-hidden="true"/>
                             <img src="<?php header_image(); ?>" alt="" class="img-fluid header-banner__ps" aria-hidden="true"/>
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-selo.png" alt="" class="img-fluid header-banner__selo"/>
                             <span class="sr-only">Ir para P&aacute;gina Inicial</span>
