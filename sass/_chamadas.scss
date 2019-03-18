@@ -3,12 +3,10 @@
     margin-top: 50px;
 
     &__title {
-        @include text-hide;
         background: url('../img/title-chamadas.png') no-repeat center center;
         margin-bottom: 10px;
         min-height: 130px;
         min-width: 361px;
-        text-indent: -10000px;
 
         h2 {
             font-size: 32px;
@@ -60,7 +58,7 @@
             }
 
             &:hover {
-                color: $cor-base-secundaria;
+                color: $cor-base;
             }
         }
     }
