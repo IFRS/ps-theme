@@ -96,7 +96,7 @@ class Chamadas_Widget extends WP_Widget {
 											<li class="breadcrumb-item"><a href="#campi-<?php echo $formaingresso_obj->slug; ?>" class="breadcrumb-campus"><?php echo $formaingresso_obj->name; ?></a></li>
 											<li class="breadcrumb-item active" aria-current="page"><?php echo $campus_obj->name; ?></li>
 										</ol>
-										<p>Confira abaixo as chamadas já realizadas.</p>
+										<p>Confira abaixo as chamadas j&aacute; realizadas.</p>
 										<div class="list-group">
 										<?php foreach ($chamada as $resultado) : ?>
 											<a href="<?php echo get_permalink($resultado); ?>" rel="bookmark" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -105,11 +105,11 @@ class Chamadas_Widget extends WP_Widget {
 													<p>
 														<?php $modalidades = get_post_meta($resultado->ID, '_chamada_resultados_group'); ?>
 														<?php foreach ($modalidades[0] as $id => $modalidade) : ?>
-															<span class="badge label-modalidade"><?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?></span>&nbsp;
+															<span class="d-block badge label-modalidade"><?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?></span>&nbsp;
 														<?php endforeach; ?>
 													</p>
 												</div>
-                                                <small><?php echo get_the_time('d/m/Y', $resultado); ?></small>
+                                            	<small><?php echo get_the_time('d/m/Y', $resultado); ?></small>
                                             </a>
 										<?php endforeach; ?>
 										</div>
