@@ -50,7 +50,7 @@
                                                 </div>
                                                 <div class="list-group list-group-flush">
                                                     <?php foreach($matriculas as $id => $url): ?>
-                                                        <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-info"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                                        <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                                                     <?php endforeach; ?>
                                                 </div>
                                             </div>
@@ -65,7 +65,7 @@
                                                 </div>
                                                 <div class="list-group list-group-flush">
                                                     <?php foreach($bancas as $id => $url): ?>
-                                                        <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-info"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                                        <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                                                     <?php endforeach; ?>
                                                 </div>
                                             </div>
