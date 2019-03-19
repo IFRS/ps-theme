@@ -38,14 +38,14 @@
             padding: 0;
 
             li {
-                color: $cor-destaque;
+                color: #000000;
                 display: inline-block;
                 font-size: 14px;
                 font-weight: bold;
                 text-transform: uppercase;
 
                 a {
-                    color: $cor-destaque;
+                    color: #000000;
                 }
 
                 &:after {
@@ -88,13 +88,13 @@
     }
 
     &__item-title {
-        color: $cor-destaque;
+        color: #000000;
         font-size: 18px;
         margin-bottom: 3px;
         margin-top: 0;
 
         a {
-            color: $cor-destaque;
+            color: #000000;
         }
     }
 
