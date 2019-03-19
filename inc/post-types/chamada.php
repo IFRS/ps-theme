@@ -79,63 +79,68 @@ add_action( 'cmb2_admin_init', 'chamada_metaboxes', 5 );
  */
 function chamada_metaboxes() {
     // Start with an underscore to hide fields from custom fields list
-    $prefix = '_chamada_resultados_';
+	$prefix = '_chamada_';
 
-    /**
-     * Initiate the metabox
-     */
-    $cmb = new_cmb2_box( array(
-        'id'            => $prefix . 'metabox',
-        'title'         => __( 'Resultados da Chamada', 'ifrs-ps-theme' ),
-        'object_types'  => array( 'chamada', ), // Post type
-        'context'       => 'normal',
-        'priority'      => 'high',
-        'show_names'    => true, // Show field names on the left
-        // 'cmb_styles' => false, // false to disable the CMB stylesheet
-        // 'closed'     => true, // Keep the metabox closed by default
-    ) );
+	$arquivos = new_cmb2_box( array(
+		'id'            => $prefix . 'arquivos_metabox',
+		'title'         => __( 'Arquivos Gerais da Chamada', 'ifrs-ps-theme' ),
+		'object_types'  => array( 'chamada', ),
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true,
+	) );
 
-	$group_field_id = $cmb->add_field( array(
-	    'id'          => $prefix . 'group',
+	$arquivos->add_field( array(
+	    'name' => 'Matrículas',
+	    'desc' => 'Selecione os arquivos com as informações para matrículas. Lembrete: preencha corretamente o título de cada arquivo.',
+	    'id'   => $prefix . 'matriculas',
+	    'type' => 'file_list',
+	) );
+
+	$arquivos->add_field( array(
+	    'name' => 'Bancas',
+	    'desc' => 'Selecione os arquivos com as informações das bancas de heteroidentificação. Lembrete: preencha corretamente o título de cada arquivo.',
+	    'id'   => $prefix . 'bancas',
+	    'type' => 'file_list',
+	) );
+
+	$resultados = new_cmb2_box( array(
+		'id'            => $prefix . 'resultados_metabox',
+		'title'         => __( 'Resultados da Chamada', 'ifrs-ps-theme' ),
+		'object_types'  => array( 'chamada', ),
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true,
+	) );
+
+	$resultados_group = $resultados->add_field( array(
+	    'id'          => $prefix . 'resultados_group',
 	    'type'        => 'group',
 	    // 'description' => __( 'Arquivos por modalidade.', 'ifrs-ps-theme' ),
-	    // 'repeatable'  => false, // use false if you want non-repeatable group
 	    'options'     => array(
-	        'group_title'   => __( 'Resultado {#}', 'ifrs-ps-theme' ), // since version 1.1.4, {#} gets replaced by row number
+	        'group_title'   => __( 'Resultado {#}', 'ifrs-ps-theme' ),
 	        'add_button'    => __( 'Adicionar outro Resultado', 'ifrs-ps-theme' ),
 	        'remove_button' => __( 'Remover Resultado', 'ifrs-ps-theme' ),
-	        // 'sortable'      => true, // beta
-	        // 'closed'        => true, // true to have the groups closed by default
 	    ),
 	) );
 
 	// Id's for group's fields only need to be unique for the group. Prefix is not needed.
-	$cmb->add_group_field( $group_field_id, array(
+	$resultados->add_group_field( $resultados_group, array(
 	    'name'             => 'Modalidade',
 	    'desc'             => 'Selecione uma modalidade.',
 	    'id'               => 'modalidade',
 	    'type'             => 'select',
 	    'show_option_none' => true,
-	    // 'default'          => 'custom',
 	    'options'          => get_terms(array('taxonomy' => 'modalidade', 'fields' => 'id=>name')),
 		'attributes'  => array(
 			'required' => 'required'
 		)
 	) );
 
-	$cmb->add_group_field( $group_field_id, array(
-	    'name' => 'Arquivos',
-	    'desc' => 'Selecione os arquivos relacionados a este resultado. Lembrete: preencha corretamente o título de cada arquivo.',
-	    'id'   => 'arquivos',
-	    'type' => 'file_list',
-	    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-	    // Optional, override default text strings
-	    // 'text' => array(
-	    //     'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
-	    //     'remove_image_text' => 'Replacement', // default: "Remove Image"
-	    //     'file_text' => 'Replacement', // default: "File:"
-	    //     'file_download_text' => 'Replacement', // default: "Download"
-	    //     'remove_text' => 'Replacement', // default: "Remove"
-	    // ),
+	$resultados->add_group_field( $resultados_group, array(
+		'name' => 'Arquivos',
+		'desc' => 'Selecione os arquivos relacionados a este resultado. Lembrete: preencha corretamente o título de cada arquivo.',
+		'id'   => 'arquivos',
+		'type' => 'file_list',
 	) );
 }

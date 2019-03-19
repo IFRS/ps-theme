@@ -38,12 +38,48 @@
                         <div class="post__content">
                             <?php the_content(); ?>
 
+                            <?php $matriculas = get_post_meta(get_the_ID(), '_chamada_matriculas'); ?>
+                            <?php $bancas = get_post_meta(get_the_ID(), '_chamada_bancas'); ?>
+                            <?php if (!empty($matriculas) || !empty($bancas)) : ?>
+                                <div class="row mb-5">
+                                    <?php if (!empty($matriculas)) : ?>
+                                        <div class="col col-md-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <strong><?php _e('Matrículas', 'ifrs-ps-theme'); ?></strong>
+                                                </div>
+                                                <div class="list-group list-group-flush">
+                                                    <?php foreach($matriculas as $id => $url): ?>
+                                                        <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-info"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($bancas)) : ?>
+                                        <div class="col col-md-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <strong><?php _e('Bancas de Heteroidentificação', 'ifrs-ps-theme'); ?></strong>
+                                                </div>
+                                                <div class="list-group list-group-flush">
+                                                    <?php foreach($bancas as $id => $url): ?>
+                                                        <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-info"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+
                             <?php $resultados = get_post_meta(get_the_ID(), '_chamada_resultados_group'); ?>
                             <?php if (!empty($resultados)) : ?>
                                 <div class="row">
                                     <?php foreach ($resultados[0] as $resultado) : ?>
                                         <div class="col-12 col-lg-6">
-                                            <div class="card">
+                                            <div class="card mb-2">
                                                 <div class="card-header">
                                                     <strong><?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
                                                 </div>
@@ -58,7 +94,11 @@
                                 </div>
                             <?php endif; ?>
                             <hr>
-                            <p class="post__meta">Publicado em <?php the_date('d/m/Y'); ?></p>
+                            <p class="post__meta">
+                                <?php printf(__('Publicado em %s', 'ifrs-ps-theme'), get_the_date('d/m/Y')); ?>
+                                &mdash;
+                                <?php printf(__('Última atualização em %s', 'ifrs-ps-theme'), get_the_modified_date('d/m/Y')); ?>
+                            </p>
                         </div>
                     </div>
                 </div>
