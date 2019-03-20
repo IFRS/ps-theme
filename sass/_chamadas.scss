@@ -4,9 +4,10 @@
 
     &__title {
         background: url('../img/title-chamadas.png') no-repeat center center;
+        background-size: contain;
         margin-bottom: 10px;
         min-height: 130px;
-        min-width: 361px;
+        min-width: 290px;
 
         h2 {
             font-size: 32px;
@@ -53,10 +54,6 @@
             color: $cor-apoio;
             text-align: left;
 
-            small {
-                color: $cor-destaque;
-            }
-
             &:hover {
                 color: $cor-base;
             }
@@ -65,32 +62,26 @@
 }
 
 .btn-formaingresso {
-    /*@include button-variant($cor-formasingresso, $cor-formasingresso);*/
     @include btn-chamadas();
 }
 
 .btn-modalidade {
-    /*@include button-variant($cor-modalidades, $cor-modalidades);*/
     @include btn-chamadas();
 }
 
 .btn-campus {
-    /*@include button-variant($cor-campi, $cor-campi);*/
     @include btn-chamadas();
 }
 
 .label-formaingresso {
-    /*@include badge-variant($cor-formasingresso);*/
     @include badge-chamadas();
 }
 
 .label-modalidade {
-    /*@include badge-variant($cor-modalidades);*/
     @include badge-chamadas();
 }
 
 .label-campus {
-    /*@include badge-variant($cor-campi);*/
     @include badge-chamadas();
 }
 
