@@ -1,15 +1,18 @@
 .home-faq {
     &__title {
-        background: url('../img/bg-faq.png') right center no-repeat;
-        background-size: auto;
         color: #ffffff;
         margin-bottom: 40px;
-        padding-right: 140px;
 
         h3 {
             font-size: 30px;
             margin: 0;
             text-transform: uppercase;
+        }
+
+        @include media-breakpoint-up(sm) {
+            background: url('../img/bg-faq.png') right center no-repeat;
+            background-size: auto;
+            padding-right: 140px;
         }
     }
 

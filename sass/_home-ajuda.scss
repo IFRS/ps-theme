@@ -32,6 +32,10 @@
         &_reverse {
             background: url('../img/home-ajuda-reverse.png') center center no-repeat;
         }
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
     }
 
     &__box {

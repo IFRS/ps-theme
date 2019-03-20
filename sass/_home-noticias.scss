@@ -9,9 +9,6 @@
         }
     }
 
-    &__body {
-    }
-
     &__list {
         list-style: none;
         padding: 0;
@@ -68,6 +65,10 @@
         line-height: 32px;
         margin-bottom: 0;
         text-align: center;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 22px;
+        }
     }
 
     &__item-day {
