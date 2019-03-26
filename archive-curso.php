@@ -47,7 +47,7 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th>Curso</th>
-                                            <th>C&acirc;mpus</th>
+                                            <th>Campus</th>
                                             <th>Modalidade</th>
                                             <th>Turnos</th>
                                             <th>Vagas&sup1;</th>
@@ -78,7 +78,7 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>Curso</th>
-                                                <th>C&acirc;mpus</th>
+                                                <th>Campus</th>
                                                 <th>Modalidade</th>
                                                 <th>Turnos</th>
                                                 <th>Vagas&sup1;</th>
