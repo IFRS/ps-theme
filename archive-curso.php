@@ -50,7 +50,7 @@
                                             <th>C&acirc;mpus</th>
                                             <th>Modalidade</th>
                                             <th>Turnos</th>
-                                            <th>Vagas*</th>
+                                            <th>Vagas&sup1;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -81,7 +81,7 @@
                                                 <th>C&acirc;mpus</th>
                                                 <th>Modalidade</th>
                                                 <th>Turnos</th>
-                                                <th>Vagas*</th>
+                                                <th>Vagas&sup1;</th>
                                             </tr>
                                         </thead>
                                         <tbody>

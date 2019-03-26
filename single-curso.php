@@ -84,6 +84,14 @@
                                     </p>
                                 </div>
                             </div>
+                            <?php if (get_post_meta( get_the_ID(), '_curso_ead', 1 )) : ?>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="alert alert-info" role="alert"><p><small><strong>Fique atento!</strong>&nbsp;Esse Curso possui parte da carga hor&aacute;ria a dist&acirc;ncia.</small></p></div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

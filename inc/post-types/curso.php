@@ -87,18 +87,15 @@ function curso_metaboxes() {
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'metabox',
         'title'         => __( 'Informa&ccedil;&otilde;es do Curso', 'ifrs-ps-theme' ),
-        'object_types'  => array( 'curso', ), // Post type
+        'object_types'  => array( 'curso' ),
         'context'       => 'normal',
         'priority'      => 'high',
-        'show_names'    => true, // Show field names on the left
-        // 'cmb_styles' => false, // false to disable the CMB stylesheet
-        // 'closed'     => true, // Keep the metabox closed by default
+        'show_names'    => true,
     ) );
 
     $cmb->add_field( array(
         'name'    => __( 'Total de Vagas', 'ifrs-ps-theme' ),
         'desc'    => __( 'Somente números.' ),
-        // 'default' => 'standard value (optional)',
         'id'      => $prefix . 'vagas',
         'type'    => 'text',
         'attributes' => array(
@@ -112,8 +109,14 @@ function curso_metaboxes() {
     $cmb->add_field( array(
         'name'    => __( 'Dura&ccedil;&atilde;o', 'ifrs-ps-theme' ),
         'desc'    => __( 'p.ex.: "2 anos", "4 semestres", "1300 horas", etc.' ),
-        // 'default' => 'standard value (optional)',
         'id'      => $prefix . 'duracao',
         'type'    => 'text',
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Carga horária EaD?', 'ifrs-ps-theme' ),
+        'desc'    => __( 'Marque para aparecer um aviso sobre carga horária a distância.' ),
+        'id'      => $prefix . 'ead',
+        'type'    => 'checkbox',
     ) );
 }

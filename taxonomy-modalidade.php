@@ -38,7 +38,7 @@
                                         <th>Curso</th>
                                         <th>C&acirc;mpus</th>
                                         <th>Turnos</th>
-                                        <th>Vagas*</th>
+                                        <th>Vagas&sup1;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,7 +72,7 @@
                                         <th>Curso</th>
                                         <th>C&acirc;mpus</th>
                                         <th>Turnos</th>
-                                        <th>Vagas*</th>
+                                        <th>Vagas&sup1;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -114,7 +114,7 @@
                         <?php endforeach; ?>
                     </div>
                     <?php get_template_part('partials/cursos','alert-vagas'); ?>
-                    <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>" class="btn btn-link">&larr;&nbsp;Voltar para a lista com todos os Cursos</a>
+                    <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>" class="btn btn-light">&larr;&nbsp;Voltar para a lista com todos os Cursos</a>
                 </div>
             </div>
         </div>
