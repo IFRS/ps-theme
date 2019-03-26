@@ -49,7 +49,7 @@
                                                     <strong><?php _e('Matrículas', 'ifrs-ps-theme'); ?></strong>
                                                 </div>
                                                 <div class="list-group list-group-flush">
-                                                    <?php foreach($matriculas as $id => $url): ?>
+                                                    <?php foreach($matriculas[0] as $id => $url) : ?>
                                                         <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                                                     <?php endforeach; ?>
                                                 </div>
@@ -64,7 +64,7 @@
                                                     <strong><?php _e('Bancas de Heteroidentificação', 'ifrs-ps-theme'); ?></strong>
                                                 </div>
                                                 <div class="list-group list-group-flush">
-                                                    <?php foreach($bancas as $id => $url): ?>
+                                                    <?php foreach($bancas[0] as $id => $url): ?>
                                                         <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                                                     <?php endforeach; ?>
                                                 </div>
