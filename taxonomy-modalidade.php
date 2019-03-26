@@ -90,22 +90,7 @@
                                         $cursos_per_campus = new WP_Query($args);
                                     ?>
                                     <?php while ( $cursos_per_campus->have_posts() ) : $cursos_per_campus->the_post(); ?>
-                                        <tr>
-                                            <td><a href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></td>
-                                            <td>
-                                                <?php foreach (get_the_terms(get_the_ID(), 'campus') as $campus) : ?>
-                                                    <p><?php echo $campus->name; ?></p>
-                                                <?php endforeach; ?>
-                                            </td>
-                                            <td>
-                                                <?php foreach (get_the_terms(get_the_ID(), 'turno') as $turno) : ?>
-                                                    <p><?php echo $turno->name; ?></p>
-                                                <?php endforeach; ?>
-                                            </td>
-                                            <td>
-                                                <p><?php echo get_post_meta(get_the_ID(), 'vagas', true); ?></p>
-                                            </td>
-                                        </tr>
+                                        <?php get_template_part('partials/cursos', 'row'); ?>
                                     <?php endwhile;?>
                                     <?php $cursos_per_campus->wp_reset_query(); ?>
                                 </tbody>
