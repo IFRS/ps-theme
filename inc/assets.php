@@ -13,6 +13,8 @@ function ps_load_scripts() {
         wp_deregister_script('jquery');
     }
 
+    wp_enqueue_script('js-commons', get_template_directory_uri().(WP_DEBUG ? '/js/commons.js' : '/js/commons.min.js'), array(), null, true);
+
     wp_enqueue_script( 'js-ie', get_template_directory_uri().(WP_DEBUG ? '/js/ie.js' : '/js/ie.min.js'), array(), null, false );
     wp_script_add_data( 'js-ie', 'conditional', 'lt IE 9' );
 

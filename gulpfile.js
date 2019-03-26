@@ -37,6 +37,7 @@ gulp.task('clean', function() {
 
 gulp.task('sass', function() {
     var postCSSplugins = [
+        require('postcss-flexibility'),
         pixrem(),
         autoprefixer({browsers: ['> 1%', 'last 3 versions', 'ie 8-10', 'not ie <= 7']})
     ];
@@ -74,7 +75,8 @@ gulp.task('webpack', function(done) {
         resolve: {
             alias: {
                 jquery: 'jquery/src/jquery',
-                bootstrap: 'bootstrap/dist/js/bootstrap.bundle'
+                bootstrap: 'bootstrap/dist/js/bootstrap.bundle',
+                popper: 'popper.js'
             }
         },
         plugins: [
@@ -83,18 +85,20 @@ gulp.task('webpack', function(done) {
                 jQuery: 'jquery'
             })
         ],
-        /*optimization: {
+        optimization: {
+            minimize: false,
             splitChunks: {
                 chunks: 'all',
-                minSize: 30000,
-                maxSize: 0,
-                minChunks: 1,
-                maxAsyncRequests: 5,
-                maxInitialRequests: 3,
-                automaticNameDelimiter: '-',
-                name: 'vendor',
+                cacheGroups: {
+                    vendors: false,
+                    commons: {
+                        name: "commons",
+                        chunks: "initial",
+                        minChunks: 2
+                    }
+                }
             }
-        }*/
+        },
     }, function(err, stats) {
         if (err) throw new PluginError('webpack', {
             message: stats.toString({
@@ -109,11 +113,15 @@ gulp.task('webpack', function(done) {
 gulp.task('scripts', gulp.series('webpack', function js() {
     return gulp.src(['js/*.js', '!js/*.min.js'])
     .pipe(babel({
-        presets: ['@babel/env']
+        presets: [
+            [
+                "@babel/env",
+                { "modules": false }
+            ]
+        ]
     }))
     .pipe(uglify({
         ie8: true,
-        mangle: false,
     }))
     .pipe(rename({suffix: '.min'}))
     .pipe((argv.debug) ? debug({title: 'JS:'}) : through2.obj())
