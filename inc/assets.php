@@ -18,7 +18,7 @@ function ps_load_scripts() {
 
     wp_enqueue_script('js-ps', get_template_directory_uri().(WP_DEBUG ? '/js/ps.js' : '/js/ps.min.js'), array(), null, true);
 
-    if (is_post_type_archive( 'curso' )) {
+    if (is_post_type_archive( 'curso' ) || is_tax('modalidade')) {
         wp_enqueue_script('js-cursos', get_template_directory_uri().(WP_DEBUG ? '/js/cursos.js' : '/js/cursos.min.js'), array(), null, true);
     }
 
