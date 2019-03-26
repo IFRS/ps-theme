@@ -35,18 +35,40 @@ if ( ! function_exists( 'campus_taxonomy' ) ) {
             'show_tagcloud'     => false,
             'capabilities'      => $capabilities,
         );
-        register_taxonomy( 'campus', array( 'curso', 'resultado' ), $args );
+        register_taxonomy( 'campus', array( 'curso', 'chamada' ), $args );
     }
 
     // Hook into the 'init' action
     add_action( 'init', 'campus_taxonomy', 0 );
 }
 
-// Single Term
-$single_term_campus = new Taxonomy_Single_Term( 'campus' );
-$single_term_campus->set( 'priority', 'default' );
-// $single_term_campus->set( 'context', 'normal' );
-// $single_term_campus->set( 'metabox_title', __( 'Custom Metabox Title', 'ifrs-ps-theme' ) );
-$single_term_campus->set( 'force_selection', true );
-$single_term_campus->set( 'indented', false );
-$single_term_campus->set( 'allow_new_terms', false );
+// MetaBox
+add_action( 'cmb2_admin_init', 'campus_metaboxes', 2 );
+/**
+ * Define the metabox and field configurations.
+ */
+function campus_metaboxes() {
+    /**
+	 * Taxonomy Campus
+	 */
+    $campus_metabox = new_cmb2_box( array(
+		'id'           => '_campus_taxonomy_metabox',
+		'title'        => __( 'Campus', 'ifrs-ps-theme' ),
+		'object_types' => array( 'curso', 'chamada' ),
+		'context'      => 'side',
+		'priority'     => 'low',
+		'show_names'   => false,
+    ) );
+
+    $campus_metabox->add_field( array(
+        'id'                => '_campus_taxonomy',
+        'name'              => __( 'Campus', 'ifrs-ps-theme' ),
+        'taxonomy'          => 'campus',
+        'type'              => 'taxonomy_radio',
+        'show_option_none'  => false,
+        'text'              => array(
+            'no_terms_text' => __( 'Ops! Nenhum Campus encontrado. Por favor, crie algum Campus antes de cadastrar isto.', 'ifrs-ps-theme')
+        ),
+        'remove_default'    => 'true',
+    ) );
+}

@@ -41,3 +41,35 @@ if ( ! function_exists( 'turno_taxonomy' ) ) {
     // Hook into the 'init' action
     add_action( 'init', 'turno_taxonomy', 0 );
 }
+
+// MetaBox
+add_action( 'cmb2_admin_init', 'turno_metaboxes', 2 );
+/**
+ * Define the metabox and field configurations.
+ */
+function turno_metaboxes() {
+    /**
+	 * Taxonomy Turno
+	 */
+    $turno_metabox = new_cmb2_box( array(
+		'id'           => '_turno_taxonomy_metabox',
+		'title'        => __( 'Turnos', 'ifrs-ps-theme' ),
+		'object_types' => array( 'curso' ),
+		'context'      => 'side',
+		'priority'     => 'low',
+		'show_names'   => false,
+    ) );
+
+    $turno_metabox->add_field( array(
+        'id'                => '_turno_taxonomy',
+        'name'              => __( 'Turnos', 'ifrs-ps-theme' ),
+        'taxonomy'          => 'turno',
+        'type'              => 'taxonomy_multicheck',
+        'show_option_none'  => false,
+        'text'              => array(
+            'no_terms_text' => __( 'Ops! Nenhum Turno encontrado. Por favor, crie algum Turno antes de cadastrar isto.', 'ifrs-ps-theme')
+        ),
+        'select_all_button' => false,
+        'remove_default'    => 'true',
+    ) );
+}

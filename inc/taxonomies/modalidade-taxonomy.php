@@ -42,11 +42,33 @@ if ( ! function_exists( 'modalidade_taxonomy' ) ) {
     add_action( 'init', 'modalidade_taxonomy', 0 );
 }
 
-// Single Term
-$single_term_modalidade = new Taxonomy_Single_Term( 'modalidade' );
-$single_term_modalidade->set( 'priority', 'default' );
-// $single_term_modalidade->set( 'context', 'normal' );
-// $single_term_modalidade->set( 'metabox_title', __( 'Custom Metabox Title', 'ifrs-ps-theme' ) );
-$single_term_modalidade->set( 'force_selection', true );
-$single_term_modalidade->set( 'indented', false );
-$single_term_modalidade->set( 'allow_new_terms', false );
+// MetaBox
+add_action( 'cmb2_admin_init', 'modalidade_metaboxes', 2 );
+/**
+ * Define the metabox and field configurations.
+ */
+function modalidade_metaboxes() {
+    /**
+	 * Taxonomy Modalidade
+	 */
+    $modalidade_metabox = new_cmb2_box( array(
+		'id'           => '_modalidade_taxonomy_metabox',
+		'title'        => __( 'Modalidade', 'ifrs-ps-theme' ),
+		'object_types' => array( 'curso' ),
+		'context'      => 'side',
+		'priority'     => 'low',
+		'show_names'   => false,
+    ) );
+
+    $modalidade_metabox->add_field( array(
+        'id'                => '_modalidade_taxonomy',
+        'name'              => __( 'Modalidade', 'ifrs-ps-theme' ),
+        'taxonomy'          => 'modalidade',
+        'type'              => 'taxonomy_radio',
+        'show_option_none'  => false,
+        'text'              => array(
+            'no_terms_text' => __( 'Ops! Nenhuma Modalidade encontrada. Por favor, crie alguma Modalidade antes de cadastrar isto.', 'ifrs-ps-theme')
+        ),
+        'remove_default'    => 'true',
+    ) );
+}

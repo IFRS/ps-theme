@@ -42,11 +42,33 @@ if ( ! function_exists( 'formaingresso_taxonomy' ) ) {
     add_action( 'init', 'formaingresso_taxonomy');
 }
 
-// Single Term
-$single_term_formaingresso = new Taxonomy_Single_Term( 'formaingresso' );
-$single_term_formaingresso->set( 'priority', 'default' );
-// $single_term_forma_ingresso->set( 'context', 'normal' );
-// $single_term_forma_ingresso->set( 'metabox_title', __( 'Custom Metabox Title', 'ifrs-ps-theme' ) );
-$single_term_formaingresso->set( 'force_selection', true );
-$single_term_formaingresso->set( 'indented', false );
-$single_term_formaingresso->set( 'allow_new_terms', false );
+// MetaBox
+add_action( 'cmb2_admin_init', 'formaingresso_metaboxes', 2 );
+/**
+ * Define the metabox and field configurations.
+ */
+function formaingresso_metaboxes() {
+    /**
+	 * Taxonomy Forma de Ingresso
+	 */
+    $formaingresso_metabox = new_cmb2_box( array(
+		'id'           => '_formaingresso_taxonomy_metabox',
+		'title'        => __( 'Forma de Ingresso', 'ifrs-ps-theme' ),
+		'object_types' => array( 'chamada' ),
+		'context'      => 'side',
+		'priority'     => 'low',
+		'show_names'   => false,
+    ) );
+
+    $formaingresso_metabox->add_field( array(
+        'id'                => '_formaingresso_taxonomy',
+        'name'              => __( 'Forma de Ingresso', 'ifrs-ps-theme' ),
+        'taxonomy'          => 'formaingresso',
+        'type'              => 'taxonomy_radio',
+        'show_option_none'  => false,
+        'text'              => array(
+            'no_terms_text' => __( 'Ops! Nenhuma Forma de Ingresso encontrada. Por favor, crie alguma Forma de Ingresso antes de cadastrar isto.', 'ifrs-ps-theme')
+        ),
+        'remove_default'    => 'true',
+    ) );
+}
