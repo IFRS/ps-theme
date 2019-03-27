@@ -35,6 +35,12 @@ gulp.task('clean', function() {
     return del(['css/', 'js/', 'fonts/', 'img/vendor/', 'dist/']);
 });
 
+gulp.task('vendor-css', function() {
+    return gulp.src('./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css')
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('css/'));
+});
+
 gulp.task('sass', function() {
     var postCSSplugins = [
         require('postcss-flexibility'),
@@ -52,7 +58,7 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('styles', gulp.series('sass', function css() {
+gulp.task('styles', gulp.series('vendor-css', 'sass', function css() {
     return gulp.src(['css/*.css', '!css/*.min.css'])
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
@@ -129,20 +135,6 @@ gulp.task('scripts', gulp.series('webpack', function js() {
     .pipe(browserSync.stream());
 }));
 
-gulp.task('assets_opensans', function() {
-    return gulp.src('node_modules/npm-font-open-sans/fonts/**/*')
-    .pipe((argv.debug) ? debug({title: 'Assets OpenSans:'}) : through2.obj())
-    .pipe(gulp.dest('fonts/'));
-});
-
-gulp.task('assets_fancybox', function() {
-    return gulp.src('node_modules/jquery-fancybox/source/img/**/*')
-    .pipe((argv.debug) ? debug({title: 'Assets Fancybox:'}) : through2.obj())
-    .pipe(gulp.dest('img/vendor/'));
-});
-
-gulp.task('assets', gulp.parallel('assets_opensans', 'assets_fancybox'));
-
 gulp.task('images', function() {
     return gulp.src('img/*.{png,jpg,gif}')
     .pipe(imagemin())
@@ -157,9 +149,9 @@ gulp.task('dist', function() {
 });
 
 if (argv.production) {
-    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts', 'assets', 'images'), 'dist'));
+    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts', 'images'), 'dist'));
 } else {
-    gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'webpack', 'assets')));
+    gulp.task('build', gulp.series('clean', gulp.parallel('vendor-css', 'sass', 'webpack')));
 }
 
 gulp.task('default', gulp.series('build', function watch() {
