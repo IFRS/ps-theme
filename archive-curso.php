@@ -50,7 +50,7 @@
                                             <th>Campus</th>
                                             <th>Modalidade</th>
                                             <th>Turnos</th>
-                                            <th>Vagas&sup1;</th>
+                                            <th class="text-center">Vagas&sup1;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -81,7 +81,7 @@
                                                 <th>Campus</th>
                                                 <th>Modalidade</th>
                                                 <th>Turnos</th>
-                                                <th>Vagas&sup1;</th>
+                                                <th class="text-center">Vagas&sup1;</th>
                                             </tr>
                                         </thead>
                                         <tbody>

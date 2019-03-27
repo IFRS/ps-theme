@@ -38,7 +38,7 @@
                                         <th>Curso</th>
                                         <th>Campus</th>
                                         <th>Turnos</th>
-                                        <th>Vagas&sup1;</th>
+                                        <th class="text-center">Vagas&sup1;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,7 +72,7 @@
                                         <th>Curso</th>
                                         <th>Campus</th>
                                         <th>Turnos</th>
-                                        <th>Vagas&sup1;</th>
+                                        <th class="text-center">Vagas&sup1;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
