@@ -13,9 +13,23 @@ const PluginError  = require('plugin-error');
 const postcss      = require('gulp-postcss');
 const rename       = require('gulp-rename');
 const sass         = require('gulp-sass');
-const through2     = require('through2');
 const uglify       = require('gulp-uglify');
 const webpack      = require('webpack');
+
+const browserslist = [
+    'last 5 versions',
+    '>= 1%',
+    'Chrome >= 45',
+    'Firefox >= 38',
+    'Edge >= 12',
+    'Explorer >= 10',
+    'iOS >= 9',
+    'Safari >= 9',
+    'Android >= 4.4',
+    'Opera >= 30',
+    'ie 8-10',
+    'not ie <= 7'
+];
 
 const dist = [
     '**',
@@ -33,7 +47,7 @@ const dist = [
 ];
 
 gulp.task('clean', function() {
-    return del(['css/', 'js/', 'fonts/', 'img/vendor/', 'dist/']);
+    return del(['css/', 'js/', 'dist/']);
 });
 
 gulp.task('vendor-css', function() {
@@ -46,7 +60,7 @@ gulp.task('sass', function() {
     var postCSSplugins = [
         require('postcss-flexibility'),
         pixrem(),
-        autoprefixer({browsers: ['> 1%', 'last 3 versions', 'ie 8-10', 'not ie <= 7']})
+        autoprefixer({browsers: browserslist})
     ];
     return gulp.src('sass/*.scss')
     .pipe(sass({
@@ -54,7 +68,6 @@ gulp.task('sass', function() {
         outputStyle: 'expanded'
     }).on('error', sass.logError))
     .pipe(postcss(postCSSplugins))
-    .pipe((argv.debug) ? debug({title: 'SASS:'}) : through2.obj())
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
 });
@@ -63,7 +76,6 @@ gulp.task('styles', gulp.series('vendor-css', 'sass', function css() {
     return gulp.src(['css/*.css', '!css/*.min.css'])
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe((argv.debug) ? debug({title: 'CSS:'}) : through2.obj())
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
 }));
@@ -131,7 +143,6 @@ gulp.task('scripts', gulp.series('webpack', function js() {
         ie8: true,
     }))
     .pipe(rename({suffix: '.min'}))
-    .pipe((argv.debug) ? debug({title: 'JS:'}) : through2.obj())
     .pipe(gulp.dest('js/'))
     .pipe(browserSync.stream());
 }));
@@ -139,13 +150,11 @@ gulp.task('scripts', gulp.series('webpack', function js() {
 gulp.task('images', function() {
     return gulp.src('img/*.{png,jpg,gif}')
     .pipe(imagemin())
-    .pipe((argv.debug) ? debug({title: 'Images:'}) : through2.obj())
     .pipe(gulp.dest('img/'));
 });
 
 gulp.task('dist', function() {
     return gulp.src(dist)
-    .pipe((argv.debug) ? debug({title: 'Dist:'}) : through2.obj())
     .pipe(gulp.dest('dist/'));
 });
 
