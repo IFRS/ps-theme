@@ -1,9 +1,13 @@
-body {
-    font-family: "Open Sans", Arial, sans-serif;
-}
-
 table {
     @extend .table;
+}
+
+.alignnone {
+    @extend .clearfix;
+}
+
+.aligncenter {
+    @extend .mx-auto;
 }
 
 .alignleft {
