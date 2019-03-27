@@ -2,6 +2,10 @@
 function ps_load_styles() {
     /* wp_enqueue_style( $handle, $src, $deps, $ver, $media ); */
 
+    if (!is_admin()) {
+        wp_dequeue_style( 'wp-block-library' );
+    }
+
     wp_enqueue_style('css-vendor', get_stylesheet_directory_uri().(WP_DEBUG ? '/css/vendor.css' : '/css/vendor.min.css'), array(), false, 'all');
 
     wp_enqueue_style('css-ps', get_stylesheet_directory_uri().(WP_DEBUG ? '/css/ps.css' : '/css/ps.min.css'), array(), false, 'all');
