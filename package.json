@@ -4,6 +4,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
+    "@fancyapps/fancybox": "^3.5.7",
     "autoprefixer": "^9.5.0",
     "bootstrap": "^4.3.1",
     "browser-sync": "^2.26.3",
@@ -20,7 +21,6 @@
     "gulp-uglify": "^3.0.2",
     "html5shiv": "^3.7.3",
     "jquery": "^3.3.1",
-    "jquery-fancybox": "^3.1.0",
     "minimist": "^1.2.0",
     "npm-font-open-sans": "^1.1.0",
     "pixrem": "^5.0.0",
