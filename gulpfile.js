@@ -148,7 +148,7 @@ gulp.task('scripts', gulp.series('webpack', function js() {
 }));
 
 gulp.task('images', function() {
-    return gulp.src('img/*.{png,jpg,gif}')
+    return gulp.src('img/*.{png,jpg,jpeg,svg,gif}')
     .pipe(imagemin())
     .pipe(gulp.dest('img/'));
 });
