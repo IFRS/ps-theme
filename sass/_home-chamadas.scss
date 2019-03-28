@@ -8,8 +8,12 @@
         min-height: 350px;
 
         @include media-breakpoint-up(md) {
-            background: url('../img/bg-chamadas.png') no-repeat left center;
+            background: no-repeat left center;
             background-size: contain;
+
+            &.lazyloaded {
+                background-image: url('../img/bg-chamadas.png');
+            }
         }
 
         @include media-breakpoint-only(md) {

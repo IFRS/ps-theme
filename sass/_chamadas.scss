@@ -3,11 +3,15 @@
     margin-top: 50px;
 
     &__title {
-        background: url('../img/title-chamadas.png') no-repeat center center;
+        background: no-repeat center center;
         background-size: contain;
         margin-bottom: 10px;
         min-height: 130px;
         min-width: 290px;
+
+        &.lazyloaded {
+            background-image: url('../img/title-chamadas.png');
+        }
 
         h2 {
             font-size: 32px;
