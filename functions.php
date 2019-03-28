@@ -38,9 +38,6 @@ require_once('inc/widgets/chamadas.php');
 require_once('inc/page-excerpt.php');
 require_once('inc/excerpt.php');
 
-// Adicionar PrettyPhoto automaticamente.
-require_once('inc/fancybox_rel.php');
-
 // Paginação personalizada
 require_once('inc/pagination.php');
 
