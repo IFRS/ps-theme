@@ -11,7 +11,6 @@ const path         = require('path');
 const pixrem       = require('pixrem');
 const PluginError  = require('plugin-error');
 const postcss      = require('gulp-postcss');
-const rename       = require('gulp-rename');
 const sass         = require('gulp-sass');
 const uglify       = require('gulp-uglify');
 const webpack      = require('webpack');
@@ -53,7 +52,8 @@ gulp.task('clean', function() {
 gulp.task('vendor-css', function() {
     return gulp.src('./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css')
     .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('css/'));
+    .pipe(gulp.dest('css/'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('sass', function() {
@@ -73,9 +73,8 @@ gulp.task('sass', function() {
 });
 
 gulp.task('styles', gulp.series('vendor-css', 'sass', function css() {
-    return gulp.src(['css/*.css', '!css/*.min.css'])
+    return gulp.src('css/*.css')
     .pipe(cssmin())
-    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
 }));
@@ -130,7 +129,7 @@ gulp.task('webpack', function(done) {
 });
 
 gulp.task('scripts', gulp.series('webpack', function js() {
-    return gulp.src(['js/*.js', '!js/*.min.js'])
+    return gulp.src('js/*.js')
     .pipe(babel({
         presets: [
             [
@@ -142,7 +141,6 @@ gulp.task('scripts', gulp.series('webpack', function js() {
     .pipe(uglify({
         ie8: true,
     }))
-    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('js/'))
     .pipe(browserSync.stream());
 }));

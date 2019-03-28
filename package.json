@@ -17,7 +17,6 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-imagemin": "^5.0.3",
     "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "html5shiv": "^3.7.3",
