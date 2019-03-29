@@ -82,10 +82,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <img class="home-cursos__title" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/cursos-title.png" alt="">
-                <img class="home-cursos__aluno1 rellax" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/aluno1.png" alt="" data-rellax-speed="2">
-                <img class="home-cursos__aluno2 rellax d-none d-sm-block" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/aluno2.png" alt="" data-rellax-speed="3">
-                <img class="home-cursos__aluno3 rellax d-none d-lg-block" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/aluno3.png" alt="" data-rellax-speed="1">
+                <img class="home-cursos__title" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/cursos-title.png" alt="" aria-hidden="true">
+                <img class="home-cursos__aluno1" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/aluno1.png" alt="" aria-hidden="true">
+                <img class="home-cursos__aluno2 d-none d-sm-block" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/aluno2.png" alt="" aria-hidden="true">
+                <img class="home-cursos__aluno3 d-none d-lg-block" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/aluno3.png" alt="" aria-hidden="true">
                 <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>"><img class="home-cursos__link" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/cursos-link.png" alt="Conheça todos os Cursos"></a>
             </div>
         </div>
