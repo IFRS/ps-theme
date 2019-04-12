@@ -86,7 +86,7 @@ function edital_metaboxes() {
      */
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'metabox',
-        'title'         => __( 'Arquivo Associado', 'ifrs-ps-theme' ),
+        'title'         => __( 'Arquivos', 'ifrs-ps-theme' ),
         'object_types'  => array( 'edital', ), // Post type
         'context'       => 'normal',
         'priority'      => 'high',
@@ -96,8 +96,8 @@ function edital_metaboxes() {
     ) );
 
     $cmb->add_field( array(
-        'name'    => __( 'Arquivo', 'ifrs-ps-theme'),
-        'desc'    => __( 'Clique no botão acima para enviar um documento (somente PDF).', 'ifrs-ps-theme' ),
+        'name'    => __( 'Arquivo Principal', 'ifrs-ps-theme'),
+        'desc'    => __( 'Clique no botão acima para enviar o arquivo do Edital (somente PDF).', 'ifrs-ps-theme' ),
         'id'      => $prefix . 'arquivo',
         'type'    => 'file',
         // Optional:
@@ -107,6 +107,50 @@ function edital_metaboxes() {
         // 'text'    => array(
             // 'add_upload_file_text' => 'Add File' // Change upload button text. Default: "Add or Upload File"
         // ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => 'application/pdf', // Make library only display PDFs.
+        ),
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Anexos', 'ifrs-ps-theme'),
+        'desc'    => __( 'Clique no botão acima para enviar os anexos referentes a esse Edital (somente PDF).', 'ifrs-ps-theme' ),
+        'id'      => $prefix . 'anexos',
+        'type'    => 'file_list',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        /* 'text' => array(
+            'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+            'remove_image_text' => 'Replacement', // default: "Remove Image"
+            'file_text' => 'Replacement', // default: "File:"
+            'file_download_text' => 'Replacement', // default: "Download"
+            'remove_text' => 'Replacement', // default: "Remove"
+        ), */
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => 'application/pdf', // Make library only display PDFs.
+        ),
+    ) );
+
+    $cmb->add_field( array(
+        'name'    => __( 'Retificações', 'ifrs-ps-theme'),
+        'desc'    => __( 'Clique no botão acima para enviar as retificações desse Edital (somente PDF).', 'ifrs-ps-theme' ),
+        'id'      => $prefix . 'retificacoes',
+        'type'    => 'file_list',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        /* 'text' => array(
+            'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+            'remove_image_text' => 'Replacement', // default: "Remove Image"
+            'file_text' => 'Replacement', // default: "File:"
+            'file_download_text' => 'Replacement', // default: "Download"
+            'remove_text' => 'Replacement', // default: "Remove"
+        ), */
         // query_args are passed to wp.media's library query.
         'query_args' => array(
             'type' => 'application/pdf', // Make library only display PDFs.
