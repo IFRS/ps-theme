@@ -25,7 +25,7 @@
                             <?php the_content(); ?>
                             <div class="row">
                                 <div class="col">
-                                    <h3>Arquivos</h3>
+                                    <h3 class="edital__files-title">Arquivos</h3>
                                     <div class="list-group">
                                         <a href="<?php echo get_post_meta(get_the_ID(), '_edital_arquivo', true); ?>" class="list-group-item list-group-item-action active">Baixar Edital</a>
                                         <?php $retificacoes = get_post_meta(get_the_ID(), '_edital_retificacoes', true); ?>
@@ -39,7 +39,7 @@
                                 <?php $anexos = get_post_meta(get_the_ID(), '_edital_anexos', true); ?>
                                 <?php if (!empty($anexos)) : ?>
                                     <div class="col-12 col-lg-6">
-                                        <h3>Anexos</h3>
+                                        <h3 class="edital__files-title">Anexos</h3>
                                         <div class="list-group">
                                             <?php foreach ($anexos as $id => $anexo) : ?>
                                                 <a href="<?php echo esc_url($anexo); ?>" class="list-group-item list-group-item-action"><?php echo get_the_title($id); ?></a>
