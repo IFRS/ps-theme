@@ -92,9 +92,8 @@ gulp.task('webpack', function(done) {
         },
         resolve: {
             alias: {
-                jquery: 'jquery/src/jquery',
-                bootstrap: 'bootstrap/dist/js/bootstrap.bundle',
-                popper: 'popper.js'
+                jquery: 'jquery/dist/jquery',
+                bootstrap: 'bootstrap/dist/js/bootstrap.bundle'
             }
         },
         plugins: [
