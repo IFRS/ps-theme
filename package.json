@@ -29,6 +29,6 @@
     "postcss-flexibility": "^2.0.0",
     "rellax": "^1.9.1",
     "respond.js": "^1.4.2",
-    "webpack": "^4.29.6"
+    "webpack": "^4.30.0"
   }
 }
