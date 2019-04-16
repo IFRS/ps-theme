@@ -15,10 +15,10 @@
                     <div class="col-12">
                         <div class="edital__content">
                             <div class="row edital__meta">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-sm-6">
                                     <p class="edital__date text-left">Publicado em <?php the_date('d/m/Y'); ?></p>
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-sm-6">
                                     <p class="edital__date text-right">Atualizado em <?php the_modified_date('d/m/Y'); ?></p>
                                 </div>
                             </div>
