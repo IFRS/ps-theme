@@ -1,18 +1,19 @@
-version: "3"
+version: "3.6"
 
 services:
     wordpress:
         image: wordpress:4-php7.2-apache
         restart: on-failure
-        ports:
-            - 80:80
-            - 443:443
+        networks:
+            - default
+            - proxy
         volumes:
             - content:/var/www/html/wp-content
             - ./:/var/www/html/wp-content/themes/ifrs-ps-theme
         depends_on:
             - mysql
         environment:
+            VIRTUAL_HOST: "${VIRTUAL_HOST}"
             WORDPRESS_DB_USER: "${DB_USER}"
             WORDPRESS_DB_PASSWORD: "${DB_PASSWORD}"
             WORDPRESS_DB_NAME: "${DB_NAME}"
@@ -38,12 +39,20 @@ services:
             MYSQL_PASSWORD: "${DB_PASSWORD}"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        ports:
-            - 8080:80
+        restart: on-failure
+        networks:
+            - default
+            - proxy
         depends_on:
             - mysql
         environment:
             PMA_HOST: mysql
+            VIRTUAL_HOST: "phpmyadmin.${VIRTUAL_HOST}"
 volumes:
     db_data:
     content:
+networks:
+    default:
+    proxy:
+        external:
+            name: ${REVERSE_PROXY_NETWORK}
