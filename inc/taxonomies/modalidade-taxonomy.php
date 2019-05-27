@@ -35,7 +35,7 @@ if ( ! function_exists( 'modalidade_taxonomy' ) ) {
             'show_tagcloud'     => false,
             'capabilities'      => $capabilities,
         );
-        register_taxonomy( 'modalidade', array( 'curso' ), $args );
+        register_taxonomy( 'modalidade', array( 'curso', 'documento' ), $args );
     }
 
     // Hook into the 'init' action
@@ -54,7 +54,7 @@ function modalidade_metaboxes() {
     $modalidade_metabox = new_cmb2_box( array(
 		'id'           => '_modalidade_taxonomy_metabox',
 		'title'        => __( 'Modalidade', 'ifrs-ps-theme' ),
-		'object_types' => array( 'curso' ),
+		'object_types' => array( 'curso', 'documento' ),
 		'context'      => 'side',
 		'priority'     => 'low',
 		'show_names'   => false,

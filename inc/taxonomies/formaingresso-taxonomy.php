@@ -35,7 +35,7 @@ if ( ! function_exists( 'formaingresso_taxonomy' ) ) {
             'show_tagcloud'     => false,
             'capabilities'      => $capabilities,
         );
-        register_taxonomy( 'formaingresso', array( 'chamada' ), $args );
+        register_taxonomy( 'formaingresso', array( 'chamada', 'documento' ), $args );
     }
 
     // Hook into the 'init' action
@@ -54,7 +54,7 @@ function formaingresso_metaboxes() {
     $formaingresso_metabox = new_cmb2_box( array(
 		'id'           => '_formaingresso_taxonomy_metabox',
 		'title'        => __( 'Forma de Ingresso', 'ifrs-ps-theme' ),
-		'object_types' => array( 'chamada' ),
+		'object_types' => array( 'chamada', 'documento' ),
 		'context'      => 'side',
 		'priority'     => 'low',
 		'show_names'   => false,
