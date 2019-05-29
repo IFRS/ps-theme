@@ -94,3 +94,21 @@
         font-size: 90%;
     }
 }
+
+.chamada-documentos__link {
+    &::after {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        content: '';
+        display: block;
+        float: right;
+        padding: 5px;
+        transform: rotate(45deg);
+        transition: transform 0.2s;
+    }
+    &.collapsed {
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+}
