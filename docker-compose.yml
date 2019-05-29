@@ -3,7 +3,6 @@ version: "3.6"
 services:
     wordpress:
         image: wordpress:4-php7.2-apache
-        restart: on-failure
         networks:
             - default
             - proxy
@@ -29,7 +28,6 @@ services:
             WORDPRESS_DEBUG: "true"
     wp-cli:
         image: wordpress:cli
-        restart: on-failure
         volumes:
             - wp_data:/var/www/html
         depends_on:
@@ -38,7 +36,6 @@ services:
         tty: true
     mysql:
         image: mysql:5
-        restart: on-failure
         volumes:
             - db_data:/var/lib/mysql
         environment:
@@ -48,7 +45,6 @@ services:
             MYSQL_PASSWORD: "${DB_PASSWORD}"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        restart: on-failure
         networks:
             - default
             - proxy
