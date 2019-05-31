@@ -9,26 +9,26 @@ if ( ! function_exists('documento_post_type') ) {
             'archives'              => __( 'Documentos', 'ifrs-ps-theme' ),
             'attributes'            => __( 'Atributos do Documento', 'ifrs-ps-theme' ),
             'parent_item_colon'     => __( 'Documento pai:', 'ifrs-ps-theme' ),
-            'all_items'             => __( 'Todos os Documentos', 'ifrs-ps-theme' ),
-            'add_new_item'          => __( 'Adicionar Novo Documento', 'ifrs-ps-theme' ),
-            'add_new'               => __( 'Adicionar Novo', 'ifrs-ps-theme' ),
-            'new_item'              => __( 'Novo Documento', 'ifrs-ps-theme' ),
-            'edit_item'             => __( 'Editar Documento', 'ifrs-ps-theme' ),
-            'update_item'           => __( 'Atualizar Documento', 'ifrs-ps-theme' ),
-            'view_item'             => __( 'Visualizar Documento', 'ifrs-ps-theme' ),
-            'view_items'            => __( 'Visualizar Documentos', 'ifrs-ps-theme' ),
-            'search_items'          => __( 'Buscar Documento', 'ifrs-ps-theme' ),
+            'all_items'             => __( 'Todos os Conjuntos', 'ifrs-ps-theme' ),
+            'add_new_item'          => __( 'Adicionar Novo Conjunto', 'ifrs-ps-theme' ),
+            'add_new'               => __( 'Adicionar Novo Conjunto', 'ifrs-ps-theme' ),
+            'new_item'              => __( 'Novo Conjunto', 'ifrs-ps-theme' ),
+            'edit_item'             => __( 'Editar Conjunto', 'ifrs-ps-theme' ),
+            'update_item'           => __( 'Atualizar Conjunto', 'ifrs-ps-theme' ),
+            'view_item'             => __( 'Visualizar Conjunto', 'ifrs-ps-theme' ),
+            'view_items'            => __( 'Visualizar Conjuntos', 'ifrs-ps-theme' ),
+            'search_items'          => __( 'Buscar Conjunto', 'ifrs-ps-theme' ),
             'not_found'             => __( 'Não encontrado', 'ifrs-ps-theme' ),
             'not_found_in_trash'    => __( 'Não Encontrado na Lixeira', 'ifrs-ps-theme' ),
             'featured_image'        => __( 'Imagem Destaque', 'ifrs-ps-theme' ),
             'set_featured_image'    => __( 'Definir imagem destaque', 'ifrs-ps-theme' ),
             'remove_featured_image' => __( 'Remover imagem destaque', 'ifrs-ps-theme' ),
             'use_featured_image'    => __( 'Usar como imagem destaque', 'ifrs-ps-theme' ),
-            'insert_into_item'      => __( 'Inserir no Documento', 'ifrs-ps-theme' ),
-            'uploaded_to_this_item' => __( 'Enviado para esse Documento', 'ifrs-ps-theme' ),
-            'items_list'            => __( 'Lista de Documentos', 'ifrs-ps-theme' ),
-            'items_list_navigation' => __( 'Lista de navegação de Documentos', 'ifrs-ps-theme' ),
-            'filter_items_list'     => __( 'Filtrar lista de Documentos', 'ifrs-ps-theme' ),
+            'insert_into_item'      => __( 'Inserir no Conjunto', 'ifrs-ps-theme' ),
+            'uploaded_to_this_item' => __( 'Enviado para esse Conjunto', 'ifrs-ps-theme' ),
+            'items_list'            => __( 'Lista de Conjuntos', 'ifrs-ps-theme' ),
+            'items_list_navigation' => __( 'Lista de navegação de Conjuntos', 'ifrs-ps-theme' ),
+            'filter_items_list'     => __( 'Filtrar lista de Conjuntos', 'ifrs-ps-theme' ),
         );
         $capabilities = array(
 			// meta caps (don't assign these to roles)
@@ -96,7 +96,7 @@ function documento_metaboxes() {
      */
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'metabox',
-        'title'         => __( 'Arquivos', 'ifrs-ps-theme' ),
+        'title'         => __( 'Documentos', 'ifrs-ps-theme' ),
         'object_types'  => array( 'documento' ),
         'context'       => 'normal',
         'priority'      => 'high',
@@ -105,7 +105,7 @@ function documento_metaboxes() {
 
     $cmb->add_field( array(
         'name'    => __( 'Arquivos', 'ifrs-ps-theme'),
-        'desc'    => __( 'Clique no botão acima para enviar os arquivos.', 'ifrs-ps-theme' ),
+        'desc'    => __( 'Clique no botão acima para enviar os arquivos. Lembre-se de preencher corretamente o título', 'ifrs-ps-theme' ),
         'id'      => $prefix . 'arquivos',
         'type'    => 'file_list',
         'options' => array(
