@@ -15,21 +15,6 @@ const sass         = require('gulp-sass');
 const uglify       = require('gulp-uglify');
 const webpack      = require('webpack');
 
-const browserslist = [
-    'last 5 versions',
-    '>= 1%',
-    'Chrome >= 45',
-    'Firefox >= 38',
-    'Edge >= 12',
-    'Explorer >= 10',
-    'iOS >= 9',
-    'Safari >= 9',
-    'Android >= 4.4',
-    'Opera >= 30',
-    'ie 8-10',
-    'not ie <= 7'
-];
-
 const dist = [
     '**',
     '!dist{,/**}',
@@ -60,7 +45,7 @@ gulp.task('sass', function() {
     var postCSSplugins = [
         require('postcss-flexibility'),
         pixrem(),
-        autoprefixer({browsers: browserslist})
+        autoprefixer()
     ];
     return gulp.src('sass/*.scss')
     .pipe(sass({
