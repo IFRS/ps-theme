@@ -50,7 +50,7 @@
             <div class="container">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-banner__link">
                     <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto<?php echo mt_rand(1, 2); ?>.png" alt="" class="img-fluid header-banner__foto" aria-hidden="true"/>
-                    <img data-src="<?php header_image(); ?>" alt="" class="img-fluid header-banner__ps" aria-hidden="true"/>
+                    <img src="<?php header_image(); ?>" alt="" class="img-fluid header-banner__ps" aria-hidden="true"/>
                     <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-selo.png" alt="" class="img-fluid header-banner__selo" aria-hidden="true"/>
                     <span class="sr-only">Ir para P&aacute;gina Inicial</span>
                 </a>
