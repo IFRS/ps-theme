@@ -81,7 +81,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="card bg-light mb-2">
                                                 <div class="card-header">
-                                                    Resultados <strong>N&iacute;vel <?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
+                                                    <strong>N&iacute;vel <?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
                                                 </div>
                                                 <div class="list-group list-group-flush" role="list">
                                                     <?php foreach ($resultado['arquivos'] as $id => $url): ?>
