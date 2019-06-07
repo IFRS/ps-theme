@@ -1,3 +1,4 @@
+require('dotenv').config();
 const argv         = require('minimist')(process.argv.slice(2));
 const autoprefixer = require('autoprefixer');
 const babel        = require('gulp-babel');
@@ -152,8 +153,8 @@ gulp.task('default', gulp.series('build', function watch() {
         notify: false,
         online: false,
         open: false,
-        host: argv.URL || 'localhost',
-        proxy: argv.URL || 'localhost',
+        host: argv.URL || process.env.VIRTUAL_HOST || 'localhost',
+        proxy: argv.URL || process.env.VIRTUAL_HOST || 'localhost',
     });
 
     gulp.watch('sass/**/*.scss', gulp.series('sass'));
