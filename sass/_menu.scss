@@ -18,12 +18,12 @@
         text-align: center;
 
         &:hover {
-            background-color: $cor-apoio;
+            background-color: $cor-apoio-secundaria;
         }
     }
 
     .current-menu-item,
     .current-menu-parent {
-        background-color: $cor-apoio;
+        background-color: $cor-apoio-secundaria;
     }
 }
