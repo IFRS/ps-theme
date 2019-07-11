@@ -39,7 +39,7 @@
     }
 
     &__box {
-        background-color: $cor-apoio;
+        background-color: $cor-apoio-secundaria;
         color: #ffffff;
         padding: 20px;
         text-align: left;
@@ -57,7 +57,7 @@
                 margin-left: -270px;
                 width: 0;
                 height: 0;
-                border-top: solid 80px $cor-apoio;
+                border-top: solid 80px $cor-apoio-secundaria;
                 border-left: solid 270px transparent;
                 border-right: solid 270px transparent;
                 z-index: 100;
