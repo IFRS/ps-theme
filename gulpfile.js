@@ -17,21 +17,6 @@ const sourcemaps   = require('gulp-sourcemaps');
 const uglify       = require('gulp-uglify');
 const webpack      = require('webpack');
 
-const dist = [
-    '**',
-    '!dist{,/**}',
-    '!node_modules{,/**}',
-    '!sass{,/**}',
-    '!src{,/**}',
-    '!.**',
-    '!docker-compose.override.yml',
-    '!docker-compose.yml',
-    '!Dockerfile',
-    '!gulpfile.js',
-    '!package-lock.json',
-    '!package.json'
-];
-
 const webpackMode = argv.production ? 'production' : 'development';
 
 gulp.task('clean', function() {
@@ -46,7 +31,7 @@ gulp.task('vendor-css', function() {
 });
 
 gulp.task('sass', function() {
-    var postCSSplugins = [
+    let postCSSplugins = [
         require('postcss-flexibility'),
         pixrem(),
         autoprefixer()
@@ -144,7 +129,20 @@ gulp.task('images', function() {
 });
 
 gulp.task('dist', function() {
-    return gulp.src(dist)
+    return gulp.src([
+        '**',
+        '!dist{,/**}',
+        '!node_modules{,/**}',
+        '!sass{,/**}',
+        '!src{,/**}',
+        '!.**',
+        '!docker-compose.override.yml',
+        '!docker-compose.yml',
+        '!Dockerfile',
+        '!gulpfile.js',
+        '!package-lock.json',
+        '!package.json'
+    ])
     .pipe(gulp.dest('dist/'));
 });
 
@@ -160,8 +158,7 @@ gulp.task('default', gulp.series('build', function watch() {
         notify: false,
         online: false,
         open: false,
-        host: argv.URL || process.env.VIRTUAL_HOST || 'localhost',
-        proxy: argv.URL || process.env.VIRTUAL_HOST || 'localhost',
+        proxy: argv.URL || argv.url || 'localhost',
     });
 
     gulp.watch('sass/**/*.scss', gulp.series('sass'));
