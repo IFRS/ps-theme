@@ -1,5 +1,6 @@
 {
-    "name": "",
+    "name": "IFRS",
+    "short_name": "IFRS",
     "icons": [
         {
             "src": "/favicons/android-chrome-36x36.png",
@@ -47,6 +48,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff"
+    "theme_color": "#195128",
+    "background_color": "#195128",
+    "display": "standalone"
 }
