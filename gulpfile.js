@@ -13,6 +13,7 @@ const pixrem       = require('pixrem');
 const PluginError  = require('plugin-error');
 const postcss      = require('gulp-postcss');
 const sass         = require('gulp-sass');
+const sourcemaps   = require('gulp-sourcemaps');
 const uglify       = require('gulp-uglify');
 const webpack      = require('webpack');
 
@@ -30,6 +31,8 @@ const dist = [
     '!package-lock.json',
     '!package.json'
 ];
+
+const webpackMode = argv.production ? 'production' : 'development';
 
 gulp.task('clean', function() {
     return del(['css/', 'js/', 'dist/']);
@@ -49,11 +52,13 @@ gulp.task('sass', function() {
         autoprefixer()
     ];
     return gulp.src('sass/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass({
         includePaths: 'sass',
         outputStyle: 'expanded'
     }).on('error', sass.logError))
     .pipe(postcss(postCSSplugins))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
 });
@@ -67,6 +72,8 @@ gulp.task('styles', gulp.series('vendor-css', 'sass', function css() {
 
 gulp.task('webpack', function(done) {
     webpack({
+        mode: webpackMode,
+        devtool: 'source-maps',
         entry: {
             ie: './src/ie.js',
             ps: './src/ps.js',
