@@ -1,11 +1,4 @@
 <?php
-// Registra os menus
-register_nav_menus(
-    array(
-        'main' => 'Menu Principal',
-    )
-);
-
 // Remove a versão do WP
 require_once('inc/remove-version.php');
 
@@ -16,10 +9,7 @@ require_once('inc/permissions.php');
 require_once('inc/custom-header.php');
 
 // Post Thumbnail
-require_once('inc/post-thumbnails.php');
-
-// Breadcrumb
-require_once('inc/breadcrumb.php');
+require_once('inc/theme-config.php');
 
 // Script Condicional
 require_once('inc/script_conditional.php');
@@ -29,6 +19,9 @@ require_once('inc/assets.php');
 
 // Menu do Bootstrap
 require_once('inc/vendor/bootstrap-navwalker.php');
+
+// Breadcrumb
+require_once('inc/breadcrumb.php');
 
 // Widgets
 require_once('inc/widgets/widgets.php');
@@ -53,7 +46,7 @@ require_once('inc/taxonomies/modalidade-taxonomy.php');
 require_once('inc/taxonomies/turno-taxonomy.php');
 require_once('inc/taxonomies/formaingresso-taxonomy.php');
 
-// Post Types
+// Custom Post Types
 require_once('inc/post-types/edital.php');
 require_once('inc/post-types/curso.php');
 require_once('inc/post-types/pergunta.php');
