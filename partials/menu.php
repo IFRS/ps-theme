@@ -20,7 +20,5 @@
         ?>
 
         <a href="#fim-menu" id="fim-menu" class="sr-only">Fim do menu</a>
-
-        <?php get_search_form(); ?>
     </div>
 </nav>

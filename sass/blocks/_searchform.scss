@@ -1,31 +1,26 @@
 .searchform {
-    margin-bottom: 15px;
-
-    @include media-breakpoint-up(sm) {
-        margin-bottom: 0;
-    }
-
     &__input {
-        background-color: $cor-apoio;
-        border: none;
-        color: #ffffff;
+        background-color: #ffffff;
+        border: 1px solid $cor-base;
+        color: $cor-base;
 
         &::placeholder {
-            color: #fffeee;
+            color: $cor-base;
         }
 
         &:focus {
+            border: 1px solid $cor-base;
+
             &::placeholder {
-                color: #666666;
+                color: #cccccc;
             }
         }
     }
 
     &__submit {
-        @include button-variant($cor-apoio, $cor-apoio);
+        @include button-variant(#ffffff, $cor-base);
 
         box-shadow: none;
-        border: none;
-        fill: #ffffff;
+        fill: $cor-base;
     }
 }
