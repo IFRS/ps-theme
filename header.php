@@ -50,8 +50,7 @@
             </div>
             <div class="header__principal">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
-                    <img src="<?php header_image(); ?>" alt="" class="img-fluid" aria-hidden="true"/>
-                    <span class="sr-only">Ir para P&aacute;gina Inicial</span>
+                    <img src="<?php header_image(); ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
                 </a>
                 <div class="header__social">
                     <ul class="menu-social">
