@@ -1,29 +1,73 @@
-.menu-main {
-    background-color: $cor-menu-bg;
+.menu-principal {
+    border-left: 4px solid $cor-amarelo;
+    max-width: 40%;
 
-    .navbar {
-        align-items: flex-start;
-        justify-content: center;
-        padding-bottom: 0;
-        padding-top: 0;
+    @include media-breakpoint-up(lg) {
+        margin-top: -45px;
+        padding-top: 45px;
     }
 
-    .nav-link {
-        align-items: center;
-        display: flex;
-        font-weight: bold;
-        height: 60px;
-        justify-content: center;
-        min-width: 75px;
-        text-align: center;
+    .menu-item {
+        @extend .nav-item;
 
-        &:hover {
-            background-color: $cor-apoio-secundaria;
+        color: $cor-vermelho;
+        margin-left: -4px;
+        text-transform: uppercase;
+
+        > a {
+            @extend .nav-link;
+
+            color: $cor-vermelho;
+
+            &:hover,
+            &:focus {
+                background-color: $cor-amarelo;
+                color: #ffffff;
+            }
+        }
+    }
+
+    .sub-menu {
+        a {
+            &:hover,
+            &:focus {
+                background-color: $cor-vermelho;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        border: none;
+        border-left: 4px solid $cor-amarelo;
+        padding: 0;
+    }
+
+
+    .dropright {
+        &:after {
+            border-style: solid;
+            border-width: 0.25em 0.25em 0 0;
+            content: '';
+            display: inline-block;
+            height: 0.8em;
+            right: 8px;
+            position: absolute;
+            top: 30%;
+            transform: rotate(45deg);
+            transition: .5s ease-in-out;
+            vertical-align: middle;
+            width: 0.8em;
+        }
+
+        &.show {
+            &:after {
+                transform: rotate(-495deg);
+            }
         }
     }
 
     .current-menu-item,
     .current-menu-parent {
-        background-color: $cor-apoio-secundaria;
+        font-weight: bold;
     }
 }
