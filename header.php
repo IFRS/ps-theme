@@ -41,19 +41,33 @@
     <!-- Cabeçalho -->
     <header>
         <h1 class="sr-only"><?php bloginfo('name'); ?></h1>
-        <section class="menu-main">
-            <div class="container">
-                <?php echo get_template_part('partials/menu'); ?>
+        <section class="container header">
+            <div class="header__foto">
+                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto<?php echo mt_rand(1, 2); ?>.png" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
-        </section>
-        <section class="header-banner">
-            <div class="container">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-banner__link">
-                    <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto<?php echo mt_rand(1, 2); ?>.png" alt="" class="img-fluid header-banner__foto" aria-hidden="true"/>
-                    <img src="<?php header_image(); ?>" alt="" class="img-fluid header-banner__ps" aria-hidden="true"/>
-                    <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-selo.png" alt="" class="img-fluid header-banner__selo" aria-hidden="true"/>
+            <div class="header__marca">
+                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-marca.png" alt="" class="img-fluid" aria-hidden="true"/>
+            </div>
+            <div class="header__principal">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
+                    <img src="<?php header_image(); ?>" alt="" class="img-fluid" aria-hidden="true"/>
                     <span class="sr-only">Ir para P&aacute;gina Inicial</span>
                 </a>
+                <div class="header__social">
+                    <ul class="menu-social">
+                        <li class="menu-social__item"><a href="https://www.facebook.com/IFRSOfical" class="menu-social__link menu-social__link--facebook"><span class="sr-only">Página do IFRS no Facebook</span></a></li>
+                        <li class="menu-social__item"><a href="https://www.twitter.com/IFRSOficial" class="menu-social__link menu-social__link--twitter"><span class="sr-only">Perfil do IFRS no Twitter</span></a></li>
+                        <li class="menu-social__item"><a href="https://www.instagram.com/IFRSOficial" class="menu-social__link menu-social__link--instagram"><span class="sr-only">Perfil do IFRS no Instagram</span></a></li>
+                        <li class="menu-social__item"><a href="https://www.youtube.com/IFRSOficial" class="menu-social__link menu-social__link--youtube"><span class="sr-only">Canal do IFRS no Youtube</span></a></li>
+                        <li class="menu-social__item"><a href="https://www.linkedin.com/school/IFRS" class="menu-social__link menu-social__link--linkedin"><span class="sr-only">Página do IFRS no Linkedin</span></a></li>
+                    </ul>
+                </div>
+                <div class="header__menu">
+                    <?php echo get_template_part('partials/menu'); ?>
+                </div>
+            </div>
+            <div class="header__search">
+                <?php get_search_form(); ?>
             </div>
         </section>
     </header>
