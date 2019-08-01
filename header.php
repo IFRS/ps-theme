@@ -64,9 +64,9 @@
                 <div class="header__menu">
                     <?php echo get_template_part('partials/menu'); ?>
                 </div>
-            </div>
-            <div class="header__search">
-                <?php get_search_form(); ?>
+                <div class="header__search">
+                    <?php get_search_form(); ?>
+                </div>
             </div>
         </section>
     </header>

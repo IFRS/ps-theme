@@ -2,7 +2,11 @@
     display: block;
     list-style: none;
     margin-top: 1rem;
-    text-align: right;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        text-align: right;
+    }
 
     &__item {
         display: inline-block;

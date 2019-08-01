@@ -62,10 +62,13 @@
     }
 
     &__search {
+        margin-top: 20px;
+
         @include media-breakpoint-up(lg) {
             position: absolute;
             left: 0;
             top: 20px;
+            margin-top: 0;
         }
     }
 }
