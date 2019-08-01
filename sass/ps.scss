@@ -1,58 +1,62 @@
-@import 'vars';
+@import 'config/fonts';
 
-@import 'fonts';
+@import 'config/vars';
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import '../node_modules/datatables.net-bs4/css/dataTables.bootstrap4';
 
-@import 'mixins';
+@import 'config/mixins';
 
-@import 'lazyload';
+@import 'base/base';
 
-@import 'base';
+@import 'base/wp';
 
-@import 'barra-brasil-fix';
+@import 'base/bootstrap';
 
-@import 'menu';
+@import 'base/lazyload';
 
-@import 'searchform';
+@import 'base/barra-brasil-fix';
 
-@import 'header-banner';
+@import 'blocks/menu';
 
-@import 'search';
+@import 'blocks/searchform';
 
-@import 'home-chamadas';
+@import 'blocks/search';
 
-@import 'home-atalhos';
+@import 'blocks/header-banner';
 
-@import 'home-info';
+@import 'blocks/home-chamadas';
 
-@import 'home-publicacoes';
+@import 'blocks/home-atalhos';
 
-@import 'home-noticias';
+@import 'blocks/home-info';
 
-@import 'home-ajuda';
+@import 'blocks/home-publicacoes';
 
-@import 'home-faq';
+@import 'blocks/home-noticias';
 
-@import 'home-cursos';
+@import 'blocks/home-ajuda';
 
-@import 'aside';
+@import 'blocks/home-faq';
 
-@import 'avisos';
+@import 'blocks/home-cursos';
 
-@import 'post';
+@import 'blocks/aside';
 
-@import 'publicacao';
+@import 'blocks/avisos';
 
-@import 'edital';
+@import 'blocks/post';
 
-@import 'cursos';
+@import 'blocks/publicacao';
 
-@import 'modalidades';
+@import 'blocks/edital';
 
-@import 'editais';
+@import 'blocks/cursos';
 
-@import 'chamadas';
+@import 'blocks/modalidades';
 
-@import 'footer';
+@import 'blocks/editais';
+
+@import 'blocks/chamadas';
+
+@import 'blocks/footer';

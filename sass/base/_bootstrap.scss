@@ -1,0 +1,17 @@
+.alert {
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.pagination {
+    .page-item {
+        a {
+            @extend .page-link;
+        }
+
+        .current {
+            @extend .page-link;
+        }
+    }
+}
