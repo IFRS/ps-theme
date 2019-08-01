@@ -23,7 +23,8 @@
         &--facebook {
             background: url('../img/social-facebook.png') no-repeat center center;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-image: url('../img/social-facebook_hover.png');
             }
         }
@@ -31,7 +32,8 @@
         &--twitter {
             background: url('../img/social-twitter.png') no-repeat center center;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-image: url('../img/social-twitter_hover.png');
             }
         }
@@ -39,7 +41,8 @@
         &--instagram {
             background: url('../img/social-instagram.png') no-repeat center center;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-image: url('../img/social-instagram_hover.png');
             }
         }
@@ -47,7 +50,8 @@
         &--youtube {
             background: url('../img/social-youtube.png') no-repeat center center;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-image: url('../img/social-youtube_hover.png');
             }
         }
@@ -55,7 +59,8 @@
         &--linkedin {
             background: url('../img/social-linkedin.png') no-repeat center center;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-image: url('../img/social-linkedin_hover.png');
             }
         }
