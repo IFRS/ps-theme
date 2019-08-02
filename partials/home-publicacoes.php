@@ -1,10 +1,6 @@
 <article class="home-publicacoes">
     <div class="home-publicacoes__title">
-        <div class="row">
-            <div class="col-12">
-                <h3>&Uacute;ltimas <strong>Publica&ccedil;&otilde;es</strong></h3>
-            </div>
-        </div>
+        <h2 class="title-sobreposto"><span class="title-sobreposto__apoio">&Uacute;ltimas</span>&nbsp;<span class="title-sobreposto__principal">Publica&ccedil;&otilde;es</span></h2>
     </div>
     <div class="home-publicacoes__body">
         <div class="row">

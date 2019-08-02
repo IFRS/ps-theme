@@ -1,0 +1,22 @@
+.title-sobreposto {
+    color: $cor-base;
+    display: inline-block;
+
+    &__apoio {
+        background: $cor-turquesa;
+        color: $cor-apoio;
+        display: inline-block;
+        font-size: 0.6em;
+        padding: 5px 20px 5px 10px;
+    }
+
+    &__principal {
+        background: $cor-vermelho;
+        color: $cor-apoio;
+        display: block;
+        font-weight: bold;
+        margin-left: 30px;
+        margin-top: -5px;
+        padding: 5px 40px 5px 20px;
+    }
+}

@@ -2,11 +2,9 @@
     margin-bottom: 30px;
 
     &__title {
-        @include box-title();
-
-        h3 {
-            font-size: 1.8rem;
-            margin: 0;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
         }
     }
 
