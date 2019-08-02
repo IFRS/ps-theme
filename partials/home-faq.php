@@ -1,10 +1,6 @@
 <article class="home-faq">
     <div class="home-faq__title">
-        <div class="row">
-            <div class="col-12">
-                <h3><strong>Perguntas</strong> Frequentes</h3>
-            </div>
-        </div>
+        <h2>Voc&ecirc; tem alguma d&uacute;vida?</h2>
     </div>
     <div class="home-faq__body">
         <div class="row">
