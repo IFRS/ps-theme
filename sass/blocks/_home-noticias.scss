@@ -1,33 +1,18 @@
 .home-noticias {
     $n: &;
     &__title {
-        @include box-title();
-
-        h3 {
-            font-size: 30px;
-            margin: 0;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
         }
     }
 
-    &__list {
-        list-style: none;
-        padding: 0;
+    &__content {
+        padding-left: 30px;
     }
 
     &__item {
-        border-bottom: 1px solid #cccccc;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-
-        &:hover {
-            #{$n}__item-meta {
-                border: 4px solid $cor-apoio;
-            }
-        }
-
-        &:last-child {
-            border-bottom: none;
-        }
+        margin-bottom: 30px;
 
         .post-categories {
             list-style: none;
@@ -35,14 +20,12 @@
             padding: 0;
 
             li {
-                color: #000000;
+                color: $cor-vermelho;
                 display: inline-block;
-                font-size: 14px;
-                font-weight: bold;
-                text-transform: uppercase;
+                font-size: 0.85rem;
 
                 a {
-                    color: #000000;
+                    color: $cor-vermelho;
                 }
 
                 &:after {
@@ -59,12 +42,11 @@
     }
 
     &__item-meta {
-        border: 4px solid $cor-base;
-        color: $cor-apoio;
+        color: #000000;
+        display: inline-block;
         font-size: 28px;
         line-height: 32px;
         margin-bottom: 0;
-        text-align: center;
 
         @include media-breakpoint-down(sm) {
             font-size: 22px;
@@ -72,30 +54,36 @@
     }
 
     &__item-day {
-        border-top: 4px solid #ffffff;
-        display: block;
+        background: $cor-laranja;
+        display: inline-block;
         font-weight: bold;
         margin: 0 auto;
-        margin-top: -4px;
-        width: 85%;
+        padding: 5px 15px 2px 15px;
+        /*margin-top: -4px;*/
+        /*width: 85%;*/
     }
 
     &__item-month {
-        border-bottom: 4px solid #ffffff;
-        display: block;
+        background: $cor-laranja;
+        display: inline-block;
+        font-weight: bold;
         margin: 0 auto;
-        margin-bottom: -4px;
-        width: 85%;
+        padding: 2px 20px 5px 15px;
+        text-transform: uppercase;
+        /*margin-bottom: -4px;*/
+        /*width: 85%;*/
     }
 
     &__item-title {
-        color: #000000;
-        font-size: 18px;
+        color: $cor-turquesa;
+        font-size: 1.1rem;
+        font-weight: bold;
         margin-bottom: 3px;
         margin-top: 0;
+        text-transform: uppercase;
 
         a {
-            color: #000000;
+            color: $cor-turquesa;
         }
     }
 
