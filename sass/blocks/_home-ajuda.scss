@@ -1,110 +1,11 @@
 .home-ajuda {
-    background: $cor-base;
+    background: $cor-apoio;
     padding: ($grid-gutter-width * 2) 0 0 0;
-
-    &__duvida {
-        text-align: center;
-    }
-
-    &__title {
-        color: #ffffff;
-        font-size: 2.4rem;
-        font-weight: 900;
-        margin: 0 auto;
-        margin-bottom: 30px;
-        max-width: 500px;
-        padding-top: $grid-gutter-width + 10px;
-        text-align: center;
-        text-transform: uppercase;
-
-        @include media-breakpoint-up(lg) {
-            border-top: 20px solid $cor-apoio;
-            margin-top: -($grid-gutter-width * 2);
-        }
-    }
 
     &__image {
         background: url('../img/home-ajuda.png') center center no-repeat;
         margin: 0 auto;
-        min-height: 634px;
-        min-width: 393px;
-
-        &_reverse {
-            background: url('../img/home-ajuda-reverse.png') center center no-repeat;
-        }
-
-        @include media-breakpoint-down(md) {
-            display: none;
-        }
-    }
-
-    &__box {
-        background-color: $cor-apoio-secundaria;
-        color: #ffffff;
-        padding: 20px;
-        text-align: left;
-
-        @include media-breakpoint-up(md) {
-            padding: 40px 40px 40px 100px;
-        }
-
-        @include media-breakpoint-up(lg) {
-            &:after {
-                content:'';
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                margin-left: -270px;
-                width: 0;
-                height: 0;
-                border-top: solid 80px $cor-apoio-secundaria;
-                border-left: solid 270px transparent;
-                border-right: solid 270px transparent;
-                z-index: 100;
-            }
-        }
-    }
-
-    &__box-title {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
-
-    &__box-instagram {
-        background: url('../img/contato_instagram.png') center top no-repeat;
-        display: inline-block;
-        height: 37px;
-        margin-right: 10px;
-        width: 37px;
-
-        &:hover {
-            background-position: center bottom;
-        }
-    }
-
-    &__box-facebook {
-        background: url('../img/contato_facebook.png') center top no-repeat;
-        display: inline-block;
-        height: 37px;
-        margin-right: 15px;
-        width: 37px;
-
-        &:hover {
-            background-position: center bottom;
-        }
-    }
-
-    &__box-email {
-        display: block;
-        color: #ffffff;
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-top: 15px;
-        word-break: break-all;
-
-        &:hover {
-            color: #ffffff;
-        }
+        min-height: 579px;
+        min-width: 448px;
     }
 }

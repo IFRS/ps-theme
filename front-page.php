@@ -38,29 +38,11 @@
 <section class="home-ajuda">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-5 col-xl-6">
-                <?php echo get_template_part('partials/home-faq'); ?>
-            </div>
-            <div class="col-12 col-lg-7 col-xl-6 home-ajuda__duvida">
-                <h2 class="home-ajuda__title">Voc&ecirc; ainda tem alguma d&uacute;vida?</h2>
+            <div class="col-12 col-lg-6 visible-lg">
                 <div class="home-ajuda__image" aria-hidden="true"></div>
-                <div class="home-ajuda__box">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3 class="home-ajuda__box-title">Entre em contato:</h3>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row justify-content-start">
-                        <a href="https://www.instagram.com/IFRSOficial/" title="Instagram" class="home-ajuda__box-instagram"><span class="sr-only">Acesse o perfil do IFRS no Instagram</span></a>
-                        <a href="https://www.facebook.com/IFRSOficial/" title="Facebook" class="home-ajuda__box-facebook"><span class="sr-only">Acesse o perfil do IFRS no Facebook</span></a>
-                        <img class="d-none d-sm-block img-fluid home-ajuda__box-icone" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/contato_ifrsoficial.png" alt="https://www.facebook.com/IFRSOficial/">
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <a class="home-ajuda__box-email" href="mailto:processoseletivo@ifrs.edu.br"><span class="sr-only">E-mail: </span>processoseletivo@ifrs.edu.br</a>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="col">
+                <?php echo get_template_part('partials/home-faq'); ?>
             </div>
         </div>
     </div>
