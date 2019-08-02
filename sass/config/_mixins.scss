@@ -24,8 +24,9 @@
 
 @mixin ps-btn() {
     background: #ffffff url('../img/btn.png') 3% center no-repeat;
-    font-weight: bold;
-    padding-left: 40px;
+    border-left: 4px solid $cor-amarelo;
+    color: $cor-vermelho;
+    text-transform: uppercase;
 }
 
 @mixin btn-chamadas() {
