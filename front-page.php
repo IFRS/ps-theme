@@ -1,27 +1,20 @@
 <?php get_header(); ?>
 
-<?php if (is_active_sidebar('home_chamadas')) : ?>
-<section class="home-chamadas">
-    <div class="container lazyload">
-        <div class="row">
-            <?php dynamic_sidebar('home_chamadas'); ?>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
-
 <?php if (is_active_sidebar('home_atalhos')) : ?>
     <section class="home-atalhos">
-        <div class="container-fluid">
-            <div class="row d-flex flex-row align-items-center">
-                <div class="flex-fill home-atalhos__title-pre"></div>
-                <h2 class="align-self-center home-atalhos__title">Informa&ccedil;&otilde;es</h2>
-                <div class="flex-fill home-atalhos__title-pos"></div>
-            </div>
-        </div>
         <div class="container">
             <div class="row home-atalhos__content">
                 <?php dynamic_sidebar('home_atalhos'); ?>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+
+<?php if (is_active_sidebar('home_chamadas')) : ?>
+    <section class="home-chamadas">
+        <div class="container lazyload">
+            <div class="row">
+                <?php dynamic_sidebar('home_chamadas'); ?>
             </div>
         </div>
     </section>

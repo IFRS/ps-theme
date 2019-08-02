@@ -1,29 +1,17 @@
 .home-atalhos {
-    background: $cor-base;
-    padding: $grid-gutter-width 0;
+    background: $cor-vermelho;
+    padding: 0;
     text-align: center;
-
-    &__title {
-        color: #ffffff;
-        margin: 0 10px;
-        font-size: 1.9rem;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    &__title-pre {
-        background: url('../img/bg-atalhos-esq.png') right center no-repeat;
-        background-color: #ffffff;
-        height: 25px;
-    }
-
-    &__title-pos {
-        background: url('../img/bg-atalhos-dir.png') left center no-repeat;
-        background-color: #ffffff;
-        height: 25px;
-    }
+    overflow-y: visible;
+    border-bottom: $header-margin solid #ffffff;
+    border-top: $header-margin solid #ffffff;
+    margin-top: -$header-margin;
 
     &__content {
+        background: $cor-amarelo;
         justify-content: center;
+        margin-bottom: -$header-margin;
+        margin-top: -$header-margin;
+        padding: 40px 0;
     }
 }
