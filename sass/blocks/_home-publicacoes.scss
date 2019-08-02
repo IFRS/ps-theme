@@ -8,45 +8,45 @@
         }
     }
 
-    &__body {
-    }
-
     &__list {
         list-style: none;
-        padding: 0;
+        padding-left: 30px;
     }
 
     &__item {
-        border-bottom: 1px solid #cccccc;
-        margin-bottom: 15px;
-        padding-bottom: 10px;
+        margin-bottom: 20px;
 
         p {
-            color: $cor-destaque;
+            color: $cor-base;
             margin-bottom: 0;
         }
     }
 
     &__item-meta {
-        font-size: 0.9rem;
-        margin-bottom: 3px;
+        border-bottom: 1px solid $cor-turquesa;
+        color: $cor-base;
+        display: inline-block;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        padding-right: 5px;
     }
 
     &__item-date {
-        color: $cor-apoio;
-        margin-right: 20px;
-    }
-
-    &__item-time {
-        color: $cor-destaque;
+        margin-right: 5px;
     }
 
     &__item-title {
+        color: $cor-turquesa;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 1.2rem;
         margin-bottom: 3px;
         margin-top: 0;
         text-transform: uppercase;
+
+        a {
+            color: $cor-turquesa;
+        }
     }
 
     &__btn {
