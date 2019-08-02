@@ -12,20 +12,22 @@ $(function() {
     $('.current-menu-parent > a[data-toggle="dropdown"]').dropdown('show');
 
     // Controla a exibição do menu em viewports pequenos.
-    if ($(window).width() < 992) {
-        $(".menu-navbar").collapse('hide');
+    function menu_resize_control() {
+        if ($(window).width() < 992) {
+            $(".menu-navbar").collapse('hide');
+        } else {
+            $(".menu-navbar").collapse('show');
+        }
     }
+
+    menu_resize_control();
 
     var width_control = $(window).width();
     $(window).resize(function() {
         if ($(window).width() === width_control) {
             return;
         }
-        if ($(window).width() < 992) {
-            $(".menu-navbar").collapse('hide');
-        } else {
-            $(".menu-navbar").collapse('show');
-        }
+        menu_resize_control();
     });
     $('.btn-menu-toggle').on('click', function(e) {
         $(".menu-navbar").collapse('toggle');
