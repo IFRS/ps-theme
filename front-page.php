@@ -33,6 +33,8 @@
     </div>
 </section>
 
+<hr class="home-separator">
+
 <section class="home-ajuda">
     <div class="container">
         <div class="row">

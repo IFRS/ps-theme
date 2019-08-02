@@ -1,0 +1,30 @@
+.home-separator {
+    background: none;
+    border: none;
+    height: 110px;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+        background: $cor-amarelo;
+        content: '';
+        position: absolute;
+        display: block;
+        height: 70px;
+        width: 100vw;
+        top: 0;
+        right: 25vw;
+    }
+
+    &::after {
+        background: $cor-vermelho;
+        content: '';
+        position: absolute;
+        display: block;
+        height: 70px;
+        width: 100vw;
+        top: 40px;
+        left: 25vw;
+        z-index: 10;
+    }
+}
