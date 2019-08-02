@@ -1,31 +1,4 @@
 .home-info {
+    margin-top: 30px;
     padding-bottom: 40px;
-
-    &__title-row {
-        border-bottom: 4px solid $cor-base;
-        border-top: 4px solid $cor-apoio;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
-    &__title {
-        color: $cor-apoio;
-        font-size: 42px;
-        font-weight: bold;
-        margin: 0 30px;
-        text-align: center;
-        text-transform: uppercase;
-    }
-
-    &__title-pre {
-        background: url('../img/bg-info-esq.png') right center repeat-x;
-        background-color: #ffffff;
-        height: 50px;
-    }
-
-    &__title-pos {
-        background: url('../img/bg-info-dir.png') left center repeat-x;
-        background-color: #ffffff;
-        height: 50px;
-    }
 }

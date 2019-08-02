@@ -21,13 +21,6 @@
 <?php endif; ?>
 
 <section class="home-info">
-    <div class="container-fluid">
-        <div class="row d-flex flex-row align-items-center home-info__title-row">
-            <div class="flex-fill home-info__title-pre"></div>
-            <h2 class="align-self-center home-info__title">Saiba +</h2>
-            <div class="flex-fill home-info__title-pos"></div>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-7">
