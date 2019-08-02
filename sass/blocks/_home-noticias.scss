@@ -1,5 +1,4 @@
 .home-noticias {
-    $n: &;
     &__title {
         h2 {
             font-size: 2rem;
@@ -59,8 +58,6 @@
         font-weight: bold;
         margin: 0 auto;
         padding: 5px 15px 2px 15px;
-        /*margin-top: -4px;*/
-        /*width: 85%;*/
     }
 
     &__item-month {
@@ -70,8 +67,6 @@
         margin: 0 auto;
         padding: 2px 20px 5px 15px;
         text-transform: uppercase;
-        /*margin-bottom: -4px;*/
-        /*width: 85%;*/
     }
 
     &__item-title {
