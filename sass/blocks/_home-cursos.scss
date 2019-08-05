@@ -1,8 +1,40 @@
 .home-cursos {
-    min-height: 800px;
+    &__image {
+        width: 100% \9; // IE Fix
+        padding: 20px 30px 20px 60px;
+
+        .st0 {
+            fill: $cor-turquesa;
+        }
+        .st1 {
+            fill: $cor-vermelho;
+        }
+        .st2 {
+            fill:#ffffff;
+        }
+        .st3 {
+            fill: $cor-amarelo;
+        }
+        .st5 {
+            fill: $cor-turquesa;
+        }
+        .st6 {
+            fill: $cor-vermelho;
+        }
+        .st7 {
+            fill: $cor-turquesa;
+        }
+        .st8 {
+            fill: $cor-turquesa;
+        }
+        .st9 {
+            enable-background: new;
+        }
+    }
 
     .container {
         position: relative;
+
         &::after {
             content: '';
             position: absolute;
