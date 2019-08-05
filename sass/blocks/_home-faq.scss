@@ -1,68 +1,80 @@
 .home-faq {
     &__title {
-        color: #ffffff;
-        margin-bottom: 40px;
+        color: $cor-vermelho;
+        margin-bottom: 30px;
+        max-width: 350px;
+        text-transform: uppercase;
 
-        h3 {
-            font-size: 30px;
+        h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
             margin: 0;
             text-transform: uppercase;
-        }
-
-        @include media-breakpoint-up(sm) {
-            background: url('../img/bg-faq.png') right center no-repeat;
-            background-size: auto;
-            padding-right: 140px;
         }
     }
 
     &__body {
         @include media-breakpoint-up(lg) {
-            max-height: 850px;
+            max-height: 450px;
             overflow-y: auto;
             overflow-x: hidden;
         }
 
         a {
-            color: #ffffff;
+            color: #000000;
             font-weight: bold;
         }
     }
 
     &__item {
+        background: transparent;
         border: none;
-        border-bottom: 1px solid darken($cor-apoio, 10%);
-        margin-bottom: 5px;
+        margin-bottom: 15px;
 
         .card-header {
-            background-color: $cor-base;
+            background: none;
             border: none;
             padding: 0;
 
             a {
-                color: #ffffff;
+                color: #000000;
                 font-weight: bold;
                 text-align: left;
                 text-decoration: none;
                 white-space: normal;
             }
 
-            [data-toggle="collapse"]:before{
-                content: "\25bc";
-                color: darken($cor-apoio, 10%);
+            [data-toggle="collapse"]:before {
+                border-style: solid;
+                border-width: 0.2em 0.2em 0 0;
+                border-color: $cor-base;
+                content: '';
+                display: inline-block;
+                height: 0.6em;
+                left: 0;
+                margin-right: 5px;
+                position: relative;
+                top: 0;
+                transform: rotate(135deg);
+                transition: .25s ease-in-out;
+                width: 0.6em;
             }
 
-            [data-toggle="collapse"].collapsed:before{
-                content: "\25b6";
-                color: darken($cor-apoio, 10%);
+            [data-toggle="collapse"].collapsed:before {
+                transform: rotate(45deg);
             }
         }
 
         .card-body {
-            background-color: $cor-base;
-            color: #D9D9D9;
-            font-size: 90%;
+            background-color: $cor-amarelo;
+            color: $cor-base;
+            font-size: 0.9rem;
             padding-left: 33px;
         }
+    }
+
+    &__item-title {
+        background-color: $cor-laranja;
+        display: inline-block;
     }
 }
