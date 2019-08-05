@@ -13,9 +13,9 @@
         }
     }
 
-    &__body {
+    &__perguntas {
         @include media-breakpoint-up(lg) {
-            max-height: 450px;
+            max-height: 452px;
             overflow-y: auto;
             overflow-x: hidden;
         }
@@ -69,7 +69,6 @@
             background-color: $cor-amarelo;
             color: $cor-base;
             font-size: 0.9rem;
-            padding-left: 33px;
         }
     }
 
