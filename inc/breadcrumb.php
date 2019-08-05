@@ -6,10 +6,11 @@ function ps_breadcrumb() {
     $after     = '</li>';
 
     if (!is_front_page() || is_paged()) {
+        echo '<div class="breadcrumb-wrapper">';
         echo '<div class="container" id="breadcrumb">';
         echo '<nav aria-label="breadcrumb">';
 		echo '<ol class="breadcrumb">';
-		echo 'Voc&ecirc; est&aacute; em:&nbsp;';
+		echo '<span class="breadcrumb-wrapper__text">Voc&ecirc; est&aacute; em:&nbsp;</span>';
 
         global $post;
         $homeLink = home_url();
@@ -101,6 +102,6 @@ function ps_breadcrumb() {
         }
 
         echo '</ol>';
-		echo '</div></div></div>';
+		echo '</nav></div></div>';
     }
 }

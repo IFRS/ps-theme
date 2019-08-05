@@ -19,7 +19,13 @@ $cor-campi:                   $cor-base;
 // Bootstrap
 $font-family-sans-serif:      "Open Sans", Arial, sans-serif;
 
-$link-color:                  darken($cor-apoio, 10%);
+$link-color:                  $cor-base;
+
+$breadcrumb-bg: none;
+$breadcrumb-active-color: $cor-vermelho;
+$breadcrumb-padding-y:              30px;
+/*$breadcrumb-padding-x:              50px;*/
+
 $navbar-dark-color:           #ffffff;
 $navbar-dark-hover-color:     rgba(255,255,255,.95);
 
