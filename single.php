@@ -1,10 +1,33 @@
+<?php
+    // Outros posts das mesmas categorias.
+    global $post;
+
+    $cat_ID = array();
+    $categories = get_the_category();
+
+    foreach ($categories as $category) {
+        array_push($cat_ID, $category->cat_ID);
+    }
+
+    $args = array(
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_type' => 'post',
+        'numberposts' => 5,
+        'post__not_in' => array($post->ID),
+        'category__in' => $cat_ID,
+    );
+
+    $cat_posts = get_posts($args);
+?>
+
 <?php get_header(); ?>
 
 <?php the_post(); ?>
 
 <section class="container">
     <div class="row">
-        <div class="col-12 col-lg-8">
+        <div class="col">
             <article class="post">
                 <div class="row">
                     <div class="col-12">
@@ -42,47 +65,18 @@
             </article>
         </div>
         <div class="col-12 col-lg-4">
-            <aside>
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Outros posts das mesmas categorias. -->
-                        <?php
-                            global $post;
-
-                            $cat_ID = array();
-                            $categories = get_the_category();
-
-                            foreach ($categories as $category) {
-                                array_push($cat_ID, $category->cat_ID);
-                            }
-
-                            $args = array(
-                                'orderby' => 'date',
-                                'order' => 'DESC',
-                                'post_type' => 'post',
-                                'numberposts' => 5,
-                                'post__not_in' => array($post->ID),
-                                'category__in' => $cat_ID,
-                            );
-
-                            $cat_posts = get_posts($args);
-                        ?>
-                        <?php if (!empty($cat_posts)) : ?>
-                            <h3 class="aside__title">Conte&uacute;do Relacionado</h3>
-                            <?php foreach ($cat_posts as $cat_post) : ?>
-                                <div class="card">
-                                    <?php if (has_post_thumbnail($cat_post->ID)) : ?>
-                                        <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'card-img-top')); ?>
-                                    <?php endif; ?>
-                                    <div class="card-body">
-                                        <h4 class="card-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
-                                        <p class="card-subtitle"><?php echo get_the_date('d/m/Y', $cat_post->ID); ?></p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+            <aside class="aside">
+                <?php if (!empty($cat_posts)) : ?>
+                    <h3 class="aside__title title-sobreposto"><span class="title-sobreposto__apoio">Conte&uacute;do</span>&nbsp;<span class="title-sobreposto__principal">Relacionado</span></h3>
+                    <div class="aside__content">
+                        <?php foreach ($cat_posts as $cat_post) : ?>
+                            <div class="aside__item">
+                                <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
+                                <p class="aside__item-meta"><?php echo get_the_date('d/m/Y', $cat_post->ID); ?></p>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                </div>
+                <?php endif; ?>
             </aside>
         </div>
     </div>

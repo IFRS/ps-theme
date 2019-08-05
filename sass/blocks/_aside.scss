@@ -1,41 +1,35 @@
-aside {
-    color: $cor-destaque;
+.aside {
+    color: $cor-base;
     margin-bottom: $grid-gutter-width;
 
-    .card {
-        border: none;
-        border-style: solid;
-        border-width: 3px 15px;
-        border-image: url('../img/border-btn.png') 3 10 repeat;
-        margin-bottom: 10px;
-        text-align: center;
-        transition: all 0.3s ease 0s;
-
-        &:hover {
-            background: none;
-            border-image: url('../img/border-btn-hover.png') 3 10 repeat;
-
-            .card-title {
-                a {
-                    color: $cor-base;
-                    transition: all 0.3s ease 0s;
-                }
-            }
-        }
-    }
-
-    .card-title {
-        a {
-            color: $cor-destaque;
-        }
-    }
-}
-
-.aside {
     &__title {
-        @include title();
+        font-size: 1.8rem;
+    }
 
-        font-size: 1.5rem;
-        padding-left: 130px;
+    &__content {
+        text-align: right;
+    }
+
+    &__item {
+        background: $cor-amarelo;
+        display: inline-block;
+        padding: 5px;
+    }
+
+    &__item-title {
+        color: $cor-base;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 3px;
+
+        a {
+            color: $cor-base;
+        }
+    }
+
+    &__item-meta {
+        color: $cor-base;
+        font-size: 0.9rem;
+        margin: 0;
     }
 }
