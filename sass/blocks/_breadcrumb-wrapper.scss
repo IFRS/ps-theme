@@ -1,5 +1,6 @@
 .breadcrumb-wrapper {
     background: $cor-amarelo;
+    margin-top: -($header-margin);
 
     &__text {
         color: $cor-base;
