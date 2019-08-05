@@ -1,34 +1,21 @@
-$cor-base:     #58595b;
-$cor-apoio:    #f1f2f2;
-$cor-turquesa: #1ca29f;
-$cor-vermelho: #d5544c;
-$cor-laranja:  #e4a302;
-$cor-amarelo:  #edd247;
+$cor-base:                #58595b;
+$cor-apoio:               #f1f2f2;
+$cor-turquesa:            #1ca29f;
+$cor-vermelho:            #d5544c;
+$cor-laranja:             #e4a302;
+$cor-amarelo:             #edd247;
 
-$header-margin: 30px;
+$header-margin:           30px;
 
-$cor-apoio-secundaria: $cor-apoio;
-$cor-destaque: $cor-vermelho;
-
-$cor-rodape:                  $cor-apoio;
-
-$cor-modalidades:             #05827e;
-$cor-formasingresso:          #7f1b66;
-$cor-campi:                   $cor-base;
+$cor-modalidades:         #05827e;
+$cor-formasingresso:      #7f1b66;
+$cor-campi:               $cor-base;
 
 // Bootstrap
-$font-family-sans-serif:      "Open Sans", Arial, sans-serif;
+$font-family-sans-serif:  "Open Sans", Arial, sans-serif;
 
-$link-color:                  $cor-base;
+$link-color:              $cor-base;
 
-$breadcrumb-bg: none;
+$breadcrumb-bg:           none;
 $breadcrumb-active-color: $cor-vermelho;
-$breadcrumb-padding-y:              30px;
-
-$navbar-dark-color:           #ffffff;
-$navbar-dark-hover-color:     rgba(255,255,255,.95);
-
-$nav-pills-link-active-color: #ffffff;
-$nav-pills-link-active-bg:    $cor-campi;
-
-$component-active-bg:         $cor-apoio;
+$breadcrumb-padding-y:    30px;
