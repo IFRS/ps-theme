@@ -71,3 +71,7 @@
         font-weight: bold;
     }
 }
+
+.btn-menu-toggle {
+    @include button-variant($cor-laranja, $cor-apoio);
+}
