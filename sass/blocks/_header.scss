@@ -10,6 +10,7 @@
     &__foto {
         max-width: 40%;
         flex: 0 0 40%;
+        align-self: flex-end;
 
         @include media-breakpoint-down(md) {
             display: none;
@@ -17,11 +18,11 @@
     }
 
     &__marca {
-        flex: 0 0 10%;
+        flex: auto 0 10%;
 
         background: $cor-vermelho;
         margin-right: 10px;
-        margin-top: -$header-margin;
+        margin-top: -($header-margin);
         padding: ($header-margin + 20px) 10px 20px 10px;
         text-align: center;
 
@@ -62,7 +63,7 @@
     }
 
     &__search {
-        margin-top: 20px;
+        margin: 20px 0;
 
         @include media-breakpoint-up(lg) {
             position: absolute;
