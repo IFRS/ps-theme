@@ -46,7 +46,7 @@
                 <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto<?php echo mt_rand(1, 2); ?>.png" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
             <div class="header__marca">
-                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-marca.png" alt="" class="img-fluid" aria-hidden="true"/>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-marca.png" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
             <div class="header__principal">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
