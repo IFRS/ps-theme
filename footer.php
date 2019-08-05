@@ -16,7 +16,7 @@
                     'container_class'   => false,
                     'container_id'      => false,
                     'menu_id'           => false,
-                    'menu_class'        => 'footer-menu',
+                    'menu_class'        => 'site-map__menu',
                     'fallback_cb'       => false
                 ));
             ?>
@@ -30,10 +30,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-5 col-lg-4 col-xl-3">
-                <a href="https://ifrs.edu.br/" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/ifrs-branco.png" alt="Marca do IFRS"/></a>
+                <a href="https://ifrs.edu.br/" data-toggle="tooltip" data-placement="top" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-marca.png" alt="Marca do IFRS"/></a>
             </div>
             <div class="col-12 col-md-7 col-lg-8 col-xl-9">
-                <address class="footer-address">
+                <address class="contato">
                     <p>Rua General Os&oacute;rio, 348 | Bairro Centro</p>
                     <p>CEP: 95700-086 | Bento Gon&ccedil;alves/RS</p>
                     <p>E-mail: <a href="mailto:processoseletivo@ifrs.edu.br">processoseletivo@ifrs.edu.br</a></p>
@@ -44,7 +44,7 @@
     </div>
 </footer>
 
-<div class="footer-bottom">
+<div class="creditos">
     <div class="container">
         <div class="row">
             <div class="col-12">

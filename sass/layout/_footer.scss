@@ -1,0 +1,15 @@
+footer {
+    background-color: $cor-apoio;
+    color: $cor-base;
+    font-weight: 600;
+    padding-top: $grid-gutter-width;
+    padding-bottom: 15px;
+
+    a {
+        color: $cor-base;
+
+        &:hover {
+            color: #000000;
+        }
+    }
+}
