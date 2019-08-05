@@ -51,6 +51,6 @@
 
     &__btn {
         @include button-variant(#ffffff, #ffffff);
-        @include ps-btn();
+        @include btn-ps();
     }
 }

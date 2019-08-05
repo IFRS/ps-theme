@@ -1,28 +1,13 @@
-@mixin box-title() {
-    align-items: center;
-    background-color: $cor-apoio-secundaria;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    display: flex;
+@mixin title() {
+    color: $cor-vermelho;
+    font-weight: bold;
     margin-bottom: 20px;
-    min-height: 77px;
-    padding: 0 15px 0 30px;
+    margin-top: 40px;
     text-align: left;
-
-    @include media-breakpoint-up(sm) {
-        background-image: url('../img/bg-title-dir.png');
-        background-position: right center;
-        padding: 0 85px 0 30px;
-    }
-
-    @include media-breakpoint-up(md) {
-        background-image: url('../img/bg-title-esq.png'), url('../img/bg-title-dir.png');
-        background-position: left center, right center;
-        padding: 0 85px 0 140px;
-    }
+    text-transform: uppercase;
 }
 
-@mixin ps-btn() {
+@mixin btn-ps() {
     background: #ffffff url('../img/btn.png') 3% center no-repeat;
     border-left: 4px solid $cor-amarelo;
     color: $cor-vermelho;

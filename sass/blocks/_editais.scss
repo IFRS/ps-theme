@@ -2,7 +2,7 @@
     margin-bottom: $grid-gutter-width;
 
     &__title {
-        @include box-title();
+        @include title();
 
         margin-top: 0;
     }

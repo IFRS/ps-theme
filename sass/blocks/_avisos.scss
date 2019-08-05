@@ -1,6 +1,6 @@
 .avisos {
     &__title {
-        @include box-title();
+        @include title();
 
         margin-bottom: $grid-gutter-width;
     }
@@ -37,7 +37,7 @@
 
 .category {
     &__title {
-        @include box-title();
+        @include title();
 
         margin-bottom: $grid-gutter-width;
     }

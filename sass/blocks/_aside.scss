@@ -33,7 +33,7 @@ aside {
 
 .aside {
     &__title {
-        @include box-title();
+        @include title();
 
         font-size: 1.5rem;
         padding-left: 130px;
