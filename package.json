@@ -43,7 +43,6 @@
     "plugin-error": "^1.0.1",
     "popper.js": "^1.15.0",
     "postcss-flexibility": "^2.0.0",
-    "rellax": "^1.10.0",
     "respond.js": "^1.4.2",
     "webpack": "^4.38.0"
   }
