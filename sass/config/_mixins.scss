@@ -5,6 +5,23 @@
     margin-top: 40px;
     text-align: left;
     text-transform: uppercase;
+
+    @include media-breakpoint-up(lg) {
+        padding-left: 60px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            width: 58px;
+            height: 110%;
+            z-index: 1;
+            opacity: 0.25;
+
+            background: url('../img/bg-vertical.png') repeat-y left top;
+        }
+    }
 }
 
 @mixin btn-ps() {
