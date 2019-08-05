@@ -38,7 +38,7 @@
 <section class="home-ajuda">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 visible-lg">
+            <div class="col-12 col-lg-6 d-none d-lg-block">
                 <div class="home-ajuda__image" aria-hidden="true"></div>
             </div>
             <div class="col">
