@@ -1,6 +1,7 @@
 .home-ajuda {
     background: $cor-apoio;
-    padding: ($grid-gutter-width * 2) 0 0 0;
+    margin-top: -55px;
+    padding: 105px 0 0 0;
 
     &__image {
         background: url('../img/home-ajuda.png') center center no-repeat;
