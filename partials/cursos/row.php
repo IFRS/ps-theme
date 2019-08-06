@@ -5,13 +5,11 @@
             <p><?php echo $campus->name; ?></p>
         <?php endforeach; ?>
     </td>
-    <?php if (!is_tax('modalidade')) : ?>
-        <td>
-            <?php foreach (get_the_terms(get_the_ID(), 'modalidade') as $modalidade) : ?>
-                <p><a href="<?php echo get_term_link($modalidade); ?>"><?php echo $modalidade->name; ?></a></p>
-            <?php endforeach; ?>
-        </td>
-    <?php endif; ?>
+    <td>
+        <?php foreach (get_the_terms(get_the_ID(), 'modalidade') as $modalidade) : ?>
+            <p><?php echo $modalidade->name; ?></p>
+        <?php endforeach; ?>
+    </td>
     <td>
         <?php foreach (get_the_terms(get_the_ID(), 'turno') as $turno) : ?>
             <p><?php echo $turno->name; ?></p>
