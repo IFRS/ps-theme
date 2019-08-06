@@ -16,12 +16,11 @@ function ps_custom_queries( $query ) {
             $query->query_vars['order'] = 'DESC';
         }
 
-        if ($query->is_post_type_archive('curso') || $query->is_tax('modalidade')) {
-            $query->query_vars['post_type'] = 'curso';
-            $query->query_vars['posts_per_page'] = -1;
-            $query->query_vars['nopaging'] = true;
-            $query->query_vars['orderby'] = 'title';
-            $query->query_vars['order'] = 'ASC';
+        if ($query->is_post_type_archive('curso') || $query->is_tax('modalidade') || $query->is_tax('turno')) {
+            $query->set('posts_per_page', -1);
+            $query->set('nopaging', true);
+            $query->set('orderby', 'title');
+            $query->set('order', 'ASC');
         }
     }
 }
