@@ -1,10 +1,39 @@
+<?php
+    // Outros cursos do mesmo Campus.
+    global $post;
+
+    $camp_slug = array();
+
+    $campus = get_the_terms(get_the_ID(), 'campus');
+    foreach ($campus as $camp) {
+        array_push($camp_slug, $camp->slug);
+    }
+
+    $args = array(
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_type' => 'curso',
+        'numberposts' => -1,
+        'post__not_in' => array($post->ID),
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'campus',
+                'field' => 'slug',
+                'terms' => $camp_slug,
+            ),
+        ),
+    );
+
+    $cat_posts = get_posts($args);
+?>
+
 <?php get_header(); ?>
 
 <?php the_post(); ?>
 
 <section class="container">
     <div class="row">
-        <div class="col-12 col-lg-8">
+        <div class="col">
             <article class="post">
                 <div class="row">
                     <div class="col-12">
@@ -97,51 +126,20 @@
                 </div>
             </article>
         </div>
-        <div class="col-12 col-lg-4">
-            <aside>
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Outros cursos do mesmo Campus. -->
-                        <?php
-                            global $post;
-
-                            $camp_slug = array();
-
-                            foreach ($campus as $camp) {
-                                array_push($camp_slug, $camp->slug);
-                            }
-
-                            $args = array(
-                                'orderby' => 'date',
-                                'order' => 'DESC',
-                                'post_type' => 'curso',
-                                'numberposts' => -1,
-                                'post__not_in' => array($post->ID),
-                                'tax_query' => array(
-                                    array(
-                                        'taxonomy' => 'campus',
-                                        'field' => 'slug',
-                                        'terms' => $camp_slug,
-                                    ),
-                                ),
-                            );
-
-                            $cat_posts = get_posts($args);
-                        ?>
-                        <?php if (!empty($cat_posts)) : ?>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3 class="card-title">Cursos no mesmo Campus</h3>
-                                    <?php foreach ($cat_posts as $cat_post) : ?>
-                                        <p class="card-text"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></p>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
+        <?php if (!empty($cat_posts)) : ?>
+            <div class="col-12 col-lg-4">
+                <aside class="aside">
+                    <h3 class="aside__title title-sobreposto"><span class="title-sobreposto__apoio">Outros</span>&nbsp;<span class="title-sobreposto__principal">Cursos do mesmo Campus</span></h3>
+                    <div class="aside__content">
+                        <div class="aside__item">
+                            <?php foreach ($cat_posts as $cat_post) : ?>
+                                <h3 class="aside__item-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h3>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-                </div>
-            </aside>
-        </div>
+                </aside>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 
