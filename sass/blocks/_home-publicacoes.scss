@@ -14,26 +14,19 @@
     }
 
     &__item {
+        color: $cor-base;
         margin-bottom: 20px;
-
-        p {
-            color: $cor-base;
-            margin-bottom: 0;
-        }
     }
 
     &__item-meta {
         border-bottom: 1px solid $cor-turquesa;
-        color: $cor-base;
+        color: $cor-vermelho;
         display: inline-block;
         font-size: 0.85rem;
         margin-bottom: 5px;
         padding-bottom: 5px;
         padding-right: 5px;
-    }
-
-    &__item-date {
-        margin-right: 5px;
+        cursor: default;
     }
 
     &__item-title {

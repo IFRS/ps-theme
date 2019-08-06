@@ -40,6 +40,9 @@ require_once('inc/custom-queries.php');
 // Controla a busca com termo vazio
 require_once('inc/empty-search.php');
 
+// Função para mostrar tempo relativo
+require_once('inc/relative-time.php');
+
 // Taxonomies
 require_once('inc/taxonomies/campus-taxonomy.php');
 require_once('inc/taxonomies/modalidade-taxonomy.php');
