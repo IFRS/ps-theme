@@ -1,4 +1,5 @@
-.home-publicacoes {
+.publicacoes {
+    $root: &;
     margin-bottom: 30px;
 
     &__title {
@@ -45,5 +46,11 @@
     &__btn {
         @include button-variant(#ffffff, #ffffff);
         @include btn-ps();
+    }
+
+    &--archive {
+        #{$root}__title {
+            @include title();
+        }
     }
 }
