@@ -4,10 +4,31 @@
     &__title {
         @include title();
 
-        margin-top: 0;
+        small {
+            display: block;
+            font-size: 0.65em;
+        }
+    }
+
+    &__filters {
+        margin-bottom: 10px;
+
+        @include media-breakpoint-up(lg) {
+            justify-content: flex-end;
+            margin-top: 40px;
+        }
+    }
+
+    &__nav {
+        .nav-link {
+            color: $cor-laranja;
+        }
     }
 
     &__content {
+        a {
+            color: $cor-laranja;
+        }
     }
 
     .dataTables_wrapper {
