@@ -39,22 +39,25 @@
         background: $cor-turquesa;
         display: block;
         padding: 20px;
-        position: relative;
 
         &:hover {
             text-decoration: none;
         }
 
-        &::after {
-            background: $cor-turquesa;
-            content: '';
-            position: absolute;
-            display: block;
-            height: 100%;
-            width: 100vw;
-            top: 0;
-            left: 0;
-            z-index: -10;
+        @include media-breakpoint-up(sm) {
+            position: relative;
+
+            &::after {
+                background: $cor-turquesa;
+                content: '';
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100vw;
+                top: 0;
+                left: 0;
+                z-index: -10;
+            }
         }
     }
 
