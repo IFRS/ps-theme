@@ -2,19 +2,7 @@
     margin-bottom: $grid-gutter-width;
 
     &__title {
-        color: $cor-apoio;
-        margin-bottom: 15px;
-        margin-top: 0;
-
-        @include media-breakpoint-up(md) {
-            background-image: url('../img/bg-title-dir.png');
-            background-position: right center;
-            background-repeat: no-repeat;
-            padding: 0 85px 0 0;
-        }
-    }
-
-    &__meta {
+        @include title();
     }
 
     &__date {

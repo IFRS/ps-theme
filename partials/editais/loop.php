@@ -1,7 +1,7 @@
 <?php if (have_posts()) : ?>
     <div class="list-group">
         <?php while ( have_posts() ) : the_post(); ?>
-            <?php echo get_template_part('partials/edital', 'item'); ?>
+            <?php echo get_template_part('partials/editais/item'); ?>
             <?php
                 $args = array(
                 	'posts_per_page'   => -1,
@@ -15,7 +15,7 @@
                 $edital_children = new WP_Query( $args );
             ?>
             <?php while ( $edital_children->have_posts() ) : $edital_children->the_post(); ?>
-                <?php echo get_template_part('partials/edital', 'item'); ?>
+                <?php echo get_template_part('partials/editais/item'); ?>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
         <?php endwhile; ?>
