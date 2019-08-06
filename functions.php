@@ -37,8 +37,8 @@ require_once('inc/pagination.php');
 // Queries personalizadas em determinados templates.
 require_once('inc/custom-queries.php');
 
-// Filtro para buscas vazias
-require_once('inc/empty-search-filter.php');
+// Controla a busca com termo vazio
+require_once('inc/empty-search.php');
 
 // Taxonomies
 require_once('inc/taxonomies/campus-taxonomy.php');
