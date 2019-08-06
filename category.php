@@ -9,10 +9,10 @@
 <section class="container">
     <div class="row">
         <div class="col-12">
-            <h2 class="category__title"><?php single_cat_title( 'Categoria&nbsp;', true ); ?></h2>
+            <h2 class="avisos__title"><?php single_cat_title( 'Categoria&nbsp;', true ); ?></h2>
         </div>
     </div>
-    <?php echo get_template_part('partials/loop-avisos'); ?>
+    <?php echo get_template_part('partials/avisos/loop'); ?>
 </section>
 
 <?php get_footer(); ?>
