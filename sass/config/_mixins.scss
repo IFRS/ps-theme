@@ -12,14 +12,14 @@
         &::after {
             content: '';
             position: absolute;
-            top: -30px;
+            bottom: 25px;
             left: 0;
             width: 58px;
             height: 110%;
             z-index: 1;
             opacity: 0.25;
 
-            background: url('../img/bg-vertical.png') repeat-y left top;
+            background: url('../img/bg-vertical.png') repeat-y left bottom;
         }
     }
 }
