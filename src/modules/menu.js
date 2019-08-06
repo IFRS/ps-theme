@@ -8,6 +8,13 @@ $(function() {
         e.stopPropagation();
     });
 
+    // Impede que o dropdown se feche ao clicar em qualquer lugar da página.
+    $('.menu-principal .menu-item-has-children').on('hide.bs.dropdown', function (e) {
+        if (e.clickEvent && e.clickEvent.target !== this) {
+            return false;
+        }
+    });
+
     // Abre todos os dropdowns até o item atual.
     $('.current-menu-parent > a[data-toggle="dropdown"]').dropdown('show');
 
@@ -29,6 +36,7 @@ $(function() {
         }
         menu_resize_control();
     });
+
     $('.btn-menu-toggle').on('click', function(e) {
         $(".menu-navbar").collapse('toggle');
         e.preventDefault();
