@@ -1,18 +1,16 @@
 .home-chamadas {
-    background: #ffffff url('../img/bg-home-chamadas.png') repeat-x top center;
-    border-top: 20px solid $cor-base;
-    padding: 30px 0;
-    text-align: center;
+    border-bottom: 70px solid $cor-amarelo;
+    padding-top: 30px;
 
     .container {
         min-height: 350px;
 
-        @include media-breakpoint-up(md) {
-            background: no-repeat left center;
+        @include media-breakpoint-up(lg) {
+            background: no-repeat right center;
             background-size: contain;
 
             &.lazyloaded {
-                background-image: url('../img/bg-chamadas.png');
+                background-image: url('../img/home-chamadas-bg.png');
             }
         }
 

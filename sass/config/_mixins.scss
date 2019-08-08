@@ -31,30 +31,11 @@
     text-transform: uppercase;
 }
 
-@mixin btn-chamadas() {
-    @include button-variant(#ffffff, #ffffff);
-
-    background: transparent;
-    border-style: solid;
-    border-width: 3px 15px;
-    border-image: url('../img/border-btn.png') 3 10 repeat;
-    transition: all 0.3s ease 0s;
-
-    &:hover {
-        background: none;
-        border-image: url('../img/border-btn-hover.png') 3 10 repeat;
-        color: $cor-base;
-    }
-
-}
-
 @mixin badge-chamadas() {
-    @include badge-variant($cor-base);
+    @include badge-variant($cor-amarelo);
 
-    background-color: $cor-apoio;
-    background-image: url('../img/bg-badge-esq.png'), url('../img/bg-badge-dir.png');
-    background-position: left center, right center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    padding: 3px 6px 3px 20px;
+    color: $cor-base;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
 }

@@ -14,11 +14,11 @@ function ps_widgets_init() {
 		'name'          => 'Home Chamadas',
 		'id'            => 'home_chamadas',
 		'description'   => 'Chamadas na página inicial.',
-		'before_widget' => '<div id="%1$s" class="col-12 col-md-7 offset-md-5 col-lg-6 offset-lg-6 col-xl-6 offset-xl-6 widget widget-chamadas %2$s">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<div class="widget-chamadas__title lazyload"><h2 class="sr-only">',
-		'after_title'   => '</h2></div>',
+		'before_widget' => '<div class="col-12 col-lg-6"><div id="%1$s" class="widget widget-chamadas %2$s">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<div class="widget-chamadas__title"><h2><img data-src="' . get_stylesheet_directory_uri() . '/img/home-chamadas-title.png" class="img-fluid lazyload" alt="',
+		'after_title'   => '"></h2></div>',
 	));
 }
 
-add_action( 'widgets_init', 'ps_widgets_init' );
+add_action( 'widgets_init', 'ps_widgets_init', 10 );

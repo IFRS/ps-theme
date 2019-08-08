@@ -1,17 +1,26 @@
 .widget-chamadas {
     background-color: transparent;
-    margin-top: 50px;
+
+    @include media-breakpoint-up(md) {
+        padding-left: 80px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 5px;
+            width: 58px;
+            height: 110%;
+            z-index: 1;
+            opacity: 0.25;
+
+            background: url('../img/bg-vertical.png') repeat-y left top;
+        }
+    }
 
     &__title {
-        background: no-repeat center center;
-        background-size: contain;
         margin-bottom: 10px;
-        min-height: 130px;
-        min-width: 290px;
-
-        &.lazyloaded {
-            background-image: url('../img/title-chamadas.png');
-        }
 
         h2 {
             font-size: 32px;
@@ -20,39 +29,35 @@
     }
 }
 
-#chamadas {
-    padding: ($grid-gutter-width / 2) $grid-gutter-width;
+.chamadas {
+    padding: 20px 0;
     text-align: left;
 
-    #formasingresso {
-        text-align: center;
+    &__text {
+        /*border-bottom: 1px solid $cor-turquesa;*/
+        position: relative;
+        padding-bottom: 5px;
+
+        &::after {
+            background: $cor-turquesa;
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+        }
     }
 
-    .breadcrumb {
-        background-color: $cor-base;
-        color: #ffffff;
-
-        &-item {
-            a {
-                color: #ffffff;
-                font-weight: bold;
-            }
-
-            &.active {
-                color: #ffffff;
-            }
-
-            &:before {
-                color: #ffffff;
+    &__formasingresso {
+        @include media-breakpoint-up(md) {
+            .btn-block {
+                max-width: 75%;
             }
         }
     }
 
-    .btn {
-        margin-bottom: 10px;
-    }
-
-    .chamadas {
+    &__list {
         .list-group-item {
             border-left: 10px solid $cor-base;
             color: $cor-apoio;
@@ -63,30 +68,88 @@
             }
         }
     }
+
+    .breadcrumb {
+        background: none;
+        color: $cor-base;
+        margin: 0;
+        padding: 10px 0;
+
+        &-item {
+            font-size: 0.95rem;
+
+            a {
+                color: $cor-base;
+                font-weight: 600;
+            }
+
+            &.active {
+                color: $cor-vermelho;
+            }
+        }
+    }
 }
 
 .btn-formaingresso {
-    @include btn-chamadas();
-}
+    @include button-variant($cor-amarelo, $cor-amarelo);
 
-.btn-modalidade {
-    @include btn-chamadas();
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $cor-laranja;
+    }
 }
 
 .btn-campus {
-    @include btn-chamadas();
+    @include button-variant(#ffffff, #ffffff);
+
+    color: $cor-base;
+    text-align: left;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $cor-laranja;
+        color: #ffffff;
+    }
 }
 
-.label-formaingresso {
+.badge-modalidade {
     @include badge-chamadas();
 }
 
-.label-modalidade {
-    @include badge-chamadas();
-}
+.chamada {
+    &__title {
+        color: $cor-vermelho;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 3px;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
 
-.label-campus {
-    @include badge-chamadas();
+        a {
+            color: $cor-vermelho;
+        }
+
+        &::after {
+            background: url('../img/chamada-title-bg.png') repeat left center;
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            opacity: 0.25;
+            margin-left: 10px;
+        }
+    }
+
+    &__meta {
+        border-bottom: 1px solid $cor-turquesa;
+        color: $cor-base;
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 0 30px 5px 0;
+    }
 }
 
 .chamada-labels {
