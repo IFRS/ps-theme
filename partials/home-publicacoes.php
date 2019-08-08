@@ -17,7 +17,7 @@
         <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
             <li class="publicacoes__item">
                 <h3 class="publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                <p class="publicacoes__item-meta" data-toggle="tooltip" data-placement="right" title="<?php echo get_the_modified_date('d/m/Y'); ?> <?php echo get_the_modified_time('G\hi'); ?>">atualizado <?php echo ps_relative_time(get_the_modified_date('c')); ?></p>
+                <p class="publicacoes__item-meta" data-toggle="tooltip" data-placement="right" title="<?php echo get_the_modified_date('d/m/Y'); ?> - <?php echo get_the_modified_time('G\hi'); ?>">atualizado <?php echo ps_relative_past_time(get_the_modified_date('c')); ?></p>
                 <?php the_excerpt(); ?>
             </li>
         <?php endwhile; ?>

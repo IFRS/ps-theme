@@ -1,48 +1,38 @@
 <?php
-function ps_relative_time($ts) {
-    if (!ctype_digit($ts)) {
-        $ts = strtotime($ts);
-    }
+function ps_relative_past_time($ts) {
+    $dias = new DateTime(date('Y-m-d', strtotime($ts)));
+    $horas = new DateTime($ts);
+    $agora = new DateTime();
+    $day_diff = $dias->diff($agora);
+    $hour_diff = $horas->diff($agora);
 
-    $diff = time() - $ts;
-
-    if ($diff == 0) {
-        return 'agora';
-    } elseif ($diff > 0) {
-        $day_diff = floor($diff / 86400);
-
-        if ($day_diff == 0) {
-            if ($diff < 60) { return 'agora a pouco'; }
-            if ($diff < 120) { return 'um minuto atr&aacute;s'; }
-            if ($diff < 3600) { return floor($diff / 60) . ' minutos atr&aacute;s'; }
-            if ($diff < 7200) { return 'uma hora atr&aacute;s'; }
-            if ($diff < 86400) { return floor($diff / 3600) . ' horas atr&aacute;s'; }
+    if ($hour_diff->d == 0) {
+        if ($hour_diff->h > 1) {
+            return $hour_diff->h . ' horas atr&aacute;s';
+        } elseif ($hour_diff->h == 1) {
+            return 'uma hora atr&aacute;s';
+        } else {
+            if ($hour_diff->i > 1) {
+                return $hour_diff->i . ' minutos atr&aacute;s';
+            } elseif ($hour_diff->i == 1) {
+                return 'um minuto atr&aacute;s';
+            } else {
+                if ($hour_diff->s >= 10) {
+                    return 'agora a pouco';
+                } else {
+                    return 'agora';
+                }
+            }
         }
-
-        if ($day_diff == 1) { return 'ontem'; }
-        if ($day_diff < 7) { return $day_diff . ' dias atr&aacute;s'; }
-        if ($day_diff < 31) { return ceil($day_diff / 7) . ' semanas atr&aacute;s'; }
-        if ($day_diff < 60) { return 'm&ecirc;s passado'; }
-        if ($day_diff >= 60) { return ceil($day_diff / 60) . 'm&ecirc;ses atrás'; }
-
-        return date('F Y', $ts);
+    } elseif ($day_diff->d == 1) {
+        return 'ontem';
+    } elseif ($day_diff->d <= 7) {
+        return $day_diff->d . ' dias atr&aacute;s';
+    } elseif ($day_diff->d > 7 && $day_diff->m == 0) {
+        return ceil($day_day_diff / 7) . ' semanas atr&aacute;s';
+    } elseif ($day_diff->m == 1) {
+        return 'm&ecirc;s passado';
     } else {
-        $diff = abs($diff);
-        $day_diff = floor($diff / 86400);
-
-        if ($day_diff == 0) {
-            if ($diff < 120) { return 'em um minuto'; }
-            if ($diff < 3600) { return 'em ' . floor($diff / 60) . ' minutos'; }
-            if ($diff < 7200) { return 'em uma hora'; }
-            if ($diff < 86400) { return 'em ' . floor($diff / 3600) . ' horas'; }
-        }
-
-        if ($day_diff == 1) { return 'amanh&atilde;'; }
-        if ($day_diff < 4) { return date('l', $ts); }
-        if ($day_diff < 7 + (7 - date('w'))) { return 'pr&oacute;xima semana'; }
-        if (ceil($day_diff / 7) < 4) { return 'em ' . ceil($day_diff / 7) . ' semanas'; }
-        if (date('n', $ts) == date('n') + 1) { return 'pr&oacute;ximo m&ecirc;s'; }
-
-        return date('F Y', $ts);
+        return $day_diff->m . ' m&ecirc;ses atr&aacute;s';
     }
 }
