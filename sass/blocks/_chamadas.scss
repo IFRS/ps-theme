@@ -34,7 +34,6 @@
     text-align: left;
 
     &__text {
-        /*border-bottom: 1px solid $cor-turquesa;*/
         position: relative;
         padding-bottom: 5px;
 
@@ -118,6 +117,14 @@
     @include badge-chamadas();
 }
 
+.badge-campus {
+    @include badge-chamadas();
+}
+
+.badge-formaingresso {
+    @include badge-chamadas();
+}
+
 .chamada {
     &__title {
         color: $cor-vermelho;
@@ -149,29 +156,5 @@
         display: inline-block;
         margin-bottom: 10px;
         padding: 0 30px 5px 0;
-    }
-}
-
-.chamada-labels {
-    .badge {
-        font-size: 90%;
-    }
-}
-
-.chamada-documentos__link {
-    &::after {
-        border: solid black;
-        border-width: 0 3px 3px 0;
-        content: '';
-        display: block;
-        float: right;
-        padding: 5px;
-        transform: rotate(45deg);
-        transition: transform 0.2s;
-    }
-    &.collapsed {
-        &::after {
-            transform: rotate(-45deg);
-        }
     }
 }
