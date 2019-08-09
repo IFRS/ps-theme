@@ -8,6 +8,8 @@ const intersectionObserver = effect => new IntersectionObserver((entries, observ
 });
 
 $(function() {
+    var delay = 0;
+
     $('.header__marca').addClass('animated').each(function(i, e) {
         let observer = intersectionObserver('slideInDown');
         observer.observe(e);
@@ -23,18 +25,53 @@ $(function() {
         observer.observe(e);
     });
 
+    delay = 0.5;
     $('.menu-principal > .menu-item').addClass('animated').each(function(i, e) {
-        let observer = intersectionObserver('fadeInRight faster delay-1s');
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.05;
+        let observer = intersectionObserver('fadeInRight faster');
         observer.observe(e);
     });
 
+    delay = 0;
     $('.widget-atalhos').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.1;
         let observer = intersectionObserver('flipInX');
         observer.observe(e);
     });
 
+    delay = 0;
     $('.btn-formaingresso').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.1;
         let observer = intersectionObserver('fadeInLeft');
+        observer.observe(e);
+    });
+
+    delay = 0;
+    $('.btn-campus').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.1;
+        let observer = intersectionObserver('fadeInLeft');
+        observer.observe(e);
+    });
+
+    delay = 0;
+    $('.chamada').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.1;
+        let observer = intersectionObserver('slideInRight');
+        observer.observe(e);
+    });
+
+    $('.chamada__meta').addClass('animated').each(function(i, e) {
+        let observer = intersectionObserver('fadeInUp delay-1s');
+        observer.observe(e);
+    });
+
+    $('.chamada__badges').addClass('animated').each(function(i, e) {
+        let observer = intersectionObserver('fadeInUp delay-2s');
         observer.observe(e);
     });
 
@@ -53,7 +90,10 @@ $(function() {
         observer.observe(e);
     });
 
+    delay = 0;
     $('.aside__item').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.1;
         let observer = intersectionObserver('fadeInRight');
         observer.observe(e);
     });
