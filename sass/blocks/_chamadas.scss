@@ -36,6 +36,7 @@
     &__text {
         position: relative;
         padding-bottom: 5px;
+        margin-bottom: 10px;
 
         &::after {
             background: $cor-turquesa;
@@ -72,6 +73,7 @@
         background: none;
         color: $cor-base;
         margin: 0;
+        margin-bottom: 10px;
         padding: 10px 0;
 
         &-item {
@@ -126,6 +128,8 @@
 }
 
 .chamada {
+    margin-bottom: 40px;
+
     &__title {
         color: $cor-vermelho;
         font-size: 1.8rem;
