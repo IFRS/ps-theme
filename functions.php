@@ -17,9 +17,6 @@ require_once('inc/script_conditional.php');
 // Scripts & Styles
 require_once('inc/assets.php');
 
-// Menu do Bootstrap
-require_once('inc/vendor/bootstrap-navwalker.php');
-
 // Breadcrumb
 require_once('inc/breadcrumb.php');
 
