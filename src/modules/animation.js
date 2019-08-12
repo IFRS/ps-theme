@@ -97,4 +97,20 @@ $(function() {
         let observer = intersectionObserver('fadeInRight');
         observer.observe(e);
     });
+
+    delay = 0;
+    $('.editais .list-group-item').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.2;
+        let observer = intersectionObserver('fadeInLeft');
+        observer.observe(e);
+    });
+
+    delay = 0;
+    $('.cursos__nav .nav-item').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.1;
+        let observer = intersectionObserver('slideInDown fast');
+        observer.observe(e);
+    });
 });
