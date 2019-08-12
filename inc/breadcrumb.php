@@ -31,8 +31,8 @@ function ps_breadcrumb() {
                 echo get_category_parents($parentCat, true, $sep);
             }
             echo $before . single_cat_title('', false) . $after;
-        } elseif (is_tax('modalidade')) {
-            echo $before . single_term_title('Cursos na modalidade de ensino&nbsp;', false) . $after;
+        /* } elseif (is_tax('modalidade')) {
+            echo $before . single_term_title('Cursos na modalidade de ensino&nbsp;', false) . $after; */
         } elseif (is_day()) {
             echo '<li class="breadcrumb-item"><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time(
                 'Y'
