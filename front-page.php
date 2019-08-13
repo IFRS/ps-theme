@@ -27,7 +27,7 @@
                 <?php echo get_template_part('partials/home/publicacoes'); ?>
             </div>
             <div class="col-12 col-lg-5">
-                <?php echo get_template_part('partials/home/noticias'); ?>
+                <?php echo get_template_part('partials/home/avisos'); ?>
             </div>
         </div>
     </div>
