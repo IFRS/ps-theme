@@ -24,10 +24,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-7">
-                <?php echo get_template_part('partials/home-publicacoes'); ?>
+                <?php echo get_template_part('partials/home/publicacoes'); ?>
             </div>
             <div class="col-12 col-lg-5">
-                <?php echo get_template_part('partials/home-noticias'); ?>
+                <?php echo get_template_part('partials/home/noticias'); ?>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 <div class="home-ajuda__image" aria-hidden="true"></div>
             </div>
             <div class="col">
-                <?php echo get_template_part('partials/home-faq'); ?>
+                <?php echo get_template_part('partials/home/faq'); ?>
             </div>
         </div>
     </div>
