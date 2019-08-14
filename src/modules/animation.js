@@ -65,15 +65,17 @@ $(function() {
         observer.observe(e);
     });
 
-    delay = 0.5;
+    delay = 0.7;
     $('.chamada__meta').addClass('animated').each(function(i, e) {
-        $(e).css('animation-delay', '0.7s');
+        $(e).css('animation-delay', delay + 's');
         let observer = intersectionObserver('fadeInUp');
         observer.observe(e);
     });
 
-    $('.chamada__badges').addClass('animated').each(function(i, e) {
-        $(e).css('animation-delay', '0.9s');
+    delay = 0.9;
+    $('.chamada__badges > .badge-modalidade').addClass('animated').each(function(i, e) {
+        $(e).css('animation-delay', delay + 's');
+        delay = delay + 0.05;
         let observer = intersectionObserver('fadeInUp');
         observer.observe(e);
     });

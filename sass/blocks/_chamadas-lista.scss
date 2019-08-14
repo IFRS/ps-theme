@@ -1,0 +1,9 @@
+.chamadas-lista {
+    &__title {
+        @include title();
+    }
+
+    &__content {
+        margin: 10px 0 30px 0;
+    }
+}

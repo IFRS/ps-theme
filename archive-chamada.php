@@ -56,7 +56,7 @@ foreach ($formasingresso_all as $id1) {
         <div class="row">
             <div class="col-12">
             <?php $accordion_id = uniqid(); ?>
-                <div class="accordion" id="accordion-<?php echo $accordion_id; ?>">
+                <div class="accordion chamadas-lista__content" id="accordion-<?php echo $accordion_id; ?>">
                     <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
                         <?php $formaingresso_obj = get_term($formaingresso_id); ?>
                         <?php $heading_id = uniqid(); ?>
