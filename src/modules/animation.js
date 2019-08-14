@@ -65,13 +65,16 @@ $(function() {
         observer.observe(e);
     });
 
+    delay = 0.5;
     $('.chamada__meta').addClass('animated').each(function(i, e) {
-        let observer = intersectionObserver('fadeInUp delay-1s');
+        $(e).css('animation-delay', '0.7s');
+        let observer = intersectionObserver('fadeInUp');
         observer.observe(e);
     });
 
     $('.chamada__badges').addClass('animated').each(function(i, e) {
-        let observer = intersectionObserver('fadeInUp delay-2s');
+        $(e).css('animation-delay', '0.9s');
+        let observer = intersectionObserver('fadeInUp');
         observer.observe(e);
     });
 
