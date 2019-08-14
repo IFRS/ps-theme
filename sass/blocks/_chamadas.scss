@@ -95,6 +95,7 @@
     @include button-variant($cor-amarelo, $cor-amarelo);
 
     font-weight: bold;
+    margin-bottom: 5px;
     text-transform: uppercase;
 
     &:hover {
@@ -106,6 +107,7 @@
     @include button-variant(#ffffff, #ffffff);
 
     color: $cor-base;
+    margin-bottom: 5px;
     text-align: left;
     text-transform: uppercase;
 
