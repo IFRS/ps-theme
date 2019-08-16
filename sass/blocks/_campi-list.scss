@@ -1,0 +1,24 @@
+.campi-list {
+    &__item {
+        color: $cor-base;
+        margin-bottom: 2rem;
+        padding-bottom: 1.2rem;
+        position: relative;
+
+        &::after {
+            background: $cor-amarelo;
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 4px;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    &__title {
+        color: $cor-turquesa;
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+    }
+}

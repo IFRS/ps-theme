@@ -14,13 +14,16 @@ function campi_list_shortcode( $atts, $content = '' ) {
 
     $string = '';
 
-    foreach ($campi as $campus) {
-        $string .= '<h4>' . $campus->name . '</h4>';
-        $string .= !empty($campus->description) ? '<p>' . nl2br($campus->description) . '</p>' : '';
-        $string .= '<hr>';
-    }
-
     $string .= $content;
+
+    $string .= '<div class="campi-list">';
+    foreach ($campi as $campus) {
+        $string .= '<dl class="campi-list__item">';
+        $string .= '<dt class="campi-list__title">' . $campus->name . '</dt>';
+        $string .= !empty($campus->description) ? '<dd>' . nl2br($campus->description) . '</dd>' : '';
+        $string .= '</dl>';
+    }
+    $string .= '</div>';
 
     return $string;
 }
