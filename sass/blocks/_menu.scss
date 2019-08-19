@@ -74,7 +74,9 @@
 
     .current-menu-item,
     .current-menu-parent {
-        font-weight: bold;
+        > a {
+            font-weight: bold;
+        }
     }
 }
 
