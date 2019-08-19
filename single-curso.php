@@ -1,32 +1,3 @@
-<?php
-    // Outros cursos do mesmo Campus.
-    global $post;
-
-    $camp_slug = array();
-
-    $campus = get_the_terms(get_the_ID(), 'campus');
-    foreach ($campus as $camp) {
-        array_push($camp_slug, $camp->slug);
-    }
-
-    $args = array(
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_type' => 'curso',
-        'numberposts' => -1,
-        'post__not_in' => array($post->ID),
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'campus',
-                'field' => 'slug',
-                'terms' => $camp_slug,
-            ),
-        ),
-    );
-
-    $cat_posts = get_posts($args);
-?>
-
 <?php get_header(); ?>
 
 <?php the_post(); ?>
@@ -126,6 +97,34 @@
                 </div>
             </article>
         </div>
+        <?php
+            // Outros cursos do mesmo Campus.
+            global $post;
+
+            $camp_slug = array();
+
+            $campus = get_the_terms(get_the_ID(), 'campus');
+            foreach ($campus as $camp) {
+                array_push($camp_slug, $camp->slug);
+            }
+
+            $args = array(
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'post_type' => 'curso',
+                'numberposts' => -1,
+                'post__not_in' => array($post->ID),
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'campus',
+                        'field' => 'slug',
+                        'terms' => $camp_slug,
+                    ),
+                ),
+            );
+
+            $cat_posts = get_posts($args);
+        ?>
         <?php if (!empty($cat_posts)) : ?>
             <div class="col-12 col-lg-4">
                 <aside class="aside">
@@ -133,7 +132,7 @@
                     <div class="aside__content">
                         <div class="aside__item">
                             <?php foreach ($cat_posts as $cat_post) : ?>
-                                <h3 class="aside__item-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h3>
+                                <h3 class="aside__item-title"><a href="<?php echo get_permalink($cat_post); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h3>
                             <?php endforeach; ?>
                         </div>
                     </div>

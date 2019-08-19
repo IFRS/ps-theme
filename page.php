@@ -1,21 +1,3 @@
-<?php
-    // Outras páginas.
-    global $post;
-
-    $frontpage_id = get_option( 'page_on_front' );
-    $blog_id = get_option( 'page_for_posts' );
-
-    $args = array(
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_type' => 'page',
-        'numberposts' => 5,
-        'post__not_in' => array($post->ID, $frontpage_id, $blog_id),
-    );
-
-    $cat_posts = get_posts($args);
-?>
-
 <?php get_header(); ?>
 
 <?php the_post(); ?>
@@ -43,6 +25,23 @@
                 </div>
             </article>
         </div>
+        <?php
+            // Outras páginas.
+            global $post;
+
+            $frontpage_id = get_option( 'page_on_front' );
+            $blog_id = get_option( 'page_for_posts' );
+
+            $args = array(
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'post_type' => 'page',
+                'numberposts' => 5,
+                'post__not_in' => array($post->ID, $frontpage_id, $blog_id),
+            );
+
+            $cat_posts = get_posts($args);
+        ?>
         <?php if (!empty($cat_posts)) : ?>
             <div class="col-12 col-lg-4">
                 <aside class="aside">
@@ -50,8 +49,8 @@
                     <div class="aside__content">
                     <?php foreach ($cat_posts as $cat_post) : ?>
                         <div class="aside__item">
-                            <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
-                            <p class="aside__item-meta"><?php echo $cat_post->post_excerpt; ?></p>
+                            <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
+                            <p class="aside__item-meta"><?php //echo $cat_post->post_excerpt; ?></p>
                         </div>
                     <?php endforeach; ?>
                     </div>

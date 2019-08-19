@@ -1,26 +1,3 @@
-<?php
-    // Outros posts das mesmas categorias.
-    global $post;
-
-    $cat_ID = array();
-    $categories = get_the_category();
-
-    foreach ($categories as $category) {
-        array_push($cat_ID, $category->cat_ID);
-    }
-
-    $args = array(
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_type' => 'post',
-        'numberposts' => 5,
-        'post__not_in' => array($post->ID),
-        'category__in' => $cat_ID,
-    );
-
-    $cat_posts = get_posts($args);
-?>
-
 <?php get_header(); ?>
 
 <?php the_post(); ?>
@@ -64,21 +41,43 @@
                 </div>
             </article>
         </div>
-        <div class="col-12 col-lg-4">
-            <aside class="aside">
-                <?php if (!empty($cat_posts)) : ?>
+        <?php
+            // Outros posts das mesmas categorias.
+            global $post;
+
+            $cat_ID = array();
+            $categories = get_the_category();
+
+            foreach ($categories as $category) {
+                array_push($cat_ID, $category->cat_ID);
+            }
+
+            $args = array(
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'post_type' => 'post',
+                'numberposts' => 5,
+                'post__not_in' => array($post->ID),
+                'category__in' => $cat_ID,
+            );
+
+            $cat_posts = get_posts($args);
+        ?>
+        <?php if (!empty($cat_posts)) : ?>
+            <div class="col-12 col-lg-4">
+                <aside class="aside">
                     <h3 class="aside__title title-sobreposto"><span class="title-sobreposto__apoio">Conte&uacute;do</span>&nbsp;<span class="title-sobreposto__principal">Relacionado</span></h3>
                     <div class="aside__content">
                         <?php foreach ($cat_posts as $cat_post) : ?>
                             <div class="aside__item">
-                                <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
+                                <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
                                 <p class="aside__item-meta"><?php echo get_the_date('d/m/Y', $cat_post->ID); ?></p>
                             </div>
                         <?php endforeach; ?>
                     </div>
-                <?php endif; ?>
-            </aside>
-        </div>
+                </aside>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 

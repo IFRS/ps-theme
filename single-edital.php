@@ -1,16 +1,3 @@
-<?php
-    // Outros editais
-    $args = array(
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_type' => 'edital',
-        'numberposts' => 5,
-        'post__not_in' => array($post->ID),
-    );
-
-    $cat_posts = get_posts($args);
-?>
-
 <?php get_header(); ?>
 
 <?php the_post(); ?>
@@ -68,6 +55,18 @@
                 </div>
             </article>
         </div>
+        <?php
+            // Outros editais
+            $args = array(
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'post_type' => 'edital',
+                'numberposts' => 5,
+                'post__not_in' => array($post->ID),
+            );
+
+            $cat_posts = get_posts($args);
+        ?>
         <?php if (!empty($cat_posts)) : ?>
             <div class="col-12 col-lg-4">
                 <aside class="aside">
@@ -78,7 +77,7 @@
                                 <?php echo get_the_post_thumbnail($cat_post->ID, 'thumbnail', array('class' => 'card-img-top')); ?>
                             <?php endif; ?>
                             <div class="aside__item">
-                                <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post->ID); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
+                                <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
                                 <p class="aside__item-meta"><?php echo get_the_date('d/m/Y', $cat_post->ID); ?></p>
                             </div>
                         <?php endforeach; ?>
