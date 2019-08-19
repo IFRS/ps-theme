@@ -25,13 +25,13 @@
     "browser-sync": "^2.26.7",
     "datatables.net-bs4": "^1.10.19",
     "del": "^5.0.0",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.1.0",
     "flexibility": "^2.0.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-imagemin": "^6.0.0",
+    "gulp-imagemin": "^6.1.0",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
@@ -46,6 +46,6 @@
     "popper.js": "^1.15.0",
     "postcss-flexibility": "^2.0.0",
     "respond.js": "^1.4.2",
-    "webpack": "^4.39.1"
+    "webpack": "^4.39.2"
   }
 }
