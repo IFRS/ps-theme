@@ -1,6 +1,7 @@
 header {
     margin: 0 0 $header-margin 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     padding-top: $header-margin;
 
     @include media-breakpoint-up(sm) {
