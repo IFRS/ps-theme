@@ -14,6 +14,14 @@
             bottom: 0;
             left: 0;
         }
+
+        &:last-child {
+            &::after {
+                content: none;
+                height: 0;
+                width: 0;
+            }
+        }
     }
 
     &__title {
