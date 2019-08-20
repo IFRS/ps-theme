@@ -29,7 +29,7 @@ function ps_relative_past_time($ts) {
     } elseif ($day_diff->d <= 7) {
         return $day_diff->d . ' dias atr&aacute;s';
     } elseif ($day_diff->d > 7 && $day_diff->m == 0) {
-        return ceil($day_day_diff / 7) . ' semanas atr&aacute;s';
+        return ceil($day_diff->d / 7) . ' semanas atr&aacute;s';
     } elseif ($day_diff->m == 1) {
         return 'm&ecirc;s passado';
     } else {
