@@ -83,7 +83,7 @@ if ( ! function_exists('documento_post_type') ) {
     add_action( 'init', 'documento_post_type', 5 );
 }
 
-add_action( 'cmb2_admin_init', 'documento_metaboxes', 1 );
+add_action( 'cmb2_admin_init', 'documento_metaboxes', 5 );
 /**
  * Define the metabox and field configurations.
  */

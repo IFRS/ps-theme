@@ -39,7 +39,7 @@ if ( ! function_exists( 'formaingresso_taxonomy' ) ) {
     }
 
     // Hook into the 'init' action
-    add_action( 'init', 'formaingresso_taxonomy');
+    add_action( 'init', 'formaingresso_taxonomy', 0);
 }
 
 // MetaBox
