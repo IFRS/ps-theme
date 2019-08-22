@@ -115,7 +115,7 @@ $(function() {
     $('.cursos__nav .nav-item').addClass('animated').each(function(i, e) {
         $(e).css('animation-delay', delay + 's');
         delay = delay + 0.1;
-        let observer = intersectionObserver('slideInDown fast');
+        let observer = intersectionObserver('fadeInDown fast');
         observer.observe(e);
     });
 });
