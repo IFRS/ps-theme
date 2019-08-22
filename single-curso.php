@@ -43,14 +43,14 @@
                                     </p>
 
                                     <?php $turnos = get_the_terms(get_the_ID(), 'turno'); ?>
-                                    <?php $turnos_int = 1; ?>
+                                    <?php $turnos_counter = 1; ?>
                                     <p>
                                         <strong>Turnos: </strong>
                                         <?php
                                             if (!empty($turnos)) {
-                                                foreach ($turnos as $key => $turno) :
-                                                    echo ($turnos_int == sizeof($turnos) ? $turno->name : $turno->name.', ');
-                                                    $turnos_int++;
+                                                foreach ($turnos as $turno) :
+                                                    echo ($turnos_counter == sizeof($turnos) ? $turno->name : $turno->name . ', ');
+                                                    $turnos_counter++;
                                                 endforeach;
                                             } else {
                                                 echo '-';
@@ -62,25 +62,29 @@
                                     <?php $modalidades = get_the_terms(get_the_ID(), 'modalidade'); ?>
                                     <p>
                                         <strong>Modalidade de ensino: </strong>
-                                        <?php if (!empty($modalidades)) : ?>
-                                            <?php foreach ($modalidades as $key => $modalidade) : ?>
-                                                <a href="<?php echo get_term_link($modalidade); ?>"><?php echo $modalidade->name; ?></a>
-                                            <?php endforeach; ?>
-                                        <?php else : ?>
-                                            -
-                                        <?php endif; ?>
+                                        <?php
+                                            if (!empty($modalidades)) {
+                                                foreach ($modalidades as $modalidade) {
+                                                    echo $modalidade->name;
+                                                }
+                                            } else {
+                                                echo '-';
+                                            }
+                                        ?>
                                     </p>
 
-                                    <?php $campus = get_the_terms(get_the_ID(), 'campus'); ?>
+                                    <?php $campi = get_the_terms(get_the_ID(), 'campus'); ?>
                                     <p>
                                         <strong>Curso oferecido no Campus: </strong>
-                                        <?php if (!empty($campus)) : ?>
-                                            <?php foreach ($campus as $key => $camp) : ?>
-                                                <?php echo $camp->name; ?>&nbsp;
-                                            <?php endforeach; ?>
-                                        <?php else : ?>
-                                            -
-                                        <?php endif; ?>
+                                        <?php
+                                            if (!empty($campi)) {
+                                                foreach ($campi as $campus) {
+                                                    echo $campus->name;
+                                                }
+                                            } else {
+                                                echo '-';
+                                            }
+                                        ?>
                                     </p>
                                 </div>
                             </div>
