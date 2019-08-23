@@ -26,7 +26,7 @@
     <meta name="twitter:site" content="@IF_RS">
     <meta name="twitter:creator" content="@IF_RS">
     <!-- Canonical URL -->
-    <link rel=”canonical” href="<?php echo esc_url( wp_get_canonical_url() ); ?>">
+    <link rel="canonical" href="<?php echo esc_url( wp_get_canonical_url() ); ?>">
     <!-- Feed -->
     <link rel="alternate" type="application/rss+xml" title="<?php echo esc_attr( get_bloginfo('name') ); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
     <!-- WP -->
