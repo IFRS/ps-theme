@@ -14,5 +14,9 @@
         margin-bottom: -$header-margin;
         margin-top: -$header-margin;
         padding: 40px 0;
+
+        >.widget-atalhos {
+            margin-bottom: 10px;
+        }
     }
 }
