@@ -32,6 +32,9 @@ function ps_load_scripts() {
     }
 
     if (!WP_DEBUG) {
+        add_action('wp_head', function() {
+            echo '<link rel="preconnect" href="https://barra.brasil.gov.br">';
+        }, 0);
         wp_enqueue_script( 'js-barra-brasil', 'https://barra.brasil.gov.br/barra.js', array(), null, true );
     }
 }
