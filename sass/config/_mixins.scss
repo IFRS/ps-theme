@@ -25,7 +25,7 @@
 }
 
 @mixin btn-ps() {
-    background: #ffffff url('../img/btn.png') 3% center no-repeat;
+    background: #ffffff;
     border-left: 4px solid $cor-amarelo;
     color: $cor-vermelho;
     text-transform: uppercase;
