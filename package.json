@@ -24,7 +24,7 @@
     "bootstrap": "^4.3.1",
     "browser-sync": "^2.26.7",
     "datatables.net-bs4": "^1.10.19",
-    "del": "^5.0.0",
+    "del": "^5.1.0",
     "dotenv": "^8.1.0",
     "flexibility": "^2.0.1",
     "gulp": "^4.0.2",
