@@ -57,7 +57,11 @@
         display: inline-block;
         font-weight: bold;
         margin: 0 auto;
-        padding: 5px 15px 2px 15px;
+        padding: 3px 5px 2px 5px;
+
+        @include media-breakpoint-up(sm) {
+            padding: 5px 15px 2px 15px;
+        }
     }
 
     &__item-month {
@@ -65,8 +69,12 @@
         display: inline-block;
         font-weight: bold;
         margin: 0 auto;
-        padding: 2px 20px 5px 15px;
+        padding: 1px 5px 2px 5px;
         text-transform: uppercase;
+
+        @include media-breakpoint-up(sm) {
+            padding: 2px 20px 5px 15px;
+        }
     }
 
     &__item-title {
