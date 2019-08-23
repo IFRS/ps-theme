@@ -10,7 +10,9 @@
         min-width: 448px;
     }
 
-    .container {
-        border-bottom: 70px solid $cor-amarelo;
+    @include media-breakpoint-up(md) {
+        .container {
+            border-bottom: 70px solid $cor-amarelo;
+        }
     }
 }
