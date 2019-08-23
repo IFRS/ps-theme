@@ -81,5 +81,7 @@
 }
 
 .btn-menu-toggle {
-    @include button-variant($cor-laranja, $cor-apoio);
+    @include button-variant($cor-laranja, $cor-laranja);
+
+    color: #ffffff;
 }
