@@ -8,6 +8,7 @@
     margin-top: -$header-margin;
 
     &__content {
+        align-items: flex-end;
         background: $cor-amarelo;
         justify-content: center;
         margin-bottom: -$header-margin;
