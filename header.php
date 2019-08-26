@@ -54,11 +54,11 @@
                 </a>
                 <div class="header__social">
                     <ul class="menu-social">
-                        <li class="menu-social__item"><a href="https://www.facebook.com/IFRSOfical" class="menu-social__link menu-social__link--facebook"><span class="sr-only">Página do IFRS no Facebook</span></a></li>
+                        <li class="menu-social__item"><a href="https://www.facebook.com/IFRSOficial" class="menu-social__link menu-social__link--facebook"><span class="sr-only">Página do IFRS no Facebook</span></a></li>
                         <li class="menu-social__item"><a href="https://www.twitter.com/IFRSOficial" class="menu-social__link menu-social__link--twitter"><span class="sr-only">Perfil do IFRS no Twitter</span></a></li>
                         <li class="menu-social__item"><a href="https://www.instagram.com/IFRSOficial" class="menu-social__link menu-social__link--instagram"><span class="sr-only">Perfil do IFRS no Instagram</span></a></li>
                         <li class="menu-social__item"><a href="https://www.youtube.com/IFRSOficial" class="menu-social__link menu-social__link--youtube"><span class="sr-only">Canal do IFRS no Youtube</span></a></li>
-                        <li class="menu-social__item"><a href="https://www.linkedin.com/school/IFRS" class="menu-social__link menu-social__link--linkedin"><span class="sr-only">Página do IFRS no Linkedin</span></a></li>
+                        <li class="menu-social__item"><a href="https://www.linkedin.com/school/ifrs" class="menu-social__link menu-social__link--linkedin"><span class="sr-only">Página do IFRS no Linkedin</span></a></li>
                     </ul>
                 </div>
                 <div class="header__menu">
