@@ -19,7 +19,7 @@ function campi_list_shortcode( $atts, $content = '' ) {
     $string .= '<div class="campi-list">';
     foreach ($campi as $campus) {
         $string .= '<dl class="campi-list__item">';
-        $string .= '<dt class="campi-list__title">Campus ' . $campus->name . '</dt>';
+        $string .= '<dt class="campi-list__title"><em>Campus</em> ' . $campus->name . '</dt>';
         $string .= !empty($campus->description) ? '<dd>' . nl2br($campus->description) . '</dd>' : '';
         $string .= '</dl>';
     }
