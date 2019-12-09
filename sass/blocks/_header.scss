@@ -78,11 +78,5 @@
             top: 20px;
             margin-top: 0;
         }
-
-        @include media-breakpoint-down(md) {
-            * {
-                z-index: -10;
-            }
-        }
     }
 }
