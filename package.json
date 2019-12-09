@@ -43,7 +43,6 @@
     "minimist": "^1.2.0",
     "pixrem": "^5.0.0",
     "plugin-error": "^1.0.1",
-    "popper.js": "^1.16.0",
     "postcss-flexibility": "^2.0.0",
     "respond.js": "^1.4.2",
     "webpack": "^4.41.2"
