@@ -16,8 +16,8 @@
     "not ie <= 7"
   ],
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "@fancyapps/fancybox": "^3.5.7",
     "animate.css": "^3.7.2",
     "autoprefixer": "^9.7.3",
@@ -39,12 +39,12 @@
     "html5shiv": "^3.7.3",
     "intersection-observer": "^0.7.0",
     "jquery": "^3.4.1",
-    "lazysizes": "^5.1.2",
+    "lazysizes": "^5.2.0",
     "minimist": "^1.2.0",
     "pixrem": "^5.0.0",
     "plugin-error": "^1.0.1",
     "postcss-flexibility": "^2.0.0",
     "respond.js": "^1.4.2",
-    "webpack": "^4.41.2"
+    "webpack": "^4.41.5"
   }
 }
