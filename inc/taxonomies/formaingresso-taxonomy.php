@@ -49,19 +49,19 @@ add_action( 'cmb2_admin_init', 'formaingresso_metaboxes', 2 );
  */
 function formaingresso_metaboxes() {
     /**
-	 * Taxonomy Forma de Ingresso
+	 * Taxonomy Forma de Ingresso for Chamada
 	 */
-    $formaingresso_metabox = new_cmb2_box( array(
-		'id'           => '_formaingresso_taxonomy_metabox',
+    $formaingresso_chamada_metabox = new_cmb2_box( array(
+		'id'           => '_formaingresso_chamada_taxonomy_metabox',
 		'title'        => __( 'Forma de Ingresso', 'ifrs-ps-theme' ),
-		'object_types' => array( 'chamada', 'documento' ),
+		'object_types' => array( 'chamada' ),
 		'context'      => 'side',
 		'priority'     => 'low',
 		'show_names'   => false,
     ) );
 
-    $formaingresso_metabox->add_field( array(
-        'id'                => '_formaingresso_taxonomy',
+    $formaingresso_chamada_metabox->add_field( array(
+        'id'                => '_formaingresso_chamada_taxonomy',
         'name'              => __( 'Forma de Ingresso', 'ifrs-ps-theme' ),
         'taxonomy'          => 'formaingresso',
         'type'              => 'taxonomy_radio',
@@ -70,5 +70,29 @@ function formaingresso_metaboxes() {
             'no_terms_text' => __( 'Ops! Nenhuma Forma de Ingresso encontrada. Por favor, crie alguma Forma de Ingresso antes de cadastrar isto.', 'ifrs-ps-theme')
         ),
         'remove_default'    => 'true',
+    ) );
+
+    /**
+	 * Taxonomy Forma de Ingresso for Documento
+	 */
+    $formaingresso_documento_metabox = new_cmb2_box( array(
+		'id'           => '_formaingresso_documento_taxonomy_metabox',
+		'title'        => __( 'Formas de Ingresso', 'ifrs-ps-theme' ),
+		'object_types' => array( 'documento' ),
+		'context'      => 'side',
+		'priority'     => 'low',
+		'show_names'   => false,
+    ) );
+
+    $formaingresso_documento_metabox->add_field( array(
+        'id'                => '_formaingresso_documento_taxonomy',
+        'name'              => __( 'Formas de Ingresso', 'ifrs-ps-theme' ),
+        'taxonomy'          => 'formaingresso',
+        'type'              => 'taxonomy_multicheck',
+        'select_all_button' => false,
+        'text'              => array(
+            'no_terms_text' => __( 'Ops! Nenhuma Forma de Ingresso encontrada. Por favor, crie alguma Forma de Ingresso antes de cadastrar isto.', 'ifrs-ps-theme')
+        ),
+        'remove_default'    => true,
     ) );
 }
