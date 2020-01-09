@@ -104,7 +104,7 @@
 }
 
 .btn-campus {
-    @include button-variant(#ffffff, #ffffff);
+    @include button-variant(transparent, transparent);
 
     color: $cor-base;
     margin-bottom: 5px;
