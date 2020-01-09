@@ -87,7 +87,7 @@ foreach ($formasingresso_all as $id1) {
                                                                 <div class="chamada__badges">
                                                                     <?php $modalidades = get_post_meta($resultado->ID, '_chamada_resultados_group'); ?>
                                                                     <?php foreach ($modalidades[0] as $id => $modalidade) : ?>
-                                                                        <span class="badge badge-modalidade"><?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?></span>
+                                                                        <?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?><?php echo ($id !== array_key_last($modalidades[0])) ? ', ' : ''; ?>
                                                                     <?php endforeach; ?>
                                                                 </div>
                                                             </div>
