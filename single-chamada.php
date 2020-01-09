@@ -57,7 +57,7 @@
                         <div class="col col-md-6">
                             <div class="card bg-light">
                                 <div class="card-header">
-                                    <strong><?php _e('Comissões de Heteroidentificação', 'ifrs-ps-theme'); ?></strong>
+                                    <strong><?php _e('Comissão de Heteroidentificação', 'ifrs-ps-theme'); ?></strong>
                                 </div>
                                 <div class="list-group list-group-flush">
                                     <?php foreach($bancas[0] as $id => $url): ?>
