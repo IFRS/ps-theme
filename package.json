@@ -16,8 +16,8 @@
     "not ie <= 7"
   ],
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
     "@fancyapps/fancybox": "^3.5.7",
     "animate.css": "^3.7.2",
     "autoprefixer": "^9.7.3",
