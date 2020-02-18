@@ -16,5 +16,6 @@
     }
 
     // Add a page number if necessary:
-    if ( $paged >= 2 || $page >= 2 )
+    if ( $paged >= 2 || $page >= 2 ) {
         echo ' - ' . sprintf( 'Página %s', max( $paged, $page ) );
+    }
