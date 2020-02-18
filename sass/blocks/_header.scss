@@ -36,7 +36,7 @@
     }
 
     &__link {
-        background: $cor-turquesa;
+        background: $cor-base;
         display: block;
         padding: 20px;
 
@@ -48,7 +48,7 @@
             position: relative;
 
             &::after {
-                background: $cor-turquesa;
+                background: $cor-base;
                 content: '';
                 position: absolute;
                 display: block;
