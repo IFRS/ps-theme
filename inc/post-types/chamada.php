@@ -144,3 +144,15 @@ function chamada_metaboxes() {
 		'type' => 'file_list',
 	) );
 }
+
+// Custom Title
+add_filter( 'wp_title', function($title) {
+	if (is_singular('chamada')) {
+		global $post;
+        $campi = get_the_terms($post->ID, 'campus');
+        $formasingresso = get_the_terms($post->ID, 'formaingresso');
+		return get_the_title($post) . ' | ' . $formasingresso[0]->name . ' | ' . __('Campus ', 'ifrs-ps-theme') . $campi[0]->name . ' - ';
+	}
+
+	return $title;
+}, 99 );
