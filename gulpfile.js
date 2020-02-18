@@ -1,4 +1,3 @@
-require('dotenv').config();
 const argv         = require('minimist')(process.argv.slice(2));
 const autoprefixer = require('autoprefixer');
 const babel        = require('gulp-babel');
@@ -16,6 +15,8 @@ const sass         = require('gulp-sass');
 const sourcemaps   = require('gulp-sourcemaps');
 const uglify       = require('gulp-uglify');
 const webpack      = require('webpack');
+
+const proxyURL = argv.URL || argv.url || 'localhost';
 
 const webpackMode = argv.production ? 'production' : 'development';
 
@@ -40,7 +41,8 @@ gulp.task('sass', function() {
     .pipe(sourcemaps.init())
     .pipe(sass({
         includePaths: 'sass',
-        outputStyle: 'expanded'
+        outputStyle: 'expanded',
+        precision: 8
     }).on('error', sass.logError))
     .pipe(postcss(postCSSplugins))
     .pipe(sourcemaps.write('./'))
@@ -131,14 +133,11 @@ gulp.task('images', function() {
 gulp.task('dist', function() {
     return gulp.src([
         '**',
+        '!.**',
         '!dist{,/**}',
         '!node_modules{,/**}',
         '!sass{,/**}',
         '!src{,/**}',
-        '!.**',
-        '!docker-compose.override.yml',
-        '!docker-compose.yml',
-        '!Dockerfile',
         '!gulpfile.js',
         '!package-lock.json',
         '!package.json'
@@ -158,7 +157,7 @@ gulp.task('default', gulp.series('build', function watch() {
         notify: false,
         online: false,
         open: false,
-        proxy: argv.URL || argv.url || 'localhost',
+        proxy: proxyURL,
     });
 
     gulp.watch('sass/**/*.scss', gulp.series('sass'));
