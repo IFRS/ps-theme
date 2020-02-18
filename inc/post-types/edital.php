@@ -46,7 +46,7 @@ if ( ! function_exists('edital_post_type') ) {
             'label'               => __( 'edital', 'ifrs-ps-theme' ),
             'description'         => __( 'Editais', 'ifrs-ps-theme' ),
             'labels'              => $labels,
-            'supports'            => array( 'title', 'revisions', 'page-attributes' ),
+            'supports'            => array( 'title', 'editor', 'revisions', 'page-attributes' ),
             'taxonomies'          => array(),
             'hierarchical'        => true,
             'public'              => true,
