@@ -49,23 +49,27 @@ $(function() {
         observer.observe(e);
     });
 
-    delay = 0;
-    $('.btn-campus').addClass('animated').each(function(i, e) {
-        $(e).css('animation-delay', delay + 's');
-        delay = delay + 0.1;
-        let observer = intersectionObserver('fadeInLeft');
-        observer.observe(e);
+    $('.chamadas__campi').each(function(i, e) {
+        delay = 0;
+        $(e).find('.btn-campus').addClass('animated').each(function(ii, ee) {
+            $(ee).css('animation-delay', delay + 's');
+            delay = delay + 0.1;
+            let observer = intersectionObserver('fadeInLeft');
+            observer.observe(ee);
+        });
     });
 
-    delay = 0;
-    $('.chamada').addClass('animated').each(function(i, e) {
-        $(e).css('animation-delay', delay + 's');
-        delay = delay + 0.1;
-        let observer = intersectionObserver('slideInRight');
-        observer.observe(e);
+    $('.chamadas__list').each(function(i, e) {
+        delay = 0;
+        $(e).find('.chamada').addClass('animated').each(function(ii, ee) {
+            $(ee).css('animation-delay', delay + 's');
+            delay = delay + 0.1;
+            let observer = intersectionObserver('slideInRight');
+            observer.observe(ee);
+        });
     });
 
-    delay = 0.7;
+    delay = 0.5;
     $('.chamada__meta').addClass('animated').each(function(i, e) {
         $(e).css('animation-delay', delay + 's');
         let observer = intersectionObserver('fadeInUp');
