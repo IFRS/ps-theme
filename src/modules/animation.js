@@ -10,6 +10,11 @@ const intersectionObserver = effect => new IntersectionObserver((entries, observ
 $(function() {
     var delay = 0;
 
+    $('.searchform').addClass('animated').each(function(i, e) {
+        let observer = intersectionObserver('slideInLeft');
+        observer.observe(e);
+    });
+
     $('.header__marca').addClass('animated').each(function(i, e) {
         let observer = intersectionObserver('slideInDown');
         observer.observe(e);
