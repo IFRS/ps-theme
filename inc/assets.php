@@ -32,10 +32,13 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 
     if (!WP_DEBUG) {
-        add_action('wp_head', function() {
-            echo '<link rel="preconnect" href="https://barra.brasil.gov.br">';
-            echo '<link rel="preconnect" href="https://vlibras.gov.br">';
-        }, 0);
         wp_enqueue_script( 'js-barra-brasil', 'https://barra.brasil.gov.br/barra.js', array(), null, true );
     }
-}, 1 );
+}, 2 );
+
+add_action('wp_head', function() {
+    if (!WP_DEBUG) {
+        echo '<link rel="preconnect" href="https://barra.brasil.gov.br">';
+        echo '<link rel="preconnect" href="https://vlibras.gov.br">';
+    }
+}, 0);
