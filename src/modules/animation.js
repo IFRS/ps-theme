@@ -75,7 +75,7 @@ $(function() {
     });
 
     delay = 0.5;
-    $('.chamada__meta').addClass('animated').each(function(i, e) {
+    $('.chamada__badges').addClass('animated').each(function(i, e) {
         $(e).css('animation-delay', delay + 's');
         let observer = intersectionObserver('fadeInUp');
         observer.observe(e);

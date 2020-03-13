@@ -98,12 +98,14 @@ class Chamadas_Widget extends WP_Widget {
                                     </ol>
                                     <?php foreach ($chamada as $resultado) : ?>
                                         <div class="chamada">
-                                            <h3 class="chamada__title"><a href="<?php echo get_permalink($resultado); ?>" rel="bookmark"><?php echo $resultado->post_title; ?></a></h3>
-                                            <p class="chamada__meta"><?php echo get_the_time('d/m/Y', $resultado); ?></p>
+                                            <a class="chamada__link btn" href="<?php echo get_permalink($resultado); ?>" rel="bookmark">
+                                                <h3 class="chamada__title"><?php echo $resultado->post_title; ?></h3>
+                                                <p class="chamada__meta"><?php echo get_the_time('d/m/Y', $resultado); ?></p>
+                                            </a>
                                             <div class="chamada__badges">
                                                 <?php $modalidades = get_post_meta($resultado->ID, '_chamada_resultados_group'); ?>
                                                 <?php foreach ($modalidades[0] as $id => $modalidade) : ?>
-                                                    <?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?><?php echo ($id !== array_key_last($modalidades[0])) ? ', ' : ''; ?>
+                                                    <?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?><?php echo ($id !== array_key_last($modalidades[0])) ? ' / ' : ''; ?>
                                                 <?php endforeach; ?>
                                             </div>
                                         </div>

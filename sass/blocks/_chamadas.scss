@@ -131,40 +131,35 @@
 
 .chamada {
     margin-bottom: 40px;
+    text-align: center;
+
+    @include media-breakpoint-up(sm) {
+        max-width: 75%;
+    }
+
+    &__link {
+        display: block;
+        @include button-variant($cor-turquesa, $cor-verde);
+    }
 
     &__title {
-        color: $cor-turquesa;
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.5);
         font-size: 1.8rem;
         font-weight: bold;
-        margin-bottom: 3px;
+        margin-bottom: 5px;
         position: relative;
         overflow: hidden;
         text-transform: uppercase;
 
-        a {
-            color: $cor-turquesa;
-        }
-
-        &::after {
-            background: url('../img/chamada-title-bg.png') repeat left center;
-            content: '';
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            opacity: 0.25;
-            margin-left: 10px;
-        }
     }
 
     &__meta {
-        border-bottom: 1px solid $cor-turquesa;
-        color: $cor-base;
         display: inline-block;
-        margin-bottom: 10px;
-        padding: 0 30px 5px 0;
+        margin-bottom: 0;
+        padding: 0;
     }
 
     &__badges {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 }
