@@ -1,30 +1,30 @@
 <?php
-/**
- * Adds Chamadas_Widget widget.
- */
 class Chamadas_Widget extends WP_Widget {
+    private $widget_fields = array();
 
-    /**
-     * Register widget with WordPress.
-     */
-    function __construct() {
-        parent::__construct(
-            'chamadas_widget', // Base ID
-            __( 'Chamadas', 'ifrs-ps-theme' ), // Name
-            array( 'description' => __( 'Chamadas do Processo Seletivo', 'ifrs-ps-theme' ), ) // Args
+	function __construct() {
+		parent::__construct(
+			'chamadas_widget',
+			esc_html__( 'Chamadas', 'ifrs-ps-theme' ),
+			array( 'description' => esc_html__( 'Mostra as Chamadas do Processo Seletivo', 'ifrs-ps-theme' ), ) // Args
         );
-    }
+        $formasingresso = get_terms(array(
+            'taxonomy' => 'formaingresso',
+            'orderby' => 'name',
+            'fields' => 'id=>name',
+        ));
 
-    /**
-     * Front-end display of widget.
-     *
-     * @see WP_Widget::widget()
-     *
-     * @param array $args     Widget arguments.
-     * @param array $instance Saved values from database.
-     */
-    public function widget( $args, $instance ) {
-        $formasingresso_all = get_terms(array(
+        foreach ($formasingresso as $id => $name) {
+            $this->widget_fields[] = array(
+                'label' => $name,
+                'id' => $id,
+                'type' => 'checkbox'
+            );
+        }
+	}
+
+	public function widget( $args, $instance ) {
+		$formasingresso_all = get_terms(array(
             'taxonomy' => 'formaingresso',
             'orderby' => 'name',
             'fields' => 'ids',
@@ -35,9 +35,16 @@ class Chamadas_Widget extends WP_Widget {
             'fields' => 'ids',
         ));
 
+        $formasingresso_selecionadas = array();
+        foreach ($formasingresso_all as $formaingresso_id) {
+            if (isset($instance[$formaingresso_id]) && $instance[$formaingresso_id] == '1') {
+                $formasingresso_selecionadas[] = $formaingresso_id;
+            }
+        }
+
         $chamadas = array();
 
-        foreach ($formasingresso_all as $id1) {
+        foreach ($formasingresso_selecionadas as $id1) {
             foreach ($campi_all as $id2) {
                 $chamadas_query = new WP_Query(array(
                     'post_type' => 'chamada',
@@ -119,46 +126,57 @@ class Chamadas_Widget extends WP_Widget {
         </div>
         <?php
         echo $args['after_widget'];
-    }
+	}
 
-    /**
-     * Back-end widget form.
-     *
-     * @see WP_Widget::form()
-     *
-     * @param array $instance Previously saved values from database.
-     */
-    public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Chamadas', 'ifrs-ps-theme' );
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-        </p>
-        <?php
-    }
+	public function field_generator( $instance ) {
+		$output = '';
+		foreach ( $this->widget_fields as $widget_field ) {
+			$default = '';
+			if ( isset($widget_field['default']) ) {
+				$default = $widget_field['default'];
+			}
+			$widget_value = ! empty( $instance[$widget_field['id']] ) ? $instance[$widget_field['id']] : esc_html__( $default, 'ifrs-ps-theme' );
+			switch ( $widget_field['type'] ) {
+				case 'checkbox':
+					$output .= '<p>';
+					$output .= '<input class="checkbox" type="checkbox" '.checked( $widget_value, true, false ).' id="'.esc_attr( $this->get_field_id( $widget_field['id'] ) ).'" name="'.esc_attr( $this->get_field_name( $widget_field['id'] ) ).'" value="1">';
+					$output .= '<label for="'.esc_attr( $this->get_field_id( $widget_field['id'] ) ).'">'.esc_attr( $widget_field['label'], 'ifrs-ps-theme' ).'</label>';
+					$output .= '</p>';
+					break;
+				default:
+					$output .= '<p>';
+					$output .= '<label for="'.esc_attr( $this->get_field_id( $widget_field['id'] ) ).'">'.esc_attr( $widget_field['label'], 'ifrs-ps-theme' ).':</label> ';
+					$output .= '<input class="widefat" id="'.esc_attr( $this->get_field_id( $widget_field['id'] ) ).'" name="'.esc_attr( $this->get_field_name( $widget_field['id'] ) ).'" type="'.$widget_field['type'].'" value="'.esc_attr( $widget_value ).'">';
+					$output .= '</p>';
+			}
+		}
+		echo $output;
+	}
 
-    /**
-     * Sanitize widget form values as they are saved.
-     *
-     * @see WP_Widget::update()
-     *
-     * @param array $new_instance Values just sent to be saved.
-     * @param array $old_instance Previously saved values from database.
-     *
-     * @return array Updated safe values to be saved.
-     */
-    public function update( $new_instance, $old_instance ) {
-        $instance = array();
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+	public function form( $instance ) {
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'ifrs-ps-theme' );
+		?>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'ifrs-ps-theme' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
+		<?php
+		$this->field_generator( $instance );
+	}
 
-        return $instance;
-    }
-
-} // class Foo_Widget
-
-// register Foo_Widget widget
-function register_chamadas_widget() {
-    register_widget( 'Chamadas_Widget' );
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		foreach ( $this->widget_fields as $widget_field ) {
+			switch ( $widget_field['type'] ) {
+				default:
+					$instance[$widget_field['id']] = ( ! empty( $new_instance[$widget_field['id']] ) ) ? strip_tags( $new_instance[$widget_field['id']] ) : '';
+			}
+		}
+		return $instance;
+	}
 }
-add_action( 'widgets_init', 'register_chamadas_widget' );
+
+add_action( 'widgets_init', function() {
+    register_widget( 'Chamadas_Widget' );
+} );
