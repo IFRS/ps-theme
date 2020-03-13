@@ -48,4 +48,10 @@
     </div>
 </section>
 
+<section class="home-cursos d-none d-md-block">
+    <div class="container">
+        <?php echo get_template_part('partials/cursos/home-mapa'); ?>
+    </div>
+</section>
+
 <?php get_footer(); ?>

@@ -1,56 +1,167 @@
 .home-cursos {
-    &__image {
-        width: 100% \9; // IE Fix
+  &__image {
+    width: 100% \9; // IE Fix
 
-        /* .st0 {
-            fill: $cor-turquesa;
-        }
-        .st1 {
-            fill: $cor-vermelho;
-        }
-        .st2 {
-            fill:#ffffff;
-        }
-        .st3 {
-            fill: $cor-laranja;
-        }
-        .st5 {
-            fill: $cor-turquesa;
-        }
-        .st6 {
-            fill: $cor-vermelho;
-        }
-        .st7 {
-            fill: $cor-turquesa;
-        }
-        .st8 {
-            fill: $cor-turquesa;
-        }
-        .st9 {
-            enable-background: new;
-        } */
-
-        @include media-breakpoint-up(lg) {
-            padding: 20px 30px 20px 60px;
-        }
+    .e7e19950-f637-45c2-a323-e93a03a48864,
+    .f95939d1-b132-4cba-bb48-27fffad255bb {
+      fill: #2f9090;
     }
-
-    @include media-breakpoint-up(lg) {
-        .container {
-            position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                top: -30px;
-                left: 20px;
-                width: 58px;
-                height: 300px;
-                z-index: 1;
-                opacity: 0.25;
-
-                background: url('../img/bg-vertical.png') repeat-y left top;
-            }
-        }
+    .acde9fbe-6fcf-4788-91ae-512cbd06801e {
+      clip-path: url(#e58c519a-592e-4e48-b8df-fd7887f62629);
     }
+    .bf57a95c-0464-4973-8b59-d2d162258c3a,
+    .f22880c7-adfa-4c8e-9de4-a230307cf4c1 {
+      fill: #19685d;
+    }
+    .b738cf3b-9ec0-41bc-9283-2919722e1d51,
+    .b96ba2e2-d8b2-42b8-9396-d806b9ae551d,
+    .baf7081d-96b7-4054-b1dd-7a0f09f2c8b1,
+    .bb127db2-532f-48b9-9413-6dd42f1cd3c3 {
+      fill: #fff;
+    }
+    .b738cf3b-9ec0-41bc-9283-2919722e1d51 {
+      font-size: 58.44px;
+    }
+    .b738cf3b-9ec0-41bc-9283-2919722e1d51,
+    .baf7081d-96b7-4054-b1dd-7a0f09f2c8b1,
+    .bb127db2-532f-48b9-9413-6dd42f1cd3c3 {
+      font-weight: 700;
+    }
+    .bb127db2-532f-48b9-9413-6dd42f1cd3c3 {
+      font-size: 28.33px;
+    }
+    .baf7081d-96b7-4054-b1dd-7a0f09f2c8b1 {
+      font-size: 14.45px;
+    }
+    .bf57a95c-0464-4973-8b59-d2d162258c3a {
+      font-size: 38.29px;
+    }
+    .a542dc84-0dba-4a61-9663-ba49ad041fd2,
+    .a9de28f2-4764-4a48-8e40-b6aaf4e3934b,
+    .b380c2f6-95ae-4786-b5a8-39642e493a35,
+    .bbd6f1ed-954b-498c-8865-88d83f4c3aab,
+    .bff7c42a-2ba1-48fe-97b8-ab7cec124750,
+    .f2408ddb-3cb8-4134-b628-9b6ed3fa81c0 {
+      letter-spacing: -0.01em;
+    }
+    .b6943747-a828-4bc2-bf6f-034d8ab03e12 {
+      letter-spacing: 0;
+    }
+    .e7e19950-f637-45c2-a323-e93a03a48864 {
+      font-size: 47.87px;
+      font-style: oblique;
+    }
+    .a1284eaa-1855-4818-969e-b90ee438cdb8,
+    .bf122b6a-ad5f-4202-ac39-999554f2b818 {
+      letter-spacing: -0.02em;
+    }
+    .b4fe5aef-0d2b-465f-916d-14a8624349b4 {
+      letter-spacing: 0;
+    }
+    .b773c54f-c59d-4b60-b498-1d6f879b62f0 {
+      letter-spacing: -0.03em;
+    }
+    .aa20fcbe-82ea-42e6-a9ee-74b653457df9,
+    .ab7375dc-05d1-4017-b738-d9390467fdf7 {
+      letter-spacing: 0;
+    }
+    .bdd6073d-01a6-4637-9bf8-1a38d7977e81 {
+      letter-spacing: -0.02em;
+    }
+    .a0fd3c01-b85e-4061-a9ab-ae4ce0f9e024 {
+      letter-spacing: 0;
+    }
+    .a38c9bc3-321a-41bd-9762-7a2037c9ba4e {
+      font-size: 46.86px;
+      fill: #224844;
+    }
+    .f3129b62-bf83-4186-b796-c8d7452f4e39 {
+      fill: #224844;
+    }
+    .a38c9bc3-321a-41bd-9762-7a2037c9ba4e,
+    .aaf1cac9-0f0a-46b1-aa59-2a28a5ed6bb7,
+    .f17632bf-6c3b-4e9e-ac68-c208d85ad302,
+    .f3129b62-bf83-4186-b796-c8d7452f4e39,
+    .f3617d60-facc-444f-a2fe-b8892481e6ca,
+    .f96983c3-ad55-4b55-891d-06ff524667d3 {
+      font-weight: 800;
+    }
+    .f3617d60-facc-444f-a2fe-b8892481e6ca {
+      font-size: 42.85px;
+    }
+    .bfd93bed-8311-42ec-81d1-938e5a30c9ec,
+    .f17632bf-6c3b-4e9e-ac68-c208d85ad302,
+    .f3617d60-facc-444f-a2fe-b8892481e6ca {
+      fill: #309292;
+    }
+    .f3129b62-bf83-4186-b796-c8d7452f4e39 {
+      font-size: 47.72px;
+    }
+    .aa3de521-e44a-4984-8f96-d580d1e63ca8 {
+      letter-spacing: 0;
+    }
+    .b8a5d2f7-874c-47e7-b8a9-2b8da4320cba {
+      letter-spacing: 0.04em;
+    }
+    .b1218c08-5f3f-4b3e-ace4-865a961baf60 {
+      letter-spacing: -0.06em;
+    }
+    .f002bf21-8411-49cd-bbf6-9f950e45372c,
+    .f8665187-b714-4319-b511-bdb723074175 {
+      letter-spacing: 0;
+    }
+    .b2a77fce-7bcb-47ef-8cc7-e5f224f49145 {
+      letter-spacing: -0.01em;
+    }
+    .bab640f2-5c4f-4fcd-aa2f-b5bf5d6a5ffc,
+    .be3ed005-dba7-4d06-9f8c-feb35b33c921 {
+      letter-spacing: -0.02em;
+    }
+    .f17632bf-6c3b-4e9e-ac68-c208d85ad302 {
+      font-size: 78.49px;
+    }
+    .b3e1911d-2d69-4501-b62b-3d840d91e786 {
+      font-size: 34.88px;
+    }
+    .aaf1cac9-0f0a-46b1-aa59-2a28a5ed6bb7 {
+      font-size: 46.27px;
+      fill: #cc7629;
+    }
+    .aba2c9d6-b509-4892-88c6-10630dc1a8f7 {
+      font-size: 30.31px;
+      letter-spacing: 0.04em;
+    }
+    .f96983c3-ad55-4b55-891d-06ff524667d3 {
+      font-size: 44.03px;
+      fill: #a05925;
+    }
+    .fae74d3e-cd1a-4560-9549-84067882ea9a {
+      fill: #a05925;
+    }
+    .b9400557-dd9d-4e89-8b91-6a6c076b4264 {
+      letter-spacing: 0.02em;
+    }
+    .b38b7069-df39-4db6-99e6-c98951754128 {
+      font-size: 39.14px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .container {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: 20px;
+        width: 58px;
+        height: 300px;
+        z-index: 1;
+        opacity: 0.25;
+
+        background: url("../img/bg-vertical.png") repeat-y left top;
+      }
+    }
+  }
 }
