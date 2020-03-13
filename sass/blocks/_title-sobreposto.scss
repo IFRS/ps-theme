@@ -4,19 +4,20 @@
 
     &__apoio {
         background: $cor-turquesa;
-        color: $cor-apoio;
+        color: #ffffff;
         display: inline-block;
         font-size: 0.6em;
         padding: 3px 20px 3px 10px;
     }
 
     &__principal {
-        background: $cor-vermelho;
-        color: $cor-apoio;
+        background: $cor-verde;
+        color: #ffffff;
         display: block;
         font-weight: bold;
         margin-left: 30px;
         margin-top: -5px;
         padding: 3px 40px 3px 20px;
+        text-transform: uppercase;
     }
 }

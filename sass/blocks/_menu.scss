@@ -1,5 +1,5 @@
 .menu-principal {
-    border-left: 4px solid $cor-amarelo;
+    border-left: 4px solid $cor-laranja;
     max-width: 40%;
 
     @include media-breakpoint-up(lg) {
@@ -10,19 +10,19 @@
     .menu-item {
         @extend .nav-item;
 
-        color: $cor-vermelho;
+        color: $cor-turquesa;
         margin-left: -4px;
         text-transform: uppercase;
 
         > a {
             @extend .nav-link;
 
-            color: $cor-vermelho;
+            color: $cor-turquesa;
 
             &:hover,
             &:focus {
-                background-color: $cor-amarelo;
-                color: $cor-base;
+                background-color: $cor-laranja;
+                color: #ffffff;
             }
         }
     }
@@ -31,14 +31,14 @@
         a {
             &:hover,
             &:focus {
-                background-color: $cor-vermelho;
+                background-color: $cor-turquesa;
                 color: #ffffff;
             }
         }
     }
 
     .dropdown-menu {
-        border-left: 4px solid $cor-amarelo;
+        border-left: 4px solid $cor-turquesa;
         padding: 0;
     }
 
@@ -47,7 +47,7 @@
         &:after {
             border-style: solid;
             border-width: 0.25em 0.25em 0 0;
-            color: $cor-vermelho;
+            color: $cor-base;
             content: '';
             display: inline-block;
             height: 0.8em;
@@ -62,8 +62,8 @@
 
         &.show {
             > a {
-                background-color: $cor-amarelo;
-                color: $cor-base;
+                background-color: $cor-laranja;
+                color: #ffffff;
             }
 
             &:after {

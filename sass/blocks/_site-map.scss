@@ -1,5 +1,5 @@
 .site-map {
-    background-color: $cor-amarelo;
+    background-color: $cor-cinza-claro;
     color: $cor-base;
     padding-top: 24px;
     padding-bottom: 32px;
@@ -13,7 +13,7 @@
         padding: 0;
 
         >.menu-item {
-            color: $cor-vermelho;
+            color: $cor-verde;
             display: block;
             float: left;
             margin-right: 64px;
@@ -23,7 +23,7 @@
             font-weight: 600;
 
             >a {
-                color: $cor-vermelho;
+                color: $cor-verde;
             }
         }
 

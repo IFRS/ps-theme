@@ -60,7 +60,7 @@
     &__list {
         .list-group-item {
             border-left: 10px solid $cor-base;
-            color: $cor-apoio;
+            color: $cor-cinza-claro;
             text-align: left;
 
             &:hover {
@@ -85,21 +85,21 @@
             }
 
             &.active {
-                color: $cor-vermelho;
+                color: $cor-laranja;
             }
         }
     }
 }
 
 .btn-formaingresso {
-    @include button-variant($cor-amarelo, $cor-amarelo);
+    @include button-variant($cor-turquesa, $cor-verde);
 
     font-weight: bold;
     margin-bottom: 5px;
     text-transform: uppercase;
 
     &:hover {
-        background-color: $cor-laranja;
+        background-color: $cor-verde;
     }
 }
 
@@ -112,7 +112,7 @@
     text-transform: uppercase;
 
     &:hover {
-        background-color: $cor-laranja;
+        background-color: $cor-verde;
         color: #ffffff;
     }
 }
@@ -133,7 +133,7 @@
     margin-bottom: 40px;
 
     &__title {
-        color: $cor-vermelho;
+        color: $cor-turquesa;
         font-size: 1.8rem;
         font-weight: bold;
         margin-bottom: 3px;
@@ -142,7 +142,7 @@
         text-transform: uppercase;
 
         a {
-            color: $cor-vermelho;
+            color: $cor-turquesa;
         }
 
         &::after {

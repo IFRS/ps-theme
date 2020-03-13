@@ -2,7 +2,7 @@
     &__image {
         width: 100% \9; // IE Fix
 
-        .st0 {
+        /* .st0 {
             fill: $cor-turquesa;
         }
         .st1 {
@@ -28,7 +28,7 @@
         }
         .st9 {
             enable-background: new;
-        }
+        } */
 
         @include media-breakpoint-up(lg) {
             padding: 20px 30px 20px 60px;

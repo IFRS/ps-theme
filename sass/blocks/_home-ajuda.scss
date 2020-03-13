@@ -1,18 +1,18 @@
 .home-ajuda {
-    background: $cor-apoio;
+    background: $cor-cinza-claro;
     margin-top: -55px;
     padding: 105px 0 0 0;
 
     &__image {
         background: url('../img/home-ajuda.png') center center no-repeat;
         margin: 0 auto;
-        min-height: 579px;
-        min-width: 448px;
+        min-height: 676px;
+        min-width: 517px;
     }
 
     @include media-breakpoint-up(md) {
         .container {
-            border-bottom: 70px solid $cor-amarelo;
+            border-bottom: 70px solid $cor-laranja;
         }
     }
 }

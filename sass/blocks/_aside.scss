@@ -11,25 +11,25 @@
     }
 
     &__item {
-        background: $cor-amarelo;
+        background: $cor-turquesa;
         display: inline-block;
         margin-bottom: 10px;
         padding: 5px;
     }
 
     &__item-title {
-        color: $cor-base;
+        color: #ffffff;
         font-size: 1.1rem;
         font-weight: 600;
         margin-bottom: 3px;
 
         a {
-            color: $cor-base;
+            color: #ffffff;
         }
     }
 
     &__item-meta {
-        color: $cor-base;
+        color: $cor-cinza-claro;
         font-size: 0.9rem;
         margin: 0;
     }

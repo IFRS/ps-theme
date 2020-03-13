@@ -19,12 +19,12 @@
             padding: 0;
 
             li {
-                color: $cor-vermelho;
+                color: $cor-laranja;
                 display: inline-block;
                 font-size: 0.85rem;
 
                 a {
-                    color: $cor-vermelho;
+                    color: $cor-laranja;
                 }
 
                 &:after {
@@ -41,7 +41,7 @@
     }
 
     &__item-meta {
-        color: #000000;
+        color: $cor-cinza-claro;
         display: inline-block;
         font-size: 28px;
         line-height: 32px;
@@ -53,7 +53,7 @@
     }
 
     &__item-day {
-        background: $cor-laranja;
+        background: $cor-verde;
         display: inline-block;
         font-weight: bold;
         margin: 0 auto;
@@ -65,7 +65,7 @@
     }
 
     &__item-month {
-        background: $cor-laranja;
+        background: $cor-verde;
         display: inline-block;
         font-weight: bold;
         margin: 0 auto;
@@ -78,7 +78,7 @@
     }
 
     &__item-title {
-        color: $cor-turquesa;
+        color: $cor-base;
         font-size: 1.1rem;
         font-weight: bold;
         margin-bottom: 3px;
@@ -86,7 +86,7 @@
         text-transform: uppercase;
 
         a {
-            color: $cor-turquesa;
+            color: $cor-base;
         }
     }
 
