@@ -34,7 +34,7 @@
 @mixin badge-chamadas() {
     @include badge-variant($cor-turquesa);
 
-    color: $cor-base;
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 5px;
