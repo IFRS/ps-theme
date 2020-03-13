@@ -2,8 +2,8 @@
   "name": "ifrs-ps-theme",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
     "@fancyapps/fancybox": "^3.5.7",
     "animate.css": "^3.7.2",
     "autoprefixer": "^9.7.4",
@@ -25,11 +25,11 @@
     "intersection-observer": "^0.7.0",
     "jquery": "^3.4.1",
     "lazysizes": "^5.2.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "pixrem": "^5.0.0",
     "plugin-error": "^1.0.1",
     "postcss-flexibility": "^2.0.0",
     "respond.js": "^1.4.2",
-    "webpack": "^4.41.6"
+    "webpack": "^4.42.0"
   }
 }
