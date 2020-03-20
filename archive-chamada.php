@@ -50,37 +50,38 @@ foreach ($formasingresso_all as $id1) {
                 <div class="chamadas-lista__title">
                     <h2>Chamadas</h2>
                 </div>
-                <?php //the_widget( 'Chamadas_Widget', array('title' => 'Chamadas do Processo Seletivo') ); ?>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-            <?php $accordion_id = uniqid(); ?>
-                <div class="accordion chamadas-lista__content" id="accordion-<?php echo $accordion_id; ?>">
+                <ul class="nav nav-pills mb-3" role="tablist">
                     <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
                         <?php $formaingresso_obj = get_term($formaingresso_id); ?>
-                        <?php $heading_id = uniqid(); ?>
-                        <?php $collapse_id = uniqid(); ?>
-                        <div class="card bg-light">
-                            <div class="card-header" id="heading-<?php echo $heading_id; ?>">
-                                <h3 class="mb-0">
-                                    <a class="" type="button" data-toggle="collapse" data-target="#collapse-<?php echo $collapse_id; ?>" aria-expanded="true" aria-controls="collapse-<?php echo $collapse_id; ?>">
-                                        <?php echo $formaingresso_obj->name; ?>
-                                    </a>
-                                </h3>
-                            </div>
-                            <div id="collapse-<?php echo $collapse_id; ?>" class="collapse" aria-labelledby="heading-<?php echo $heading_id; ?>" data-parent="#accordion-<?php echo $accordion_id; ?>">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <?php foreach ($campi as $campus_id => $chamada) : ?>
-                                            <?php $campus_obj = get_term($campus_id); ?>
-                                            <div class="col-12 col-lg-6 col-xl-4">
-                                                <div class="card bg-light">
-                                                    <div class="card-header">
-                                                        <h4><?php echo $campus_obj->name; ?></h4>
-                                                    </div>
-                                                    <ul class="card-body">
-                                                        <?php foreach ($chamada as $resultado) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-<?php echo $formaingresso_id; ?>" data-toggle="pill" href="#pane-<?php echo $formaingresso_id; ?>" role="tab" aria-controls="pane-<?php echo $formaingresso_id; ?>" aria-selected="true"><?php echo $formaingresso_obj->name; ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="tab-content chamadas-lista__content">
+                    <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
+                        <?php $formaingresso_obj = get_term($formaingresso_id); ?>
+                        <div class="tab-pane fade" id="pane-<?php echo $formaingresso_id; ?>" role="tabpanel" aria-labelledby="tab-<?php echo $formaingresso_id; ?>">
+                            <div class="accordion" id="accordion-<?php echo $formaingresso_id; ?>">
+                                <?php foreach ($campi as $campus_id => $chamada) : ?>
+                                    <?php $campus_obj = get_term($campus_id); ?>
+                                    <div class="card">
+                                        <div class="card-header" id="heading-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>">
+                                            <h3 class="mb-0">
+                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" aria-expanded="true" aria-controls="collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>">
+                                                    <?php echo $campus_obj->name; ?>
+                                                </button>
+                                            </h3>
+                                        </div>
+                                        <div id="collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" class="collapse" aria-labelledby="heading-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" data-parent="#accordion-<?php echo $formaingresso_id; ?>">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <?php foreach ($chamada as $resultado) : ?>
+                                                        <div class="col-12 col-md-6 col-lg-4">
                                                             <div class="chamada">
                                                                 <h5 class="chamada__title"><a href="<?php echo get_permalink($resultado); ?>" rel="bookmark"><?php echo $resultado->post_title; ?></a></h5>
                                                                 <p class="chamada__meta"><?php echo get_the_time('d/m/Y', $resultado); ?></p>
@@ -91,13 +92,13 @@ foreach ($formasingresso_all as $id1) {
                                                                     <?php endforeach; ?>
                                                                 </div>
                                                             </div>
-                                                        <?php endforeach; ?>
-                                                    </ul>
+                                                        </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             </div>
-                                        <?php endforeach; ?>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
