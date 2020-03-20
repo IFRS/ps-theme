@@ -10,9 +10,21 @@ $campi_all = get_terms(array(
     'fields' => 'ids',
 ));
 
+$formasingresso_selecionadas = array();
+$widgets = get_option('widget_chamadas_widget');
+
+if (isset($widgets)) {
+    $instance = reset($widgets);
+    foreach ($formasingresso_all as $formaingresso_id) {
+        if (isset($instance[$formaingresso_id]) && $instance[$formaingresso_id] == '1') {
+            $formasingresso_selecionadas[] = $formaingresso_id;
+        }
+    }
+}
+
 $chamadas = array();
 
-foreach ($formasingresso_all as $id1) {
+foreach ($formasingresso_selecionadas as $id1) {
     foreach ($campi_all as $id2) {
         $chamadas_query = new WP_Query(array(
             'post_type' => 'chamada',
@@ -52,6 +64,11 @@ foreach ($formasingresso_all as $id1) {
                 </div>
             </div>
         </div>
+        <?php if (empty($formasingresso_selecionadas)) : ?>
+            <div class="alert alert-warning" role="alert">
+                Os resultados de cada forma de ingresso ser&atilde;o divulgados conforme cronograma.
+            </div>
+        <?php endif; ?>
         <div class="row">
             <div class="col-12">
                 <ul class="nav nav-pills mb-3" role="tablist">
