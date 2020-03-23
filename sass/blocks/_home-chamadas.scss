@@ -6,11 +6,11 @@
         min-height: 350px;
 
         @include media-breakpoint-up(lg) {
-            background: no-repeat right center;
-            background-size: contain;
+            background: no-repeat 90% top, no-repeat 90% bottom, repeat-y right top;
+            background-size: 30%, 30%, 50%;
 
             &.lazyloaded {
-                background-image: url('../img/home-chamadas-bg.png');
+                background-image: url('../img/home-chamadas-bg-title.png'), url('../img/home-chamadas-foto.png'), url('../img/home-chamadas-bg.png');
             }
         }
 
