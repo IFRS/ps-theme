@@ -8,10 +8,7 @@ require_once('inc/disable-emojis.php');
 // Permissions & Roles
 require_once('inc/permissions.php');
 
-// Custom Header
-require_once('inc/custom-header.php');
-
-// Post Thumbnail
+// Configuração do Tema
 require_once('inc/theme-config.php');
 
 // Script Condicional
@@ -24,7 +21,6 @@ require_once('inc/assets.php');
 require_once('inc/breadcrumb.php');
 
 // Widgets
-require_once('inc/widgets/widgets.php');
 require_once('inc/widgets/chamadas.php');
 
 // Tamanho do resumo e resumo em páginas
