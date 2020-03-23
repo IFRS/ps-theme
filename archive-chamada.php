@@ -96,13 +96,15 @@ foreach ($formasingresso_selecionadas as $id1) {
                                         </div>
                                         <div id="collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" class="collapse" aria-labelledby="heading-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" data-parent="#accordion-<?php echo $formaingresso_id; ?>">
                                             <div class="card-body">
-                                                <div class="row">
+                                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                                                     <?php foreach ($chamada as $resultado) : ?>
-                                                        <div class="col-12 col-md-6 col-lg-4">
-                                                            <div class="chamada">
-                                                                <h5 class="chamada__title"><a href="<?php echo get_permalink($resultado); ?>" rel="bookmark"><?php echo $resultado->post_title; ?></a></h5>
-                                                                <p class="chamada__meta"><?php echo get_the_time('d/m/Y', $resultado); ?></p>
-                                                                <div class="chamada__badges">
+                                                        <div class="col">
+                                                            <div class="card mb-3 text-center">
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title"><a href="<?php echo get_permalink($resultado); ?>" rel="bookmark"><?php echo $resultado->post_title; ?></a></h5>
+                                                                    <p class="text-muted"><?php echo get_the_time('d/m/Y', $resultado); ?></p>
+                                                                </div>
+                                                                <div class="card-footer">
                                                                     <?php $modalidades = get_post_meta($resultado->ID, '_chamada_resultados_group'); ?>
                                                                     <?php foreach ($modalidades[0] as $id => $modalidade) : ?>
                                                                         <?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?><?php echo ($id !== array_key_last($modalidades[0])) ? ', ' : ''; ?>
