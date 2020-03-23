@@ -1,13 +1,6 @@
 <?php
 function ps_custom_queries( $query ) {
     if ($query->is_main_query() & !is_admin()) {
-        if ($query->is_home()) {
-            $faq = get_category_by_slug('faq');
-            if ($faq) {
-                $query->query_vars['category__not_in'] = array($faq->term_id);
-            }
-        }
-
         if ($query->is_post_type_archive('edital')) {
             $query->query_vars['posts_per_page'] = -1;
             $query->query_vars['nopaging'] = true;
