@@ -69,7 +69,7 @@ $(function() {
         $(e).find('.chamada').addClass('animated').each(function(ii, ee) {
             $(ee).css('animation-delay', delay + 's');
             delay = delay + 0.1;
-            let observer = intersectionObserver('slideInRight');
+            let observer = intersectionObserver('fadeInLeft');
             observer.observe(ee);
         });
     });
