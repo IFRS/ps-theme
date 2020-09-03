@@ -24,7 +24,7 @@
     "html5shiv": "^3.7.3",
     "intersection-observer": "^0.7.0",
     "jquery": "^3.4.1",
-    "lazysizes": "^5.2.0",
+    "lazysizes": "^5.2.1",
     "minimist": "^1.2.5",
     "pixrem": "^5.0.0",
     "plugin-error": "^1.0.1",
