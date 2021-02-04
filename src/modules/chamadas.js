@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     $('.chamadas').find('div.chamadas__campi, div.modalidades, div.chamadas__list').hide();
 
     $('.chamadas a.toggle').on('click', function(e) {
