@@ -1,8 +1,7 @@
-require('intersection-observer');
 require('bootstrap');
 
-require('./modules/animation');
 require('./modules/lazysizes-config');
+require('./modules/animation');
 require('./modules/menu');
 require('./modules/chamadas');
 require('./modules/fancybox-config');
