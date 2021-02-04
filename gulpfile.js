@@ -82,19 +82,17 @@ gulp.task('webpack', function(done) {
         plugins: [
             new webpack.ProvidePlugin({
                 $: 'jquery',
-                jQuery: 'jquery',
             }),
             ...webpackPlugins
         ],
         optimization: {
             minimize: false,
             splitChunks: {
-                chunks: 'all',
                 cacheGroups: {
                     vendors: false,
                     commons: {
-                        name: "commons",
-                        chunks: "all",
+                        name: 'commons',
+                        chunks: 'all',
                         minChunks: 2,
                     },
                 },
