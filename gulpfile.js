@@ -1,31 +1,30 @@
-const argv         = require('minimist')(process.argv.slice(2));
-const autoprefixer = require('autoprefixer');
-const babel        = require('gulp-babel');
-const browserSync  = require('browser-sync').create();
-const cssmin       = require('gulp-cssmin');
-const concat       = require('gulp-concat');
-const del          = require('del');
-const gulp         = require('gulp');
-const imagemin     = require('gulp-imagemin');
-const path         = require('path');
-const pixrem       = require('pixrem');
-const PluginError  = require('plugin-error');
-const postcss      = require('gulp-postcss');
-const sass         = require('gulp-sass');
-const sourcemaps   = require('gulp-sourcemaps');
-const uglify       = require('gulp-uglify');
-const webpack      = require('webpack');
+const argv           = require('minimist')(process.argv.slice(2));
+const autoprefixer   = require('autoprefixer');
+const babel          = require('gulp-babel');
+const browserSync    = require('browser-sync').create();
+const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const csso           = require('gulp-csso');
+const concat         = require('gulp-concat');
+const del            = require('del');
+const gulp           = require('gulp');
+const path           = require('path');
+const pixrem         = require('pixrem');
+const PluginError    = require('plugin-error');
+const postcss        = require('gulp-postcss');
+const sass           = require('gulp-sass');
+const sourcemaps     = require('gulp-sourcemaps');
+const uglify         = require('gulp-uglify');
+const webpack        = require('webpack');
 
-const proxyURL = argv.URL || argv.url || 'localhost';
-
-const webpackMode = argv.production ? 'production' : 'development';
-
-gulp.task('clean', function() {
-    return del(['css/', 'js/', 'dist/']);
+gulp.task('clean', async function() {
+    return await del(['css/', 'js/', 'dist/']);
 });
 
 gulp.task('vendor-css', function() {
-    return gulp.src(['./node_modules/animate.css/animate.css', './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css'])
+    return gulp.src([
+        './node_modules/animate.css/animate.css',
+        './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css'
+    ])
     .pipe(concat('vendor.css'))
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
@@ -40,9 +39,9 @@ gulp.task('sass', function() {
     return gulp.src('sass/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-        includePaths: 'sass',
+        includePaths: ['sass', 'node_modules'],
         outputStyle: 'expanded',
-        precision: 8
+        precision: 6
     }).on('error', sass.logError))
     .pipe(postcss(postCSSplugins))
     .pipe(sourcemaps.write('./'))
@@ -52,35 +51,40 @@ gulp.task('sass', function() {
 
 gulp.task('styles', gulp.series('vendor-css', 'sass', function css() {
     return gulp.src('css/*.css')
-    .pipe(cssmin())
+    .pipe(csso())
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
 }));
 
+const webpackMode = argv.production ? 'production' : 'development';
+let webpackPlugins = [];
+argv.bundleanalyzer ? webpackPlugins.push(new BundleAnalyzer()) : null;
+
 gulp.task('webpack', function(done) {
     webpack({
         mode: webpackMode,
-        devtool: 'source-maps',
+        devtool: 'source-map',
         entry: {
             ie: './src/ie.js',
             ps: './src/ps.js',
-            cursos: './src/cursos.js'
+            cursos: './src/cursos.js',
         },
         output: {
             path: path.resolve(__dirname, 'js'),
-            filename: '[name].js'
+            filename: '[name].js',
         },
         resolve: {
             alias: {
-                jquery: 'jquery/dist/jquery',
-                bootstrap: 'bootstrap/dist/js/bootstrap.bundle'
+                jquery: 'jquery/src/jquery',
+                bootstrap: 'bootstrap/dist/js/bootstrap.bundle',
             }
         },
         plugins: [
             new webpack.ProvidePlugin({
                 $: 'jquery',
-                jQuery: 'jquery'
-            })
+                jQuery: 'jquery',
+            }),
+            ...webpackPlugins
         ],
         optimization: {
             minimize: false,
@@ -90,14 +94,19 @@ gulp.task('webpack', function(done) {
                     vendors: false,
                     commons: {
                         name: "commons",
-                        chunks: "initial",
-                        minChunks: 2
-                    }
-                }
-            }
+                        chunks: "all",
+                        minChunks: 2,
+                    },
+                },
+            },
         },
     }, function(err, stats) {
         if (err) throw new PluginError('webpack', {
+            message: err.toString({
+                colors: true
+            })
+        });
+        if (stats.hasErrors()) throw new PluginError('webpack', {
             message: stats.toString({
                 colors: true
             })
@@ -117,24 +126,18 @@ gulp.task('scripts', gulp.series('webpack', function js() {
             ]
         ]
     }))
-    .pipe(uglify({
-        ie8: true,
-    }))
+    .pipe(uglify())
     .pipe(gulp.dest('js/'))
     .pipe(browserSync.stream());
 }));
-
-gulp.task('images', function() {
-    return gulp.src('img/*.{png,jpg,jpeg,svg,gif}')
-    .pipe(imagemin())
-    .pipe(gulp.dest('img/'));
-});
 
 gulp.task('dist', function() {
     return gulp.src([
         '**',
         '!.**',
+        '!css/*.map',
         '!dist{,/**}',
+        '!js/*.map',
         '!node_modules{,/**}',
         '!sass{,/**}',
         '!src{,/**}',
@@ -142,14 +145,16 @@ gulp.task('dist', function() {
         '!package-lock.json',
         '!package.json'
     ])
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('dist/ifrs-ps-theme/'));
 });
 
 if (argv.production) {
-    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts', 'images'), 'dist'));
+    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts'), 'dist'));
 } else {
     gulp.task('build', gulp.series('clean', gulp.parallel('vendor-css', 'sass', 'webpack')));
 }
+
+const proxyURL = argv.URL || argv.url || 'localhost';
 
 gulp.task('default', gulp.series('build', function watch() {
     browserSync.init({
@@ -157,6 +162,7 @@ gulp.task('default', gulp.series('build', function watch() {
         notify: false,
         online: false,
         open: false,
+        host: proxyURL,
         proxy: proxyURL,
     });
 
