@@ -9,7 +9,7 @@ add_action('init', function() {
 add_action('after_switch_theme', function() {
     // Cursos Role
     if (!get_role( 'cadastrador_cursos' )) {
-        add_role('cadastrador_cursos', __('Cadastrador de Cursos'), array(
+        add_role('cadastrador_cursos', __('Cadastrador de Cursos', 'ifrs-ps-theme'), array(
             'read'              => true,
             'upload_files'      => true,
             'manage_files'      => true,
@@ -26,7 +26,7 @@ add_action('after_switch_theme', function() {
 
     // Chamadas Role
     if (!get_role( 'cadastrador_chamadas' )) {
-        add_role('cadastrador_chamadas', __('Cadastrador de Chamadas'), array(
+        add_role('cadastrador_chamadas', __('Cadastrador de Chamadas', 'ifrs-ps-theme'), array(
             'read'                 => true,
             'upload_files'         => true,
             'manage_files'         => true,
@@ -42,7 +42,7 @@ add_action('after_switch_theme', function() {
 
     // Editais Role
     if (!get_role( 'cadastrador_editais' )) {
-        add_role('cadastrador_editais', __('Cadastrador de Editais'), array(
+        add_role('cadastrador_editais', __('Cadastrador de Editais', 'ifrs-ps-theme'), array(
             'read'                 => true,
             'upload_files'         => true,
             'manage_files'         => true,
@@ -55,7 +55,7 @@ add_action('after_switch_theme', function() {
 
     // Publicações
     if (!get_role( 'cadastrador_publicacoes' )) {
-        add_role('cadastrador_publicacoes', __('Cadastrador de Publicações'), array(
+        add_role('cadastrador_publicacoes', __('Cadastrador de Publicações', 'ifrs-ps-theme'), array(
             'read'                 => true,
             'upload_files'         => true,
             'manage_files'         => true,

@@ -95,7 +95,7 @@ function curso_metaboxes() {
 
     $cmb->add_field( array(
         'name'    => __( 'Total de Vagas', 'ifrs-ps-theme' ),
-        'desc'    => __( 'Somente números.' ),
+        'desc'    => __( 'Somente números.', 'ifrs-ps-theme' ),
         'id'      => $prefix . 'vagas',
         'type'    => 'text',
         'attributes' => array(
@@ -108,14 +108,14 @@ function curso_metaboxes() {
 
     $cmb->add_field( array(
         'name'    => __( 'Dura&ccedil;&atilde;o', 'ifrs-ps-theme' ),
-        'desc'    => __( 'p.ex.: "2 anos", "4 semestres", "1300 horas", etc.' ),
+        'desc'    => __( 'p.ex.: "2 anos", "4 semestres", "1300 horas", etc.', 'ifrs-ps-theme' ),
         'id'      => $prefix . 'duracao',
         'type'    => 'text',
     ) );
 
     $cmb->add_field( array(
         'name'    => __( 'Carga horária EaD?', 'ifrs-ps-theme' ),
-        'desc'    => __( 'Marque para aparecer um aviso sobre carga horária a distância.' ),
+        'desc'    => __( 'Marque para aparecer um aviso sobre carga horária a distância.', 'ifrs-ps-theme' ),
         'id'      => $prefix . 'ead',
         'type'    => 'checkbox',
     ) );

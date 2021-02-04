@@ -83,7 +83,7 @@ class Chamadas_Widget extends WP_Widget {
         <div class="widget-chamadas__content">
             <div class="chamadas" aria-live="polite">
                 <div id="formasingresso" class="chamadas__formasingresso">
-                    <p class="chamadas__text"><?php _e('Selecione a sua forma de ingresso.', 'ifrs-ps-theme'); ?><br><small><?php _e('Os resultados de cada forma de ingresso serão divulgados conforme cronograma.', 'ifrs-ps=theme'); ?></small></p>
+                    <p class="chamadas__text"><?php _e('Selecione a sua forma de ingresso.', 'ifrs-ps-theme'); ?><br><small><?php _e('Os resultados de cada forma de ingresso serão divulgados conforme cronograma.', 'ifrs-ps-theme'); ?></small></p>
                     <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
                         <?php $formaingresso_obj = get_term($formaingresso_id); ?>
                         <a class="btn btn-formaingresso btn-lg btn-block toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>"><span class="sr-only">Ingresso por </span><?php echo $formaingresso_obj->name; ?></a>
@@ -154,10 +154,10 @@ class Chamadas_Widget extends WP_Widget {
 	}
 
 	public function form( $instance ) {
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'ifrs-ps-theme' );
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'ifrs-ps-theme' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'ifrs-ps-theme' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 		<?php
