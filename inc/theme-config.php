@@ -1,4 +1,9 @@
 <?php
+// Content Width
+if ( ! isset( $content_width ) ) {
+	$content_width = 1110;
+}
+
 // Registra os menus
 register_nav_menus(
     array(
