@@ -1,4 +1,7 @@
 <?php
+// Carregamento eficiente de fontes
+require_once('inc/fonts.php');
+
 // Remove a versão do WP
 require_once('inc/remove-version.php');
 
