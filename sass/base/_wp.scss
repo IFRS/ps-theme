@@ -1,3 +1,7 @@
+.screen-reader-text {
+    @extend .sr-only;
+}
+
 .alignnone {
     @extend .clearfix;
 }
