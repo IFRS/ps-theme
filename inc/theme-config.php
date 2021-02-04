@@ -6,8 +6,17 @@ register_nav_menus(
     )
 );
 
+// Add theme support for Automatic Feed Links
+add_theme_support('automatic-feed-links');
+
 // Habilita imagens destaque
 add_theme_support( 'post-thumbnails' );
+
+// Add theme support for Responsive Embeds
+add_theme_support('responsive-embeds');
+
+// Habilita títulos automáticos
+add_theme_support('title-tag');
 
 // Habilita a personalização de cabeçalho
 add_theme_support('custom-header', array(
