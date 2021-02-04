@@ -14,9 +14,6 @@ require_once('inc/resource-hints.php');
 // Configuração do Tema
 require_once('inc/theme-config.php');
 
-// Script Condicional
-require_once('inc/script_conditional.php');
-
 // Scripts & Styles
 require_once('inc/assets.php');
 
