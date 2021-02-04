@@ -8,10 +8,6 @@
     <meta name="author" content="Departamento de Comunicação do IFRS">
     <meta name="keywords" content="ifrs, processo, seletivo, vestibular, ingresso">
     <meta name="description" content="Site com informações do Processo Seletivo IFRS">
-    <!-- Title -->
-    <title><?php echo get_template_part('partials/title'); ?></title>
-    <!-- Favicons -->
-    <?php echo get_template_part('partials/favicons'); ?>
     <!-- Contexto Barra Brasil -->
     <meta property="creator.productor" content="http://estruturaorganizacional.dados.gov.br/id/unidade-organizacional/100918">
     <!-- Facebook -->
