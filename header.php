@@ -11,9 +11,9 @@
     <!-- Contexto Barra Brasil -->
     <meta property="creator.productor" content="http://estruturaorganizacional.dados.gov.br/id/unidade-organizacional/100918">
     <!-- Facebook -->
-    <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>">
+    <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
     <meta property="og:url" content="<?php echo esc_attr( wp_get_canonical_url() ); ?>">
-    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale" content="<?php echo esc_attr( get_locale() ); ?>">
     <meta property="og:type" content="<?php echo (!is_front_page() && !is_home()) ? 'article' : 'website' ?>">
     <meta property="og:title" content="<?php echo esc_attr( get_template_part('partials/title') ); ?>">
     <meta property="og:image" content="<?php has_post_thumbnail() ? esc_attr( the_post_thumbnail_url('full') ) : esc_attr( header_image() ); ?>">
