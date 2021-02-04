@@ -1,5 +1,5 @@
 <?php
-function ps_custom_queries( $query ) {
+add_action('pre_get_posts', function($query) {
     if ($query->is_main_query() & !is_admin()) {
         if ($query->is_post_type_archive('edital')) {
             $query->query_vars['posts_per_page'] = -1;
@@ -16,6 +16,4 @@ function ps_custom_queries( $query ) {
             $query->set('order', 'ASC');
         }
     }
-}
-
-add_action( 'pre_get_posts', 'ps_custom_queries' );
+});
