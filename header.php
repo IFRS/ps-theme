@@ -23,8 +23,6 @@
     <meta name="twitter:creator" content="@IF_RS">
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo esc_url( wp_get_canonical_url() ); ?>">
-    <!-- Feed -->
-    <link rel="alternate" type="application/rss+xml" title="<?php echo esc_attr( get_bloginfo('name') ); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
     <?php if (!has_site_icon()) echo get_template_part('partials/favicons'); ?>
     <!-- WP -->
     <?php wp_head(); ?>
