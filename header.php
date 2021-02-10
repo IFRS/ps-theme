@@ -58,15 +58,20 @@
                         <li class="menu-social__item"><a href="https://www.linkedin.com/school/ifrs" class="menu-social__link menu-social__link--linkedin"><span class="sr-only">Página do IFRS no Linkedin</span></a></li>
                     </ul>
                 </div>
-                <div class="header__menu">
-                    <?php echo get_template_part('partials/menu'); ?>
-                </div>
                 <div class="header__search">
                     <?php get_search_form(); ?>
                 </div>
             </div>
         </section>
     </header>
+
+    <div class="menu">
+        <div class="container">
+            <div class="col-12">
+                <?php echo get_template_part('partials/menu'); ?>
+            </div>
+        </div>
+    </div>
 
     <!-- Corpo -->
     <a href="#inicio-conteudo" id="inicio-conteudo" class="sr-only">In&iacute;cio do conte&uacute;do</a>

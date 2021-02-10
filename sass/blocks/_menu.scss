@@ -1,28 +1,31 @@
-.menu-principal {
-    border-left: 4px solid $cor-laranja;
-    max-width: 40%;
+.menu {
+    background-color: $gray-200;
+    padding: 15px;
+}
 
-    @include media-breakpoint-up(lg) {
-        margin-top: -45px;
-        padding-top: 30px;
-    }
+.menu-principal {
+    justify-content: center;
 
     .menu-item {
         @extend .nav-item;
 
-        color: $cor-turquesa;
-        margin-left: -4px;
+        color: $primary;
         text-transform: uppercase;
+
+        + .menu-item {
+            margin-left: 10px;
+        }
 
         > a {
             @extend .nav-link;
 
-            color: $cor-turquesa;
+            background-color: $primary;
+            color: $gray-800;
 
             &:hover,
             &:focus {
-                background-color: $cor-laranja;
-                color: #ffffff;
+                background-color: $gray-800;
+                color: $primary;
             }
         }
     }
@@ -31,14 +34,13 @@
         a {
             &:hover,
             &:focus {
-                background-color: $cor-turquesa;
+                background-color: $primary;
                 color: #ffffff;
             }
         }
     }
 
     .dropdown-menu {
-        border-left: 4px solid $cor-turquesa;
         padding: 0;
     }
 
@@ -62,8 +64,8 @@
 
         &.show {
             > a {
-                background-color: $cor-laranja;
-                color: #ffffff;
+                background-color: $primary;
+                color: $gray-700;
             }
 
             &:after {
@@ -81,7 +83,13 @@
 }
 
 .btn-menu-toggle {
-    @include button-variant($cor-laranja, $cor-laranja);
+    @include button-variant($gray-700, $gray-700);
 
-    color: #ffffff;
+    color: $primary;
+
+    @include media-breakpoint-down(md) {
+        + .menu-navbar {
+            margin-top: 15px;
+        }
+    }
 }
