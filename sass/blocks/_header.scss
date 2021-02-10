@@ -8,9 +8,9 @@
     align-items: flex-start;
 
     &__foto {
-        margin-top: 30px;
-        max-width: 40%;
-        flex: 0 0 40%;
+        margin: 80px 50px 0 25px;
+        max-width: 25%;
+        flex: 0 0 25%;
         align-self: flex-end;
 
         @include media-breakpoint-down(md) {
@@ -18,47 +18,17 @@
         }
     }
 
-    &__marca {
-        flex: auto 0 10%;
-
-        background: $primary;
-        margin-right: 10px;
-        margin-top: -($header-margin);
-        padding: ($header-margin + 20px) 10px 20px 10px;
-        text-align: center;
-
-        @include media-breakpoint-down(sm) {
-            display: none;
-        }
-    }
-
     &__principal {
-        flex: 1 0 auto;
+        flex: 1 1 auto;
+        align-self: flex-end;
     }
 
     &__link {
-        background: $gray-700;
-        display: block;
-        padding: 20px;
+        display: inline-block;
+        padding: 20px 0;
 
         &:hover {
             text-decoration: none;
-        }
-
-        @include media-breakpoint-up(sm) {
-            position: relative;
-
-            &::after {
-                background: $gray-700;
-                content: '';
-                position: absolute;
-                display: block;
-                height: 100%;
-                width: 100vw;
-                top: 0;
-                left: 0;
-                z-index: -10;
-            }
         }
     }
 
@@ -71,7 +41,7 @@
 
         @include media-breakpoint-up(lg) {
             position: absolute;
-            left: 0;
+            right: 0;
             top: 20px;
             margin-top: 0;
         }
