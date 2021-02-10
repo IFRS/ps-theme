@@ -10,7 +10,7 @@ const intersectionObserver = effect => new IntersectionObserver((entries, observ
 });
 
 $(function() {
-    var delay = 0;
+    let delay = 0;
 
     $('.searchform').addClass('animate__animated').each(function(i, e) {
         let observer = intersectionObserver('animate__slideInLeft');
@@ -27,8 +27,8 @@ $(function() {
         observer.observe(e);
     });
 
-    $('.menu-principal').addClass('animate__animated').each(function(i, e) {
-        let observer = intersectionObserver('animate__slideInUp animate__faster');
+    $('.menu').addClass('animate__animated').each(function(i, e) {
+        let observer = intersectionObserver('animate__slideInDown animate__faster');
         observer.observe(e);
     });
 
