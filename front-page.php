@@ -33,8 +33,6 @@
     </div>
 </section>
 
-<hr class="home-separator">
-
 <section class="home-ajuda">
     <div class="container">
         <div class="row">
@@ -45,12 +43,6 @@
                 <?php echo get_template_part('partials/home/faq'); ?>
             </div>
         </div>
-    </div>
-</section>
-
-<section class="home-cursos d-none d-md-block">
-    <div class="container">
-        <?php echo get_template_part('partials/home/mapa'); ?>
     </div>
 </section>
 
