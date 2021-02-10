@@ -4,9 +4,11 @@
 
     &__title {
         margin: 0 0 10px 0;
-        font-size: 2.5rem;
+        font-size: minmax(1.5rem, 2.5rem);
         font-weight: bold;
         text-align: center;
+        word-wrap: break-word;
+        hyphens: auto;
     }
 }
 
@@ -62,30 +64,20 @@
 }
 
 .btn-formaingresso {
-    @include button-variant(#ffffff, $gray-800);
+    @include button-variant(#ffffff, $gray-700, $primary, $primary, $primary, $primary);
 
     font-weight: bold;
     margin: 0 auto 5px auto;
     text-transform: uppercase;
-
-    &:hover {
-        background-color: $primary;
-        border-color: $primary;
-    }
 }
 
 .btn-campus {
-    @include button-variant(transparent, transparent);
+    @include button-variant(transparent, transparent, $primary, $primary, $primary, $primary);
 
     color: $gray-700;
     margin: 0 auto 5px auto;
     text-align: center;
     text-transform: uppercase;
-
-    &:hover {
-        background-color: $primary;
-        color: $gray-700;
-    }
 }
 
 .badge-modalidade {
@@ -109,18 +101,13 @@
     }
 
     &__link {
-        @include button-variant(#ffffff, $gray-800);
+        @include button-variant(#ffffff, $gray-700, $primary, $primary, $primary, $primary);
 
         display: block;
-
-        &:hover {
-            background-color: $primary;
-            border-color: $primary;
-        }
     }
 
     &__title {
-        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.5);
+        border-bottom: 1px solid rgba($color: $gray-600, $alpha: 0.5);
         font-size: 1.8rem;
         font-weight: bold;
         margin-bottom: 5px;
