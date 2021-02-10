@@ -55,9 +55,9 @@ add_action('widgets_init', function() {
 		'name'          => 'Home Chamadas',
 		'id'            => 'home_chamadas',
 		'description'   => 'Chamadas na página inicial.',
-		'before_widget' => '<div class="col-12 col-lg-6"><div id="%1$s" class="widget widget-chamadas %2$s">',
+		'before_widget' => '<div class="col-12"><div id="%1$s" class="widget widget-chamadas %2$s">',
 		'after_widget'  => '</div></div>',
-		'before_title'  => '<div class="widget-chamadas__title"><h2><img data-src="' . get_stylesheet_directory_uri() . '/img/home-chamadas-title.png" class="img-fluid lazyload" alt="',
-		'after_title'   => '"></h2></div>',
+		'before_title'  => '<h2 class="widget-chamadas__title">',
+		'after_title'   => '</h2>',
 	));
 }, 10);

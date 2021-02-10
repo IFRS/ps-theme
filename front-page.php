@@ -12,7 +12,7 @@
 
 <?php if (is_active_sidebar('home_chamadas')) : ?>
     <section class="home-chamadas">
-        <div class="container lazyload">
+        <div class="container">
             <div class="row">
                 <?php dynamic_sidebar('home_chamadas'); ?>
             </div>

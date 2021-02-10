@@ -1,18 +1,8 @@
 .home-chamadas {
-    border-bottom: 70px solid $primary;
-    padding-top: 30px;
+    padding: 30px 0;
 
     .container {
         min-height: 350px;
-
-        @include media-breakpoint-up(lg) {
-            background: no-repeat 90% top, no-repeat 90% bottom, repeat-y right top;
-            background-size: 30%, 30%, 50%;
-
-            &.lazyloaded {
-                background-image: url('../img/home-chamadas-bg-title.png'), url('../img/home-chamadas-foto.png'), url('../img/home-chamadas-bg.png');
-            }
-        }
 
         @include media-breakpoint-only(md) {
             min-height: 390px;
@@ -25,16 +15,5 @@
         @include media-breakpoint-up(xl) {
             min-height: 640px;
         }
-    }
-
-    &__title {
-        background: $cor-base;
-        color: #ffffff;
-        display: inline-block;
-        font-size: 42px;
-        font-weight: 300;
-        margin: 0 0 40px 0;
-        padding: 20px 40px 10px 40px;
-        text-align: center;
     }
 }

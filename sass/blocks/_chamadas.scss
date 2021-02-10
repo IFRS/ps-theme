@@ -1,58 +1,27 @@
 .widget-chamadas {
     background-color: transparent;
-
-    @include media-breakpoint-up(md) {
-        padding-left: 80px;
-        position: relative;
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 5px;
-            width: 58px;
-            height: 110%;
-            z-index: 1;
-            opacity: 0.25;
-
-            background: url('../img/bg-vertical.png') repeat-y left top;
-        }
-    }
+    text-align: center;
 
     &__title {
-        margin-bottom: 10px;
-
-        h2 {
-            font-size: 32px;
-            margin: 0;
-        }
+        margin: 0 0 10px 0;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
     }
 }
 
 .chamadas {
     padding: 20px 0;
-    text-align: left;
 
     &__text {
-        position: relative;
         padding-bottom: 5px;
         margin-bottom: 10px;
-
-        &::after {
-            background: $primary;
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 1px;
-            bottom: 0;
-            left: 0;
-        }
     }
 
     &__formasingresso {
         @include media-breakpoint-up(md) {
             .btn-block {
-                max-width: 75%;
+                max-width: 50%;
             }
         }
     }
@@ -85,35 +54,36 @@
             }
 
             &.active {
-                color: $primary;
+                color: $gray-700;
             }
         }
     }
 }
 
 .btn-formaingresso {
-    @include button-variant($primary, $primary);
+    @include button-variant(#ffffff, $gray-800);
 
     font-weight: bold;
-    margin-bottom: 5px;
+    margin: 0 auto 5px auto;
     text-transform: uppercase;
 
     &:hover {
         background-color: $primary;
+        border-color: $primary;
     }
 }
 
 .btn-campus {
     @include button-variant(transparent, transparent);
 
-    color: $cor-base;
+    color: $gray-700;
     margin-bottom: 5px;
     text-align: left;
     text-transform: uppercase;
 
     &:hover {
         background-color: $primary;
-        color: #ffffff;
+        color: $gray-700;
     }
 }
 
@@ -134,12 +104,18 @@
     text-align: center;
 
     @include media-breakpoint-up(sm) {
-        max-width: 75%;
+        max-width: 50%;
     }
 
     &__link {
+        @include button-variant(#ffffff, $gray-800);
+
         display: block;
-        @include button-variant($primary, $primary);
+
+        &:hover {
+            background-color: $primary;
+            border-color: $primary;
+        }
     }
 
     &__title {
@@ -161,5 +137,6 @@
 
     &__badges {
         font-size: 0.85rem;
+        margin: 0;
     }
 }
