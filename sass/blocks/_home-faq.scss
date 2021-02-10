@@ -1,6 +1,6 @@
 .home-faq {
     &__title {
-        color: $cor-turquesa;
+        color: $primary;
         margin-bottom: 30px;
         max-width: 350px;
         text-transform: uppercase;
@@ -47,7 +47,7 @@
             [data-toggle="collapse"]:before {
                 border-style: solid;
                 border-width: 0.2em 0.2em 0 0;
-                border-color: $cor-cinza-claro;
+                border-color: $gray-600;
                 content: '';
                 display: inline-block;
                 height: 0.6em;
@@ -66,18 +66,18 @@
         }
 
         .card-body {
-            background-color: $cor-turquesa;
+            background-color: $primary;
             color: #ffffff;
             font-size: 0.9rem;
 
             a {
-                color: $cor-cinza-claro;
+                color: $gray-600;
             }
         }
     }
 
     &__item-title {
-        background-color: $cor-verde;
+        background-color: $primary;
         display: block;
     }
 }

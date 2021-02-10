@@ -39,7 +39,7 @@
         margin-bottom: 10px;
 
         &::after {
-            background: $cor-turquesa;
+            background: $primary;
             content: '';
             position: absolute;
             width: 100px;
@@ -60,7 +60,7 @@
     &__list {
         .list-group-item {
             border-left: 10px solid $cor-base;
-            color: $cor-cinza-claro;
+            color: $gray-600;
             text-align: left;
 
             &:hover {
@@ -85,21 +85,21 @@
             }
 
             &.active {
-                color: $cor-laranja;
+                color: $primary;
             }
         }
     }
 }
 
 .btn-formaingresso {
-    @include button-variant($cor-turquesa, $cor-verde);
+    @include button-variant($primary, $primary);
 
     font-weight: bold;
     margin-bottom: 5px;
     text-transform: uppercase;
 
     &:hover {
-        background-color: $cor-verde;
+        background-color: $primary;
     }
 }
 
@@ -112,7 +112,7 @@
     text-transform: uppercase;
 
     &:hover {
-        background-color: $cor-verde;
+        background-color: $primary;
         color: #ffffff;
     }
 }
@@ -139,7 +139,7 @@
 
     &__link {
         display: block;
-        @include button-variant($cor-turquesa, $cor-verde);
+        @include button-variant($primary, $primary);
     }
 
     &__title {

@@ -3,7 +3,7 @@
     display: inline-block;
 
     &__apoio {
-        background: $cor-turquesa;
+        background: $primary;
         color: #ffffff;
         display: inline-block;
         font-size: 0.6em;
@@ -11,7 +11,7 @@
     }
 
     &__principal {
-        background: $cor-verde;
+        background: $primary;
         color: #ffffff;
         display: block;
         font-weight: bold;

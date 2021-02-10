@@ -1,5 +1,5 @@
 .home-ajuda {
-    background: $cor-cinza-claro;
+    background: $gray-600;
     margin-top: -55px;
     padding: 105px 0 0 0;
 
@@ -12,7 +12,7 @@
 
     @include media-breakpoint-up(md) {
         .container {
-            border-bottom: 70px solid $cor-laranja;
+            border-bottom: 70px solid $primary;
         }
     }
 }

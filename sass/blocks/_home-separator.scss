@@ -6,7 +6,7 @@
     position: relative;
 
     &::before {
-        background: $cor-turquesa;
+        background: $primary;
         content: '';
         position: absolute;
         display: block;
@@ -17,7 +17,7 @@
     }
 
     &::after {
-        background: $cor-verde;
+        background: $primary;
         content: '';
         position: absolute;
         display: block;

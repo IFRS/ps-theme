@@ -19,12 +19,12 @@
             padding: 0;
 
             li {
-                color: $cor-laranja;
+                color: $primary;
                 display: inline-block;
                 font-size: 0.85rem;
 
                 a {
-                    color: $cor-laranja;
+                    color: $primary;
                 }
 
                 &:after {
@@ -41,7 +41,7 @@
     }
 
     &__item-meta {
-        color: $cor-cinza-claro;
+        color: $gray-600;
         display: inline-block;
         font-size: 28px;
         line-height: 32px;
@@ -53,7 +53,7 @@
     }
 
     &__item-day {
-        background: $cor-verde;
+        background: $primary;
         display: inline-block;
         font-weight: bold;
         margin: 0 auto;
@@ -65,7 +65,7 @@
     }
 
     &__item-month {
-        background: $cor-verde;
+        background: $primary;
         display: inline-block;
         font-weight: bold;
         margin: 0 auto;

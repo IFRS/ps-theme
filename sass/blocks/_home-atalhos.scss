@@ -1,5 +1,5 @@
 .home-atalhos {
-    background: $cor-cinza-escuro;
+    background: $gray-700;
     padding: 0;
     text-align: center;
     overflow-y: visible;
@@ -9,7 +9,7 @@
 
     &__content {
         align-items: flex-end;
-        background: $cor-cinza-claro;
+        background: $gray-600;
         justify-content: center;
         margin-bottom: -$header-margin;
         margin-top: -$header-margin;

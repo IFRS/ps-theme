@@ -20,7 +20,7 @@
     }
 
     &__item-meta {
-        border-bottom: 1px solid $cor-turquesa;
+        border-bottom: 1px solid $primary;
         color: $cor-base;
         display: inline-block;
         font-size: 0.85rem;
@@ -31,7 +31,7 @@
     }
 
     &__item-title {
-        color: $cor-laranja;
+        color: $primary;
         font-weight: bold;
         font-size: 1.3rem;
         margin-bottom: 3px;
@@ -39,7 +39,7 @@
         text-transform: uppercase;
 
         a {
-            color: $cor-laranja;
+            color: $primary;
         }
     }
 

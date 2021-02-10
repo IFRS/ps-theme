@@ -6,7 +6,7 @@
         position: relative;
 
         &::after {
-            background: $cor-laranja;
+            background: $primary;
             content: '';
             position: absolute;
             width: 40%;
@@ -25,7 +25,7 @@
     }
 
     &__title {
-        color: $cor-turquesa;
+        color: $primary;
         margin-bottom: 5px;
         font-size: 1.2rem;
     }

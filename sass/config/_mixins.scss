@@ -1,5 +1,5 @@
 @mixin title() {
-    color: $cor-laranja;
+    color: $gray-600;
     font-weight: bold;
     margin-bottom: 20px;
     margin-top: 40px;
@@ -26,13 +26,13 @@
 
 @mixin btn-ps() {
     background: #ffffff;
-    border-left: 4px solid $cor-laranja;
-    color: $cor-laranja;
+    border-left: 4px solid $primary;
+    color: $cor-base;
     text-transform: uppercase;
 }
 
 @mixin badge-chamadas() {
-    @include badge-variant($cor-turquesa);
+    @include badge-variant($primary);
 
     color: #ffffff;
     font-size: 1rem;

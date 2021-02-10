@@ -1,20 +1,17 @@
-$cor-base:                    #58595b;
-$cor-cinza-escuro:            #d7dcdf;
-$cor-cinza-claro:             #eeefef;
-$cor-verde:                   #25675d;
-$cor-turquesa:                #2f8f8f;
-$cor-laranja:                 #ca7512;
+$cor-base:                    #939597;
 
 $header-margin:               30px;
 
 /* Bootstrap */
 $font-family-sans-serif:      "Open Sans", Arial, sans-serif;
 
-$link-color:                  $cor-laranja;
+$primary: #f5df4d;
+
+$link-color:                  $cor-base;
 
 $breadcrumb-bg:               none;
 $breadcrumb-active-color:     $cor-base;
 $breadcrumb-padding-y:        30px;
 
 $nav-pills-link-active-color: #ffffff;
-$nav-pills-link-active-bg:    $cor-laranja;
+$nav-pills-link-active-bg:    $primary;
