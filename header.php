@@ -42,9 +42,6 @@
             <div class="header__foto">
                 <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
-            <div class="header__marca">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-marca.png" alt="" class="img-fluid" aria-hidden="true"/>
-            </div>
             <div class="header__principal">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
                     <img src="<?php header_image(); ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
