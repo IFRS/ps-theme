@@ -1,42 +1,42 @@
 .site-map {
-    background-color: $gray-600;
-    color: $cor-base;
+    background-color: $gray-200;
+    color: $gray-800;
     padding-top: 24px;
     padding-bottom: 32px;
-
-    a {
-        color: $cor-base;
-    }
 
     &__menu {
         list-style: none;
         padding: 0;
 
-        >.menu-item {
+        > .menu-item {
             color: $primary;
             display: block;
             float: left;
             margin-right: 64px;
             margin-bottom: 8px;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
 
-            >a {
-                color: $primary;
+            > a {
+                color: $gray-900;
             }
         }
 
         .sub-menu {
             list-style: none;
             padding: 0;
-            margin-top: 8px;
-            margin-bottom: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
 
-            >.menu-item {
+            > .menu-item {
                 font-size: 1rem;
                 font-weight: normal;
                 text-transform: none;
+
+                > a {
+                    color: $gray-700;
+                }
             }
         }
     }
