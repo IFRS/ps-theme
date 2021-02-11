@@ -1,9 +1,12 @@
 .breadcrumb-wrapper {
-    background: $gray-600;
-    margin-top: -($header-margin);
+    background: $gray-900;
 
     &__text {
-        color: $cor-apoio;
+        color: $gray-400;
         font-weight: bold;
+    }
+
+    a {
+        color: $primary;
     }
 }
