@@ -17,9 +17,7 @@
     <article class="publicacoes publicacoes--archive">
         <div class="row">
             <div class="col-12">
-                <div class="publicacoes__title">
-                    <h3><strong>Publica&ccedil;&otilde;es</strong></h3>
-                </div>
+                <h3 class="publicacoes__title">Publica&ccedil;&otilde;es</h3>
             </div>
         </div>
         <div class="publicacoes__body">
