@@ -36,11 +36,11 @@
     <?php echo get_template_part('partials/barrabrasil'); ?>
 
     <!-- Cabeçalho -->
-    <header>
+    <header class="lazyload">
         <h1 class="sr-only"><?php bloginfo('name'); ?></h1>
         <section class="container header">
             <div class="header__foto">
-                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" alt="" class="img-fluid" aria-hidden="true"/>
+                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" width="385" height="551" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
             <div class="header__principal">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
