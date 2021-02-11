@@ -1,6 +1,5 @@
 .campi-list {
     &__item {
-        color: $cor-apoio;
         margin-bottom: 2rem;
         padding-bottom: 1.2rem;
         position: relative;
@@ -25,7 +24,7 @@
     }
 
     &__title {
-        color: $primary;
+        color: $gray-800;
         margin-bottom: 5px;
         font-size: 1.2rem;
     }
