@@ -30,19 +30,19 @@
 
     &__list {
         .list-group-item {
-            border-left: 10px solid $cor-base;
+            border-left: 10px solid $cor-apoio;
             color: $gray-600;
             text-align: left;
 
             &:hover {
-                color: $cor-base;
+                color: $cor-apoio;
             }
         }
     }
 
     .breadcrumb {
         background: none;
-        color: $cor-base;
+        color: $cor-apoio;
         justify-content: center;
         margin: 0;
         margin-bottom: 10px;
@@ -52,7 +52,7 @@
             font-size: 0.95rem;
 
             a {
-                color: $cor-base;
+                color: $cor-apoio;
                 font-weight: 600;
             }
 

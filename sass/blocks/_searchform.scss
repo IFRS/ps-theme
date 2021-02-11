@@ -1,15 +1,15 @@
 .searchform {
     &__input {
         background-color: #ffffff;
-        border: 1px solid $cor-base;
-        color: $cor-base;
+        border: 1px solid $cor-apoio;
+        color: $cor-apoio;
 
         &::placeholder {
-            color: $cor-base;
+            color: $cor-apoio;
         }
 
         &:focus {
-            border: 1px solid $cor-base;
+            border: 1px solid $cor-apoio;
 
             &::placeholder {
                 color: #cccccc;
@@ -18,9 +18,9 @@
     }
 
     &__submit {
-        @include button-variant(#ffffff, $cor-base);
+        @include button-variant(#ffffff, $cor-apoio);
 
         box-shadow: none;
-        fill: $cor-base;
+        fill: $cor-apoio;
     }
 }
