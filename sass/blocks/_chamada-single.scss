@@ -3,10 +3,6 @@
         @include title();
     }
 
-    &__labels {
-        margin-left: 60px;
-    }
-
     &__documento-link {
         &::after {
             border: solid black;

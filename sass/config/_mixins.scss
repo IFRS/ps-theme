@@ -13,9 +13,9 @@
 }
 
 @mixin badge-chamadas() {
-    @include badge-variant($primary);
+    @include badge-variant($gray-800);
 
-    color: #ffffff;
+    color: $primary;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 5px;
