@@ -1,5 +1,5 @@
 $(function() {
-    $('.menu-principal .menu-item-has-children').addClass('dropright');
+    $('.menu-principal .menu-item-has-children').addClass('dropdown');
     $('.menu-principal .menu-item-has-children > a').attr('data-toggle', 'dropdown').attr('aria-haspopup', 'true').attr('aria-expanded', 'false');
     $('.menu-principal .sub-menu').addClass('dropdown-menu');
 
