@@ -3,16 +3,11 @@
     padding: 0;
     text-align: center;
     overflow-y: visible;
-    border-bottom: $header-margin solid #ffffff;
-    border-top: $header-margin solid #ffffff;
-    margin-top: -$header-margin;
 
     &__content {
         align-items: flex-end;
         background: $gray-600;
         justify-content: center;
-        margin-bottom: -$header-margin;
-        margin-top: -$header-margin;
         padding: 40px 0;
 
         >.widget-atalhos {

@@ -1,0 +1,16 @@
+$primary: #f5df4d;
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+$font-family-sans-serif:      "Open Sans", Arial, sans-serif;
+
+$link-color:                  #ba753c;
+
+$breadcrumb-bg:               none;
+$breadcrumb-active-color:     $gray-200;
+$breadcrumb-padding-y:        1rem;
+
+$nav-pills-link-active-color: #ffffff;
+$nav-pills-link-active-bg:    $primary;
