@@ -1,13 +1,13 @@
-$primary: #f5df4d;
+$primary:    #f5df4d;
+$link-color: #ba753c;
 
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
 
-$font-family-sans-serif:      "Open Sans", Arial, sans-serif;
+$font-family-base:            "Open Sans", #{$font-family-sans-serif};
 
-$link-color:                  #ba753c;
-
+$breadcrumb-font-size:        0.8rem;
 $breadcrumb-bg:               none;
 $breadcrumb-active-color:     $gray-200;
 $breadcrumb-padding-y:        1rem;
