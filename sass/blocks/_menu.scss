@@ -12,10 +12,6 @@
         color: $primary;
         text-transform: uppercase;
 
-        + .menu-item {
-            margin-left: 10px;
-        }
-
         > a {
             @extend .nav-link;
 
@@ -30,14 +26,8 @@
         }
     }
 
-    .sub-menu {
-        a {
-            &:hover,
-            &:focus {
-                background-color: $primary;
-                color: #ffffff;
-            }
-        }
+    > .menu-item + .menu-item {
+        margin-left: 10px;
     }
 
     .dropdown-menu {
@@ -45,31 +35,35 @@
     }
 
 
-    .dropright {
-        &:after {
-            border-style: solid;
-            border-width: 0.25em 0.25em 0 0;
-            color: $cor-base;
-            content: '';
-            display: inline-block;
-            height: 0.8em;
-            right: 8px;
-            position: absolute;
-            top: 30%;
-            transform: rotate(45deg);
-            transition: .5s ease-in-out;
-            vertical-align: middle;
-            width: 0.8em;
+    .dropdown {
+        > a {
+            padding-right: 1.75rem;
+
+            &:after {
+                border-style: solid;
+                border-width: 0.25em 0.25em 0 0;
+                color: $cor-apoio;
+                content: '';
+                display: inline-block;
+                height: 0.8em;
+                right: 8px;
+                position: absolute;
+                top: 30%;
+                transform: rotate(135deg);
+                transition: .5s ease-in-out;
+                vertical-align: middle;
+                width: 0.8em;
+            }
         }
 
         &.show {
             > a {
-                background-color: $primary;
-                color: $gray-700;
-            }
+                background-color: $gray-800;
+                color: $primary;
 
-            &:after {
-                transform: rotate(-495deg);
+                &:after {
+                    transform: rotate(-405deg);
+                }
             }
         }
     }
