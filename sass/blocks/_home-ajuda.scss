@@ -1,18 +1,7 @@
 .home-ajuda {
-    background: $gray-600;
-    margin-top: -55px;
-    padding: 105px 0 0 0;
+    @include bg(#ffffff);
 
-    &__image {
-        background: url('../img/home-ajuda.png') center center no-repeat;
-        margin: 0 auto;
-        min-height: 676px;
-        min-width: 517px;
-    }
-
-    @include media-breakpoint-up(md) {
-        .container {
-            border-bottom: 70px solid $primary;
-        }
-    }
+    background-color: $primary;
+    background-size: auto 120%;
+    padding: 30px 0;
 }

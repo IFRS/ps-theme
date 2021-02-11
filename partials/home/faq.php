@@ -1,7 +1,5 @@
 <article class="home-faq">
-    <div class="home-faq__title">
-        <h2>Voc&ecirc; tem alguma d&uacute;vida?</h2>
-    </div>
+    <h2 class="home-faq__title">Voc&ecirc; tem alguma d&uacute;vida?</h2>
     <?php
         $args = array(
             'post_type' => 'pergunta',
