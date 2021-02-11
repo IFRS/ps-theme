@@ -1,4 +1,9 @@
 .home-info {
-    margin-top: 30px;
-    margin-bottom: 40px;
+    @include bg($gray-600);
+
+    background-color: $gray-900;
+    background-position: right center;
+    background-size: auto 200%;
+    color: $gray-100;
+    padding: 30px 0;
 }

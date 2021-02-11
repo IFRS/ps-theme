@@ -1,16 +1,21 @@
 .home-avisos {
+    text-align: center;
+
     &__title {
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-transform: uppercase;
     }
 
     &__content {
-        padding-left: 30px;
+        text-align: left;
     }
 
     &__item {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
         margin-bottom: 30px;
 
         .post-categories {
@@ -24,7 +29,12 @@
                 font-size: 0.85rem;
 
                 a {
-                    color: $primary;
+                    color: inherit;
+
+                    &:hover {
+                        color: #ffffff;
+                        text-decoration: none;
+                    }
                 }
 
                 &:after {
@@ -41,11 +51,13 @@
     }
 
     &__item-meta {
-        color: $gray-600;
-        display: inline-block;
+        color: $gray-900;
+        display: block;
+        flex: 0 0 25%;
         font-size: 28px;
         line-height: 32px;
         margin-bottom: 0;
+        margin-right: 15px;
 
         @include media-breakpoint-down(sm) {
             font-size: 22px;
@@ -77,8 +89,12 @@
         }
     }
 
+    &__item-content {
+        flex: 0 1 auto;
+    }
+
     &__item-title {
-        color: $cor-base;
+        color: #ffffff;
         font-size: 1.1rem;
         font-weight: bold;
         margin-bottom: 3px;
@@ -86,12 +102,17 @@
         text-transform: uppercase;
 
         a {
-            color: $cor-base;
+            color: inherit;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 
     &__btn {
-        @include button-variant(#ffffff, #ffffff);
+        @include button-variant(#ffffff, $gray-200, $primary, $primary);
         @include btn-ps();
     }
 }

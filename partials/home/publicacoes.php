@@ -9,9 +9,7 @@
     $publicacoes = new WP_Query($args);
 ?>
 <section class="publicacoes">
-    <div class="publicacoes__title">
-        <h2 class="title-sobreposto"><span class="title-sobreposto__apoio">&Uacute;ltimas</span>&nbsp;<span class="title-sobreposto__principal">Publica&ccedil;&otilde;es</span></h2>
-    </div>
+    <h2 class="publicacoes__title">&Uacute;ltimas Publica&ccedil;&otilde;es</h2>
     <?php if ($publicacoes->have_posts()) : ?>
         <ul class="publicacoes__list">
         <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>

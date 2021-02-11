@@ -1,37 +1,37 @@
 .publicacoes {
     $root: &;
     margin-bottom: 30px;
+    text-align: center;
 
     &__title {
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-transform: uppercase;
     }
 
     &__list {
         list-style: none;
-        padding-left: 30px;
+        padding: 0;
     }
 
     &__item {
-        color: $cor-base;
+        color: $gray-100;
         margin-bottom: 20px;
     }
 
     &__item-meta {
-        border-bottom: 1px solid $primary;
-        color: $cor-base;
+        color: $gray-200;
         display: inline-block;
         font-size: 0.85rem;
-        margin-bottom: 5px;
+        margin-bottom: 0;
         padding-bottom: 5px;
         padding-right: 5px;
-        cursor: default;
+        cursor: help;
     }
 
     &__item-title {
-        color: $primary;
+        color: $gray-100;
         font-weight: bold;
         font-size: 1.3rem;
         margin-bottom: 3px;
@@ -39,12 +39,17 @@
         text-transform: uppercase;
 
         a {
-            color: $primary;
+            color: #ffffff;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 
     &__btn {
-        @include button-variant(#ffffff, #ffffff);
+        @include button-variant(#ffffff, $gray-200, $primary, $primary);
         @include btn-ps();
     }
 
