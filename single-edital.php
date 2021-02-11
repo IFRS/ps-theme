@@ -70,7 +70,7 @@
         <?php if (!empty($cat_posts)) : ?>
             <div class="col-12 col-lg-4">
                 <aside class="aside">
-                    <h3 class="aside__title title-sobreposto"><span class="title-sobreposto__apoio">Outros</span>&nbsp;<span class="title-sobreposto__principal">Editais</span></h3>
+                    <h3 class="aside__title">Outros Editais</h3>
                     <div class="aside__content">
                         <?php foreach ($cat_posts as $cat_post) : ?>
                             <?php if (has_post_thumbnail($cat_post->ID)) : ?>

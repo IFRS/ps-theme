@@ -45,7 +45,7 @@
         <?php if (!empty($cat_posts)) : ?>
             <div class="col-12 col-lg-4">
                 <aside class="aside">
-                    <h3 class="aside__title title-sobreposto"><span class="title-sobreposto__apoio">Outros</span>&nbsp;<span class="title-sobreposto__principal">Conte&uacute;dos</span></h3>
+                    <h3 class="aside__title">Outros Conte&uacute;dos</h3>
                     <div class="aside__content">
                     <?php foreach ($cat_posts as $cat_post) : ?>
                         <div class="aside__item">

@@ -91,11 +91,6 @@ $(function() {
         observer.observe(e);
     });
 
-    $('.title-sobreposto').addClass('animate__animated').each(function(i, e) {
-        let observer = intersectionObserver('animate__slideInDown');
-        observer.observe(e);
-    });
-
     $('.home-faq__item').addClass('animate__animated').each(function(i, e) {
         let observer = intersectionObserver('animate__bounceInRight');
         observer.observe(e);
