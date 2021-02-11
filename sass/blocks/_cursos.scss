@@ -21,13 +21,7 @@
 
     &__nav {
         .nav-link {
-            color: $cor-apoio;
-        }
-    }
-
-    &__content {
-        a {
-            color: $cor-apoio;
+            color: $gray-800;
         }
     }
 
@@ -39,10 +33,6 @@
 
 .tab-content {
     margin-bottom: $grid-gutter-width / 2;
-
-    a {
-        color: $primary;
-    }
 
     .dataTables_info {
         font-size: 90%;
