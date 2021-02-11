@@ -1,4 +1,6 @@
 .home-chamadas {
+    @include bg($gray-200);
+
     padding: 30px 0;
 
     .container {
