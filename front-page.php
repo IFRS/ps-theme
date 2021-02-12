@@ -23,10 +23,10 @@
 <section class="home-info">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-md-7 col-lg-7">
                 <?php echo get_template_part('partials/home/publicacoes'); ?>
             </div>
-            <div class="col-12 col-lg-5">
+            <div class="col-12 col-md-5 col-lg-4 offset-lg-1">
                 <?php echo get_template_part('partials/home/avisos'); ?>
             </div>
         </div>
