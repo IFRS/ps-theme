@@ -22,6 +22,6 @@
     </div>
 <?php else : ?>
     <div class="alert alert-warning" role="alert">
-        <p><strong>Aguarde!</strong> Em breve os editais ser&atilde;o publicados.</p>
+        <strong>Aguarde!</strong> Em breve os editais ser&atilde;o publicados.
     </div>
 <?php endif; ?>
