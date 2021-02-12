@@ -134,11 +134,11 @@
                 <aside class="aside">
                     <h3 class="aside__title">Outros Cursos do mesmo Campus</h3>
                     <div class="aside__content">
-                        <div class="aside__item">
-                            <?php foreach ($cat_posts as $cat_post) : ?>
+                        <?php foreach ($cat_posts as $cat_post) : ?>
+                            <div class="aside__item">
                                 <h3 class="aside__item-title"><a href="<?php echo get_permalink($cat_post); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h3>
-                            <?php endforeach; ?>
-                        </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </aside>
             </div>
