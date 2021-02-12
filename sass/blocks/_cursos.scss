@@ -34,6 +34,10 @@
 .tab-content {
     margin-bottom: $grid-gutter-width / 2;
 
+    a {
+        color: darken($link-color, 15%);
+    }
+
     .dataTables_info {
         font-size: 90%;
     }
