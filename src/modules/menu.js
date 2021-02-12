@@ -5,7 +5,7 @@ $(function() {
 
     // Controla a exibição do menu em viewports pequenos.
     function menu_resize_control() {
-        if ($(window).width() < 992) {
+        if ($(window).width() < 768) {
             $(".menu-navbar").collapse('hide');
         } else {
             $(".menu-navbar").collapse('show');
