@@ -5,18 +5,6 @@
     padding: 30px 0;
 
     .container {
-        min-height: 350px;
-
-        @include media-breakpoint-only(md) {
-            min-height: 390px;
-        }
-
-        @include media-breakpoint-only(lg) {
-            min-height: 600px;
-        }
-
-        @include media-breakpoint-up(xl) {
-            min-height: 640px;
-        }
+        min-height: 400px;
     }
 }
