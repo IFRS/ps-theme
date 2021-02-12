@@ -43,19 +43,32 @@
 
     .dropdown {
         > a {
-            background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20stroke%3D%22#{str-replace(inspect($cor-apoio), '#', '%23')}%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22arcs%22%20stroke-width%3D%223%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat;
-            background-position: right 5px center;
-            background-size: 22px;
             padding-right: 1.75rem;
-            transition: background-image .5s ease-in-out;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: 22px; height: 22px;
+                background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20stroke%3D%22#{str-replace(inspect($cor-apoio), '#', '%23')}%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22arcs%22%20stroke-width%3D%223%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E");
+                background-repeat: no-repeat;
+                background-position: right center;
+                background-size: contain;
+                transition: transform 500ms;
+
+                @media (prefers-reduced-motion: reduce) {
+                    transition: none;
+                }
+            }
         }
 
         &.show {
             > a {
-                background-color: $gray-800;
-                background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20stroke%3D%22#{str-replace(inspect($cor-apoio), '#', '%23')}%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22arcs%22%20stroke-width%3D%223%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M18%2015l-6-6-6%206%22%2F%3E%3C%2Fsvg%3E");
                 color: $primary;
+
+                &::after {
+                    transform: rotate(-540deg);
+                }
             }
         }
     }

@@ -53,6 +53,10 @@
                 transform: rotate(135deg);
                 transition: .25s ease-in-out;
                 width: 0.6em;
+
+                @media (prefers-reduced-motion: reduce) {
+                    transition: none;
+                }
             }
 
             [data-toggle="collapse"].collapsed:before {
