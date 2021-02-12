@@ -12,10 +12,6 @@
         color: $primary;
         text-transform: uppercase;
 
-        @include media-breakpoint-down(sm) {
-            margin-bottom: 10px;
-        }
-
         > a {
             @extend .nav-link;
 
@@ -32,6 +28,12 @@
 
     > .menu-item + .menu-item {
         margin-left: 10px;
+    }
+
+    > .menu-item {
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 10px;
+        }
     }
 
     .dropdown-menu {
