@@ -1,6 +1,4 @@
 .cursos {
-    margin-bottom: $grid-gutter-width;
-
     &__title {
         @include title();
 
