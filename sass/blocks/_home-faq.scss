@@ -11,9 +11,9 @@
 
     &__perguntas {
         @include media-breakpoint-up(lg) {
-            max-height: 540px;
-            overflow-y: auto;
-            overflow-x: hidden;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 
