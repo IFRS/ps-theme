@@ -22,7 +22,7 @@ gulp.task('clean', async function() {
 
 gulp.task('vendor-css', function() {
     return gulp.src([
-        './node_modules/animate.css/animate.css',
+        //'./node_modules/animate.css/animate.css',
         './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css',
         './node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
     ])
