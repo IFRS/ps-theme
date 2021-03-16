@@ -35,7 +35,7 @@
                     </ul>
                 <?php else : ?>
                     <div class="alert alert-warning" role="alert">
-                        <p><strong>Ops!</strong> Ainda não existem publicações cadastradas.</p>
+                        <p><strong>Ops!</strong> Ainda n&atilde;o existem publica&ccedil;&otilde;es cadastradas.</p>
                     </div>
                 <?php endif; ?>
                 </div>
