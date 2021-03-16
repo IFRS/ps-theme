@@ -4,6 +4,7 @@
             <div class="card-columns">
             <?php while (have_posts()) : the_post(); ?>
                 <article class="card bg-light">
+                    <?php if (!is_category()) : ?>
                     <div class="card-header">
                         <?php $cats = get_the_category(); ?>
                         <?php if (!empty($cats)) : ?>
@@ -14,6 +15,7 @@
                             </ul>
                         <?php endif; ?>
                     </div>
+                    <?php endif; ?>
                     <div class="card-body">
                         <h3 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <small class="d-block text-muted mb-2"><?php the_date(); ?></small>
