@@ -15,7 +15,7 @@ $(function() {
     menu_resize_control();
 
     var width_control = $(window).width();
-    $(window).resize(function() {
+    $(window).on('resize', function() {
         if ($(window).width() === width_control) {
             return;
         }
