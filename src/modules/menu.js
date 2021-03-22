@@ -4,26 +4,26 @@ $(function() {
     $('.menu-principal .sub-menu').addClass('dropdown-menu');
 
     // Controla a exibição do menu em viewports pequenos.
-    function menu_resize_control() {
-        if ($(window).width() < 768) {
-            $(".menu-navbar").collapse('hide');
-        } else {
-            $(".menu-navbar").collapse('show');
-        }
-    }
+    // function menu_resize_control() {
+    //     if ($(window).width() < 768) {
+    //         $(".menu-navbar").collapse('hide');
+    //     } else {
+    //         $(".menu-navbar").collapse('show');
+    //     }
+    // }
 
-    menu_resize_control();
+    // menu_resize_control();
 
-    var width_control = $(window).width();
-    $(window).on('resize', function() {
-        if ($(window).width() === width_control) {
-            return;
-        }
-        menu_resize_control();
-    });
+    // var width_control = $(window).width();
+    // $(window).on('resize', function() {
+    //     if ($(window).width() === width_control) {
+    //         return;
+    //     }
+    //     menu_resize_control();
+    // });
 
-    $('.btn-menu-toggle').on('click', function(e) {
-        $(".menu-navbar").collapse('toggle');
-        e.preventDefault();
-    });
+    // $('.btn-menu-toggle').on('click', function(e) {
+    //     $(".menu-navbar").collapse('toggle');
+    //     e.preventDefault();
+    // });
 });
