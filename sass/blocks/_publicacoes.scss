@@ -4,6 +4,7 @@
     text-align: center;
 
     &__title {
+        font-family: "Rubik", #{$font-family-base};
         font-size: 1.75rem;
         font-weight: bold;
         margin-bottom: 30px;
