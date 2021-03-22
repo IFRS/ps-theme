@@ -62,12 +62,9 @@
         </section>
     </header>
 
+    <!-- Menu -->
     <div class="menu">
-        <div class="container">
-            <div class="col-12">
-                <?php echo get_template_part('partials/menu'); ?>
-            </div>
-        </div>
+        <?php echo get_template_part('partials/menu'); ?>
     </div>
 
     <!-- Corpo -->
