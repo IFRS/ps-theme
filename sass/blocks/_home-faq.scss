@@ -6,11 +6,21 @@
         font-family: "Rubik", #{$font-family-base};
         font-size: 1.75rem;
         font-weight: bold;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         text-transform: uppercase;
     }
 
+    &__busca {
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 360px;
+    }
+
     &__perguntas {
+        margin-bottom: 0;
+        padding: 0;
+
         @include media-breakpoint-up(lg) {
             width: 75%;
             margin-left: auto;
