@@ -56,6 +56,7 @@ foreach ($formasingresso_selecionadas as $id1) {
 <?php get_header(); ?>
 
 <section class="container">
+<?php if (is_active_widget(false, false, 'chamadas_widget')) : ?>
     <div class="chamadas-lista">
         <div class="row">
             <div class="col-12">
@@ -125,6 +126,9 @@ foreach ($formasingresso_selecionadas as $id1) {
             </div>
         </div>
     </div>
+<?php else : ?>
+    <div class="alert alert-warning"><strong>Ops!</strong> Os Resultados ainda n&atilde;o foram publicados. Confira o cronograma para saber mais.</div>
+<?php endif; ?>
 </section>
 
 <?php get_footer(); ?>
