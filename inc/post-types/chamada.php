@@ -92,14 +92,14 @@ function chamada_metaboxes() {
 
 	$arquivos->add_field( array(
 	    'name' => 'Matrículas',
-	    'desc' => 'Selecione os arquivos com as informações para matrículas. Lembrete: preencha corretamente o título de cada arquivo.',
+	    'desc' => 'Selecione os arquivos com as informações para <em>matrículas</em>.<br><strong>Lembrete:</strong> preencha corretamente o título de cada arquivo.',
 	    'id'   => $prefix . 'matriculas',
 	    'type' => 'file_list',
 	) );
 
 	$arquivos->add_field( array(
-	    'name' => 'Bancas',
-	    'desc' => 'Selecione os arquivos com as informações das bancas de heteroidentificação. Lembrete: preencha corretamente o título de cada arquivo.',
+	    'name' => 'Bancas de Heteroidentificação',
+	    'desc' => 'Selecione os arquivos com as informações das <em>bancas de heteroidentificação</em>.<br><strong>Lembrete:</strong> preencha corretamente o título de cada arquivo.',
 	    'id'   => $prefix . 'bancas',
 	    'type' => 'file_list',
 	) );
@@ -146,19 +146,19 @@ function chamada_metaboxes() {
 
 	$resultados->add_group_field( $resultados_group, array(
 		'name' => 'Arquivos',
-		'desc' => 'Selecione os arquivos relacionados a este resultado. Lembrete: preencha corretamente o título de cada arquivo.',
+		'desc' => 'Selecione os arquivos relacionados a este resultado.<br><strong>Lembrete:</strong> preencha corretamente o título de cada arquivo.',
 		'id'   => 'arquivos',
 		'type' => 'file_list',
 	) );
 }
 
 // Custom Title
-add_filter( 'wp_title', function($title) {
+add_filter( 'pre_get_document_title', function($title) {
 	if (is_singular('chamada')) {
 		global $post;
-        $campi = get_the_terms($post->ID, 'campus');
-        $formasingresso = get_the_terms($post->ID, 'formaingresso');
-		return get_the_title($post) . ' | ' . $formasingresso[0]->name . ' | ' . __('Campus ', 'ifrs-ps-theme') . $campi[0]->name . ' - ';
+		$campi = get_the_terms($post->ID, 'campus');
+		$formasingresso = get_the_terms($post->ID, 'formaingresso');
+		return get_the_title($post) . ' | ' . $formasingresso[0]->name . ' | ' . __('Campus ', 'ifrs-ps-theme') . $campi[0]->name . ' - ' . get_bloginfo('name');
 	}
 
 	return $title;
