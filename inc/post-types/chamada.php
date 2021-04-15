@@ -104,6 +104,13 @@ function chamada_metaboxes() {
 	    'type' => 'file_list',
 	) );
 
+	$arquivos->add_field( array(
+	    'name' => 'Análise de Renda',
+	    'desc' => 'Selecione os arquivos com as informações da <em>análise de reserva de vagas para renda inferior a 1,5 salário mínimo</em>.<br><strong>Lembrete:</strong> preencha corretamente o título de cada arquivo.',
+	    'id'   => $prefix . 'renda',
+	    'type' => 'file_list',
+	) );
+
 	$resultados = new_cmb2_box( array(
 		'id'            => $prefix . 'resultados_metabox',
 		'title'         => __( 'Resultados da Chamada', 'ifrs-ps-theme' ),
