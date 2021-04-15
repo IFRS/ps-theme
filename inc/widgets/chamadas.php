@@ -111,7 +111,11 @@ class Chamadas_Widget extends WP_Widget {
                                                 <p class="chamada__badges">
                                                     <?php $modalidades = get_post_meta($resultado->ID, '_chamada_resultados_group'); ?>
                                                     <?php foreach ($modalidades[0] as $id => $modalidade) : ?>
-                                                        <?php echo get_term($modalidade['modalidade'], 'modalidade')->name; ?><?php echo ($id !== array_key_last($modalidades[0])) ? ' / ' : ''; ?>
+                                                        <?php
+                                                            if ($modalidade_obj = get_term($modalidade['modalidade'], 'modalidade')) {
+                                                                echo $modalidade_obj->name; ?><?php echo ($id !== array_key_last($modalidades[0])) ? ' / ' : '';
+                                                            }
+                                                        ?>
                                                     <?php endforeach; ?>
                                                 </p>
                                             </a>
