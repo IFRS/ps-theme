@@ -1,20 +1,18 @@
 const argv           = require('minimist')(process.argv.slice(2));
-const autoprefixer   = require('autoprefixer');
 const babel          = require('gulp-babel');
 const browserSync    = require('browser-sync').create();
-const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const csso           = require('gulp-csso');
 const concat         = require('gulp-concat');
 const del            = require('del');
 const gulp           = require('gulp');
 const path           = require('path');
-const pixrem         = require('pixrem');
 const PluginError    = require('plugin-error');
 const postcss        = require('gulp-postcss');
-const sass           = require('gulp-sass');
+const sass           = require('gulp-sass')(require('sass'));
 const sourcemaps     = require('gulp-sourcemaps');
 const uglify         = require('gulp-uglify');
 const webpack        = require('webpack');
+const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 gulp.task('clean', async function() {
     return await del(['css/', 'js/', 'dist/']);
@@ -32,19 +30,22 @@ gulp.task('vendor-css', function() {
 });
 
 gulp.task('sass', function() {
-    let postCSSplugins = [
+    let postCSS_plugins = [
         require('postcss-flexibility'),
-        pixrem(),
-        autoprefixer()
+        require('pixrem'),
+        require('autoprefixer'),
     ];
-    return gulp.src('sass/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass({
+
+    let sass_options = {
         includePaths: ['sass', 'node_modules'],
         outputStyle: 'expanded',
-        precision: 6
-    }).on('error', sass.logError))
-    .pipe(postcss(postCSSplugins))
+        precision: 6,
+    };
+
+    return gulp.src('sass/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass.sync(sass_options).on('error', sass.logError))
+    .pipe(postcss(postCSS_plugins))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
