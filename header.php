@@ -39,12 +39,9 @@
     <header class="lazyload">
         <h1 class="sr-only"><?php bloginfo('name'); ?></h1>
         <section class="container header">
-            <div class="header__foto">
-                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" width="385" height="551" alt="" class="img-fluid" aria-hidden="true"/>
-            </div>
             <div class="header__principal">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
-                    <img src="<?php header_image(); ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
+                    <img src="<?php header_image(); ?>" width="400" height="261" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
                 </a>
                 <div class="header__social">
                     <ul class="menu-social">
@@ -58,6 +55,12 @@
                 <div class="header__search">
                     <?php get_search_form(); ?>
                 </div>
+            </div>
+            <div class="header__foto">
+                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" width="385" height="567" alt="" class="img-fluid" aria-hidden="true"/>
+            </div>
+            <div class="header__ifrs">
+                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-ifrs.png" width="174" height="248" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
         </section>
     </header>
