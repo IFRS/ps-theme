@@ -15,18 +15,7 @@ const webpack        = require('webpack');
 const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 gulp.task('clean', async function() {
-    return await del(['css/', 'js/', 'dist/']);
-});
-
-gulp.task('vendor-css', function() {
-    return gulp.src([
-        //'./node_modules/animate.css/animate.css',
-        './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css',
-        './node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
-    ])
-    .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('css/'))
-    .pipe(browserSync.stream());
+    return await del(['css/', 'js/', 'vendor/', 'dist/']);
 });
 
 gulp.task('sass', function() {
@@ -51,7 +40,7 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('styles', gulp.series('vendor-css', 'sass', function css() {
+gulp.task('styles', gulp.series('sass', function css() {
     return gulp.src('css/*.css')
     .pipe(csso())
     .pipe(gulp.dest('css/'))
@@ -131,6 +120,23 @@ gulp.task('scripts', gulp.series('webpack', function js() {
     .pipe(browserSync.stream());
 }));
 
+gulp.task('vendor', function(done) {
+    [
+        {
+            src: 'node_modules/lightgallery/fonts/*',
+            dest: 'vendor/fonts/',
+        },
+        {
+            src: 'node_modules/lightgallery/images/*',
+            dest: 'vendor/images/',
+        },
+    ].map(function(file) {
+        return gulp.src(file.src)
+        .pipe(gulp.dest(file.dest));
+    });
+    done();
+});
+
 gulp.task('dist', function() {
     return gulp.src([
         '**',
@@ -149,9 +155,9 @@ gulp.task('dist', function() {
 });
 
 if (argv.production) {
-    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts'), 'dist'));
+    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts', 'vendor'), 'dist'));
 } else {
-    gulp.task('build', gulp.series('clean', gulp.parallel('vendor-css', 'sass', 'webpack')));
+    gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'webpack', 'vendor')));
 }
 
 const proxyURL = argv.URL || argv.url || 'localhost';
