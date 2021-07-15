@@ -22,10 +22,3 @@
     margin-bottom: 5px;
     padding: 10px 20px;
 }
-
-@mixin bg($color: 'currentColor') {
-    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20stroke%3D%22#{str-replace(inspect($color), '#', '%23')}%22%20stroke-miterlimit%3D%2210%22%20stroke-opacity%3D%220.5%22%20stroke-width%3D%222%22%20viewBox%3D%220%200%20475%20455%22%3E%3Cpath%20d%3D%22M456.21%20293.69L91.86%20407.62M316.24%20443.93L91.86%20407.62M456.21%20293.69L316.24%20443.93M380.52%2050.06l75.69%20243.63M165.83%2011.07l214.69%2038.99M18.79%20164.69L165.83%2011.07M91.86%20407.62L18.79%20164.69M273.75%20350.74l42.49%2093.19M337.7%2084.45l-63.95%20266.29M78.22%20162.5l195.53%20188.24M337.7%2084.45l118.51%20209.24M78.22%20162.5l13.64%20245.12M337.7%2084.45L78.22%20162.5M165.83%2011.07L337.7%2084.45M78.22%20162.5l87.61-151.43M380.52%2050.06L337.7%2084.45M78.22%20162.5l-59.43%202.19%22%2F%3E%3C%2Fsvg%3E");
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: auto;
-}
