@@ -1,19 +1,25 @@
 .menu-social {
-    display: block;
+    background-color: $cor-bg;
+    display: inline-block;
+    font-size: 0;
     list-style: none;
     margin-top: 1rem;
-    padding: 0;
+    padding: 0.5rem;
     text-align: center;
 
     @include media-breakpoint-up(lg) {
         text-align: right;
     }
 
+    li {
+        font-size: 1rem;
+    }
+
     &__item {
         display: inline-block;
         margin-right: 5px;
-        width: 30px;
-        height: 30px;
+        width: 38px;
+        height: 38px;
 
         &:last-child {
             margin-right: 0;
@@ -21,52 +27,56 @@
     }
 
     &__link {
+        background: url('../img/social.png') no-repeat center center;
         display: block;
         width: 100%;
         height: 100%;
 
+        $sprite: -38px;
+
         &--facebook {
-            background: url('../img/social-facebook.png') no-repeat center top;
+
+            background-position: 0 0;
 
             &:hover,
             &:focus {
-                background-position: center bottom;
+                background-position: 0 $sprite;
             }
         }
 
         &--twitter {
-            background: url('../img/social-twitter.png') no-repeat center top;
+            background-position: ($sprite * 1) 0;
 
             &:hover,
             &:focus {
-                background-position: center bottom;
+                background-position: ($sprite * 1) $sprite;
             }
         }
 
         &--instagram {
-            background: url('../img/social-instagram.png') no-repeat center top;
+            background-position: ($sprite * 2) 0;
 
             &:hover,
             &:focus {
-                background-position: center bottom;
+                background-position: ($sprite * 2) $sprite;
             }
         }
 
         &--youtube {
-            background: url('../img/social-youtube.png') no-repeat center top;
+            background-position: ($sprite * 3) 0;
 
             &:hover,
             &:focus {
-                background-position: center bottom;
+                background-position: ($sprite * 3) $sprite;
             }
         }
 
         &--linkedin {
-            background: url('../img/social-linkedin.png') no-repeat center top;
+            background-position: ($sprite * 4) 0;
 
             &:hover,
             &:focus {
-                background-position: center bottom;
+                background-position: ($sprite * 4) $sprite;
             }
         }
     }
