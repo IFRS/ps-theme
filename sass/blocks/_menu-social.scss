@@ -17,7 +17,7 @@
 
     &__item {
         display: inline-block;
-        margin-right: 5px;
+        margin-right: 0.5rem;
         width: 38px;
         height: 38px;
 
@@ -27,56 +27,85 @@
     }
 
     &__link {
-        background: url('../img/social.png') no-repeat center center;
+        border: 1px solid #ffffff;
+        border-radius: 50%;
         display: block;
+        outline-color: $primary;
+        position: relative;
         width: 100%;
         height: 100%;
 
-        $sprite: -38px;
+        svg {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
         &--facebook {
-
-            background-position: 0 0;
-
             &:hover,
             &:focus {
-                background-position: 0 $sprite;
+                background-color: #1877F2;
+                border-color: #1877F2;
+                svg {
+                    path {
+                        fill: #ffffff;
+                    }
+                }
             }
         }
 
         &--twitter {
-            background-position: ($sprite * 1) 0;
-
             &:hover,
             &:focus {
-                background-position: ($sprite * 1) $sprite;
+                background-color: #1DA1F2;
+                border-color: #1DA1F2;
+                svg {
+                    path {
+                        fill: #ffffff;
+                    }
+                }
             }
         }
 
         &--instagram {
-            background-position: ($sprite * 2) 0;
-
             &:hover,
             &:focus {
-                background-position: ($sprite * 2) $sprite;
+                background-color: #E4405F;
+                border-color: #E4405F;
+                svg {
+                    path {
+                        fill: #ffffff;
+                    }
+                }
             }
         }
 
         &--youtube {
-            background-position: ($sprite * 3) 0;
-
             &:hover,
             &:focus {
-                background-position: ($sprite * 3) $sprite;
+                background-color: #FF0000;
+                border-color: #FF0000;
+                svg {
+                    path {
+                        fill: #ffffff;
+                    }
+                }
             }
         }
 
         &--linkedin {
-            background-position: ($sprite * 4) 0;
-
             &:hover,
             &:focus {
-                background-position: ($sprite * 4) $sprite;
+                background-color: #0A66C2;
+                border-color: #0A66C2;
+                svg {
+                    path {
+                        fill: #ffffff;
+                    }
+                }
             }
         }
     }
