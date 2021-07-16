@@ -1,0 +1,45 @@
+.cronograma {
+    &__title {
+        @include title();
+
+        display: inline-block;
+        margin-top: 0;
+    }
+
+    &__meta {
+        font-size: 0.75rem;
+        margin-bottom: 0;
+
+        @include media-breakpoint-up(md) {
+            float: right;
+            margin-top: 10px;
+        }
+    }
+
+    &__table {
+        td {
+            vertical-align: middle;
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.evento {
+    &--passado {
+        color: $text-muted;
+        opacity: 0.75;
+    }
+
+    &__datas {
+        min-width: 150px;
+        max-width: 250px;
+        width: 20%;
+    }
+
+    &__content {
+        font-size: 0.9rem;
+    }
+}
