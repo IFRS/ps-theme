@@ -7,20 +7,65 @@ add_action('init', function() {
 });
 
 add_action('after_switch_theme', function() {
-    // Cursos Role
-    if (!get_role( 'cadastrador_cursos' )) {
-        add_role('cadastrador_cursos', __('Cadastrador de Cursos', 'ifrs-ps-theme'), array(
-            'read'              => true,
-            'upload_files'      => true,
-            'manage_files'      => true,
+    // Conteúdo Roles
+    if (!get_role( 'gerente_conteudo' )) {
+        add_role('gerente_conteudo', __('Cadastrador de Conteúdo', 'ifrs-ps-theme'), array(
+            'read'                 => true,
+            'upload_files'         => true,
+            'manage_files'         => true,
 
-            'create_cursos'     => true,
-            'edit_cursos'       => true,
-            'manage_cursos'     => false,
+            'assign_campus'        => true,
+            'assign_turno'         => true,
+            'assign_modalidade'    => true,
+            'assign_formaingresso' => true,
 
-            'assign_campus'     => true,
-            'assign_turno'      => true,
-            'assign_modalidade' => true
+            'create_chamadas'      => true,
+            'edit_chamadas'        => true,
+            'manage_chamadas'      => true,
+
+            'create_cursos'        => true,
+            'edit_cursos'          => true,
+            'manage_cursos'        => true,
+
+            'create_editais'       => true,
+            'edit_editais'         => true,
+            'manage_editais'       => true,
+
+            'create_publicacoes'   => true,
+            'edit_publicacoes'     => true,
+            'manage_publicacoes'   => true,
+
+            'create_eventos'       => true,
+            'edit_eventos'         => true,
+            'manage_eventos'       => true,
+        ));
+    }
+
+    if (!get_role( 'cadastrador_conteudo' )) {
+        add_role('cadastrador_conteudo', __('Cadastrador de Conteúdo', 'ifrs-ps-theme'), array(
+            'read'               => true,
+            'upload_files'       => true,
+            'manage_files'       => true,
+
+            'create_cursos'      => true,
+            'edit_cursos'        => true,
+            'manage_cursos'      => false,
+
+            'assign_campus'      => true,
+            'assign_turno'       => true,
+            'assign_modalidade'  => true,
+
+            'create_editais'     => true,
+            'edit_editais'       => true,
+            'manage_editais'     => false,
+
+            'create_publicacoes' => true,
+            'edit_publicacoes'   => true,
+            'manage_publicacoes' => false,
+
+            'create_eventos'     => true,
+            'edit_eventos'       => true,
+            'manage_eventos'     => false,
         ));
     }
 
@@ -39,48 +84,18 @@ add_action('after_switch_theme', function() {
             'assign_formaingresso' => true
         ));
     }
-
-    // Editais Role
-    if (!get_role( 'cadastrador_editais' )) {
-        add_role('cadastrador_editais', __('Cadastrador de Editais', 'ifrs-ps-theme'), array(
-            'read'                 => true,
-            'upload_files'         => true,
-            'manage_files'         => true,
-
-            'create_editais'      => true,
-            'edit_editais'        => true,
-            'manage_editais'      => false
-        ));
-    }
-
-    // Publicações
-    if (!get_role( 'cadastrador_publicacoes' )) {
-        add_role('cadastrador_publicacoes', __('Cadastrador de Publicações', 'ifrs-ps-theme'), array(
-            'read'                 => true,
-            'upload_files'         => true,
-            'manage_files'         => true,
-
-            'create_publicacoes'   => true,
-            'edit_publicacoes'     => true,
-            'manage_publicacoes'   => false
-        ));
-    }
 });
 
 add_action('switch_theme', function() {
-    if (get_role( 'cadastrador_cursos' )) {
-        remove_role( 'cadastrador_cursos' );
+    if (get_role( 'gerente_conteudo' )) {
+        remove_role( 'gerente_conteudo' );
+    }
+
+    if (get_role( 'cadastrador_conteudo' )) {
+        remove_role( 'cadastrador_conteudo' );
     }
 
     if (get_role( 'cadastrador_chamadas' )) {
         remove_role( 'cadastrador_chamadas' );
-    }
-
-    if (get_role( 'cadastrador_editais' )) {
-        remove_role( 'cadastrador_editais' );
-    }
-
-    if (get_role( 'cadastrador_publicacoes' )) {
-        remove_role( 'cadastrador_publicacoes' );
     }
 });
