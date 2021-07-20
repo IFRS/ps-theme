@@ -91,4 +91,10 @@
             }
         }
     }
+
+    &__item-content {
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+    }
 }
