@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .cursos {
     &__title {
         @include title();
@@ -30,7 +32,7 @@
 }
 
 .tab-content {
-    margin-bottom: $grid-gutter-width / 2;
+    margin-bottom: math.div($grid-gutter-width, 2);
 
     a {
         color: darken($link-color, 15%);

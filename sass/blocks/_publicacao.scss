@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .publicacao {
     margin-bottom: $grid-gutter-width;
 
@@ -11,6 +13,6 @@
     }
 
     &__content {
-        margin-top: $grid-gutter-width / 2;
+        margin-top: math.div($grid-gutter-width, 2);
     }
 }
