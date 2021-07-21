@@ -33,8 +33,6 @@
 
     <?php wp_body_open(); ?>
 
-    <?php echo get_template_part('partials/barrabrasil'); ?>
-
     <!-- Cabeçalho -->
     <header class="lazyload">
         <h1 class="sr-only"><?php bloginfo('name'); ?></h1>

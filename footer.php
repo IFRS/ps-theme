@@ -60,6 +60,8 @@
     </div>
 </div>
 
+<?php echo get_template_part('partials/vlibras'); ?>
+
 <?php wp_footer(); ?>
 
 </body>

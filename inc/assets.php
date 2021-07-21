@@ -10,9 +10,7 @@ add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style('vendor', get_stylesheet_directory_uri().'/css/vendor.css', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/vendor.css'), 'all');
 
     wp_enqueue_style('ps', get_stylesheet_directory_uri().'/css/ps.css', array('vendor'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/ps.css'), 'all');
-}, 1 );
 
-add_action( 'wp_enqueue_scripts', function() {
     /* wp_register_script( $handle, $src, $deps, $ver, $in_footer ); */
     /* wp_enqueue_script( $handle[, $src, $deps, $ver, $in_footer] ); */
 
@@ -28,12 +26,17 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 
     if (!WP_DEBUG) {
-        wp_enqueue_script( 'barra-brasil', 'https://barra.brasil.gov.br/barra.js', array(), null, true );
+        wp_enqueue_script( 'vlibras', 'https://vlibras.gov.br/app/vlibras-plugin.js', array(), null, true );
+        wp_add_inline_script( 'vlibras', "
+            document.addEventListener('DOMContentLoaded', function() {
+                new window.VLibras.Widget('https://vlibras.gov.br/app');
+            });
+        " );
     }
 }, 1 );
 
 add_filter('script_loader_tag', function($tag, $handle) {
-    $scripts_to_defer = array('barra-brasil');
+    $scripts_to_defer = array('vlibras');
     $scripts_to_async = array();
 
     foreach ($scripts_to_defer as $defer_script) {
