@@ -42,18 +42,15 @@
                     ?>
                     <tr class="<?php echo ($evento_ja_passou) ? 'evento--passado' : '' ?>">
                         <td class="evento__datas">
-                            <?php if ($data_inicio === $data_fim) : ?>
-                                <?php echo date_i18n('d/m/Y', $data_inicio); ?>
+                            <?php if ($data_inicio !== $data_fim) : ?>
+                                <?php echo date_i18n('d/m', $data_inicio); ?> a
+                            <?php endif; ?>
+                            <?php if ($evento_termina_hoje) : ?>
+                                <span class="text-danger">
+                                    <strong><?php echo date_i18n('d/m/Y', $data_fim); ?></strong>
+                                </span>
                             <?php else : ?>
-                                <?php echo date_i18n('d/m', $data_inicio); ?>
-                                a
-                                <?php if ($evento_termina_hoje) : ?>
-                                    <span class="text-danger">
-                                        <strong><?php echo date_i18n('d/m/Y', $data_fim); ?></strong>
-                                    </span>
-                                <?php else : ?>
-                                    <?php echo date_i18n('d/m/Y', $data_fim); ?>
-                                <?php endif; ?>
+                                <?php echo date_i18n('d/m/Y', $data_fim); ?>
                             <?php endif; ?>
                         </td>
                         <td>
