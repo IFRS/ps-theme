@@ -92,6 +92,13 @@ add_action( 'cmb2_admin_init', function() {
     ) );
 
     $datas->add_field( array(
+        'name' => '',
+        'desc' => 'Em caso de data única, preencha os dois campos com a mesma data.',
+        'type' => 'title',
+        'id'   => $prefix . 'datas_desc',
+    ) );
+
+    $datas->add_field( array(
         'name'        => __( 'De', 'ifrs-ps-theme'),
         'desc'        => __( 'Data de início do evento.', 'ifrs-ps-theme' ),
         'id'          => $prefix . 'data-inicio',
