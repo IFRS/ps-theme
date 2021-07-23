@@ -176,3 +176,11 @@ add_filter( 'post_type_archive_title', function ( $title ) {
 
     return $title;
 }, 99 );
+
+/* Disable Single Template */
+add_action( 'template_redirect', function() {
+    if ( is_singular( 'evento' ) ) {
+        wp_safe_redirect( get_post_type_archive_link( 'evento' ), 308 );
+        exit;
+    }
+} );
