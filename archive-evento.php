@@ -42,10 +42,11 @@
 
                             $evento_inicia_hoje = ($data_inicio == $hoje);
                             $evento_termina_hoje = ($data_fim == $hoje);
-                            $evento_ja_passou = ($data_fim < $hoje);
+                            $evento_atual = ($data_inicio <= $hoje && $data_fim > $hoje);
+                            $evento_passou = ($data_fim < $hoje);
                         ?>
-                        <tr class="<?php echo ($evento_ja_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>">
-                            <td class="evento__datas">
+                        <tr class="<?php echo ($evento_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>">
+                            <td class="evento__datas<?php echo ($evento_atual) ? ' text-success' : ''; ?>">
                                 <?php if ($data_inicio !== $data_fim) : ?>
                                     <?php echo date_i18n('d/m', $data_inicio); ?> a
                                 <?php endif; ?>
