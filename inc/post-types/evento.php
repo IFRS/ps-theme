@@ -161,9 +161,9 @@ add_filter( 'manage_edit-evento_sortable_columns', function( $columns ) {
 /* Default Sort */
 add_filter( 'pre_get_posts', function( $query ) {
     if ($query->is_main_query() && $query->get('post_type') === 'evento') {
-        $query->set('meta_key', '_evento_data-inicio');
         $query->set('orderby', 'meta_value_num');
         $query->set('order', 'ASC');
+        $query->set('meta_key', array('_evento_data-inicio', '_evento_data-fim'));
     }
     return $query;
 } );
