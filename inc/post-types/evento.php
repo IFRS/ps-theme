@@ -66,7 +66,7 @@ add_action( 'init', function() {
         'menu_position'         => 25,
         'menu_icon'             => 'dashicons-calendar',
         'show_in_admin_bar'     => false,
-        'show_in_nav_menus'     => false,
+        'show_in_nav_menus'     => true,
         'can_export'            => true,
         'has_archive'           => true,
         'exclude_from_search'   => false,
