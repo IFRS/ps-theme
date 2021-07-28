@@ -11,6 +11,7 @@ add_action('wp_head', function() {
     </noscript>
 
     <?php $google_fonts = 'https://fonts.googleapis.com/css2?family=Rubik:wght@800&display=swap'; ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link rel="preload" as="style" href="<?php echo $google_fonts; ?>" />
