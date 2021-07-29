@@ -9,7 +9,7 @@ add_action('init', function() {
 add_action('after_switch_theme', function() {
     // Conteúdo Roles
     if (!get_role( 'gerente_conteudo' )) {
-        add_role('gerente_conteudo', __('Cadastrador de Conteúdo', 'ifrs-ps-theme'), array(
+        add_role('gerente_conteudo', __('Gerente de Conteúdo', 'ifrs-ps-theme'), array(
             'read'                 => true,
             'upload_files'         => true,
             'manage_files'         => true,
