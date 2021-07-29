@@ -80,10 +80,10 @@
                 </div>
             </div>
             <div class="header__foto">
-                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" width="385" height="567" alt="" class="img-fluid" aria-hidden="true"/>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" width="385" height="567" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
             <div class="header__ifrs">
-                <img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-ifrs.png" width="174" height="248" alt="" class="img-fluid" aria-hidden="true"/>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-ifrs.png" width="174" height="248" alt="" class="img-fluid" aria-hidden="true"/>
             </div>
         </section>
     </header>

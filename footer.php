@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-5 col-lg-4 col-xl-3">
-                <a href="https://ifrs.edu.br/" data-toggle="tooltip" data-placement="top" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-marca.png" alt="Marca do IFRS"/></a>
+                <a href="https://ifrs.edu.br/" data-toggle="tooltip" data-placement="top" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-marca.png" alt="Marca do IFRS"/></a>
             </div>
             <div class="col-12 col-md-7 col-lg-8 col-xl-9">
                 <address class="contato">
@@ -53,7 +53,7 @@
                     <a href="https://github.com/IFRS/ps-theme/" target="_blank" rel="noopener noreferrer">C&oacute;digo-fonte deste tema sob a licen&ccedil;a GPLv3<span class="sr-only"> (abre uma nova p&aacute;gina)</span></a>
                     &mdash;
                     <!-- Creative Commons -->
-                    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener noreferrer"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/img/cc-by-nc-nd.png" alt="M&iacute;dia licenciada sob a Licen&ccedil;a Creative Commons Atribui&ccedil;&atilde;o-N&atilde;oComercial-SemDeriva&ccedil;&otilde;es 4.0 Internacional (abre uma nova p&aacute;gina)" /></a>
+                    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener noreferrer"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/cc-by-nc-nd.png" alt="M&iacute;dia licenciada sob a Licen&ccedil;a Creative Commons Atribui&ccedil;&atilde;o-N&atilde;oComercial-SemDeriva&ccedil;&otilde;es 4.0 Internacional (abre uma nova p&aacute;gina)" /></a>
                 </p>
             </div>
         </div>
