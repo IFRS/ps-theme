@@ -1,10 +1,7 @@
 header {
     // background: linear-gradient(90deg, #e5b13c 50%, #f3f3f3 50%);
+    background-image: url('../img/header-bg.png');
     background-position: right top;
     background-repeat: no-repeat;
     background-size: cover;
-
-    &.lazyloaded {
-        background-image: url('../img/header-bg.png');
-    }
 }

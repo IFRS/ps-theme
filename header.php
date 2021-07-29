@@ -34,7 +34,7 @@
     <?php wp_body_open(); ?>
 
     <!-- Cabeçalho -->
-    <header class="lazyload">
+    <header>
         <h1 class="sr-only"><?php bloginfo('name'); ?></h1>
         <section class="container header">
             <div class="header__principal">
