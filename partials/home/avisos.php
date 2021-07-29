@@ -11,14 +11,14 @@
     <?php if ($noticias->have_posts()) : ?>
         <div class="home-avisos__content">
             <?php while ($noticias->have_posts()) : $noticias->the_post(); ?>
-                <article class="home-avisos__item">
-                    <p class="home-avisos__item-meta">
-                        <span class="home-avisos__item-day"><?php echo get_the_date('d'); ?></span>
-                        <span class="home-avisos__item-month"><?php echo get_the_date('M'); ?></span>
+                <article class="home-aviso">
+                    <p class="home-aviso__meta">
+                        <span class="home-aviso__day"><?php echo get_the_date('d'); ?></span>
+                        <span class="home-aviso__month"><?php echo get_the_date('M'); ?></span>
                     </p>
-                    <div class="home-avisos__item-content">
+                    <div class="home-aviso__content">
                         <?php echo get_the_category_list(); ?>
-                        <h4 class="home-avisos__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                        <h4 class="home-aviso__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                     </div>
                 </article>
             <?php endwhile; ?>
