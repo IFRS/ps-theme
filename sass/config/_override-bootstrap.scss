@@ -6,12 +6,29 @@ $link-color: #ba753c;
 @import "node_modules/bootstrap/scss/mixins";
 @import "node_modules/bootstrap/scss/utilities";
 
-$font-family-base:            "Open Sans", #{$font-family-sans-serif};
+$font-family-base:             "Open Sans", #{$font-family-sans-serif};
 
-$breadcrumb-font-size:        0.8rem;
-$breadcrumb-bg:               none;
-$breadcrumb-active-color:     $gray-200;
-$breadcrumb-padding-y:        1rem;
+$breadcrumb-font-size:         0.8rem;
+$breadcrumb-bg:                none;
+$breadcrumb-active-color:      $gray-200;
+$breadcrumb-padding-y:         1rem;
 
-$nav-pills-link-active-color: #ffffff;
-$nav-pills-link-active-bg:    $link-color;
+$dropdown-padding-y:           0;
+$dropdown-bg:                  $primary;
+$dropdown-border-radius:       none;
+$dropdown-border-width:        0;
+$dropdown-inner-border-radius: 0;
+$dropdown-link-color:          $gray-800;
+$dropdown-link-hover-color:    $primary;
+$dropdown-link-hover-bg:       $gray-800;
+$dropdown-link-active-color:   $gray-800;
+$dropdown-link-active-bg:      $primary;
+
+$caret-width:                  0.4rem;
+
+$nav-pills-link-active-color:  #ffffff;
+$nav-pills-link-active-bg:     $link-color;
+
+$navbar-light-color:           $gray-800;
+$navbar-light-hover-color:     $primary;
+$navbar-light-active-color:    $gray-800;
