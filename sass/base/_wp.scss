@@ -1,5 +1,5 @@
 .screen-reader-text {
-    @extend .sr-only;
+    @extend .visually-hidden;
 }
 
 .alignnone {
@@ -11,12 +11,12 @@
 }
 
 .alignleft {
-    @extend .float-left;
+    float: left;
     margin-right: 10px;
 }
 
 .alignright {
-    @extend .float-right;
+    float: right;
     margin-left: 10px;
 }
 
