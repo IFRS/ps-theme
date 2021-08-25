@@ -1,8 +1,6 @@
-require('bootstrap');
+import 'bootstrap';
 
-// require('./modules/lazysizes-config');
-//require('./modules/animation');
-require('./modules/menu');
+// require('./modules/animation');
 require('./modules/chamadas');
 require('./modules/faq');
 require('./modules/tooltips');
