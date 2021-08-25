@@ -17,6 +17,9 @@ require_once('inc/resource-hints.php');
 // Configuração do Tema
 require_once('inc/theme-config.php');
 
+// Menus
+require_once('inc/menus.php');
+
 // Scripts & Styles
 require_once('inc/assets.php');
 
