@@ -27,7 +27,6 @@ require_once('inc/breadcrumb.php');
 require_once('inc/widgets/chamadas.php');
 
 // Tamanho do resumo e resumo em páginas
-require_once('inc/page-excerpt.php');
 require_once('inc/excerpt.php');
 
 // Paginação personalizada
