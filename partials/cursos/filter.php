@@ -36,7 +36,7 @@
     <label class="sr-only" for="<?php echo $field_id; ?>">Termo da busca</label>
     <input class="form-control form-control-sm my-1 mr-1 w-25" type="text" value="<?php echo (get_search_query() ? get_search_query() : ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar cursos..."/>
 
-    <button type="submit" class="btn btn-sm" data-toggle="tooltip" data-placement="top" title="Filtrar Cursos">
+    <button type="submit" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Filtrar Cursos">
         <span class="sr-only">Buscar no Site</span>
         <svg version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
@@ -51,7 +51,7 @@
         </svg>
     </button>
 
-    <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>" class="btn btn-sm" data-toggle="tooltip" data-placement="top" title="Limpar Filtros">
+    <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Limpar Filtros">
         <span class="sr-only">Limpar Filtros</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs">
             <polyline points="3 6 5 6 21 6"></polyline>

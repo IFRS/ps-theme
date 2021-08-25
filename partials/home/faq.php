@@ -20,13 +20,13 @@
             <li class="card home-faq__item">
                 <div class="card-header" id="heading<?php the_ID(); ?>">
                     <h4 class="mb-0 home-faq__item-title">
-                        <a href="<?php the_permalink(); ?>" class="btn btn-link collapsed home-faq__item-link" data-toggle="collapse" data-target="#collapse<?php the_ID(); ?>" aria-expanded="true" aria-controls="collapse<?php the_ID(); ?>">
+                        <a href="<?php the_permalink(); ?>" class="btn btn-link collapsed home-faq__item-link" data-bs-toggle="collapse" data-bs-target="#collapse<?php the_ID(); ?>" aria-expanded="true" aria-controls="collapse<?php the_ID(); ?>">
                             <?php the_title(); ?>
                         </a>
                     </h4>
                 </div>
 
-                <div id="collapse<?php the_ID(); ?>" class="collapse" aria-labelledby="heading<?php the_ID(); ?>" data-parent="#home-faq__perguntas">
+                <div id="collapse<?php the_ID(); ?>" class="collapse" aria-labelledby="heading<?php the_ID(); ?>" data-bs-parent="#home-faq__perguntas">
                     <div class="card-body home-faq__item-content">
                         <?php the_content(); ?>
                     </div>

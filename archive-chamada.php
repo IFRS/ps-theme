@@ -76,7 +76,7 @@ foreach ($formasingresso_selecionadas as $id1) {
                     <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
                         <?php $formaingresso_obj = get_term($formaingresso_id); ?>
                         <li class="nav-item">
-                            <a class="nav-link" id="tab-<?php echo $formaingresso_id; ?>" data-toggle="pill" href="#pane-<?php echo $formaingresso_id; ?>" role="tab" aria-controls="pane-<?php echo $formaingresso_id; ?>" aria-selected="true"><?php echo $formaingresso_obj->name; ?></a>
+                            <a class="nav-link" id="tab-<?php echo $formaingresso_id; ?>" data-bs-toggle="pill" href="#pane-<?php echo $formaingresso_id; ?>" role="tab" aria-controls="pane-<?php echo $formaingresso_id; ?>" aria-selected="true"><?php echo $formaingresso_obj->name; ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -90,12 +90,12 @@ foreach ($formasingresso_selecionadas as $id1) {
                                     <div class="card">
                                         <div class="card-header" id="heading-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>">
                                             <h3 class="mb-0">
-                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" aria-expanded="true" aria-controls="collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>">
+                                                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" aria-expanded="true" aria-controls="collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>">
                                                     <?php echo $campus_obj->name; ?>
                                                 </button>
                                             </h3>
                                         </div>
-                                        <div id="collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" class="collapse" aria-labelledby="heading-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" data-parent="#accordion-<?php echo $formaingresso_id; ?>">
+                                        <div id="collapse-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" class="collapse" aria-labelledby="heading-<?php echo $formaingresso_id; ?>-<?php echo $campus_id; ?>" data-bs-parent="#accordion-<?php echo $formaingresso_id; ?>">
                                             <div class="card-body">
                                                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                                                     <?php foreach ($chamada as $resultado) : ?>
