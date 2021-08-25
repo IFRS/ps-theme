@@ -1,6 +1,6 @@
 .cronograma {
     &__title {
-        @include title();
+        @extend %ps-title;
 
         display: inline-block;
         margin-top: 0;

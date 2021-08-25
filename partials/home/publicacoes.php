@@ -20,7 +20,7 @@
             </li>
         <?php endwhile; ?>
         </ul>
-        <a href="<?php echo get_post_type_archive_link('publicacao'); ?>" class="btn publicacoes__btn">Todas as Publica&ccedil;&otilde;es</a>
+        <a href="<?php echo get_post_type_archive_link('publicacao'); ?>" class="btn btn-ps">Todas as Publica&ccedil;&otilde;es</a>
     <?php else : ?>
         <div class="alert alert-warning" role="alert">
             <p><strong>Ops!</strong> Ainda n&atilde;o existem publica&ccedil;&otilde;es cadastradas.</p>

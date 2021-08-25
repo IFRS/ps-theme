@@ -1,5 +1,5 @@
 .avisos {
     &__title {
-        @include title();
+        @extend %ps-title;
     }
 }

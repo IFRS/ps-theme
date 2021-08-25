@@ -2,7 +2,7 @@
 
 .cursos {
     &__title {
-        @include title();
+        @extend %ps-title;
 
         small {
             display: block;

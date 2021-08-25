@@ -48,14 +48,9 @@
         }
     }
 
-    &__btn {
-        @include button-variant(#ffffff, $gray-200, $primary, $primary);
-        @include btn-ps();
-    }
-
     &--archive {
         #{$root}__title {
-            @include title();
+            @extend %ps-title;
         }
 
         #{$root}__item {

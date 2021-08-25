@@ -1,14 +1,9 @@
-@mixin title() {
+%ps-title {
     color: $gray-800;
     font-weight: bolder;
     margin-bottom: 1rem;
     margin-top: 2rem;
     text-align: left;
-    text-transform: uppercase;
-}
-
-@mixin btn-ps() {
-    border-left: 4px solid $primary;
     text-transform: uppercase;
 }
 

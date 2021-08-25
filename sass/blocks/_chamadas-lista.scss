@@ -1,6 +1,6 @@
 .chamadas-lista {
     &__title {
-        @include title();
+        @extend %ps-title;
     }
 
     &__content {

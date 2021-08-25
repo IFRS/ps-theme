@@ -1,6 +1,6 @@
 .search {
     &__title {
-        @include title();
+        @extend %ps-title;
 
         margin-bottom: 30px;
     }
