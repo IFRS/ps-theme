@@ -65,12 +65,6 @@ gulp.task('webpack', function(done) {
             path: path.resolve(__dirname, 'js'),
             filename: '[name].js',
         },
-        resolve: {
-            alias: {
-                jquery: 'jquery/src/jquery',
-                bootstrap: 'bootstrap/dist/js/bootstrap.bundle',
-            }
-        },
         plugins: [
             new webpack.ProvidePlugin({
                 $: 'jquery',
