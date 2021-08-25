@@ -1,7 +1,7 @@
 <article class="home-faq" id="home-faq">
     <h2 class="home-faq__title">Voc&ecirc; tem alguma d&uacute;vida?</h2>
     <?php $field_id = uniqid(); ?>
-    <label for="<?php echo $field_id; ?>" class="sr-only">Buscar nas perguntas</label>
+    <label for="<?php echo $field_id; ?>" class="visually-hidden">Buscar nas perguntas</label>
     <input type="search" id="<?php echo $field_id; ?>" class="form-control form-control-sm home-faq__busca search" placeholder="buscar nas perguntas...">
     <?php
         $args = array(

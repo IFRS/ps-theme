@@ -58,7 +58,7 @@ add_action('widgets_init', function() {
         'description'   => 'Atalhos na página inicial.',
         'before_widget' => '<div id="%1$s" class="col-12 col-sm-6 col-md-4 col-lg-2 widget widget-atalhos %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<span class="sr-only">',
+        'before_title'  => '<span class="visually-hidden">',
         'after_title'   => '</span>',
     ));
 

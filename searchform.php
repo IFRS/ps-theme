@@ -1,10 +1,10 @@
 <form role="search" method="get" class="searchform" action="<?php echo esc_url(home_url('/')); ?>">
-    <label class="sr-only" for="search-field">Buscar por:</label>
+    <label class="visually-hidden" for="search-field">Buscar por:</label>
     <div class="input-group">
         <input type="search" value="<?php echo get_search_query(); ?>" name="s" id="search-field" class="form-control form-control-sm searchform__input" placeholder="Buscar em todo o site" required>
         <span class="input-group-append">
             <button type="submit" class="btn btn-sm searchform__submit">
-                <span class="sr-only">Buscar no Site</span>
+                <span class="visually-hidden">Buscar no Site</span>
                 <svg version="1.1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                 x="0px" y="0px" width="18px" height="18px" viewBox="0 0 22.2 22.2" style="enable-background:new 0 0 22.2 22.2;"

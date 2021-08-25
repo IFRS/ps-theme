@@ -48,7 +48,7 @@
                         </div>
                         <div class="list-group list-group-flush">
                             <?php foreach($matriculas[0] as $id => $url) : ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="list-group list-group-flush">
                             <?php foreach($bancas[0] as $id => $url): ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="list-group list-group-flush">
                             <?php foreach($renda[0] as $id => $url): ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                             </div>
                             <div class="list-group list-group-flush" role="list">
                                 <?php foreach ($resultado['arquivos'] as $id => $url): ?>
-                                    <a href="<?php echo esc_url($url); ?>" role="listitem" target="_blank" class="list-group-item list-group-item-action list-group-item-info"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                    <a href="<?php echo esc_url($url); ?>" role="listitem" target="_blank" class="list-group-item list-group-item-action list-group-item-info"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                                 <?php endforeach; ?>
 
                                 <?php
@@ -130,7 +130,7 @@
                                             <a href="#collapse-arquivos-<?php echo get_the_ID(); ?>" class="list-group-item list-group-item-action list-group-item-secondary collapsed chamada-single__documento-link" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-arquivos-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a>
                                             <div class="list-group collapse" role="list" id="collapse-arquivos-<?php echo get_the_ID(); ?>">
                                                 <?php foreach ($arquivos[0] as $id => $url) : ?>
-                                                    <a href="<?php echo esc_url($url); ?>" role="listitem" target="_blank" class="list-group-item list-group-item-action"><?php echo get_the_title($id); ?><span class="sr-only">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                                    <a href="<?php echo esc_url($url); ?>" role="listitem" target="_blank" class="list-group-item list-group-item-action"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                                                 <?php endforeach; ?>
                                             </div>
                                         <?php endif; ?>

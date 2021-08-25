@@ -13,7 +13,7 @@
 ?>
 <form class="form-inline cursos__filters" method="POST" action="<?php echo get_post_type_archive_link( 'curso' ); ?>" role="form">
     <?php $field_id = uniqid(); ?>
-    <label for="<?php echo $field_id; ?>" class="sr-only">Modalidade</label>
+    <label for="<?php echo $field_id; ?>" class="visually-hidden">Modalidade</label>
     <select name="modalidade[]" id="<?php echo $field_id; ?>" class="form-control form-control-sm my-1 mr-1 w-25">
         <option hidden selected disabled>Modalidades</option>
         <?php foreach ($modalidades as $modalidade): ?>
@@ -23,7 +23,7 @@
     </select>
 
     <?php $field_id = uniqid(); ?>
-    <label for="<?php echo $field_id; ?>" class="sr-only">Turno</label>
+    <label for="<?php echo $field_id; ?>" class="visually-hidden">Turno</label>
     <select name="turno[]" id="<?php echo $field_id; ?>" class="form-control form-control-sm my-1 mr-1 w-25">
         <option hidden selected disabled>Turnos</option>
         <?php foreach ($turnos as $turno): ?>
@@ -33,11 +33,11 @@
     </select>
 
     <?php $field_id = uniqid(); ?>
-    <label class="sr-only" for="<?php echo $field_id; ?>">Termo da busca</label>
+    <label class="visually-hidden" for="<?php echo $field_id; ?>">Termo da busca</label>
     <input class="form-control form-control-sm my-1 mr-1 w-25" type="text" value="<?php echo (get_search_query() ? get_search_query() : ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar cursos..."/>
 
     <button type="submit" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Filtrar Cursos">
-        <span class="sr-only">Buscar no Site</span>
+        <span class="visually-hidden">Buscar no Site</span>
         <svg version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
         x="0px" y="0px" width="20" height="20" viewBox="0 0 22.2 22.2" style="enable-background:new 0 0 22.2 22.2;"
@@ -52,7 +52,7 @@
     </button>
 
     <a href="<?php echo get_post_type_archive_link( 'curso' ); ?>" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Limpar Filtros">
-        <span class="sr-only">Limpar Filtros</span>
+        <span class="visually-hidden">Limpar Filtros</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs">
             <polyline points="3 6 5 6 21 6"></polyline>
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>

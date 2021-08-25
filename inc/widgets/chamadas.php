@@ -86,7 +86,7 @@ class Chamadas_Widget extends WP_Widget {
                     <p class="chamadas__text"><?php _e('Selecione a sua forma de ingresso.', 'ifrs-ps-theme'); ?><br><small><?php _e('Os resultados de cada forma de ingresso serão divulgados conforme cronograma.', 'ifrs-ps-theme'); ?></small></p>
                     <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
                         <?php $formaingresso_obj = get_term($formaingresso_id); ?>
-                        <a class="btn btn-formaingresso btn-lg btn-block toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>"><span class="sr-only">Ingresso por </span><?php echo $formaingresso_obj->name; ?></a>
+                        <a class="btn btn-formaingresso btn-lg btn-block toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>"><span class="visually-hidden">Ingresso por </span><?php echo $formaingresso_obj->name; ?></a>
                         <div id="campi-<?php echo $formaingresso_obj->slug; ?>" class="chamadas__campi">
                             <p class="chamadas__text">Selecione o seu Campus.</p>
                             <ol class="breadcrumb">
@@ -95,7 +95,7 @@ class Chamadas_Widget extends WP_Widget {
                             </ol>
                             <?php foreach ($campi as $campus_id => $chamada) : ?>
                                 <?php $campus_obj = get_term($campus_id); ?>
-                                <a class="btn btn-campus btn-block toggle" href="#chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>"><span class="sr-only">Campus </span><?php echo $campus_obj->name; ?></a>
+                                <a class="btn btn-campus btn-block toggle" href="#chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>"><span class="visually-hidden">Campus </span><?php echo $campus_obj->name; ?></a>
                                 <div id="chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="chamadas__list">
                                     <p class="chamadas__text">Confira abaixo as chamadas j&aacute; realizadas.</p>
                                     <ol class="breadcrumb">
