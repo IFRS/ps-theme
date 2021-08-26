@@ -19,6 +19,7 @@ require_once('inc/theme-config.php');
 
 // Menus
 require_once('inc/menus.php');
+require_once('inc/sitemap-walker.class.php');
 
 // Scripts & Styles
 require_once('inc/assets.php');

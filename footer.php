@@ -12,12 +12,13 @@
                 wp_nav_menu( array(
                     'theme_location'    => 'main',
                     'depth'             => 2,
-                    'container'         => false,
-                    'container_class'   => false,
-                    'container_id'      => false,
-                    'menu_id'           => false,
+                    'container'         => 'nav',
+                    'container_class'   => 'site-map',
+                    'container_id'      => 'mapa-site',
+                    'menu_id'           => '',
                     'menu_class'        => 'site-map__menu',
-                    'fallback_cb'       => false
+                    'fallback_cb'       => null,
+                    'walker'            => new Site_Map_Walker(),
                 ));
             ?>
             </div>
