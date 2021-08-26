@@ -13,7 +13,7 @@
                     'theme_location'    => 'main',
                     'depth'             => 2,
                     'container'         => 'nav',
-                    'container_class'   => 'site-map',
+                    'container_class'   => '',
                     'container_id'      => 'mapa-site',
                     'menu_id'           => '',
                     'menu_class'        => 'site-map__menu',
