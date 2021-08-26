@@ -7,14 +7,12 @@ function ps_breadcrumb() {
 
     if (!is_front_page() || is_paged()) {
         echo '<div class="breadcrumb-wrapper">';
-        echo '<div class="container" id="breadcrumb">';
-        echo '<nav aria-label="breadcrumb">';
-		echo '<ol class="breadcrumb">';
-		echo '<span class="breadcrumb-wrapper__text">Voc&ecirc; est&aacute; em:&nbsp;</span>';
+        echo '<nav aria-label="Você está em:" class="container">';
+        echo '<ol class="breadcrumb">';
 
         global $post;
         $homeLink = home_url();
-		$siteprincipal = get_home_url('1','/');
+        $siteprincipal = get_home_url('1','/');
         $nomesite = get_bloginfo('name');
 
         echo '<li class="breadcrumb-item"><a href="' . $homeLink . '">' . $nomesite . '</a> ' . $sep . '</li> ';
@@ -102,6 +100,7 @@ function ps_breadcrumb() {
         }
 
         echo '</ol>';
-		echo '</nav></div></div>';
+        echo '</nav>';
+        echo '</div>';
     }
 }
