@@ -27,6 +27,7 @@ function custom_pagination() {
 
     if ( is_array( $pages ) ) {
         $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+        echo '<nav aria-label="Paginação">';
         echo '<ul class="pagination justify-content-center">';
         foreach ( $pages as $page ) {
             if (strpos($page, 'current') !== false) {
@@ -36,5 +37,6 @@ function custom_pagination() {
             }
         }
         echo '</ul>';
+        echo '</nav>';
     }
 }
