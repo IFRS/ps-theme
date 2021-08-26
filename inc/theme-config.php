@@ -71,4 +71,13 @@ add_action('widgets_init', function() {
         'before_title'  => '<h2 class="widget-chamadas__title">',
         'after_title'   => '</h2>',
     ));
+    register_sidebar(array(
+        'name'          => 'Home Ajuda',
+        'id'            => 'home_ajuda',
+        'description'   => 'Área de ajuda na página inicial.',
+        'before_widget' => '<div id="%1$s" class="home-ajuda__widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="visually-hidden">',
+        'after_title'   => '</h3>',
+    ));
 }, 10);

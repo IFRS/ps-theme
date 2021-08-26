@@ -1,4 +1,44 @@
 .home-ajuda {
-    background-color: $primary;
-    padding: 30px 0;
+    background-color: $secondary;
+    background-image: url('../img/ajuda-bg.png');
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: cover;
+    color: #ffffff;
+    padding: 3rem 0;
+
+    a {
+        color: #ffffff;
+
+        &:active,
+        &:hover {
+            color: $gray-400;
+        }
+    }
+
+    &__title {
+        @extend %ps-title;
+        color: #ffffff;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    &__widget {
+        .wp-block-buttons {
+            text-align: center;
+        }
+
+        .wp-block-button {
+            display: block;
+            margin-bottom: 1rem;
+
+            &__link {
+                @extend .btn;
+                @include button-variant($gray-200, $gray-300, $gray-800, $primary, $primary);
+
+                border-radius: 0;
+                text-transform: uppercase;
+            }
+        }
+    }
 }
