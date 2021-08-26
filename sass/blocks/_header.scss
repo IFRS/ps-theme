@@ -39,9 +39,10 @@
 
     &__social {
         display: block;
+
         @include media-breakpoint-up(lg) {
             position: absolute;
-            right: 0; bottom: 10px;
+            left: 0; bottom: 10px;
         }
     }
 
