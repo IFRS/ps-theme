@@ -2,11 +2,7 @@
 
 <section class="container">
     <?php if (is_search()) : ?>
-        <div class="row">
-            <div class="col-12">
-                <h2 class="search__title">Resultados da busca por &quot;<?php the_search_query(); ?>&quot;</h2>
-            </div>
-        </div>
+        <h2 class="search__title">Resultados da busca por &quot;<?php the_search_query(); ?>&quot;</h2>
     <?php endif; ?>
 
     <?php if (!have_posts()) : ?>

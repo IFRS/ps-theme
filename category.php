@@ -7,11 +7,7 @@
 ?>
 
 <section class="container">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="avisos__title"><?php single_cat_title( 'Categoria&nbsp;', true ); ?></h2>
-        </div>
-    </div>
+    <h2 class="avisos__title"><?php single_cat_title( 'Categoria&nbsp;', true ); ?></h2>
     <?php echo get_template_part('partials/avisos/loop'); ?>
 </section>
 
