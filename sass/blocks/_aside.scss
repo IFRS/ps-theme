@@ -5,27 +5,30 @@
     &__title {
         color: $gray-800;
         font-size: 1.75rem;
-        margin-bottom: 20px;
-        margin-top: 40px;
-        text-align: center;
+        margin-bottom: 1.5rem;
+        margin-top: 2rem;
     }
 
     &__content {
-        text-align: right;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     &__item {
-        background: $primary;
-        display: inline-block;
-        margin-bottom: 10px;
-        padding: 5px;
+        background: $secondary;
+        color: $gray-200;
+        flex: 0 1 auto;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding: 1rem;
     }
 
     &__item-title {
-        color: $gray-800;
+        color: inherit;
         font-size: 1.1rem;
         font-weight: bold;
-        margin-bottom: 3px;
+        margin-bottom: 0.25rem;
 
         a {
             color: inherit;
@@ -33,7 +36,7 @@
     }
 
     &__item-meta {
-        color: $gray-600;
+        color: $gray-400;
         font-size: 0.9rem;
         margin: 0;
     }
