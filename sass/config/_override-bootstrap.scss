@@ -19,17 +19,17 @@ $dropdown-bg:                  $primary;
 $dropdown-border-radius:       none;
 $dropdown-border-width:        0;
 $dropdown-inner-border-radius: 0;
-$dropdown-link-color:          $gray-800;
-$dropdown-link-hover-color:    $primary;
-$dropdown-link-hover-bg:       $gray-800;
-$dropdown-link-active-color:   $gray-800;
-$dropdown-link-active-bg:      $primary;
+$dropdown-link-color:          #ffffff;
+$dropdown-link-hover-color:    #ffffff;
+$dropdown-link-hover-bg:       $secondary;
+$dropdown-link-active-color:   $gray-100;
+$dropdown-link-active-bg:      $secondary;
 
 $caret-width:                  0.4rem;
 
 $nav-pills-link-active-color:  #ffffff;
 $nav-pills-link-active-bg:     $link-color;
 
-$navbar-light-color:           $gray-800;
-$navbar-light-hover-color:     $primary;
-$navbar-light-active-color:    $gray-800;
+$navbar-light-color:           #ffffff;
+$navbar-light-hover-color:     #ffffff;
+$navbar-light-active-color:    $gray-100;

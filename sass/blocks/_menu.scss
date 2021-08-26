@@ -19,15 +19,13 @@
 
         &:hover,
         &:focus {
-            background-color: $gray-800;
+            background-color: $secondary;
         }
 
-        &.active {
-            &:hover,
-            &:focus {
-                color: $primary;
-            }
-        }
+        // &:active,
+        // &.active {
+        //     background-color: $secondary;
+        // }
     }
 
     .dropdown-toggle {
