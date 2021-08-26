@@ -1,31 +1,25 @@
 .home-avisos {
-    text-align: center;
-
     &__title {
-        font-size: 1.75rem;
-        font-weight: bold;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-    }
-
-    &__content {
-        text-align: left;
+        @extend %ps-title;
+        margin-top: 0;
+        margin-bottom: 2rem;
     }
 }
 
 .home-aviso {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 1.5rem;
 
     &__meta {
-        color: $gray-900;
+        color: #ffffff;
         display: block;
         flex: 0 0 16%;
         align-self: center;
-        font-size: 28px;
+        font-size: 1.75rem;
+        font-weight: 900;
         line-height: 32px;
         margin-bottom: 0;
-        margin-right: 30px;
+        margin-right: 2rem;
 
         @include media-breakpoint-down(sm) {
             font-size: 22px;
@@ -35,7 +29,6 @@
     &__day {
         background: $primary;
         display: inline-block;
-        font-weight: bold;
         margin: 0 auto;
         padding: 3px 5px 2px 5px;
 
@@ -47,7 +40,6 @@
     &__month {
         background: $primary;
         display: inline-block;
-        font-weight: bold;
         margin: 0 auto;
         padding: 1px 5px 2px 5px;
         text-transform: uppercase;
@@ -64,20 +56,21 @@
     .post-categories {
         display: inline-block;
         list-style: none;
-        margin-bottom: 3px;
+        margin-bottom: 0.25rem;
         padding: 0;
 
         li {
             color: $primary;
             display: inline-block;
-            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
 
             a {
                 color: inherit;
+                text-decoration: none;
 
                 &:hover {
-                    color: #ffffff;
-                    text-decoration: none;
+                    text-decoration: underline;
                 }
             }
 
@@ -94,19 +87,18 @@
     }
 
     &__title {
-        color: #ffffff;
         font-size: 1.1rem;
         font-weight: bold;
-        margin-bottom: 3px;
+        margin-bottom: 0.25rem;
         margin-top: 0;
         text-transform: uppercase;
 
         a {
             color: inherit;
-            text-decoration: underline;
+            text-decoration: none;
 
             &:hover {
-                text-decoration: none;
+                text-decoration: underline;
             }
         }
     }
