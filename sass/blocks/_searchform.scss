@@ -1,26 +1,12 @@
 .searchform {
     &__input {
         background-color: #ffffff;
-        border: 1px solid $cor-apoio;
-        color: $cor-apoio;
-
-        &::placeholder {
-            color: $cor-apoio;
-        }
-
-        &:focus {
-            border: 1px solid $cor-apoio;
-
-            &::placeholder {
-                color: #cccccc;
-            }
-        }
     }
 
     &__submit {
-        @include button-variant(#ffffff, $cor-apoio);
+        @include button-variant($gray-300, $input-border-color);
 
         box-shadow: none;
-        fill: $cor-apoio;
+        fill: $primary;
     }
 }
