@@ -33,14 +33,18 @@
     </div>
 </section>
 
-<section class="home-ajuda">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <?php echo get_template_part('partials/home/faq'); ?>
+<?php if (is_active_sidebar('home_ajuda')) : ?>
+    <section class="home-ajuda">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="home-ajuda__title">Voc&ecirc; tem alguma d&uacute;vida?</h2>
+                    <?php dynamic_sidebar('home_ajuda'); ?>
+                    <?php //echo get_template_part('partials/home/faq'); ?>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
