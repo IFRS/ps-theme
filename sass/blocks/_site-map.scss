@@ -1,19 +1,27 @@
 .site-map {
-    background-color: $gray-200;
     color: $gray-800;
-    padding-top: 24px;
-    padding-bottom: 32px;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
 
     &__menu {
         list-style: none;
         padding: 0;
 
-        > .menu-item {
+        a {
+            text-decoration: none;
+
+            &:active,
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        > li {
             color: $primary;
             display: block;
             float: left;
-            margin-right: 64px;
-            margin-bottom: 8px;
+            margin-right: 4rem;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
             font-size: 1.1rem;
             font-weight: bold;
@@ -26,10 +34,10 @@
         .sub-menu {
             list-style: none;
             padding: 0;
-            margin-top: 5px;
-            margin-bottom: 10px;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
 
-            > .menu-item {
+            > li {
                 font-size: 1rem;
                 font-weight: normal;
                 text-transform: none;
