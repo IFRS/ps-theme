@@ -43,9 +43,7 @@
             <?php wp_reset_query(); ?>
             <div class="row">
                 <div class="col-12">
-                    <nav class="text-center">
-                        <?php echo custom_pagination(); ?>
-                    </nav>
+                    <?php echo custom_pagination(); ?>
                 </div>
             </div>
         </div>
