@@ -15,18 +15,9 @@
 
     &__foto {
         margin: 20px 25px 0 25px;
-        max-width: 25%;
-        flex: 0 0 25%;
+        max-width: 20%;
+        flex: 0 0 20%;
         align-self: flex-end;
-
-        @include media-breakpoint-down(md) {
-            display: none;
-        }
-    }
-
-    &__ifrs {
-        flex: 0 0 10%;
-        align-self: center;
 
         @include media-breakpoint-down(lg) {
             display: none;
@@ -35,8 +26,11 @@
 
     &__link {
         display: inline-block;
-        margin-bottom: 20px;
-        padding: 20px 0;
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 3rem;
+        }
 
         &:hover {
             text-decoration: none;
