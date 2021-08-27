@@ -4,7 +4,7 @@
     text-align: center;
 
     &__title {
-        margin: 0 0 10px 0;
+        margin: 0 0 1rem 0;
         font-size: minmax(1.5rem, 2.5rem);
         font-weight: bold;
         text-align: center;
@@ -54,14 +54,14 @@
             }
 
             &.active {
-                color: $gray-700;
+                color: $gray-800;
             }
         }
     }
 }
 
 .btn-formaingresso {
-    @include button-variant(#ffffff, $gray-700, $primary, $primary, $primary, $primary);
+    @include button-variant(#ffffff, $gray-600, $primary, $secondary, $secondary, #ffffff);
 
     font-weight: bold;
     margin: 0 auto 5px auto;
@@ -69,7 +69,7 @@
 }
 
 .btn-campus {
-    @include button-variant(transparent, transparent, $primary, $primary, $primary, $primary);
+    @include button-variant(transparent, transparent, $primary, $secondary, $secondary, #ffffff);
 
     color: $gray-700;
     margin: 0 auto 5px auto;
@@ -98,7 +98,7 @@
     }
 
     &__link {
-        @include button-variant(#ffffff, $gray-700, $primary, $primary, $primary, $primary);
+        @include button-variant(#ffffff, $gray-600, $primary, $secondary, $secondary, #ffffff);
 
         display: block;
     }
