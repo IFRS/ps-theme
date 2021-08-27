@@ -1,5 +1,6 @@
-.widget-chamadas {
+.chamadas {
     background-color: transparent;
+    padding: 20px 0;
     text-align: center;
 
     &__title {
@@ -10,10 +11,6 @@
         word-wrap: break-word;
         hyphens: auto;
     }
-}
-
-.chamadas {
-    padding: 20px 0;
 
     &__text {
         padding-bottom: 5px;

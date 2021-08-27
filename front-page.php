@@ -10,11 +10,11 @@
     </section>
 <?php endif; ?>
 
-<?php if (is_active_sidebar('home_chamadas')) : ?>
+<?php if (chamada_get_option('publish', false)) : ?>
     <section class="home-chamadas">
         <div class="container">
             <div class="row">
-                <?php dynamic_sidebar('home_chamadas'); ?>
+            <?php echo get_template_part('partials/chamadas'); ?>
             </div>
         </div>
     </section>

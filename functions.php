@@ -27,9 +27,6 @@ require_once('inc/assets.php');
 // Breadcrumb
 require_once('inc/breadcrumb.php');
 
-// Widgets
-require_once('inc/widgets/chamadas.php');
-
 // Tamanho do resumo e resumo em páginas
 require_once('inc/excerpt.php');
 

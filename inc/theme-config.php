@@ -63,15 +63,6 @@ add_action('widgets_init', function() {
     // ));
 
     register_sidebar(array(
-        'name'          => 'Home Chamadas',
-        'id'            => 'home_chamadas',
-        'description'   => 'Chamadas na página inicial.',
-        'before_widget' => '<div class="col-12"><div id="%1$s" class="widget widget-chamadas %2$s">',
-        'after_widget'  => '</div></div>',
-        'before_title'  => '<h2 class="widget-chamadas__title">',
-        'after_title'   => '</h2>',
-    ));
-    register_sidebar(array(
         'name'          => 'Home Ajuda',
         'id'            => 'home_ajuda',
         'description'   => 'Área de ajuda na página inicial.',

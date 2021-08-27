@@ -163,3 +163,68 @@ add_filter( 'pre_get_document_title', function($title) {
 
 	return $title;
 }, 99 );
+
+// Options
+add_action( 'cmb2_admin_init', function() {
+	$options = new_cmb2_box( array(
+		'id'           => 'ps_chamada_option_metabox',
+		'title'        => esc_html__( 'Opções para Chamadas', 'ifrs-ps-theme' ),
+		'object_types' => array( 'options-page' ),
+		'option_key'      => 'chamada_options',
+		// 'icon_url'        => 'dashicons-palmtree',
+		'menu_title'      => esc_html__( 'Opções', 'ifrs-ps-theme' ),
+		'parent_slug'     => 'edit.php?post_type=chamada',
+		'capability'      => 'manage_chamadas',
+		// 'position'        => 1,
+		// 'admin_menu_hook' => 'network_admin_menu',
+		// 'display_cb'      => false,
+		// 'save_button'     => esc_html__( 'Salvar Opções', 'ifrs-ps-theme' ),
+	) );
+
+	$options->add_field( array(
+		'name' => __( 'Publicar Chamadas', 'ifrs-ps-theme' ),
+		'desc' => __( 'Marque para que a área de Chamadas apareça na página inicial.', 'ifrs-ps-theme' ),
+		'id'   => 'publish',
+		'type' => 'checkbox',
+	) );
+
+	$options->add_field( array(
+		'name' => __( 'Título', 'ifrs-ps-theme' ),
+		'desc' => __( 'Título da área de Chamadas na página inicial.', 'ifrs-ps-theme' ),
+		'id'   => 'title',
+		'type' => 'text',
+	) );
+
+	$formasingresso = get_terms(array(
+		'taxonomy' => 'formaingresso',
+		'orderby'  => 'name',
+		'fields'   => 'id=>name',
+	));
+
+	$options->add_field( array(
+		'name'              => __( 'Formas de Ingresso', 'ifrs-ps-theme' ),
+		'desc'              => __( 'Marque quais formas de ingresso serão disponibilizadas.', 'ifrs-ps-theme' ),
+		'id'                => 'formas',
+		'type'              => 'multicheck',
+		'select_all_button' => false,
+		'options'           => $formasingresso,
+	) );
+
+} );
+function chamada_get_option( $key = '', $default = false ) {
+	if ( function_exists( 'cmb2_get_option' ) ) {
+		return cmb2_get_option( 'chamada_options', $key, $default );
+	}
+
+	$opts = get_option( 'chamada_options', $default );
+
+	$val = $default;
+
+	if ( 'all' == $key ) {
+		$val = $opts;
+	} elseif ( is_array( $opts ) && array_key_exists( $key, $opts ) && false !== $opts[ $key ] ) {
+		$val = $opts[ $key ];
+	}
+
+	return $val;
+}
