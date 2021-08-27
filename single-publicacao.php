@@ -4,34 +4,26 @@
 
 <section class="container">
     <article class="publicacao">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="publicacao__title"><?php the_title(); ?></h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="publicacao__content">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <p class="publicacao__date text-left">Publicado em <?php the_date('d/m/Y'); ?></p>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <p class="publicacao__date text-right">Atualizado em <?php the_modified_date('d/m/Y'); ?></p>
-                        </div>
-                    </div>
-                    <?php the_content(); ?>
-                    <?php $files = get_post_meta( get_the_ID(), '_publicacao_arquivos', true ); ?>
-                    <?php if (!empty($files)) : ?>
-                        <h3>Arquivos</h3>
-                        <div class="list-group">
-                        <?php foreach ($files as $id => $file) : ?>
-                            <a class="list-group-item list-group-item-action" href="<?php echo esc_url($file); ?>"><?php echo get_the_title($id); ?></a>
-                        <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
+        <h2 class="publicacao__title"><?php the_title(); ?></h2>
+        <div class="publicacao__content">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <p class="publicacao__date text-left">Publicado em <?php the_date('d/m/Y'); ?></p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p class="publicacao__date text-right">Atualizado em <?php the_modified_date('d/m/Y'); ?></p>
                 </div>
             </div>
+            <?php the_content(); ?>
+            <?php $files = get_post_meta( get_the_ID(), '_publicacao_arquivos', true ); ?>
+            <?php if (!empty($files)) : ?>
+                <h3>Arquivos</h3>
+                <div class="list-group">
+                <?php foreach ($files as $id => $file) : ?>
+                    <a class="list-group-item list-group-item-action" href="<?php echo esc_url($file); ?>"><?php echo get_the_title($id); ?></a>
+                <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </article>
     <?php
