@@ -1,5 +1,5 @@
 <?php $parent = wp_get_post_parent_id(get_the_ID()); ?>
-<a href="<?php echo get_the_permalink(); ?>" rel="bookmark" class="flex-column align-items-start list-group-item list-group-item-action<?php echo (empty($parent) ? ' list-group-item-secondary' : ' list-group-item-light child'); ?>" title="<?php the_title(); ?>">
+<a href="<?php echo get_the_permalink(); ?>" rel="bookmark" class="flex-column align-items-start list-group-item list-group-item-action<?php echo (empty($parent) ? ' list-group-item-dark' : ' list-group-item-light child'); ?>" title="<?php the_title(); ?>">
     <div class="d-flex w-100 justify-content-between">
     <?php if (empty($parent)) : ?>
         <h3 class="mb-1"><?php the_title(); ?></h3>
