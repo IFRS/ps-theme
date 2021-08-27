@@ -11,12 +11,7 @@
     }
 
     &__filters {
-        margin-bottom: 10px;
-
-        @include media-breakpoint-up(lg) {
-            justify-content: flex-end;
-            margin-top: 40px;
-        }
+        margin: 1rem 0;
     }
 
     &__nav {
