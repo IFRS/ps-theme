@@ -6,52 +6,44 @@
     <div class="row">
         <div class="col">
             <article class="edital">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="edital__title"><?php the_title(); ?></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="edital__content">
-                            <div class="row">
-                                <div class="col-12 col-sm-6">
-                                    <p class="edital__date text-left">Publicado em <?php the_date('d/m/Y'); ?></p>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <p class="edital__date text-right">Atualizado em <?php the_modified_date('d/m/Y'); ?></p>
-                                </div>
-                            </div>
-                            <?php the_content(); ?>
-                            <div class="row">
-                                <div class="col">
-                                    <h3 class="edital__files-title">Arquivos</h3>
-                                    <div class="list-group">
-                                        <a href="<?php echo get_post_meta(get_the_ID(), '_edital_arquivo', true); ?>" class="list-group-item list-group-item-action list-group-item-primary"><?php the_title(); ?></a>
-                                        <?php $retificacoes = get_post_meta(get_the_ID(), '_edital_retificacoes', true); ?>
-                                        <?php if (!empty($retificacoes)) : ?>
-                                            <?php foreach ($retificacoes as $id => $retificacao) : ?>
-                                                <a href="<?php echo esc_url($retificacao); ?>" class="list-group-item list-group-item-action"><?php echo get_the_title($id); ?></a>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php $anexos = get_post_meta(get_the_ID(), '_edital_anexos', true); ?>
-                            <?php if (!empty($anexos)) : ?>
-                                <div class="row">
-                                    <div class="col">
-                                        <h3 class="edital__files-title">Anexos</h3>
-                                        <div class="list-group">
-                                            <?php foreach ($anexos as $id => $anexo) : ?>
-                                                <a href="<?php echo esc_url($anexo); ?>" class="list-group-item list-group-item-action list-group-item-secondary"><?php echo get_the_title($id); ?></a>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
+                <h2 class="edital__title"><?php the_title(); ?></h2>
+                <div class="edital__content">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <p class="edital__date text-left">Publicado em <?php the_date('d/m/Y'); ?></p>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <p class="edital__date text-right">Atualizado em <?php the_modified_date('d/m/Y'); ?></p>
                         </div>
                     </div>
+                    <?php the_content(); ?>
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="edital__files-title">Arquivos</h3>
+                            <div class="list-group">
+                                <a href="<?php echo get_post_meta(get_the_ID(), '_edital_arquivo', true); ?>" class="list-group-item list-group-item-action list-group-item-primary"><?php the_title(); ?></a>
+                                <?php $retificacoes = get_post_meta(get_the_ID(), '_edital_retificacoes', true); ?>
+                                <?php if (!empty($retificacoes)) : ?>
+                                    <?php foreach ($retificacoes as $id => $retificacao) : ?>
+                                        <a href="<?php echo esc_url($retificacao); ?>" class="list-group-item list-group-item-action"><?php echo get_the_title($id); ?></a>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php $anexos = get_post_meta(get_the_ID(), '_edital_anexos', true); ?>
+                    <?php if (!empty($anexos)) : ?>
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="edital__files-title">Anexos</h3>
+                                <div class="list-group">
+                                    <?php foreach ($anexos as $id => $anexo) : ?>
+                                        <a href="<?php echo esc_url($anexo); ?>" class="list-group-item list-group-item-action list-group-item-secondary"><?php echo get_the_title($id); ?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </article>
         </div>
