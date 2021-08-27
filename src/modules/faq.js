@@ -1,6 +1,6 @@
 import List from 'list.js';
 
-var faqList = new List('home-faq', {
-    listClass: 'home-faq__perguntas',
-    valueNames: ['home-faq__item-title']
+var faqList = new List('faq', {
+    listClass: 'faq__perguntas',
+    valueNames: ['faq__item-title']
 });
