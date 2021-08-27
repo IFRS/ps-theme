@@ -7,6 +7,11 @@ $link-hover-decoration:        none;
 
 $font-family-base:             null;
 
+$accordion-bg:                 null;
+$accordion-button-active-bg:   tint-color($secondary, 30%);
+$accordion-button-active-color: #ffffff;
+$accordion-button-bg:          #ffffff;
+
 $breadcrumb-font-size:         0.8rem;
 $breadcrumb-bg:                none;
 $breadcrumb-active-color:      null;
@@ -41,6 +46,8 @@ $input-bg:                     null;
     @import "node_modules/bootstrap/scss/utilities";
 
     $font-family-base:             "Inter", #{$font-family-sans-serif} !global;
+
+    $accordion-bg:                 $gray-200 !global;
 
     $breadcrumb-active-color:      $gray-800 !global;
 

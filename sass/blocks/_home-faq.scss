@@ -1,11 +1,14 @@
 .home-faq {
-    text-align: center;
+    &--home {
+        text-align: center;
+    }
 
     &__title {
         color: $gray-800;
         font-size: 1.75rem;
         font-weight: bold;
         margin-bottom: 15px;
+        text-align: center;
         text-transform: uppercase;
     }
 
@@ -25,75 +28,33 @@
             margin-left: auto;
             margin-right: auto;
         }
-    }
 
-    &__item-title {
-        display: block;
-    }
-
-    &__item {
-        background: transparent;
-        border: none;
-        margin-bottom: 5px;
-
-        .card-header {
-            background: none;
-            border: none;
-            padding: 0;
-
-            a {
-                color: $gray-800;
-                font-weight: bold;
-                text-decoration: none;
-                white-space: normal;
-            }
-
-            [data-bs-toggle="collapse"]:before {
-                border-style: solid;
-                border-width: 0.2em 0.2em 0 0;
-                border-color: $gray-600;
-                content: '';
-                display: inline-block;
-                height: 0.6em;
-                left: 0;
-                margin-right: 5px;
-                position: relative;
-                top: -3px;
-                transform: rotate(135deg);
-                transition: .25s ease-in-out;
-                width: 0.6em;
-
-                @media (prefers-reduced-motion: reduce) {
-                    transition: none;
-                }
-            }
-
-            [data-bs-toggle="collapse"].collapsed:before {
-                transform: rotate(45deg);
-                top: 0;
-            }
+        @include media-breakpoint-up(xl) {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .card-body {
-            background-color: $gray-800;
-            color: #ffffff;
-            font-size: 0.9rem;
-            text-align: left;
-
-            a {
-                color: $gray-200;
-                text-decoration: underline;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-
-    &__item-content {
-        p:last-of-type {
+        .accordion-item {
             margin-bottom: 0;
+        }
+
+        .accordion-button {
+            &:not(.collapsed) {
+                font-weight: bold;
+            }
+        }
+
+        .accordion-collapse {
+            margin-bottom: 0;
+        }
+
+        .accordion-body {
+            font-size: 0.9rem;
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
         }
     }
 }

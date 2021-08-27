@@ -71,3 +71,11 @@ if ( ! function_exists('pergunta_post_type') ) {
     // Hook into the 'init' action
     add_action( 'init', 'pergunta_post_type', 3 );
 }
+
+/* Disable Single Template */
+add_action( 'template_redirect', function() {
+    if ( is_singular( 'pergunta' ) ) {
+        wp_safe_redirect( get_post_type_archive_link( 'pergunta' ), 308 );
+        exit;
+    }
+} );

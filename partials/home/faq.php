@@ -15,28 +15,26 @@
         $perguntas = new WP_Query($args);
     ?>
     <?php if ($perguntas->have_posts()) : ?>
-        <ul class="home-faq__perguntas" id="home-faq__perguntas" aria-live="polite">
-        <?php while ($perguntas->have_posts()) : $perguntas->the_post(); ?>
-            <li class="card home-faq__item">
-                <div class="card-header" id="heading<?php the_ID(); ?>">
-                    <h4 class="mb-0 home-faq__item-title">
-                        <a href="<?php the_permalink(); ?>" class="btn btn-link collapsed home-faq__item-link" data-bs-toggle="collapse" data-bs-target="#collapse<?php the_ID(); ?>" aria-expanded="true" aria-controls="collapse<?php the_ID(); ?>">
+        <?php $accordion_id = uniqid('perguntas-'); ?>
+        <div class="accordion home-faq__perguntas" id="<?php echo $accordion_id; ?>">
+            <?php while ($perguntas->have_posts()) : $perguntas->the_post(); ?>
+                <dl class="accordion-item">
+                    <dt class="accordion-header" id="pergunta<?php the_ID(); ?>">
+                        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#resposta<?php the_ID(); ?>" aria-expanded="false" aria-controls="resposta<?php the_ID(); ?>">
                             <?php the_title(); ?>
-                        </a>
-                    </h4>
-                </div>
-
-                <div id="collapse<?php the_ID(); ?>" class="collapse" aria-labelledby="heading<?php the_ID(); ?>" data-bs-parent="#home-faq__perguntas">
-                    <div class="card-body home-faq__item-content">
-                        <?php the_content(); ?>
-                    </div>
-                </div>
-            </li>
-        <?php endwhile; ?>
-        </ul>
+                        </button>
+                    </dt>
+                    <dd id="resposta<?php the_ID(); ?>" class="accordion-collapse collapse" data-bs-parent="#<?php echo $accordion_id; ?>" aria-labelledby="pergunta<?php the_ID(); ?>">
+                        <div class="accordion-body">
+                            <?php the_content(); ?>
+                        </div>
+                    </dd>
+                </dl>
+            <?php endwhile; ?>
+        </div>
     <?php else : ?>
         <div class="alert alert-warning" role="alert">
-            <p><strong>Ops!</strong> Ainda n&atilde;o existem perguntas cadastradas.</p>
+            <strong>Ops!</strong> Ainda n&atilde;o existem perguntas cadastradas.
         </div>
     <?php endif; ?>
 </article>
