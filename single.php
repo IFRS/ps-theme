@@ -54,7 +54,7 @@
     ?>
     <?php if (!empty($cat_posts)) : ?>
         <aside class="aside">
-            <h3 class="aside__title">Conte&uacute;do Relacionado</h3>
+            <h3 class="aside__title">Outros Avisos</h3>
             <div class="aside__content">
                 <?php foreach ($cat_posts as $cat_post) : ?>
                     <div class="aside__item">
