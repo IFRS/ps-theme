@@ -17,7 +17,7 @@
                         <span class="chamada-single__title--formaingresso"><?php echo $formaingresso->name; ?></span>
                     <?php endforeach; ?>
                     <?php foreach ($campi as $key => $campus) : ?>
-                        <span class="chamada-single__title--campus"><?php echo $campus->name; ?></span>
+                        <span class="chamada-single__title--campus">Campus&nbsp;<?php echo $campus->name; ?></span>
                     <?php endforeach; ?>
                 </h2>
             </div>
@@ -36,7 +36,7 @@
 
             <div class="row">
             <?php if (!empty($matriculas)) : ?>
-                <div class="col col-md-6">
+                <div class="col-auto col-md-6 col-xl-4">
                     <div class="card bg-light mb-4">
                         <div class="card-header">
                             <strong><?php _e('Matrículas', 'ifrs-ps-theme'); ?></strong>
@@ -51,7 +51,7 @@
             <?php endif; ?>
 
             <?php if (!empty($bancas)) : ?>
-                <div class="col col-md-6">
+                <div class="col-auto col-md-6 col-xl-4">
                     <div class="card bg-light mb-4">
                         <div class="card-header">
                             <strong><?php _e('Comissão de Heteroidentificação', 'ifrs-ps-theme'); ?></strong>
@@ -66,7 +66,7 @@
             <?php endif; ?>
 
             <?php if (!empty($renda)) : ?>
-                <div class="col col-md-6">
+                <div class="col-auto col-md-6 col-xl-4">
                     <div class="card bg-light mb-4">
                         <div class="card-header">
                             <strong><?php _e('Análise de Reserva de Vagas para Renda Inferior a 1,5 Salário Mínimo', 'ifrs-ps-theme'); ?></strong>
@@ -82,10 +82,10 @@
 
             <?php if (!empty($resultados)) : ?>
                 <?php foreach ($resultados[0] as $resultado) : ?>
-                    <div class="col col-md-6">
+                    <div class="col-auto col-md-6 col-xl-4">
                         <div class="card bg-light mb-4">
                             <div class="card-header">
-                                <strong>N&iacute;vel <?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
+                                <strong><?php echo get_term($resultado['modalidade'], 'modalidade')->name; ?></strong>
                             </div>
                             <div class="list-group list-group-flush" role="list">
                                 <?php foreach ($resultado['arquivos'] as $id => $url): ?>
