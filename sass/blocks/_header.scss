@@ -42,17 +42,17 @@
 
         @include media-breakpoint-up(lg) {
             position: absolute;
-            left: 0; bottom: 10px;
+            left: 0; bottom: 0.5rem;
         }
     }
 
     &__search {
-        margin: 20px 0;
+        margin: 1.5rem 0;
 
         @include media-breakpoint-up(lg) {
             position: absolute;
             right: 0;
-            top: 20px;
+            top: 1.5rem;
             margin-top: 0;
         }
     }
