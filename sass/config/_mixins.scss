@@ -6,12 +6,3 @@
     text-align: left;
     text-transform: uppercase;
 }
-
-@mixin badge-chamadas() {
-    background-color: $gray-800;
-    color: $primary;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    padding: 10px 20px;
-}

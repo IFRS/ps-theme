@@ -68,14 +68,6 @@ $(function() {
             observer.observe(e);
         });
 
-        delay = 0.9;
-        $('.chamada__badges > .badge-modalidade').addClass('animate__animated').each(function(i, e) {
-            $(e).css('animation-delay', delay + 's');
-            delay = delay + 0.05;
-            let observer = intersectionObserver('animate__fadeInUp');
-            observer.observe(e);
-        });
-
         $('.home-faq__item').addClass('animate__animated').each(function(i, e) {
             let observer = intersectionObserver('animate__bounceInRight');
             observer.observe(e);
