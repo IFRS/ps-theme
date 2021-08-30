@@ -3,6 +3,13 @@
 
     &__title {
         @extend %ps-title;
+
+        &--campus,
+        &--formaingresso {
+            &::before {
+                content: ' | ';
+            }
+        }
     }
 
     &__documento-link {

@@ -2,29 +2,24 @@
 
 <?php the_post(); ?>
 
+<?php
+    $campi = get_the_terms(get_the_ID(), 'campus');
+    $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
+?>
+
 <section class="container">
     <article class="chamada-single">
         <div class="row">
             <div class="col-12">
-                <h2 class="chamada-single__title"><?php the_title(); ?></h2>
-                <p class="chamada-single__labels">
-                <?php
-                    $campi = get_the_terms(get_the_ID(), 'campus');
-                    foreach ($campi as $key => $campus) :
-                ?>
-                        <span class="badge badge-campus"><?php echo $campus->name; ?></span>
-                <?php
-                    endforeach;
-                ?>
-                <?php
-                    $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
-                    foreach ($formasingresso as $key => $formaingresso) :
-                ?>
-                        <span class="badge badge-formaingresso"><?php echo $formaingresso->name; ?></span>
-                <?php
-                    endforeach;
-                ?>
-                </p>
+                <h2 class="chamada-single__title">
+                    <?php the_title(); ?>
+                    <?php foreach ($formasingresso as $key => $formaingresso) : ?>
+                        <span class="chamada-single__title--formaingresso"><?php echo $formaingresso->name; ?></span>
+                    <?php endforeach; ?>
+                    <?php foreach ($campi as $key => $campus) : ?>
+                        <span class="chamada-single__title--campus"><?php echo $campus->name; ?></span>
+                    <?php endforeach; ?>
+                </h2>
             </div>
         </div>
         <div class="chamada-single__content">
