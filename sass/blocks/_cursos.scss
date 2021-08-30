@@ -1,6 +1,8 @@
 @use "sass:math";
 
 .cursos {
+    margin-bottom: 2rem;
+
     &__title {
         @extend %ps-title;
 
