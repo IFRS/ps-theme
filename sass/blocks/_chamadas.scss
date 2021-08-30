@@ -67,15 +67,17 @@
 .btn-formaingresso {
     @include button-variant($gray-200, $gray-300, $gray-800, $secondary, $secondary, #ffffff);
 
+    display: block;
     font-weight: bold;
-    margin: 0 auto 5px auto;
+    margin: 0.5rem auto;
+    max-width: 20ch;
     text-transform: uppercase;
 }
 
 .btn-campus {
     @include button-variant($gray-200, $gray-300, $gray-800, $secondary, $secondary, #ffffff);
 
-    margin: 0 auto 5px auto;
+    margin: 0.5rem 0.5rem;
     text-align: center;
     text-transform: uppercase;
 }
@@ -89,7 +91,7 @@
     }
 
     &__link {
-        @include button-variant($gray-200, $gray-300, $primary, $secondary, $secondary, #ffffff);
+        @include button-variant($gray-200, $gray-300, $gray-800, $secondary, $secondary, #ffffff);
 
         display: block;
     }
