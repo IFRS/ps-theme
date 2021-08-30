@@ -1,5 +1,10 @@
 .home-chamadas {
-    background-color: #ffffff;
+    background-color: $primary;
+    background-image: url('../img/chamadas-bg.png');
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: cover;
+    color: #ffffff;
     padding: 2rem 0;
 
     .container {
