@@ -6,7 +6,7 @@
     "@babel/preset-env": "^7.15.0",
     "@popperjs/core": "^2.9.3",
     "animate.css": "^4.1.1",
-    "autoprefixer": "^10.3.2",
+    "autoprefixer": "^10.3.3",
     "bootstrap": "^5.1.0",
     "browser-sync": "^2.27.5",
     "datatables.net-bs4": "^1.10.23",
@@ -16,7 +16,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
-    "gulp-postcss": "^9.0.0",
+    "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
@@ -30,7 +30,7 @@
     "postcss": "^8.2.10",
     "postcss-flexibility": "^2.0.0",
     "respond.js": "^1.4.2",
-    "sass": "^1.38.1",
+    "sass": "^1.38.2",
     "webpack": "^5.51.1",
     "webpack-bundle-analyzer": "^4.4.1"
   }
