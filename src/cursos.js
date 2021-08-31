@@ -1,7 +1,6 @@
-require('datatables.net');
-require('datatables.net-bs4');
+import 'datatables.net-bs5';
 
-$(function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Javascript to enable link to tab
     var hash = document.location.hash;
     if (hash) {
@@ -29,12 +28,12 @@ $(function() {
                 "sNext": "Próximo",
                 "sPrevious": "Anterior",
                 "sFirst": "Primeiro",
-                "sLast": "Último"
+                "sLast": "Último",
             },
             "oAria": {
                 "sSortAscending": ": Ordenar colunas de forma ascendente",
                 "sSortDescending": ": Ordenar colunas de forma descendente"
-            }
-        }
+            },
+        },
     });
 });
