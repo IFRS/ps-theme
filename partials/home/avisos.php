@@ -18,7 +18,7 @@
                     </p>
                     <div class="home-aviso__content">
                         <?php echo get_the_category_list(); ?>
-                        <h4 class="home-aviso__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                        <h3 class="home-aviso__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                     </div>
                 </article>
             <?php endwhile; ?>
