@@ -1,7 +1,19 @@
 header {
-    // background: linear-gradient(90deg, $primary 50%, #f3f3f3 50%);
-    background-image: url('../img/header-bg.png');
+    background-color: $secondary;
+    background-image: url('../img/header-bg.xs.png');
     background-position: center top;
     background-repeat: repeat-x;
     background-size: cover;
+
+    @include media-breakpoint-up(md) {
+        background-image: url('../img/header-bg.md.png');
+    }
+
+    @include media-breakpoint-up(xl) {
+        background-image: url('../img/header-bg.xl.png');
+    }
+
+    @include media-breakpoint-up(xxl) {
+        background-image: url('../img/header-bg.xxl.png');
+    }
 }
