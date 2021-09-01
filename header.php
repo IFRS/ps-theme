@@ -79,9 +79,18 @@
                     <?php get_search_form(); ?>
                 </div>
             </div>
-            <div class="header__foto">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" width="350" height="660" alt="" class="img-fluid" aria-hidden="true"/>
-            </div>
+            <?php
+                $img_png = array(
+                    get_stylesheet_directory_uri() . '/img/header-foto.190.png 190w',
+                    get_stylesheet_directory_uri() . '/img/header-foto.260.png 260w',
+                );
+            ?>
+            <picture class="header__foto" aria-hidden="true">
+                <source srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" media="(max-width: 991px)" type="image/gif">
+                <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.190.webp" media="(max-width: 1199px)" type="image/webp">
+                <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.260.webp" media="(min-width: 1200px)" type="image/webp">
+                <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-foto.png" srcset="<?php echo implode(',', $img_png); ?>" sizes="(max-width: 1199px) 190px, (min-width: 1200px) 260px" width="350" height="660" alt=""/>
+            </picture>
         </section>
     </header>
 
