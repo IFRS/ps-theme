@@ -1,6 +1,6 @@
 <?php
 // Content Width
-if ( ! isset( $content_width ) ) $content_width = 1110;
+if ( ! isset( $content_width ) ) $content_width = 1296;
 
 // Remove some Gutenberg custom options
 add_theme_support( 'editor-color-palette' );
