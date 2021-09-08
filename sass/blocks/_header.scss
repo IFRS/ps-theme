@@ -14,7 +14,7 @@
     }
 
     &__foto {
-        margin: 20px 25px 0 25px;
+        margin: 3.5rem 1.5rem 0;
         max-width: 20%;
         flex: 0 0 20%;
         align-self: flex-end;
@@ -29,7 +29,7 @@
         margin-bottom: 1rem;
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         &:hover {
@@ -47,7 +47,7 @@
     }
 
     &__search {
-        margin: 1.5rem 0;
+        margin: 1rem 0;
 
         @include media-breakpoint-up(lg) {
             position: absolute;
