@@ -211,6 +211,7 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 } );
+
 function chamada_get_option( $key = '', $default = false ) {
 	if ( function_exists( 'cmb2_get_option' ) ) {
 		return cmb2_get_option( 'chamada_options', $key, $default );
@@ -228,3 +229,45 @@ function chamada_get_option( $key = '', $default = false ) {
 
 	return $val;
 }
+
+// Arquivos
+add_action( 'cmb2_admin_init', function() {
+	$files = new_cmb2_box( array(
+		'id'           => 'ps_chamada_files_metabox',
+		'title'        => esc_html__( 'Arquivos para Chamadas', 'ifrs-ps-theme' ),
+		'object_types' => array( 'options-page' ),
+		'option_key'      => 'chamada_files',
+		// 'icon_url'        => 'dashicons-palmtree',
+		'menu_title'      => esc_html__( 'Arquivos', 'ifrs-ps-theme' ),
+		'parent_slug'     => 'edit.php?post_type=chamada',
+		'capability'      => 'manage_chamadas',
+		// 'position'        => 1,
+		// 'admin_menu_hook' => 'network_admin_menu',
+		// 'display_cb'      => false,
+		'save_button'     => esc_html__( 'Salvar Arquivos', 'ifrs-ps-theme' ),
+	) );
+
+	$files->add_field( array(
+		'name'       => __( 'Matrícula', 'ifrs-ps-theme' ),
+		'desc'       => __( 'Arquivos para a matrícula.', 'ifrs-ps-theme' ),
+		'id'         => 'matricula',
+		'type'       => 'file_list',
+		'query_args' => array( 'type' => 'application/pdf' ),
+	) );
+
+	$files->add_field( array(
+		'name'       => __( 'Bancas de Heteroidentificação', 'ifrs-ps-theme' ),
+		'desc'       => __( 'Arquivos para as bancas de heteroidentificação.', 'ifrs-ps-theme' ),
+		'id'         => 'bancas',
+		'type'       => 'file_list',
+		'query_args' => array( 'type' => 'application/pdf' ),
+	) );
+
+	$files->add_field( array(
+		'name'       => __( 'Análise de Renda', 'ifrs-ps-theme' ),
+		'desc'       => __( 'Arquivos para a análise de renda.', 'ifrs-ps-theme' ),
+		'id'         => 'renda',
+		'type'       => 'file_list',
+		'query_args' => array( 'type' => 'application/pdf' ),
+	) );
+} );

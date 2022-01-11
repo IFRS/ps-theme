@@ -29,19 +29,28 @@
                 </div>
             </div>
 
-            <?php $matriculas = get_post_meta(get_the_ID(), '_chamada_matriculas'); ?>
-            <?php $bancas = get_post_meta(get_the_ID(), '_chamada_bancas'); ?>
-            <?php $renda = get_post_meta(get_the_ID(), '_chamada_renda'); ?>
-            <?php $resultados = get_post_meta(get_the_ID(), '_chamada_resultados_group'); ?>
+            <?php
+                $chamadas_matricula = cmb2_get_option( 'chamada_files', 'matricula', false );
+                $chamadas_bancas = cmb2_get_option( 'chamada_files', 'bancas', false );
+                $chamadas_renda = cmb2_get_option( 'chamada_files', 'renda', false );
+
+                $matriculas = get_post_meta(get_the_ID(), '_chamada_matriculas');
+                $bancas = get_post_meta(get_the_ID(), '_chamada_bancas');
+                $renda = get_post_meta(get_the_ID(), '_chamada_renda');
+                $resultados = get_post_meta(get_the_ID(), '_chamada_resultados_group');
+            ?>
 
             <div class="row">
-            <?php if (!empty($matriculas)) : ?>
+            <?php if (!empty($chamadas_matricula) || !empty($matriculas)) : ?>
                 <div class="col-auto col-md-6 col-xl-4">
                     <div class="card bg-light mb-4">
                         <div class="card-header">
                             <strong><?php _e('Matrículas', 'ifrs-ps-theme'); ?></strong>
                         </div>
                         <div class="list-group list-group-flush">
+                            <?php foreach($chamadas_matricula as $id => $url) : ?>
+                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                            <?php endforeach; ?>
                             <?php foreach($matriculas[0] as $id => $url) : ?>
                                 <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                             <?php endforeach; ?>
@@ -50,13 +59,16 @@
                 </div>
             <?php endif; ?>
 
-            <?php if (!empty($bancas)) : ?>
+            <?php if (!empty($chamadas_bancas) || !empty($bancas)) : ?>
                 <div class="col-auto col-md-6 col-xl-4">
                     <div class="card bg-light mb-4">
                         <div class="card-header">
                             <strong><?php _e('Comissão de Heteroidentificação', 'ifrs-ps-theme'); ?></strong>
                         </div>
                         <div class="list-group list-group-flush">
+                            <?php foreach($chamadas_bancas as $id => $url): ?>
+                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                            <?php endforeach; ?>
                             <?php foreach($bancas[0] as $id => $url): ?>
                                 <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                             <?php endforeach; ?>
@@ -65,13 +77,16 @@
                 </div>
             <?php endif; ?>
 
-            <?php if (!empty($renda)) : ?>
+            <?php if (!empty($chamadas_renda) || !empty($renda)) : ?>
                 <div class="col-auto col-md-6 col-xl-4">
                     <div class="card bg-light mb-4">
                         <div class="card-header">
                             <strong><?php _e('Análise de Reserva de Vagas para Renda Inferior a 1,5 Salário Mínimo', 'ifrs-ps-theme'); ?></strong>
                         </div>
                         <div class="list-group list-group-flush">
+                            <?php foreach($chamadas_renda as $id => $url): ?>
+                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                            <?php endforeach; ?>
                             <?php foreach($renda[0] as $id => $url): ?>
                                 <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
                             <?php endforeach; ?>
