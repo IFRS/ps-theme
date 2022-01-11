@@ -23,6 +23,7 @@
     <?php endif; ?>
     <p></p>
     <?php if (have_posts()) : ?>
+        <button class="btn btn-secondary btn-sm float-end" type="button" data-bs-toggle="collapse" data-bs-target=".evento--passado" aria-expanded="false">Esconder/Mostrar datas passadas</button>
         <div class="table-responsive-sm">
             <table class="table cronograma__table">
                 <thead class="thead-light">
@@ -45,7 +46,7 @@
                             $evento_atual = ($data_inicio <= $hoje && $data_fim > $hoje);
                             $evento_passou = ($data_fim < $hoje);
                         ?>
-                        <tr class="<?php echo ($evento_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>">
+                        <tr class="<?php echo ($evento_passou) ? 'evento--passado collapse show' : '' ?>" id="evento-<?php echo get_the_ID(); ?>">
                             <td class="evento__datas<?php echo ($evento_atual) ? ' text-success' : ''; ?>">
                                 <?php if ($data_inicio !== $data_fim) : ?>
                                     <?php echo date_i18n('d/m', $data_inicio); ?> a
