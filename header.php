@@ -39,7 +39,7 @@
         <section class="container header">
             <div class="header__principal">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
-                    <img src="<?php header_image(); ?>" width="650" height="310" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
+                    <img src="<?php header_image(); ?>" width="650" height="401" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
                 </a>
                 <div class="header__social">
                     <ul class="menu-social">
