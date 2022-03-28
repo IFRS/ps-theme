@@ -27,6 +27,7 @@
     &__link {
         display: inline-block;
         margin-bottom: 1rem;
+        margin-top: 30px;
 
         @include media-breakpoint-up(lg) {
             margin-bottom: 4rem;
