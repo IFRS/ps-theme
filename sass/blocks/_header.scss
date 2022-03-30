@@ -29,10 +29,6 @@
         margin-bottom: 1rem;
         margin-top: 30px;
 
-        @include media-breakpoint-up(lg) {
-            margin-bottom: 4rem;
-        }
-
         &:hover {
             text-decoration: none;
         }
@@ -40,11 +36,6 @@
 
     &__social {
         display: block;
-
-        @include media-breakpoint-up(lg) {
-            position: absolute;
-            left: 0; bottom: 0.5rem;
-        }
     }
 
     &__search {
