@@ -1,84 +1,77 @@
 <?php
-if ( ! function_exists('chamada_post_type') ) {
-	function chamada_post_type() {
-		$labels = array(
-			'name'               => _x( 'Chamadas', 'Post Type General Name', 'ifrs-ps-theme' ),
-			'singular_name'      => _x( 'Chamada', 'Post Type Singular Name', 'ifrs-ps-theme' ),
-			'menu_name'          => __( 'Chamadas', 'ifrs-ps-theme' ),
-			'name_admin_bar'     => __( 'Chamadas', 'ifrs-ps-theme' ),
-			'parent_item_colon'  => __( 'Chamada mãe:', 'ifrs-ps-theme' ),
-			'all_items'          => __( 'Todas os Chamadas', 'ifrs-ps-theme' ),
-			'add_new_item'       => __( 'Adicionar Nova Chamada', 'ifrs-ps-theme' ),
-			'add_new'            => __( 'Adicionar Nova', 'ifrs-ps-theme' ),
-			'new_item'           => __( 'Nova Chamada', 'ifrs-ps-theme' ),
-			'edit_item'          => __( 'Editar Chamada', 'ifrs-ps-theme' ),
-			'update_item'        => __( 'Atualizar Chamada', 'ifrs-ps-theme' ),
-			'view_item'          => __( 'Ver Chamada', 'ifrs-ps-theme' ),
-			'search_items'       => __( 'Procurar Chamada', 'ifrs-ps-theme' ),
-			'not_found'          => __( 'Não Encontrada', 'ifrs-ps-theme' ),
-			'not_found_in_trash' => __( 'Não Encontrada na Lixeira', 'ifrs-ps-theme' ),
-		);
-		$capabilities = array(
-			// meta caps (don't assign these to roles)
-			'edit_post'              => 'edit_chamada',
-			'read_post'              => 'read_chamada',
-			'delete_post'            => 'delete_chamada',
+add_action( 'init', function() {
+	$labels = array(
+		'name'                   => _x( 'Chamadas', 'Post Type General Name', 'ifrs-ps-theme' ),
+		'singular_name'          => _x( 'Chamada', 'Post Type Singular Name', 'ifrs-ps-theme' ),
+		'menu_name'              => __( 'Chamadas', 'ifrs-ps-theme' ),
+		'name_admin_bar'         => __( 'Chamadas', 'ifrs-ps-theme' ),
+		'parent_item_colon'      => __( 'Chamada mãe:', 'ifrs-ps-theme' ),
+		'all_items'              => __( 'Todas os Chamadas', 'ifrs-ps-theme' ),
+		'add_new_item'           => __( 'Adicionar Nova Chamada', 'ifrs-ps-theme' ),
+		'add_new'                => __( 'Adicionar Nova', 'ifrs-ps-theme' ),
+		'new_item'               => __( 'Nova Chamada', 'ifrs-ps-theme' ),
+		'edit_item'              => __( 'Editar Chamada', 'ifrs-ps-theme' ),
+		'update_item'            => __( 'Atualizar Chamada', 'ifrs-ps-theme' ),
+		'view_item'              => __( 'Ver Chamada', 'ifrs-ps-theme' ),
+		'search_items'           => __( 'Procurar Chamada', 'ifrs-ps-theme' ),
+		'not_found'              => __( 'Não Encontrada', 'ifrs-ps-theme' ),
+		'not_found_in_trash'     => __( 'Não Encontrada na Lixeira', 'ifrs-ps-theme' ),
+	);
 
-			// primitive/meta caps
-			'create_posts'           => 'create_chamadas',
+	$capabilities = array(
+		// meta caps (don't assign these to roles)
+		'edit_post'              => 'edit_chamada',
+		'read_post'              => 'read_chamada',
+		'delete_post'            => 'delete_chamada',
 
-			// primitive caps used outside of map_meta_cap()
-			'edit_posts'             => 'edit_chamadas',
-			'edit_others_posts'      => 'manage_chamadas',
-			'publish_posts'          => 'create_chamadas',
-			'read_private_posts'     => 'read',
+		// primitive/meta caps
+		'create_posts'           => 'create_chamadas',
 
-			// primitive caps used inside of map_meta_cap()
-			'read'                   => 'read',
-			'delete_posts'           => 'manage_chamadas',
-			'delete_private_posts'   => 'manage_chamadas',
-			'delete_published_posts' => 'manage_chamadas',
-			'delete_others_posts'    => 'manage_chamadas',
-			'edit_private_posts'     => 'edit_chamadas',
-			'edit_published_posts'   => 'edit_chamadas',
-		);
-		$args = array(
-			'label'                 => __( 'Chamada', 'ifrs-ps-theme' ),
-			'description'           => __( 'Chamadas do Processo Seletivo', 'ifrs-ps-theme' ),
-			'labels'                => $labels,
-			'supports'              => array( 'title', 'editor', 'revisions', 'author' ),
-			'taxonomies'            => array( 'campus', 'formaingresso'),
-			'hierarchical'          => false,
-			'public'                => true,
-			'show_ui'               => true,
-			'show_in_menu'          => true,
-			'menu_position'         => 25,
-			'menu_icon'             => 'dashicons-media-spreadsheet',
-			'show_in_admin_bar'     => true,
-			'show_in_nav_menus'     => true,
-			'can_export'            => true,
-			'has_archive'           => true,
-			'exclude_from_search'   => false,
-			'publicly_queryable'    => true,
-			'capability_type'       => array('chamada', 'chamadas'),
-			'map_meta_cap'          => true,
-            'capabilities'          => $capabilities,
-			'rewrite'             => array('slug' => 'chamadas'),
-		);
-		register_post_type( 'chamada', $args );
-	}
+		// primitive caps used outside of map_meta_cap()
+		'edit_posts'             => 'edit_chamadas',
+		'edit_others_posts'      => 'manage_chamadas',
+		'publish_posts'          => 'create_chamadas',
+		'read_private_posts'     => 'read',
 
-	// Hook into the 'init' action
-	add_action( 'init', 'chamada_post_type', 5 );
-}
+		// primitive caps used inside of map_meta_cap()
+		'read'                   => 'read',
+		'delete_posts'           => 'manage_chamadas',
+		'delete_private_posts'   => 'manage_chamadas',
+		'delete_published_posts' => 'manage_chamadas',
+		'delete_others_posts'    => 'manage_chamadas',
+		'edit_private_posts'     => 'edit_chamadas',
+		'edit_published_posts'   => 'edit_chamadas',
+	);
 
-// MetaBox
-add_action( 'cmb2_admin_init', 'chamada_metaboxes', 5 );
-/**
- * Define the metabox and field configurations.
- */
-function chamada_metaboxes() {
-    // Start with an underscore to hide fields from custom fields list
+	$args = array(
+		'label'                  => __( 'Chamada', 'ifrs-ps-theme' ),
+		'description'            => __( 'Chamadas do Processo Seletivo', 'ifrs-ps-theme' ),
+		'labels'                 => $labels,
+		'supports'               => array( 'title', 'editor', 'revisions', 'author' ),
+		'taxonomies'             => array( 'campus', 'formaingresso'),
+		'hierarchical'           => false,
+		'public'                 => true,
+		'show_ui'                => true,
+		'show_in_menu'           => true,
+		'menu_position'          => 25,
+		'menu_icon'              => 'dashicons-media-spreadsheet',
+		'show_in_admin_bar'      => true,
+		'show_in_nav_menus'      => true,
+		'can_export'             => true,
+		'has_archive'            => true,
+		'exclude_from_search'    => false,
+		'publicly_queryable'     => true,
+		'capability_type'        => array('chamada', 'chamadas'),
+		'map_meta_cap'           => true,
+		'capabilities'           => $capabilities,
+		'rewrite'                => array('slug' => 'chamadas'),
+	);
+
+	register_post_type( 'chamada', $args );
+}, 5 );
+
+// Metabox
+add_action( 'cmb2_admin_init', function() {
 	$prefix = '_chamada_';
 
 	$arquivos = new_cmb2_box( array(
@@ -150,7 +143,7 @@ function chamada_metaboxes() {
 		'id'   => 'arquivos',
 		'type' => 'file_list',
 	) );
-}
+}, 5 );
 
 // Custom Title
 add_filter( 'pre_get_document_title', function($title) {

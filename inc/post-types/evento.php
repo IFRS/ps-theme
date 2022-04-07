@@ -29,6 +29,7 @@ add_action( 'init', function() {
         'items_list_navigation' => __( 'Lista de navegação de Eventos', 'ifrs-ps-theme' ),
         'filter_items_list'     => __( 'Filtrar lista de Eventos', 'ifrs-ps-theme' ),
     );
+
     $capabilities = array(
         // meta caps (don't assign these to roles)
         'edit_post'              => 'edit_evento',
@@ -53,6 +54,7 @@ add_action( 'init', function() {
         'edit_private_posts'     => 'edit_eventos',
         'edit_published_posts'   => 'edit_eventos',
     );
+
     $args = array(
         'label'                 => __( 'Evento', 'ifrs-ps-theme' ),
         'description'           => __( 'Eventos do Cronograma', 'ifrs-ps-theme' ),
@@ -76,9 +78,11 @@ add_action( 'init', function() {
         'capabilities'          => $capabilities,
         'rewrite'               => array('slug' => 'cronograma'),
     );
+
     register_post_type( 'evento', $args );
 }, 0 );
 
+// Metabox
 add_action( 'cmb2_admin_init', function() {
     $prefix = '_evento_';
 
