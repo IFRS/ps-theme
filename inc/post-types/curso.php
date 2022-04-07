@@ -68,7 +68,7 @@ add_action( 'init', function() {
     );
 
     register_post_type( 'curso', $args );
-}, 2 );
+}, 3 );
 
 // Metabox
 add_action( 'cmb2_admin_init', function() {

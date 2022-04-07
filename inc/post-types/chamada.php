@@ -68,7 +68,7 @@ add_action( 'init', function() {
 	);
 
 	register_post_type( 'chamada', $args );
-}, 5 );
+}, 6 );
 
 // Admin Columns
 add_filter( 'manage_chamada_posts_columns' , function($columns) {

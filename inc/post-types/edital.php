@@ -68,7 +68,7 @@ add_action( 'init', function() {
     );
 
     register_post_type( 'edital', $args );
-}, 1 );
+}, 4 );
 
 // Metabox
 add_action( 'cmb2_admin_init', function() {

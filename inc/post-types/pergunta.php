@@ -68,7 +68,7 @@ add_action( 'init', function() {
     );
 
     register_post_type( 'pergunta', $args );
-}, 3 );
+}, 1 );
 
 /* Disable Single Template */
 add_action( 'template_redirect', function() {

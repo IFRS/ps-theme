@@ -68,7 +68,7 @@ add_action( 'init', function() {
     );
 
     register_post_type( 'publicacao', $args );
-}, 4 );
+}, 5 );
 
 // Metabox
 add_action( 'cmb2_admin_init', function() {

@@ -80,7 +80,7 @@ add_action( 'init', function() {
     );
 
     register_post_type( 'documento', $args );
-}, 5 );
+}, 7 );
 
 // Metabox
 add_action( 'cmb2_admin_init', function() {
