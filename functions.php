@@ -43,6 +43,7 @@ require_once('inc/empty-search.php');
 require_once('inc/relative-time.php');
 
 // Taxonomies
+require_once('inc/taxonomies/ps-taxonomy.php');
 require_once('inc/taxonomies/campus-taxonomy.php');
 require_once('inc/taxonomies/modalidade-taxonomy.php');
 require_once('inc/taxonomies/turno-taxonomy.php');
