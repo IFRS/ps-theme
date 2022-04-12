@@ -41,7 +41,7 @@ add_action( 'init', function() {
         'capabilities'               => $capabilities,
         'show_in_rest'               => true,
     );
-    // register_taxonomy( 'ps', array( 'chamada', 'curso', 'documento', 'edital', 'evento', 'publicacao' ), $args );
+    register_taxonomy( 'ps', array( 'chamada', 'curso', 'documento', 'edital', 'evento', 'publicacao' ), $args );
 }, 0 );
 
 // Metabox
