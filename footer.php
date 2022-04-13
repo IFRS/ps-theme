@@ -47,16 +47,23 @@
 
 <div class="creditos">
     <div class="container">
-        <p>
-            <!-- Wordpress -->
-            <a href="http://br.wordpress.org/" target="_blank" rel="noopener noreferrer">Desenvolvido com Wordpress<span class="visually-hidden"> (abre uma nova p&aacute;gina)</span></a>
-            &mdash;
-            <!-- Código-fonte GPL -->
-            <a href="https://github.com/IFRS/ps-theme/" target="_blank" rel="noopener noreferrer">C&oacute;digo-fonte deste tema sob a licen&ccedil;a GPLv3<span class="visually-hidden"> (abre uma nova p&aacute;gina)</span></a>
-            &mdash;
-            <!-- Creative Commons -->
-            <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener noreferrer"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/cc-by-nc-nd.png" alt="M&iacute;dia licenciada sob a Licen&ccedil;a Creative Commons Atribui&ccedil;&atilde;o-N&atilde;oComercial-SemDeriva&ccedil;&otilde;es 4.0 Internacional (abre uma nova p&aacute;gina)" /></a>
-        </p>
+        <!-- Wordpress -->
+        <a href="http://br.wordpress.org/" target="_blank" rel="noopener" data-bs-toggle="tooltip" title="Desenvolvido com Wordpress">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/creditos-wordpress.png" alt="Desenvolvido com Wordpress (abre uma nova p&aacute;gina)"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 0v8h8v-2h-1v1h-6v-6h1v-1h-2zm4 0l1.5 1.5-2.5 2.5 1 1 2.5-2.5 1.5 1.5v-4h-4z" /></svg>
+        </a>
+        &mdash;
+        <!-- Git -->
+        <a href="https://github.com/IFRS/ps-theme/" target="_blank" rel="noopener" data-bs-toggle="tooltip" title="C&oacute;digo-fonte deste tema sob a licen&ccedil;a GPLv3">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/creditos-git.png" alt="C&oacute;digo-fonte deste tema sob a licen&ccedil;a GPLv3 (abre uma nova p&aacute;gina)"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 0v8h8v-2h-1v1h-6v-6h1v-1h-2zm4 0l1.5 1.5-2.5 2.5 1 1 2.5-2.5 1.5 1.5v-4h-4z" /></svg>
+        </a>
+        &mdash;
+        <!-- Creative Commons -->
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener license" data-bs-toggle="tooltip" title="M&iacute;dia licenciada sob a Licen&ccedil;a Creative Commons Atribui&ccedil;&atilde;o-N&atilde;oComercial-CompartilhaIgual 4.0 Internacional">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/creditos-cc-by-nc-sa.png" alt="M&iacute;dia licenciada sob a Licen&ccedil;a Creative Commons Atribui&ccedil;&atilde;o-N&atilde;oComercial-CompartilhaIgual 4.0 Internacional (abre uma nova p&aacute;gina)"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 0v8h8v-2h-1v1h-6v-6h1v-1h-2zm4 0l1.5 1.5-2.5 2.5 1 1 2.5-2.5 1.5 1.5v-4h-4z" /></svg>
+        </a>
     </div>
 </div>
 
