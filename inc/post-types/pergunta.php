@@ -48,7 +48,7 @@ add_action( 'init', function() {
         'description'         => __( 'Perguntas', 'ifrs-ps-theme' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'revisions' ),
-        'taxonomies'          => array(),
+        'taxonomies'          => array( 'category' ),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
