@@ -70,15 +70,6 @@ add_action( 'init', function() {
 	register_post_type( 'chamada', $args );
 }, 6 );
 
-// Admin Columns
-add_filter( 'manage_chamada_posts_columns' , function($columns) {
-	if (array_key_exists('author', $columns)) {
-		unset($columns['author']);
-	}
-
-	return $columns;
-} );
-
 // Metabox
 add_action( 'cmb2_admin_init', function() {
 	$prefix = '_chamada_';
