@@ -75,6 +75,9 @@ add_action( 'cmb2_admin_init', function() {
         ),
     ) );
 
+    /**
+     * Options
+     */
     $preselect_metabox = new_cmb2_box( array(
 		'id'                => 'ps_preselect_metabox',
 		'title'             => __( 'Processo Seletivo Padrão', 'ifrs-ps-theme' ),
