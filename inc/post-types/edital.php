@@ -139,3 +139,15 @@ add_action( 'cmb2_admin_init', function() {
         ),
     ) );
 }, 1 );
+
+/* Custom Query */
+add_filter( 'pre_get_posts', function( $query ) {
+    if ($query->is_main_query() && $query->is_post_type_archive('edital')) {
+        $query->set('posts_per_page', -1);
+        $query->set('nopaging', true);
+        $query->set('post_parent', 0);
+        $query->set('orderby', 'date');
+        $query->set('order', 'DESC');
+    }
+    return $query;
+} );

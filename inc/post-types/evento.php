@@ -162,9 +162,11 @@ add_filter( 'manage_edit-evento_sortable_columns', function( $columns ) {
     return $columns;
 } );
 
-/* Default Sort */
+/* Custom Query */
 add_filter( 'pre_get_posts', function( $query ) {
-    if ($query->is_main_query() && $query->get('post_type') === 'evento') {
+    if ($query->is_main_query() && $query->is_post_type_archive('evento')) {
+        $query->set('posts_per_page', -1);
+        $query->set('nopaging', true);
         $query->set('orderby', 'meta_value_num');
         $query->set('order', 'ASC');
         $query->set('meta_key', array('_evento_data-inicio', '_evento_data-fim'));

@@ -33,9 +33,6 @@ require_once('inc/excerpt.php');
 // Paginação personalizada
 require_once('inc/pagination.php');
 
-// Queries personalizadas em determinados templates.
-require_once('inc/custom-queries.php');
-
 // Controla a busca com termo vazio
 require_once('inc/empty-search.php');
 
