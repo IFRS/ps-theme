@@ -20,7 +20,13 @@
                     <dt class="accordion-header" id="pergunta<?php the_ID(); ?>">
                         <button type="button" class="pt-4 accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#resposta<?php the_ID(); ?>" aria-expanded="false" aria-controls="resposta<?php the_ID(); ?>">
                             <span class="position-absolute top-0 start-0 badge bg-light text-dark">
-                                <?php the_category( ', ' ); ?>
+                                <?php
+                                    $categories = get_the_category();
+                                    foreach ($categories as $category) {
+                                        echo $category->name;
+                                        if ($category !== end($categories)) echo ', ';
+                                    }
+                                ?>
                             </span>
                             <?php the_title(); ?>
                         </button>
