@@ -46,19 +46,19 @@
 <div class="chamadas" aria-live="polite">
     <h2 class="chamadas__title"><?php echo chamada_get_option('title', __('Chamadas', 'ifrs-ps-theme')); ?></h2>
     <div id="formasingresso" class="chamadas__formasingresso">
-        <p class="chamadas__text">
-            <?php echo wpautop(chamada_get_option('desc', '')); ?>
-        </p>
-        <p class="chamadas__text">
+        <?php echo wpautop(chamada_get_option('desc', ''), true); ?>
+        <p>
             <?php _e('Selecione a sua forma de ingresso abaixo.', 'ifrs-ps-theme'); ?>
             <br>
-            <small><?php printf(__('Os resultados de cada forma de ingresso serão divulgados conforme <a href="%s">cronograma</a>.', 'ifrs-ps-theme'), get_post_type_archive_link( 'evento' )); ?></small>
+            <small>
+                <?php printf(__('Os resultados de cada forma de ingresso serão divulgados conforme <a href="%s">cronograma</a>.', 'ifrs-ps-theme'), get_post_type_archive_link( 'evento' )); ?>
+            </small>
         </p>
         <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
             <?php $formaingresso_obj = get_term($formaingresso_id); ?>
             <a class="btn btn-formaingresso btn-lg toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>"><span class="visually-hidden">Ingresso por </span><?php echo $formaingresso_obj->name; ?></a>
             <div id="campi-<?php echo $formaingresso_obj->slug; ?>" class="chamadas__campi">
-                <p class="chamadas__text">Selecione o seu Campus.</p>
+                <p><?php _e('Selecione o seu Campus.', 'ifrs-ps-theme'); ?></p>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?php echo $formaingresso_obj->name; ?></li>
@@ -67,7 +67,7 @@
                     <?php $campus_obj = get_term($campus_id); ?>
                     <a class="btn btn-campus toggle" href="#chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>"><span class="visually-hidden">Campus </span><?php echo $campus_obj->name; ?></a>
                     <div id="chamadas-<?php echo $campus_obj->slug; ?>-<?php echo $formaingresso_obj->slug; ?>" class="chamadas__list">
-                        <p class="chamadas__text">Confira abaixo as chamadas j&aacute; realizadas.</p>
+                        <p><?php _e('Confira abaixo as chamadas j&aacute; realizadas.', 'ifrs-ps-theme'); ?></p>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#formasingresso" class="breadcrumb-formaingresso">Formas de Ingresso</a></li>
                             <li class="breadcrumb-item"><a href="#campi-<?php echo $formaingresso_obj->slug; ?>" class="breadcrumb-campus"><?php echo $formaingresso_obj->name; ?></a></li>
