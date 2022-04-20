@@ -17,7 +17,11 @@
 
     &__text {
         margin-bottom: 1.5rem;
-        text-shadow: $shadow
+        text-shadow: $shadow;
+
+        a {
+            color: inherit
+        }
     }
 
     &__formasingresso {
