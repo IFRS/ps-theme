@@ -54,6 +54,11 @@
 
                 border-radius: 0;
                 text-transform: uppercase;
+
+                &:visited,
+                &:active {
+                    color: $gray-800;
+                }
             }
         }
     }
