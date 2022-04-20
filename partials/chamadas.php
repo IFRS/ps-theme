@@ -46,7 +46,14 @@
 <div class="chamadas" aria-live="polite">
     <h2 class="chamadas__title"><?php echo chamada_get_option('title', __('Chamadas', 'ifrs-ps-theme')); ?></h2>
     <div id="formasingresso" class="chamadas__formasingresso">
-        <p class="chamadas__text"><?php _e('Selecione a sua forma de ingresso.', 'ifrs-ps-theme'); ?><br><small><?php _e('Os resultados de cada forma de ingresso serão divulgados conforme cronograma.', 'ifrs-ps-theme'); ?></small></p>
+        <p class="chamadas__text">
+            <?php echo wpautop(chamada_get_option('desc', '')); ?>
+        </p>
+        <p class="chamadas__text">
+            <?php _e('Selecione a sua forma de ingresso abaixo.', 'ifrs-ps-theme'); ?>
+            <br>
+            <small><?php printf(__('Os resultados de cada forma de ingresso serão divulgados conforme <a href="%s">cronograma</a>.', 'ifrs-ps-theme'), get_post_type_archive_link( 'evento' )); ?></small>
+        </p>
         <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
             <?php $formaingresso_obj = get_term($formaingresso_id); ?>
             <a class="btn btn-formaingresso btn-lg toggle" href="#campi-<?php echo $formaingresso_obj->slug; ?>"><span class="visually-hidden">Ingresso por </span><?php echo $formaingresso_obj->name; ?></a>

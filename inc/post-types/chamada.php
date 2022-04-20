@@ -188,6 +188,19 @@ add_action( 'cmb2_admin_init', function() {
 		'type' => 'text',
 	) );
 
+	$options->add_field( array(
+		'name' => __( 'Descrição', 'ifrs-ps-theme' ),
+		'desc' => __( 'Texto da área de Chamadas na página inicial.', 'ifrs-ps-theme' ),
+		'id'   => 'desc',
+		'type' => 'wysiwyg',
+		'options' => array(
+			'wpautop'       => true,
+			'media_buttons' => false,
+			'textarea_rows' => get_option('default_post_edit_rows', 10),
+			'teeny'         => true,
+		),
+	) );
+
 	$formasingresso = get_terms(array(
 		'taxonomy' => 'formaingresso',
 		'orderby'  => 'name',
