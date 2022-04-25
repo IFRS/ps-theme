@@ -89,8 +89,8 @@ add_action( 'cmb2_admin_init', function() {
         'id'      => $prefix . 'vagas',
         'type'    => 'text',
         'attributes' => array(
-            'type' => 'number',
-            'pattern' => '\d*',
+            'inputmode' => 'numeric',
+            'pattern'   => '[0-9]*',
         ),
         'sanitization_cb' => 'absint',
         'escape_cb'       => 'absint',
