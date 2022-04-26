@@ -40,7 +40,7 @@
                 $resultados = get_post_meta(get_the_ID(), '_chamada_resultados_group');
             ?>
 
-            <div class="row">
+            <div class="row" id="masonry">
             <?php if (!empty($resultados)) : ?>
                 <?php foreach ($resultados[0] as $resultado) : ?>
                     <div class="col-auto col-md-6 col-xl-4">

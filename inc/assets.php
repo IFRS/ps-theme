@@ -24,6 +24,10 @@ add_action( 'wp_enqueue_scripts', function() {
         wp_enqueue_script('cronograma', get_template_directory_uri().'/js/cronograma.js', array('commons'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cronograma.js'), true);
     }
 
+    if (is_singular( 'chamada' )) {
+        wp_enqueue_script('chamadas', get_template_directory_uri().'/js/chamadas.js', array('commons'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamadas.js'), true);
+    }
+
     if (!WP_DEBUG) {
         wp_enqueue_script( 'vlibras', 'https://vlibras.gov.br/app/vlibras-plugin.js', array(), null, true );
         wp_add_inline_script( 'vlibras',
