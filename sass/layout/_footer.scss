@@ -1,8 +1,8 @@
 footer {
     background-color: #ffffff;
     color: $gray-800;
-    padding-top: $grid-gutter-width;
-    padding-bottom: 15px;
+    padding-top: $grid-gutter-width * 2;
+    padding-bottom: $grid-gutter-width;
 
     a {
         color: #000000;

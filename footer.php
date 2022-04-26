@@ -3,35 +3,11 @@
 <a href="#fim-conteudo" id="fim-conteudo" class="visually-hidden">Fim do conte&uacute;do</a>
 
 <!-- Rodapé -->
-<?php if ( has_nav_menu( 'main' ) ) : ?>
-<div class="site-map">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <?php
-                wp_nav_menu( array(
-                    'theme_location'    => 'main',
-                    'depth'             => 2,
-                    'container'         => 'nav',
-                    'container_class'   => '',
-                    'container_id'      => 'mapa-site',
-                    'menu_id'           => '',
-                    'menu_class'        => 'site-map__menu',
-                    'fallback_cb'       => null,
-                    'walker'            => new Site_Map_Walker(),
-                ));
-            ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
 <footer>
     <div class="container">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-12 col-md-5 col-lg-4 col-xl-3">
-                <a href="https://ifrs.edu.br/" data-bs-toggle="tooltip" data-bs-placement="top" title="Portal do IFRS" class="footer-logo"><img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-marca.png" alt="Marca do IFRS"/></a>
+                <a href="https://ifrs.edu.br/" data-bs-toggle="tooltip" data-bs-placement="top" title="Portal do IFRS" class="d-block"><img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-marca.png" alt="Marca do IFRS"/></a>
             </div>
             <div class="col-12 col-md-7 col-lg-8 col-xl-9">
                 <address class="contato">
