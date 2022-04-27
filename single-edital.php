@@ -28,11 +28,9 @@
                         <?php endif; ?>
                     </div>
                 </div>
-            </div>
-            <?php $anexos = get_post_meta(get_the_ID(), '_edital_anexos', true); ?>
-            <?php if (!empty($anexos)) : ?>
-                <div class="row">
-                    <div class="col">
+                <?php $anexos = get_post_meta(get_the_ID(), '_edital_anexos', true); ?>
+                <?php if (!empty($anexos)) : ?>
+                    <div class="col-12 col-md-6">
                         <h3 class="edital__files-title">Anexos</h3>
                         <div class="list-group">
                             <?php foreach ($anexos as $id => $anexo) : ?>
@@ -40,8 +38,8 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
         </div>
     </article>
     <?php
