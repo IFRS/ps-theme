@@ -1,12 +1,16 @@
 .creditos {
     background-color: #ffffff;
+    font-size: 0.8rem;
     padding: 1rem 0;
     text-align: center;
-    font-size: 0.8rem;
 
     a {
         color: #000000;
         display: inline-block;
         text-decoration: none;
+    }
+
+    img {
+        opacity: 0.75;
     }
 }
