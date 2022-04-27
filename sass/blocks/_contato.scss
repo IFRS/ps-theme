@@ -1,7 +1,11 @@
 .contato {
-    text-align: right;
+    margin-top: 0.5rem;
+
+    @include media-breakpoint-up(md) {
+        text-align: right;
+    }
 
     p {
-        margin-bottom: 3px;
+        margin-bottom: 0.25rem;
     }
 }
