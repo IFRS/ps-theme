@@ -33,6 +33,6 @@ function ps_relative_past_time($ts) {
     } elseif ($day_diff->m == 1) {
         return 'm&ecirc;s passado';
     } else {
-        return $day_diff->m . ' m&ecirc;ses atr&aacute;s';
+        return $day_diff->m . ' meses atr&aacute;s';
     }
 }
