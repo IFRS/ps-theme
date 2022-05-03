@@ -42,14 +42,7 @@
             content: '';
             border-top: 1px dotted #000000;
             flex: 1 1;
-        }
-
-        &::before {
-            margin-right: 0.5rem;
-        }
-
-        &::after {
-            margin-left: 0.5rem;
+            margin: 0 0.5rem;
         }
 
         &:hover {
