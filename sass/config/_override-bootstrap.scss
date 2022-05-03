@@ -12,6 +12,8 @@ $accordion-button-active-bg:   tint-color($secondary, 30%);
 $accordion-button-active-color: #ffffff;
 $accordion-button-bg:          #ffffff;
 
+$table-border-color:           null;
+
 $breadcrumb-font-size:         0.8rem;
 $breadcrumb-bg:                none;
 $breadcrumb-active-color:      null;
@@ -28,7 +30,7 @@ $dropdown-inner-border-radius: 0;
 $dropdown-link-color:          #ffffff;
 $dropdown-link-hover-color:    #ffffff;
 $dropdown-link-hover-bg:       null;
-$dropdown-link-active-color:   mull;
+$dropdown-link-active-color:   null;
 $dropdown-link-active-bg:      null;
 
 $caret-width:                  0.4rem;
@@ -51,6 +53,8 @@ $input-bg:                     null;
     $font-family-base:             "Inter", #{$font-family-sans-serif} !global;
 
     $accordion-bg:                 $gray-200 !global;
+
+    $table-border-color:           $gray-400 !global;
 
     $breadcrumb-active-color:      $gray-800 !global;
 

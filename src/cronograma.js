@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let tr = document.createElement('tr');
         let td = document.createElement('td');
         td.setAttribute('colspan', '2');
-        td.classList.add('ps-0', 'pe-0');
+        td.classList.add('border-0', 'ps-0', 'pe-0');
         let button = document.createElement('button');
         button.classList.add('btn', 'btn-block', 'cronograma__toggle');
         button.setAttribute('type', 'button');
