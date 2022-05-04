@@ -40,9 +40,16 @@
         &::before,
         &::after {
             content: '';
-            border-top: 1px dotted #000000;
+            border-top: 1px solid $table-border-color;
             flex: 1 1;
-            margin: 0 0.5rem;
+        }
+
+        &::before {
+            margin-right: 0.5rem;
+        }
+
+        &::after {
+            margin-left: 0.5rem;
         }
 
         &:hover {
