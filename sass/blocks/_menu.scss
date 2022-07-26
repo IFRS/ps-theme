@@ -19,6 +19,7 @@
         &:hover,
         &:focus {
             background-color: $secondary;
+            color: color-contrast($secondary);
         }
 
         // &:active,
