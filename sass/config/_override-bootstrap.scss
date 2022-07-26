@@ -1,7 +1,8 @@
 @import "node_modules/bootstrap/scss/functions";
 
-$primary:                      #2a3b5e;
-$secondary:                    #ef7900;
+$primary:                      #532e8e;
+// $secondary:                    #ffa300;
+$secondary:                    #f99900;
 $body-bg:                      #e1e1ed;
 $link-hover-decoration:        none;
 
@@ -28,7 +29,7 @@ $dropdown-border-radius:       none;
 $dropdown-border-width:        0;
 $dropdown-inner-border-radius: 0;
 $dropdown-link-color:          #ffffff;
-$dropdown-link-hover-color:    #ffffff;
+$dropdown-link-hover-color:    null;
 $dropdown-link-hover-bg:       null;
 $dropdown-link-active-color:   null;
 $dropdown-link-active-bg:      null;
@@ -47,6 +48,7 @@ $input-bg:                     null;
 %scope {
     @import "node_modules/bootstrap/scss/functions";
     @import "node_modules/bootstrap/scss/variables";
+    @import "node_modules/bootstrap/scss/maps";
     @import "node_modules/bootstrap/scss/mixins";
     @import "node_modules/bootstrap/scss/utilities";
 
@@ -59,8 +61,9 @@ $input-bg:                     null;
     $breadcrumb-active-color:      $gray-800 !global;
 
     $dropdown-bg:                  $primary !global;
+    $dropdown-link-hover-color:    color-contrast($secondary) !global;
     $dropdown-link-hover-bg:       $secondary !global;
-    $dropdown-link-active-color:   $gray-100 !global;
+    $dropdown-link-active-color:   color-contrast($secondary) !global;
     $dropdown-link-active-bg:      $secondary !global;
 
     $nav-pills-link-active-bg:     $link-color !global;
@@ -71,6 +74,7 @@ $input-bg:                     null;
 }
 
 @import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/maps";
 @import "node_modules/bootstrap/scss/mixins";
 @import "node_modules/bootstrap/scss/utilities";
 @import "node_modules/bootstrap/scss/root";
