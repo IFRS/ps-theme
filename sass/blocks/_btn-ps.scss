@@ -1,4 +1,4 @@
 .btn-ps {
-    @include button-variant($primary, $primary, color-contrast($primary), $secondary, $secondary);
+    @include button-variant($primary, $primary, color-contrast($primary), $secondary, $secondary, color-contrast($secondary));
     text-transform: uppercase;
 }
