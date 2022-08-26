@@ -1,24 +1,31 @@
+const { src, pipe, dest, series, parallel, watch } = require('gulp');
+const { name }       = require('./package.json');
 const argv           = require('minimist')(process.argv.slice(2));
 const babel          = require('gulp-babel');
 const browserSync    = require('browser-sync').create();
 const csso           = require('gulp-csso');
-const concat         = require('gulp-concat');
 const del            = require('del');
-const gulp           = require('gulp');
+const gulp_sass      = require('gulp-sass')(require('sass'));
 const path           = require('path');
 const PluginError    = require('plugin-error');
 const postcss        = require('gulp-postcss');
-const sass           = require('gulp-sass')(require('sass'));
 const sourcemaps     = require('gulp-sourcemaps');
 const uglify         = require('gulp-uglify');
 const webpack        = require('webpack');
 const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-gulp.task('clean', async function() {
-    return await del(['css/', 'js/', 'vendor/', 'dist/']);
-});
+const IS_PRODUCTION = argv.production || argv.prod;
 
-gulp.task('sass', function() {
+const BROWSERSYNC_URL = argv.URL || argv.url || 'localhost';
+
+let webpackPlugins = [];
+if (argv.bundleanalyzer) webpackPlugins.push(new BundleAnalyzer());
+
+async function clean() {
+    return await del(['css/', 'js/', 'dist/']);
+};
+
+function sass() {
     let postCSS_plugins = [
         require('postcss-flexibility'),
         require('pixrem'),
@@ -31,47 +38,39 @@ gulp.task('sass', function() {
         precision: 6,
     };
 
-    return gulp.src('sass/*.scss')
+    return src('sass/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass.sync(sass_options).on('error', sass.logError))
+    .pipe(gulp_sass.sync(sass_options).on('error', gulp_sass.logError))
     .pipe(postcss(postCSS_plugins))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('css/'))
+    .pipe(dest('css/'))
     .pipe(browserSync.stream());
-});
+};
 
-gulp.task('styles', gulp.series('sass', function css() {
-    return gulp.src('css/*.css')
+function css() {
+    return src('css/*.css')
     .pipe(csso())
-    .pipe(gulp.dest('css/'))
+    .pipe(dest('css/'))
     .pipe(browserSync.stream());
-}));
+};
 
-const webpackMode = argv.production ? 'production' : 'development';
-let webpackPlugins = [];
-argv.bundleanalyzer ? webpackPlugins.push(new BundleAnalyzer()) : null;
 
-gulp.task('webpack', function(done) {
+function bundle(done) {
     webpack({
-        mode: webpackMode,
-        devtool: 'source-map',
+        mode: IS_PRODUCTION ? 'production' : 'development',
+        devtool: IS_PRODUCTION ? 'source-map' : 'eval-source-map',
         entry: {
-            ie: './src/ie.js',
-            ps: './src/ps.js',
-            cursos: './src/cursos.js',
-            cronograma: './src/cronograma.js',
-            chamadas: './src/chamadas.js',
+            'ie': './src/ie.js',
+            'ps': './src/ps.js',
+            'cursos': './src/cursos.js',
+            'cronograma': './src/cronograma.js',
+            'chamadas': './src/chamadas.js',
         },
         output: {
             path: path.resolve(__dirname, 'js'),
             filename: '[name].js',
         },
-        plugins: [
-            new webpack.ProvidePlugin({
-                $: 'jquery',
-            }),
-            ...webpackPlugins
-        ],
+        plugins: [...webpackPlugins],
         optimization: {
             minimize: false,
             splitChunks: {
@@ -86,23 +85,18 @@ gulp.task('webpack', function(done) {
             },
         },
     }, function(err, stats) {
-        if (err) throw new PluginError('webpack', {
-            message: err.toString({
-                colors: true
-            })
-        });
-        if (stats.hasErrors()) throw new PluginError('webpack', {
-            message: stats.toString({
-                colors: true
-            })
-        });
+        if (err) throw new PluginError('webpack', err.toString({ colors: true }));
+
+        if (stats.hasErrors()) throw new PluginError('webpack', stats.toString({ colors: true }));
+
         browserSync.reload();
+
         done();
     });
-});
+};
 
-gulp.task('scripts', gulp.series('webpack', function js() {
-    return gulp.src('js/*.js')
+function js() {
+    return src('js/*.js')
     .pipe(babel({
         presets: [
             [
@@ -112,12 +106,12 @@ gulp.task('scripts', gulp.series('webpack', function js() {
         ]
     }))
     .pipe(uglify())
-    .pipe(gulp.dest('js/'))
+    .pipe(dest('js/'))
     .pipe(browserSync.stream());
-}));
+};
 
-gulp.task('dist', function() {
-    return gulp.src([
+function dist() {
+    return src([
         '**',
         '!.**',
         '!css/*.map',
@@ -130,30 +124,38 @@ gulp.task('dist', function() {
         '!package-lock.json',
         '!package.json'
     ])
-    .pipe(gulp.dest('dist/ifrs-ps-theme/'));
-});
+    .pipe(dest('dist/' + name));
+};
 
-if (argv.production) {
-    gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'scripts'), 'dist'));
-} else {
-    gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'webpack')));
-}
-
-const proxyURL = argv.URL || argv.url || 'localhost';
-
-gulp.task('default', gulp.series('build', function watch() {
+function serve() {
     browserSync.init({
+        ui: argv.ui,
         ghostMode: false,
-        notify: false,
         online: false,
         open: false,
-        host: proxyURL,
-        proxy: proxyURL,
+        notify: false,
+        host: BROWSERSYNC_URL,
+        proxy: BROWSERSYNC_URL,
     });
 
-    gulp.watch('sass/**/*.scss', gulp.series('sass'));
+    gulp.watch('sass/**/*.scss', sass);
 
-    gulp.watch('src/**/*.js', gulp.series('webpack'));
+    gulp.watch('src/**/*.js', bundle);
 
     gulp.watch('**/*.php').on('change', browserSync.reload);
-}));
+};
+
+exports.clean = clean;
+exports.sass = sass;
+exports.bundle = bundle;
+
+const styles = series(sass, css);
+exports.styles = styles;
+
+const scripts = series(bundle, js);
+exports.scripts = scripts;
+
+const build = IS_PRODUCTION ? series(clean, parallel(styles, scripts), dist) : series(clean, parallel(sass, bundle));
+exports.build = build;
+
+exports.default = series(build, serve);
