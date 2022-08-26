@@ -1,6 +1,7 @@
 <?php
 add_action( 'wp_enqueue_scripts', function() {
-    /* wp_enqueue_style( $handle, $src, $deps, $ver, $media ); */
+    /* wp_register_style( $handle, $src, $deps, $ver, $media ); */
+    /* wp_enqueue_style( $handle[, $src, $deps, $ver, $media] ); */
 
     wp_enqueue_style('vendor', get_stylesheet_directory_uri().'/css/vendor.css', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/vendor.css'), 'all');
 
@@ -33,7 +34,7 @@ add_action( 'wp_enqueue_scripts', function() {
         wp_add_inline_script( 'vlibras',
             "
                 document.addEventListener('DOMContentLoaded', function() {
-                    new window.VLibras.Widget('https://vlibras.gov.br/app');
+                    if (window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app');
                 });
             "
         );
