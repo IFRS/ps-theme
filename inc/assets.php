@@ -13,20 +13,25 @@ add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_script( 'ie', get_template_directory_uri().'/js/ie.js', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ie.js'), false );
     wp_script_add_data( 'ie', 'conditional', 'lt IE 9' );
 
-    wp_enqueue_script('commons', get_template_directory_uri().'/js/commons.js', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/commons.js'), true);
+    $has_commons = file_exists(get_template_directory_uri().'/js/commons.js');
+    $commons_deps = $has_commons ? array('commons') : array();
 
-    wp_enqueue_script('ps', get_template_directory_uri().'/js/ps.js', array('commons'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ps.js'), true);
+    if ($has_commons) {
+        wp_enqueue_script('commons', get_template_directory_uri().'/js/commons.js', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/commons.js'), true);
+    }
+
+    wp_enqueue_script('ps', get_template_directory_uri().'/js/ps.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ps.js'), true);
 
     if (is_post_type_archive( 'curso' ) || is_tax('modalidade')) {
-        wp_enqueue_script('cursos', get_template_directory_uri().'/js/cursos.js', array('commons'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cursos.js'), true);
+        wp_enqueue_script('cursos', get_template_directory_uri().'/js/cursos.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cursos.js'), true);
     }
 
     if (is_post_type_archive( 'evento' )) {
-        wp_enqueue_script('cronograma', get_template_directory_uri().'/js/cronograma.js', array('commons'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cronograma.js'), true);
+        wp_enqueue_script('cronograma', get_template_directory_uri().'/js/cronograma.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cronograma.js'), true);
     }
 
     if (is_singular( 'chamada' )) {
-        wp_enqueue_script('chamadas', get_template_directory_uri().'/js/chamadas.js', array('commons'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamadas.js'), true);
+        wp_enqueue_script('chamadas', get_template_directory_uri().'/js/chamadas.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamadas.js'), true);
     }
 
     if (!WP_DEBUG) {
