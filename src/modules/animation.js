@@ -9,7 +9,7 @@ const intersectionObserver = effect => new IntersectionObserver((entries, observ
     });
 });
 
-$(function() {
+jQuery(function($) {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     if (mediaQuery && !mediaQuery.matches) {

@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Javascript to enable link to tab
     var hash = document.location.hash;
     if (hash) {
-        $('.list-campi a[href="'+hash+'"]').tab('show');
+        jQuery('.list-campi a[href="'+hash+'"]').tab('show');
     }
 
     // DataTables Configuration
-    $('.table-cursos').DataTable({
+    jQuery('.table-cursos').DataTable({
         searching: false,
         paging: false,
         bAutoWidth: false,
