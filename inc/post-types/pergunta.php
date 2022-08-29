@@ -5,6 +5,7 @@ add_action( 'init', function() {
         'singular_name'      => _x( 'Pergunta', 'Post Type Singular Name', 'ifrs-ps-theme' ),
         'menu_name'          => __( 'Perguntas', 'ifrs-ps-theme' ),
         'name_admin_bar'     => __( 'Perguntas', 'ifrs-ps-theme' ),
+        'archives'           => __( 'Perguntas Frequentes', 'ifrs-ps-theme' ),
         'parent_item_colon'  => __( 'Pergunta principal:', 'ifrs-ps-theme' ),
         'all_items'          => __( 'Todas as Perguntas', 'ifrs-ps-theme' ),
         'add_new_item'       => __( 'Adicionar Nova Pergunta', 'ifrs-ps-theme' ),

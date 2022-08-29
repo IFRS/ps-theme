@@ -5,6 +5,7 @@ add_action( 'init', function() {
         'singular_name'       => _x( 'Curso', 'Post Type Singular Name', 'ifrs-ps-theme' ),
         'menu_name'           => __( 'Cursos', 'ifrs-ps-theme' ),
         'name_admin_bar'      => __( 'Cursos', 'ifrs-ps-theme' ),
+        'archives'            => __( 'Cursos', 'ifrs-ps-theme' ),
         'parent_item_colon'   => __( 'Curso Pai:', 'ifrs-ps-theme' ),
         'all_items'           => __( 'Todos os Cursos', 'ifrs-ps-theme' ),
         'add_new_item'        => __( 'Adicionar Novo Curso', 'ifrs-ps-theme' ),

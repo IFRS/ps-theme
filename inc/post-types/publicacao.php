@@ -5,6 +5,7 @@ add_action( 'init', function() {
         'singular_name'      => _x( 'Publicação', 'Post Type Singular Name', 'ifrs-ps-theme' ),
         'menu_name'          => __( 'Publicações', 'ifrs-ps-theme' ),
         'name_admin_bar'     => __( 'Publicações', 'ifrs-ps-theme' ),
+        'archives'           => __( 'Publicações', 'ifrs-ps-theme' ),
         'parent_item_colon'  => __( 'Publicação principal:', 'ifrs-ps-theme' ),
         'all_items'          => __( 'Todas as Publicações', 'ifrs-ps-theme' ),
         'add_new_item'       => __( 'Adicionar Nova Publicação', 'ifrs-ps-theme' ),

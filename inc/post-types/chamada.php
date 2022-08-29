@@ -5,6 +5,7 @@ add_action( 'init', function() {
 		'singular_name'          => _x( 'Chamada', 'Post Type Singular Name', 'ifrs-ps-theme' ),
 		'menu_name'              => __( 'Chamadas', 'ifrs-ps-theme' ),
 		'name_admin_bar'         => __( 'Chamadas', 'ifrs-ps-theme' ),
+		'archives'               => __( 'Resultados', 'ifrs-ps-theme' ),
 		'parent_item_colon'      => __( 'Chamada mãe:', 'ifrs-ps-theme' ),
 		'all_items'              => __( 'Todas os Chamadas', 'ifrs-ps-theme' ),
 		'add_new_item'           => __( 'Adicionar Nova Chamada', 'ifrs-ps-theme' ),
