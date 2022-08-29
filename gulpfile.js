@@ -138,11 +138,11 @@ function serve() {
         proxy: BROWSERSYNC_URL,
     });
 
-    gulp.watch('sass/**/*.scss', sass);
+    watch('sass/**/*.scss', sass);
 
-    gulp.watch('src/**/*.js', bundle);
+    watch('src/**/*.js', bundle);
 
-    gulp.watch('**/*.php').on('change', browserSync.reload);
+    watch('**/*.php').on('change', browserSync.reload);
 };
 
 exports.clean = clean;
