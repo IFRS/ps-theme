@@ -22,6 +22,9 @@
         <p class="cronograma__meta">Atualizado em <?php echo $atualizacao; ?></p>
     <?php endif; ?>
     <?php if (have_posts()) : ?>
+        <div class="d-grid d-md-flex justify-content-md-end">
+            <button id="ics" class="btn btn-light btn-sm">Exportar Cronograma</button>
+        </div>
         <div class="table-responsive-sm mt-3">
             <table class="table cronograma__table">
                 <thead class="thead-light">

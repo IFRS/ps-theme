@@ -77,13 +77,15 @@ add_action( 'init', function() {
         'map_meta_cap'          => true,
         'capabilities'          => $capabilities,
         'rewrite'               => array('slug' => 'cronograma'),
+        'show_in_rest'          => true,
+        'rest_base'             => 'cronograma',
     );
 
     register_post_type( 'evento', $args );
 }, 2 );
 
 // Metabox
-add_action( 'cmb2_admin_init', function() {
+add_action( 'cmb2_init', function() {
     $prefix = '_evento_';
 
     $datas = new_cmb2_box( array(
@@ -93,6 +95,7 @@ add_action( 'cmb2_admin_init', function() {
         'context'       => 'normal',
         'priority'      => 'high',
         'show_names'    => true,
+        'show_in_rest'  => WP_REST_Server::READABLE,
     ) );
 
     $datas->add_field( array(
@@ -100,6 +103,7 @@ add_action( 'cmb2_admin_init', function() {
         'desc' => 'Em caso de data única, preencha os dois campos com a mesma data.',
         'type' => 'title',
         'id'   => $prefix . 'datas_desc',
+        'show_in_rest' => false,
     ) );
 
     $datas->add_field( array(
