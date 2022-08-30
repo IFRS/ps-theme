@@ -10,18 +10,7 @@ $campi_all = get_terms(array(
     'fields' => 'ids',
 ));
 
-$formasingresso_selecionadas = array();
-$widgets = get_option('widget_chamadas_widget');
-
-if (isset($widgets)) {
-    $instance = reset($widgets);
-    foreach ($formasingresso_all as $formaingresso_id) {
-        if (isset($instance[$formaingresso_id]) && $instance[$formaingresso_id] == '1') {
-            $formasingresso_selecionadas[] = $formaingresso_id;
-        }
-    }
-}
-
+$formasingresso_selecionadas = chamada_get_option('formas', array());
 $chamadas = array();
 
 foreach ($formasingresso_selecionadas as $id1) {
@@ -56,7 +45,7 @@ foreach ($formasingresso_selecionadas as $id1) {
 <?php get_header(); ?>
 
 <section class="container">
-<?php if (is_active_widget(false, false, 'chamadas_widget')) : ?>
+<?php if (chamada_get_option('publish', false)) : ?>
     <div class="chamadas-lista">
         <div class="row">
             <div class="col-12">
@@ -72,7 +61,7 @@ foreach ($formasingresso_selecionadas as $id1) {
         <?php endif; ?>
         <div class="row">
             <div class="col-12">
-                <ul class="nav nav-pills mb-3" role="tablist">
+                <ul class="nav nav-pills justify-content-center mb-3" role="tablist">
                     <?php foreach ($chamadas as $formaingresso_id => $campi) : ?>
                         <?php $formaingresso_obj = get_term($formaingresso_id); ?>
                         <li class="nav-item">
