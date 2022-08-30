@@ -93,4 +93,15 @@ add_action('widgets_init', function() {
         'before_title'  => '<h3 class="visually-hidden">',
         'after_title'   => '</h3>',
     ));
+    register_sidebar(array(
+        'name'          => 'Contato',
+        'id'            => 'contato',
+        'description'   => 'Área de contato no rodapé das páginas.',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="visually-hidden">',
+        'after_title'   => '</h3>',
+        'before_sidebar' => '<address id="%1$s" class="contato %2$s">',
+        'after_sidebar'  => '</address>',
+    ));
 }, 10);
