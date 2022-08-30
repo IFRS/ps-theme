@@ -1,9 +1,8 @@
 @import "node_modules/bootstrap/scss/functions";
 
-$primary:                      #532e8e;
-// $secondary:                    #ffa300;
-$secondary:                    #f99900;
-$body-bg:                      #e1e1ed;
+$primary:                      shade-color(#2f9e41, 20%);
+$secondary:                    #cd191e;
+$body-bg:                      #e5e5e5;
 $link-hover-decoration:        none;
 
 $font-family-base:             null;
