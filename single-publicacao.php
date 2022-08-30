@@ -17,11 +17,15 @@
             <?php the_content(); ?>
             <?php $files = get_post_meta( get_the_ID(), '_publicacao_arquivos', true ); ?>
             <?php if (!empty($files)) : ?>
-                <h3>Arquivos</h3>
-                <div class="list-group">
-                <?php foreach ($files as $id => $file) : ?>
-                    <a class="list-group-item list-group-item-action" href="<?php echo esc_url($file); ?>"><?php echo get_the_title($id); ?></a>
-                <?php endforeach; ?>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Arquivos</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                    <?php foreach ($files as $id => $file) : ?>
+                        <a class="list-group-item list-group-item-action" href="<?php echo esc_url($file); ?>"><?php echo get_the_title($id); ?></a>
+                    <?php endforeach; ?>
+                    </div>
                 </div>
             <?php endif; ?>
         </div>
