@@ -38,8 +38,8 @@
 
     <div class="col-auto">
         <?php $field_id = uniqid(); ?>
-        <label class="visually-hidden" for="<?php echo $field_id; ?>">Termo da busca</label>
-        <input class="form-control form-control-sm my-1 mr-1" type="text" value="<?php echo (get_search_query() ? get_search_query() : ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar cursos..."/>
+        <label class="visually-hidden" for="<?php echo $field_id; ?>">Buscar por:</label>
+        <input class="form-control form-control-sm my-1 mr-1" type="text" value="<?php echo (get_search_query() ? get_search_query() : ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar nos cursos..."/>
     </div>
 
     <div class="col-auto">
