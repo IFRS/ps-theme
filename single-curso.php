@@ -6,10 +6,9 @@
     <article class="post">
         <h2 class="post__title"><?php the_title(); ?></h2>
         <div class="post__content">
-            <?php the_content(); ?>
             <hr>
             <div class="row align-items-center">
-                <p class="col-auto me-4">
+                <p class="col-auto my-2">
                     <strong>Dura&ccedil;&atilde;o: </strong>
                     <?php
                         $duracao = get_post_meta(get_the_ID(), '_curso_duracao', true);
@@ -21,7 +20,7 @@
                     ?>
                 </p>
 
-                <p class="col-auto me-4">
+                <p class="col-auto my-2">
                     <strong>Vagas: </strong>
                     <?php
                         $vagas = get_post_meta(get_the_ID(), '_curso_vagas', true);
@@ -35,7 +34,7 @@
 
                 <?php $turnos = get_the_terms(get_the_ID(), 'turno'); ?>
                 <?php $turnos_counter = 1; ?>
-                <p class="col-auto me-4">
+                <p class="col-auto my-2">
                     <strong><?php echo _n( 'Turno', 'Turnos', count($turnos), 'ifrs-ps-theme' ) ?>: </strong>
                     <?php
                         if (!empty($turnos)) {
@@ -50,7 +49,7 @@
                 </p>
 
                 <?php $modalidades = get_the_terms(get_the_ID(), 'modalidade'); ?>
-                <p class="col-auto me-4">
+                <p class="col-auto my-2">
                     <strong>Modalidade: </strong>
                     <?php
                         if (!empty($modalidades)) {
@@ -64,7 +63,7 @@
                 </p>
 
                 <?php $campi = get_the_terms(get_the_ID(), 'campus'); ?>
-                <p class="col-auto me-4">
+                <p class="col-auto my-2">
                     <strong>Curso oferecido no Campus: </strong>
                     <?php
                         if (!empty($campi)) {
@@ -85,6 +84,8 @@
                     </div>
                 <?php endif; ?>
             </div>
+            <hr>
+            <?php the_content(); ?>
         </div>
     </article>
     <?php
