@@ -1,48 +1,48 @@
 @import "node_modules/bootstrap/scss/functions";
 
-$primary:                      shade-color(#2f9e41, 20%);
-$secondary:                    #cd191e;
-$body-bg:                      #e5e5e5;
-$link-hover-decoration:        none;
+$primary:                       shade-color(#2f9e41, 20%);
+$secondary:                     #cd191e;
+$body-bg:                       #e5e5e5;
+$link-hover-decoration:         none;
 
-$font-family-base:             null;
+$font-family-base:              null;
 
-$accordion-bg:                 null;
-$accordion-button-active-bg:   tint-color($secondary, 30%);
+$accordion-bg:                  null;
+$accordion-button-active-bg:    tint-color($secondary, 30%);
 $accordion-button-active-color: #ffffff;
-$accordion-button-bg:          #ffffff;
+$accordion-button-bg:           #ffffff;
 
-$table-border-color:           null;
+$table-border-color:            null;
 
-$breadcrumb-font-size:         0.8rem;
-$breadcrumb-bg:                none;
-$breadcrumb-active-color:      null;
-$breadcrumb-padding-y:         1rem;
+$breadcrumb-font-size:          0.8rem;
+$breadcrumb-bg:                 none;
+$breadcrumb-active-color:       null;
+$breadcrumb-padding-y:          1rem;
 
-$btn-border-radius:            0;
-$btn-border-radius-lg:         0;
+$btn-border-radius:             0;
+$btn-border-radius-lg:          0;
 
-$dropdown-padding-y:           0;
-$dropdown-bg:                  null;
-$dropdown-border-radius:       none;
-$dropdown-border-width:        0;
-$dropdown-inner-border-radius: 0;
-$dropdown-link-color:          #ffffff;
-$dropdown-link-hover-color:    null;
-$dropdown-link-hover-bg:       null;
-$dropdown-link-active-color:   null;
-$dropdown-link-active-bg:      null;
+$dropdown-padding-y:            0;
+$dropdown-bg:                   null;
+$dropdown-border-radius:        none;
+$dropdown-border-width:         0;
+$dropdown-inner-border-radius:  0;
+$dropdown-link-color:           #ffffff;
+$dropdown-link-hover-color:     null;
+$dropdown-link-hover-bg:        null;
+$dropdown-link-active-color:    null;
+$dropdown-link-active-bg:       null;
 
-$caret-width:                  0.4rem;
+$caret-width:                   0.4rem;
 
-$nav-pills-link-active-color:  #ffffff;
-$nav-pills-link-active-bg:     null;
+$nav-pills-link-active-color:   #ffffff;
+$nav-pills-link-active-bg:      null;
 
-$navbar-light-color:           #ffffff;
-$navbar-light-hover-color:     #ffffff;
-$navbar-light-active-color:    null;
+$navbar-light-color:            #ffffff;
+$navbar-light-hover-color:      #ffffff;
+$navbar-light-active-color:     null;
 
-$input-bg:                     null;
+$input-bg:                      null;
 
 %scope {
     @import "node_modules/bootstrap/scss/functions";
@@ -51,25 +51,25 @@ $input-bg:                     null;
     @import "node_modules/bootstrap/scss/mixins";
     @import "node_modules/bootstrap/scss/utilities";
 
-    $font-family-base:             "Inter", #{$font-family-sans-serif} !global;
+    $font-family-base:           "Inter", #{$font-family-sans-serif} !global;
 
-    $accordion-bg:                 $gray-200 !global;
+    $accordion-bg:               $gray-200 !global;
 
-    $table-border-color:           $gray-400 !global;
+    $table-border-color:         $gray-400 !global;
 
-    $breadcrumb-active-color:      $gray-800 !global;
+    $breadcrumb-active-color:    $gray-800 !global;
 
-    $dropdown-bg:                  $primary !global;
-    $dropdown-link-hover-color:    color-contrast($secondary) !global;
-    $dropdown-link-hover-bg:       $secondary !global;
-    $dropdown-link-active-color:   color-contrast($secondary) !global;
-    $dropdown-link-active-bg:      $secondary !global;
+    $dropdown-bg:                $primary !global;
+    $dropdown-link-hover-color:  color-contrast($secondary) !global;
+    $dropdown-link-hover-bg:     $secondary !global;
+    $dropdown-link-active-color: color-contrast($secondary) !global;
+    $dropdown-link-active-bg:    $secondary !global;
 
-    $nav-pills-link-active-bg:     $link-color !global;
+    $nav-pills-link-active-bg:   $link-color !global;
 
-    $navbar-light-active-color:    $gray-100 !global;
+    $navbar-light-active-color:  $gray-100 !global;
 
-    $input-bg:                     $gray-100 !global;
+    $input-bg:                   $gray-100 !global;
 }
 
 @import "node_modules/bootstrap/scss/variables";
@@ -96,16 +96,16 @@ $input-bg:                     null;
 @import "node_modules/bootstrap/scss/pagination";
 @import "node_modules/bootstrap/scss/badge";
 @import "node_modules/bootstrap/scss/alert";
-@import "node_modules/bootstrap/scss/progress";
+// @import "node_modules/bootstrap/scss/progress";
 @import "node_modules/bootstrap/scss/list-group";
 @import "node_modules/bootstrap/scss/close";
-@import "node_modules/bootstrap/scss/toasts";
-@import "node_modules/bootstrap/scss/modal";
+// @import "node_modules/bootstrap/scss/toasts";
+// @import "node_modules/bootstrap/scss/modal";
 @import "node_modules/bootstrap/scss/tooltip";
-@import "node_modules/bootstrap/scss/popover";
-@import "node_modules/bootstrap/scss/carousel";
-@import "node_modules/bootstrap/scss/spinners";
-@import "node_modules/bootstrap/scss/offcanvas";
-@import "node_modules/bootstrap/scss/placeholders";
+// @import "node_modules/bootstrap/scss/popover";
+// @import "node_modules/bootstrap/scss/carousel";
+// @import "node_modules/bootstrap/scss/spinners";
+// @import "node_modules/bootstrap/scss/offcanvas";
+// @import "node_modules/bootstrap/scss/placeholders";
 @import "node_modules/bootstrap/scss/helpers";
 @import "node_modules/bootstrap/scss/utilities/api";
