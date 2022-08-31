@@ -1,19 +1,23 @@
 header {
     background-color: $primary;
-    background-image: url('../img/header-bg.xs.png');
+    background-image: var(--bg-xs, none);
     background-position: center top;
     background-repeat: repeat-x;
     background-size: cover;
 
+    @include media-breakpoint-up(sm) {
+        background-image: var(--bg-sm, none);
+    }
+
     @include media-breakpoint-up(md) {
-        background-image: url('../img/header-bg.md.png');
+        background-image: var(--bg-md, none);
+    }
+
+    @include media-breakpoint-up(lg) {
+        background-image: var(--bg-lg, none);
     }
 
     @include media-breakpoint-up(xl) {
-        background-image: url('../img/header-bg.xl.png');
-    }
-
-    @include media-breakpoint-up(xxl) {
-        background-image: url('../img/header-bg.xxl.png');
+        background-image: var(--bg-full, none);
     }
 }

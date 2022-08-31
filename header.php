@@ -23,9 +23,10 @@
     <meta name="twitter:creator" content="@IF_RS">
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo esc_url( wp_get_canonical_url() ); ?>">
-    <?php if (!has_site_icon()) echo get_template_part('partials/favicons'); ?>
+    <?php echo get_template_part('partials/favicons'); ?>
     <!-- WP -->
     <?php wp_head(); ?>
+    <?php echo get_template_part('partials/header-image'); ?>
 </head>
 
 <body <?php body_class() ?>>
@@ -39,7 +40,12 @@
         <section class="container header">
             <div class="header__principal">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
-                    <img src="<?php header_image(); ?>" width="650" height="401" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
+                    <?php if (has_custom_logo()) : ?>
+                        <?php $logo = wp_get_attachment_image_src(get_theme_mod('custom_logo') , 'full'); ?>
+                        <img src="<?php echo esc_url($logo[0]) ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial">
+                    <?php else : ?>
+                        <img src="<?php echo get_stylesheet_directory_uri() . '/img/header-ps.png'; ?>" width="650" height="401" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
+                    <?php endif; ?>
                 </a>
                 <div class="header__social">
                     <ul class="menu-social">

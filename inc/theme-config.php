@@ -34,11 +34,40 @@ add_theme_support( 'responsive-embeds' );
 // Add theme support for document <title> tag
 add_theme_support( 'title-tag' );
 
-// Habilita a personalização de cabeçalho
-add_theme_support('custom-header', array(
-    'default-image'          => get_stylesheet_directory_uri() . '/img/header-ps.png',
-    'width'                  => 1140,
-    'height'                 => 350,
+// Media Sizes (from Bootstrap 5)
+add_image_size( 'xs', 576, 576 );
+add_image_size( 'sm', 768, 768 );
+add_image_size( 'md', 992, 992 );
+add_image_size( 'lg', 1200, 1200 );
+
+// Media Sizes for content (medium_large is 768px by default)
+add_action( 'after_switch_theme', function() {
+    update_option( 'thumbnail_size_w', 320 );
+    update_option( 'thumbnail_size_h', 320 );
+    update_option( 'thumbnail_crop', 0 );
+
+    update_option( 'medium_size_w', 516 );
+    update_option( 'medium_size_h', 516 );
+
+    update_option( 'large_size_w', 936 );
+    update_option( 'large_size_h', 936 );
+} );
+
+// Enable Custom Logo
+add_theme_support( 'custom-logo', array(
+    'height'               => 400,
+    'width'                => 720,
+    'flex-height'          => true,
+    'flex-width'           => true,
+    'header-text'          => array(),
+    'unlink-homepage-logo' => false,
+) );
+
+// Enable Custom Header Image
+add_theme_support( 'custom-header', array(
+    'default-image'          => get_stylesheet_directory_uri() . '/img/header-bg.png',
+    'width'                  => 1920,
+    'height'                 => 600,
     'flex-height'            => true,
     'flex-width'             => false,
     'uploads'                => true,
@@ -48,7 +77,7 @@ add_theme_support('custom-header', array(
     'wp-head-callback'       => '',
     'admin-head-callback'    => '',
     'admin-preview-callback' => '',
-));
+) );
 
 // Starter Content
 add_theme_support('starter_content',array(
