@@ -127,22 +127,40 @@ add_action( 'cmb2_init', function() {
             'required'    => 'required',
         ),
     ) );
+
+    $marco = new_cmb2_box( array(
+        'id'            => $prefix . 'fases',
+        'title'         => __( 'Fases', 'ifrs-ps-theme' ),
+        'object_types'  => array( 'evento' ),
+        'context'       => 'side',
+        'priority'      => 'low',
+        'show_names'    => false,
+    ) );
+
+    $marco->add_field( array(
+        'name' => '',
+        'desc' => 'Marque caso esse evento seja importante.',
+        'type' => 'checkbox',
+        'id'   => $prefix . 'marco',
+    ) );
 }, 5 );
 
 /* Admin Columns */
 add_filter( 'manage_evento_posts_columns' , function( $columns ) {
-    if (array_key_exists('date', $columns)) {
-        $new = array();
-        foreach ($columns as $key => $value) {
-            if ($key === 'date') {
-                $new['datas'] = __('Período', 'ifrs-ps-theme');
-            }
-            $new[$key] = $value;
-        }
-        return $new;
-    } else {
-        return $columns;
+    $pos = array_search('date', array_keys($columns));
+
+    if ($pos) {
+        return array_merge(
+            array_slice($columns, 0 , $pos),
+            array(
+                'datas' => __('Período', 'ifrs-ps-theme'),
+                'marco' => __('Fase Importante', 'ifrs-ps-theme'),
+            ),
+            array_slice($columns, $pos)
+        );
     }
+
+    return $columns;
 } );
 
 add_action( 'manage_evento_posts_custom_column' , function( $column, $post_id ) {
@@ -158,13 +176,12 @@ add_action( 'manage_evento_posts_custom_column' , function( $column, $post_id ) 
                 echo date_i18n(get_option('date_format'), $data_fim);
             }
 		break;
+        case 'marco':
+            $is_marco = get_post_meta( $post_id, '_evento_marco', true );
+            echo !empty($is_marco) ? 'Sim' : '-';
+        break;
 	}
 }, 10, 2 );
-
-add_filter( 'manage_edit-evento_sortable_columns', function( $columns ) {
-    $columns['datas'] = 'Datas';
-    return $columns;
-} );
 
 /* Custom Query */
 add_filter( 'pre_get_posts', function( $query ) {
