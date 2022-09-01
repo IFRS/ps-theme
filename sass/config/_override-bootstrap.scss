@@ -46,6 +46,7 @@ $navbar-light-active-color:     null;
 $input-bg:                      null;
 
 %scope {
+    @import "vars";
     @import "node_modules/bootstrap/scss/functions";
     @import "node_modules/bootstrap/scss/variables";
     @import "node_modules/bootstrap/scss/maps";
@@ -67,7 +68,7 @@ $input-bg:                      null;
     $dropdown-link-active-bg:    $secondary !global;
 
     // $nav-pills-link-active-bg:   $link-color !global;
-    $nav-pills-link-active-bg:   #cd191e !global;
+    $nav-pills-link-active-bg:   $cor-destaque !global;
 
     $navbar-light-active-color:  $gray-100 !global;
 

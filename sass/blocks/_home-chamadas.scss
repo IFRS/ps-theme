@@ -1,22 +1,9 @@
 .home-chamadas {
-    background-color: $primary;
-    background-image: url('../img/chamadas-bg.xs.png');
+    background-color: $gray-700;
     background-position: center top;
     background-repeat: repeat;
     color: #ffffff;
     padding: 2rem 0;
-
-    @include media-breakpoint-up(md) {
-        background-image: url('../img/chamadas-bg.md.png');
-    }
-
-    @include media-breakpoint-up(xl) {
-        background-image: url('../img/chamadas-bg.xl.png');
-    }
-
-    @include media-breakpoint-up(xxl) {
-        background-image: url('../img/chamadas-bg.xxl.png');
-    }
 
     .container {
         min-height: 350px;

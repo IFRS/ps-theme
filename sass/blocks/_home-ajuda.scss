@@ -50,7 +50,7 @@
 
             &__link {
                 @extend .btn;
-                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $secondary, $secondary, color-contrast($secondary));
+                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $cor-destaque, $cor-destaque, color-contrast($cor-destaque));
 
                 border-radius: 0;
                 text-transform: uppercase;
