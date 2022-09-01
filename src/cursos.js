@@ -1,12 +1,6 @@
 import 'datatables.net-bs5';
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Javascript to enable link to tab
-    var hash = document.location.hash;
-    if (hash) {
-        jQuery('.list-campi a[href="'+hash+'"]').tab('show');
-    }
-
     // DataTables Configuration
     jQuery('.table-cursos').DataTable({
         searching: false,
