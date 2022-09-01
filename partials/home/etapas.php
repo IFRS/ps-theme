@@ -68,18 +68,20 @@
   ));
 ?>
 
-<div class="container">
-  <a class="timeline" href="<?php echo get_post_type_archive_link('evento'); ?>">
-    <h2 class="timeline__title">Etapas</h2>
-    <ul class="timeline__list">
-    <?php foreach ($marcos_atuais as $marco) : ?>
-      <li class="timeline__item timeline__item--atual"><?php echo $marco->post_title; ?></li>
-    <?php endforeach; ?>
-    <?php foreach ($marcos_futuros as $marco) : ?>
-      <li class="timeline__item"><?php echo $marco->post_title; ?></li>
-    <?php endforeach; ?>
-    </ul>
-  </a>
-</div>
+<?php if (!empty($marcos_atuais) || !empty($marcos_futuros)) : ?>
+  <div class="container">
+    <a class="timeline" href="<?php echo get_post_type_archive_link('evento'); ?>">
+      <h2 class="timeline__title">Etapas</h2>
+      <ul class="timeline__list">
+      <?php foreach ($marcos_atuais as $marco) : ?>
+        <li class="timeline__item timeline__item--atual"><?php echo $marco->post_title; ?></li>
+      <?php endforeach; ?>
+      <?php foreach ($marcos_futuros as $marco) : ?>
+        <li class="timeline__item"><?php echo $marco->post_title; ?></li>
+      <?php endforeach; ?>
+      </ul>
+    </a>
+  </div>
+<?php endif; ?>
 
 <?php wp_reset_postdata(); ?>
