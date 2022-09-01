@@ -87,7 +87,7 @@ add_theme_support('starter_content',array(
             'post_content' => '',
             'menu_order'   => 0,
         ),
-        'blog' => array(
+        'avisos' => array(
             'post_title'   => 'Todos os Avisos',
             'post_content' => '',
             'menu_order'   => 1,
@@ -96,7 +96,7 @@ add_theme_support('starter_content',array(
     'options' => array(
         'show_on_front'  => 'page',
         'page_on_front'  => '{{home}}',
-        'page_for_posts' => '{{blog}}',
+        'page_for_posts' => '{{avisos}}',
         'posts_per_page' => 12,
     ),
 ));
