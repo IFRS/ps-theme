@@ -23,18 +23,18 @@ add_action( 'wp_enqueue_scripts', function() {
         wp_enqueue_script('commons', get_template_directory_uri().'/js/commons.js', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/commons.js'), true);
     }
 
-    wp_enqueue_script('ps', get_template_directory_uri().'/js/ps.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ps.js'), true);
+    wp_enqueue_script('ps', get_template_directory_uri().'/js/ps.js', array_merge($commons_deps, array('jquery')), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ps.js'), true);
 
     if (is_post_type_archive( 'curso' ) || is_tax('modalidade')) {
-        wp_enqueue_script('cursos', get_template_directory_uri().'/js/cursos.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cursos.js'), true);
+        wp_enqueue_script('cursos', get_template_directory_uri().'/js/cursos.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cursos.js'), true);
     }
 
     if (is_post_type_archive( 'evento' )) {
-        wp_enqueue_script('cronograma', get_template_directory_uri().'/js/cronograma.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cronograma.js'), true);
+        wp_enqueue_script('cronograma', get_template_directory_uri().'/js/cronograma.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cronograma.js'), true);
     }
 
     if (is_singular( 'chamada' )) {
-        wp_enqueue_script('chamadas', get_template_directory_uri().'/js/chamadas.js', $commons_deps, WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamadas.js'), true);
+        wp_enqueue_script('chamadas', get_template_directory_uri().'/js/chamadas.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamadas.js'), true);
     }
 
     if (!WP_DEBUG) {
