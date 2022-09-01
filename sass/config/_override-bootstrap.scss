@@ -1,7 +1,8 @@
 @import "node_modules/bootstrap/scss/functions";
 
-$primary:                       shade-color(#2f9e41, 20%);
-$secondary:                     #cd191e;
+$primary:                       shade-color(#2f9e41, 15%);
+// $secondary:                     #cd191e;
+$secondary:                     shade-color(#2f9e41, 30%);
 $body-bg:                       #e5e5e5;
 $link-hover-decoration:         none;
 
@@ -65,7 +66,8 @@ $input-bg:                      null;
     $dropdown-link-active-color: color-contrast($secondary) !global;
     $dropdown-link-active-bg:    $secondary !global;
 
-    $nav-pills-link-active-bg:   $link-color !global;
+    // $nav-pills-link-active-bg:   $link-color !global;
+    $nav-pills-link-active-bg:   #cd191e !global;
 
     $navbar-light-active-color:  $gray-100 !global;
 
