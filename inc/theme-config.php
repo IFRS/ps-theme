@@ -65,7 +65,7 @@ add_theme_support( 'custom-logo', array(
 
 // Enable Custom Header Image
 add_theme_support( 'custom-header', array(
-    'default-image'          => get_stylesheet_directory_uri() . '/img/header-bg.png',
+    'default-image'          => '',
     'width'                  => 1920,
     'height'                 => 600,
     'flex-height'            => true,
@@ -74,13 +74,10 @@ add_theme_support( 'custom-header', array(
     'random-default'         => false,
     'header-text'            => false,
     'default-text-color'     => '',
-    'wp-head-callback'       => '',
-    'admin-head-callback'    => '',
-    'admin-preview-callback' => '',
 ) );
 
 // Starter Content
-add_theme_support('starter_content',array(
+add_theme_support('starter_content', array(
     'posts' => array(
         'home' => array(
             'post_title'   => 'Página Inicial',
@@ -123,13 +120,13 @@ add_action('widgets_init', function() {
         'after_title'   => '</h3>',
     ));
     register_sidebar(array(
-        'name'          => 'Contato',
-        'id'            => 'contato',
-        'description'   => 'Área de contato no rodapé das páginas.',
-        'before_widget' => '<div id="%1$s" class="%2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="visually-hidden">',
-        'after_title'   => '</h3>',
+        'name'           => 'Contato',
+        'id'             => 'contato',
+        'description'    => 'Área de contato no rodapé das páginas.',
+        'before_widget'  => '<div id="%1$s" class="%2$s">',
+        'after_widget'   => '</div>',
+        'before_title'   => '<h3 class="visually-hidden">',
+        'after_title'    => '</h3>',
         'before_sidebar' => '<address id="%1$s" class="contato %2$s">',
         'after_sidebar'  => '</address>',
     ));
