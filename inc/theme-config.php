@@ -76,28 +76,6 @@ add_theme_support( 'custom-header', array(
     'default-text-color'     => '',
 ) );
 
-// Starter Content
-add_theme_support('starter_content', array(
-    'posts' => array(
-        'home' => array(
-            'post_title'   => 'Página Inicial',
-            'post_content' => '',
-            'menu_order'   => 0,
-        ),
-        'avisos' => array(
-            'post_title'   => 'Todos os Avisos',
-            'post_content' => '',
-            'menu_order'   => 1,
-        ),
-    ),
-    'options' => array(
-        'show_on_front'  => 'page',
-        'page_on_front'  => '{{home}}',
-        'page_for_posts' => '{{avisos}}',
-        'posts_per_page' => 12,
-    ),
-));
-
 // Widgets
 add_action('widgets_init', function() {
     // register_sidebar(array(
@@ -130,4 +108,28 @@ add_action('widgets_init', function() {
         'before_sidebar' => '<address id="%1$s" class="contato %2$s">',
         'after_sidebar'  => '</address>',
     ));
-}, 10);
+} );
+
+// Starter Content
+add_action( 'after_setup_theme',function() {
+    add_theme_support('starter_content', array(
+        'posts' => array(
+            'home' => array(
+                'post_title'   => 'Página Inicial',
+                'post_content' => '',
+                'menu_order'   => 0,
+            ),
+            'avisos' => array(
+                'post_title'   => 'Todos os Avisos',
+                'post_content' => '',
+                'menu_order'   => 1,
+            ),
+        ),
+        'options' => array(
+            'show_on_front'  => 'page',
+            'page_on_front'  => '{{home}}',
+            'page_for_posts' => '{{avisos}}',
+            'posts_per_page' => 12,
+        ),
+    ));
+} );
