@@ -10,6 +10,8 @@
     </section>
 <?php endif; ?>
 
+<?php echo get_template_part('partials/home/etapas'); ?>
+
 <?php if (chamada_get_option('publish', false)) : ?>
     <section class="home-chamadas">
         <div class="container">
@@ -19,8 +21,6 @@
         </div>
     </section>
 <?php endif; ?>
-
-<?php echo get_template_part('partials/home/etapas'); ?>
 
 <section class="home-info">
     <div class="container">
