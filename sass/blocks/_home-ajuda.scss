@@ -50,15 +50,10 @@
 
             &__link {
                 @extend .btn;
-                @include button-variant($gray-200, $gray-300, $gray-800, $secondary, $secondary);
+                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $secondary, $secondary, color-contrast($secondary));
 
                 border-radius: 0;
                 text-transform: uppercase;
-
-                &:visited,
-                &:active {
-                    color: $gray-800;
-                }
             }
         }
     }
