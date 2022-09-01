@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index,follow">
     <meta name="author" content="Departamento de Comunicação do IFRS">
-    <meta name="keywords" content="ifrs, processo, seletivo, vestibular, ingresso">
-    <meta name="description" content="Site com informações do Processo Seletivo IFRS">
+    <meta name="keywords" content="ifrs, processo, seletivo, vestibular, ingresso, estudar">
+    <meta name="description" content="Site com informações do Processo Seletivo IFRS.">
     <!-- Contexto Barra Brasil -->
     <meta property="creator.productor" content="http://estruturaorganizacional.dados.gov.br/id/unidade-organizacional/100918">
     <!-- Facebook -->
@@ -15,12 +15,12 @@
     <meta property="og:url" content="<?php echo esc_attr( wp_get_canonical_url() ); ?>">
     <meta property="og:locale" content="<?php echo esc_attr( get_locale() ); ?>">
     <meta property="og:type" content="<?php echo (!is_front_page() && !is_home()) ? 'article' : 'website' ?>">
-    <meta property="og:title" content="<?php echo esc_attr( get_template_part('partials/title') ); ?>">
-    <meta property="og:image" content="<?php has_post_thumbnail() ? esc_attr( the_post_thumbnail_url('full') ) : esc_attr( header_image() ); ?>">
+    <meta property="og:title" content="<?php echo esc_attr( wp_title('&dash;', false) ); ?>">
+    <meta property="og:image" content="<?php has_post_thumbnail() ? esc_attr( the_post_thumbnail_url('full') ) : esc_attr( get_custom_logo() ); ?>">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@IF_RS">
-    <meta name="twitter:creator" content="@IF_RS">
+    <meta name="twitter:site" content="@IFRSOficial">
+    <meta name="twitter:creator" content="@IFRSOficial">
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo esc_url( wp_get_canonical_url() ); ?>">
     <?php echo get_template_part('partials/favicons'); ?>
@@ -42,9 +42,10 @@
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
                     <?php if (has_custom_logo()) : ?>
                         <?php $logo = wp_get_attachment_image_src(get_theme_mod('custom_logo') , 'full'); ?>
-                        <img src="<?php echo esc_url($logo[0]) ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial">
+                        <img src="<?php echo esc_url($logo[0]) ?>" width="<?php echo esc_attr($logo[1]); ?>" height="<?php echo esc_attr($logo[2]); ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
                     <?php else : ?>
-                        <img src="<?php echo get_stylesheet_directory_uri() . '/img/header-ps.png'; ?>" width="650" height="401" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
+                        <?php list($logo_width, $logo_height, $logo_type, $logo_attr) = getimagesize(get_stylesheet_directory_uri() . '/img/header-ps.png'); ?>
+                        <img src="<?php echo get_stylesheet_directory_uri() . '/img/header-ps.png'; ?>" width="<?php echo esc_attr($logo_width); ?>" height="<?php echo esc_attr($logo_height); ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
                     <?php endif; ?>
                 </a>
                 <div class="header__social">
