@@ -42,7 +42,6 @@
                 <div class="col-12">
                     <h2 class="home-ajuda__title">Voc&ecirc; tem alguma d&uacute;vida?</h2>
                     <?php dynamic_sidebar('home_ajuda'); ?>
-                    <?php //echo get_template_part('partials/home/faq'); ?>
                 </div>
             </div>
         </div>

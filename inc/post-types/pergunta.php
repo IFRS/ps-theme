@@ -71,6 +71,17 @@ add_action( 'init', function() {
     register_post_type( 'pergunta', $args );
 }, 1 );
 
+/* Custom Query */
+add_filter( 'pre_get_posts', function( $query ) {
+    if ($query->is_main_query() && $query->is_post_type_archive('pergunta')) {
+        $query->set('nopaging ', true);
+        $query->set('posts_per_page', -1);
+        $query->set('order', 'ASC');
+        $query->set('orderby', 'menu_order');
+    }
+    return $query;
+} );
+
 /* Disable Single Template */
 add_action( 'template_redirect', function() {
     if ( is_singular( 'pergunta' ) ) {
