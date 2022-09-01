@@ -7,7 +7,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-md-5 col-lg-4 col-xl-3">
-                <a href="https://ifrs.edu.br/" data-bs-toggle="tooltip" data-bs-placement="top" title="Portal do IFRS" class="d-block"><img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-marca.png" alt="Marca do IFRS"/></a>
+                <a href="https://ifrs.edu.br/" data-bs-toggle="tooltip" data-bs-placement="top" title="Portal do IFRS" class="d-block">
+                    <img class="m-auto img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ifrs.png" alt="Marca do IFRS"/>
+                </a>
             </div>
             <div class="col-12 col-md-7 col-lg-8 col-xl-9">
                 <?php !dynamic_sidebar('contato'); ?>
