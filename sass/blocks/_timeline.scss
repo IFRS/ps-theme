@@ -1,0 +1,44 @@
+.timeline {
+  background-color: $gray-100;
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: none;
+
+  &__title {
+    background-color: $gray-800;
+    color: $white;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.25rem 0.3rem;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    color: $gray-600;
+    display: inline;
+    font-style: italic;
+    font-weight: 600;
+    margin: 0 0.75rem;
+
+    &:first-child {
+      margin-left: 1.5rem;
+    }
+
+    &--atual {
+      border: 1px solid $primary;
+      color: $primary;
+      font-style: normal;
+      font-weight: bold;
+      padding: 0.2rem 0.25rem;
+    }
+  }
+}

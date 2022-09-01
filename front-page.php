@@ -20,6 +20,8 @@
     </section>
 <?php endif; ?>
 
+<?php echo get_template_part('partials/home/etapas'); ?>
+
 <section class="home-info">
     <div class="container">
         <div class="row">
