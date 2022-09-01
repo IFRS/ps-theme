@@ -1,27 +1,29 @@
 .aside {
+    border-top: 1px solid $gray-400;
     color: $gray-600;
     margin-bottom: $grid-gutter-width;
+    margin-top: $grid-gutter-width;
 
     &__title {
         color: $gray-800;
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 
     &__content {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        @include media-breakpoint-up(md) {
+            columns: 2;
+        }
     }
 
     &__item {
-        background: $primary;
-        color: $gray-200;
-        flex: 0 1 auto;
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
-        padding: 1rem;
+        color: $primary;
+        margin-bottom: 2rem;
+
+        page-break-inside: avoid;   /* Theoretically FF 20+ */
+        break-inside: avoid-column; /* Chrome, Safari, IE 11 */
+        display:table;              /* Actually FF 20+ */
     }
 
     &__item-title {
@@ -36,7 +38,7 @@
     }
 
     &__item-meta {
-        color: $gray-400;
+        color: $gray-800;
         font-size: 0.9rem;
         margin: 0;
     }
