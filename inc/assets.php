@@ -1,5 +1,8 @@
 <?php
 add_action( 'wp_enqueue_scripts', function() {
+    /**
+     * Styles
+     */
     /* wp_register_style( $handle, $src, $deps, $ver, $media ); */
     /* wp_enqueue_style( $handle[, $src, $deps, $ver, $media] ); */
 
@@ -7,11 +10,11 @@ add_action( 'wp_enqueue_scripts', function() {
 
     wp_enqueue_style('ps', get_stylesheet_directory_uri().'/css/ps.css', array('vendor'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/ps.css'), 'all');
 
+    /**
+     * Scripts
+     */
     /* wp_register_script( $handle, $src, $deps, $ver, $in_footer ); */
     /* wp_enqueue_script( $handle[, $src, $deps, $ver, $in_footer] ); */
-
-    wp_enqueue_script( 'ie', get_template_directory_uri().'/js/ie.js', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ie.js'), false );
-    wp_script_add_data( 'ie', 'conditional', 'lt IE 9' );
 
     $has_commons = file_exists(get_template_directory_uri().'/js/commons.js');
     $commons_deps = $has_commons ? array('commons') : array();

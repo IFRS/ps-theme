@@ -27,7 +27,6 @@ async function clean() {
 
 function sass() {
     let postCSS_plugins = [
-        require('postcss-flexibility'),
         require('pixrem'),
         require('autoprefixer'),
     ];
@@ -60,7 +59,6 @@ function bundle(done) {
         mode: IS_PRODUCTION ? 'production' : 'development',
         devtool: IS_PRODUCTION ? 'source-map' : 'eval-source-map',
         entry: {
-            'ie': './src/ie.js',
             'ps': './src/ps.js',
             'cursos': './src/cursos.js',
             'cronograma': './src/cronograma.js',
