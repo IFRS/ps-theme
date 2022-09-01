@@ -1,23 +1,10 @@
 .home-ajuda {
     background-color: $secondary;
-    background-image: url('../img/ajuda-bg.xs.png');
     background-position: center center;
     background-repeat: repeat;
     background-size: cover;
     color: #ffffff;
     padding: 3rem 0;
-
-    @include media-breakpoint-up(md) {
-        background-image: url('../img/ajuda-bg.md.png');
-    }
-
-    @include media-breakpoint-up(xl) {
-        background-image: url('../img/ajuda-bg.xl.png');
-    }
-
-    @include media-breakpoint-up(xxl) {
-        background-image: url('../img/ajuda-bg.xxl.png');
-    }
 
     a {
         color: #ffffff;
