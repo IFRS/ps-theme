@@ -44,7 +44,7 @@ add_action( 'wp_enqueue_scripts', function() {
             "
         );
     }
-}, 1 );
+}, 99 );
 
 add_filter('script_loader_tag', function($tag, $handle) {
     $scripts_to_defer = array('vlibras');
@@ -63,4 +63,4 @@ add_filter('script_loader_tag', function($tag, $handle) {
     }
 
     return $tag;
-}, 2, 2);
+}, 99, 2);
