@@ -31,6 +31,7 @@ add_action( 'wp_enqueue_scripts', function() {
 
     if (is_post_type_archive( 'evento' )) {
         wp_enqueue_script('cronograma', get_template_directory_uri().'/js/cronograma.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cronograma.js'), true);
+        wp_add_inline_script('cronograma', "const WP_API = '" . esc_url(get_rest_url(get_current_blog_id(), '/wp/v2/')) . "';");
     }
 
     if (is_singular( 'chamada' )) {

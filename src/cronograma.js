@@ -1,7 +1,7 @@
 import ics from 'ics';
 import FileSaver from 'file-saver';
-import * as dayjs from 'dayjs';
-import * as toArray from 'dayjs/plugin/toArray.js';
+import dayjs from 'dayjs';
+import toArray from 'dayjs/plugin/toArray.js';
 dayjs.extend(toArray);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       btn.classList.add('disabled');
       let eventos = [];
-      jQuery.get('/wp-json/wp/v2/cronograma?per_page=100', (data) => {
+      jQuery.get(WP_API + 'cronograma?per_page=100', (data) => {
         if (Array.isArray(data)) data.forEach((evento) => {
           eventos.push({
             start: dayjs.unix(evento.cmb2._evento_datas['_evento_data-inicio']).toArray().slice(0, 5),
