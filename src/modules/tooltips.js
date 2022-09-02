@@ -1,4 +1,4 @@
-import Tooltip from 'bootstrap/js/dist/tooltip.js';
+import { Tooltip } from 'bootstrap';
 
 let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 
@@ -13,3 +13,5 @@ document.querySelectorAll('.menu-social__link').forEach(function(el) {
         title: texto.trim(),
     });
 });
+
+export { tooltipTriggerList }
