@@ -66,7 +66,6 @@ function css() {
 
 function bundle(done) {
   webpack({
-    target: 'web',
     mode: IS_PRODUCTION ? 'production' : 'development',
     devtool: IS_PRODUCTION ? 'source-map' : 'eval-source-map',
     entry: {
