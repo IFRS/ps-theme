@@ -1,9 +1,11 @@
 {
   "name": "ifrs-ps-theme",
   "private": true,
+  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.18.9",
     "@popperjs/core": "^2.9.3",
     "animate.css": "^4.1.1",
     "autoprefixer": "^10.3.3",
@@ -11,7 +13,7 @@
     "browser-sync": "^2.27.5",
     "datatables.net-bs5": "^1.10.25",
     "dayjs": "^1.11.5",
-    "del": "^6.0.0",
+    "del": "^7.0.0",
     "file-saver": "^2.0.5",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
