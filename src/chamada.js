@@ -1,11 +1,11 @@
 import Masonry from 'masonry-layout';
 
 document.addEventListener("DOMContentLoaded", function() {
-    if (document.getElementById('masonry')) {
-        new Masonry( '#masonry', {
-            itemSelector: '.col-auto',
-            columnWidth: '.col-auto',
-            percentPosition: true,
-        });
-    }
+  if (document.getElementById('masonry')) {
+    new Masonry( '#masonry', {
+      itemSelector: '.col-auto',
+      columnWidth: '.col-auto',
+      percentPosition: true,
+    });
+  }
 });
