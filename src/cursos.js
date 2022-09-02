@@ -1,8 +1,7 @@
-import 'datatables.net-bs5';
+import DataTable from 'datatables.net-bs5';
 
 document.addEventListener('DOMContentLoaded', function() {
-    // DataTables Configuration
-    jQuery('.table-cursos').DataTable({
+    let cursosTable = new DataTable('.table-cursos', {
         searching: false,
         paging: false,
         bAutoWidth: false,
