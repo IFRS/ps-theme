@@ -1,4 +1,4 @@
-const Masonry =  require('masonry-layout');
+import Masonry from 'masonry-layout';
 
 document.addEventListener("DOMContentLoaded", function() {
     if (document.getElementById('masonry')) {

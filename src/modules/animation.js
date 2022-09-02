@@ -1,9 +1,9 @@
-require('intersection-observer');
+import 'intersection-observer';
 
 const intersectionObserver = effect => new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
         if (entry.intersectionRatio > 0) {
-            $(entry.target).addClass(effect);
+            entry.target.classList.add(effect);
             observer.unobserve(entry.target);
         }
     });

@@ -1,6 +1,6 @@
 import 'bootstrap';
 
-// require('./modules/animation');
-require('./modules/chamadas');
-require('./modules/faq');
-require('./modules/tooltips');
+// import './modules/animation';
+import './modules/chamadas.js';
+import './modules/faq.js';
+import './modules/tooltips.js';

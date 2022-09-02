@@ -1,7 +1,7 @@
-const ics = require('ics');
-const FileSaver = require('file-saver');
-const dayjs = require('dayjs');
-const toArray = require('dayjs/plugin/toArray');
+import ics from 'ics';
+import FileSaver from 'file-saver';
+import * as dayjs from 'dayjs';
+import * as toArray from 'dayjs/plugin/toArray.js';
 dayjs.extend(toArray);
 
 document.addEventListener('DOMContentLoaded', () => {

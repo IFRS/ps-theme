@@ -66,13 +66,14 @@ function css() {
 
 function bundle(done) {
   webpack({
+    target: 'web',
     mode: IS_PRODUCTION ? 'production' : 'development',
     devtool: IS_PRODUCTION ? 'source-map' : 'eval-source-map',
     entry: {
       'ps': './src/ps.js',
       'cursos': './src/cursos.js',
       'cronograma': './src/cronograma.js',
-      'chamadas': './src/chamadas.js',
+      'chamada': './src/chamada.js',
     },
     output: {
       path: path.resolve(path.dirname(''), 'js'),
@@ -108,8 +109,8 @@ function js() {
   .pipe(babel({
     presets: [
       [
-        "@babel/env",
-        { "modules": false }
+        '@babel/env',
+        { 'modules': false }
       ]
     ]
   }))

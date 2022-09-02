@@ -34,7 +34,7 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 
     if (is_singular( 'chamada' )) {
-        wp_enqueue_script('chamadas', get_template_directory_uri().'/js/chamadas.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamadas.js'), true);
+        wp_enqueue_script('chamada', get_template_directory_uri().'/js/chamada.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamada.js'), true);
     }
 
     if (!WP_DEBUG) {
