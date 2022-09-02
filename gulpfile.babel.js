@@ -79,6 +79,9 @@ function bundle(done) {
       filename: '[name].js',
     },
     plugins: [...webpackPlugins],
+    externals: {
+      jquery: 'jQuery',
+    },
     optimization: {
       minimize: false,
       splitChunks: {
