@@ -6,9 +6,7 @@ import babel            from 'gulp-babel';
 import browserSync      from 'browser-sync';
 import csso             from 'gulp-csso';
 import dartSass         from 'sass';
-// import dartSass         from 'sass-embedded';
 import gulpSass         from 'gulp-sass';
-import pixrem           from 'pixrem';
 import autoprefixer     from 'autoprefixer';
 import path             from 'path';
 import PluginError      from 'plugin-error';
@@ -38,7 +36,6 @@ async function clean() {
 
 function sass() {
   let postCSS_plugins = [
-    pixrem,
     autoprefixer,
   ];
 
