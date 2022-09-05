@@ -23,7 +23,7 @@
         <a href="<?php echo get_post_type_archive_link('publicacao'); ?>" class="btn btn-ps">Todas as Publica&ccedil;&otilde;es</a>
     <?php else : ?>
         <div class="alert alert-warning" role="alert">
-            <p><strong>Ops!</strong> Ainda n&atilde;o existem publica&ccedil;&otilde;es cadastradas.</p>
+            <p>Aguarde a publica&ccedil;&atilde;o dos documentos com o detalhamento do Processo Seletivo de estudantes. Fique atento &agrave;s datas do <a href="<?php echo get_post_type_archive_link('evento'); ?>" class="alert-link">cronograma</a>!</p>
         </div>
     <?php endif; ?>
 </section>
