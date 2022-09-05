@@ -1,12 +1,17 @@
 .timeline {
   background-color: $gray-100;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
   margin-bottom: 1rem;
+  max-width: 100%;
   padding: 0.5rem;
   text-decoration: none;
+
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
 
   &__title {
     background-color: $gray-800;
