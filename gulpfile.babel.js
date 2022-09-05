@@ -128,9 +128,8 @@ function dist() {
     '!node_modules{,/**}',
     '!sass{,/**}',
     '!src{,/**}',
-    '!gulpfile.js',
-    '!package-lock.json',
-    '!package.json'
+    '!gulpfile*.js',
+    '!package*.json',
   ])
   .pipe(dest('dist/' + name));
 };
