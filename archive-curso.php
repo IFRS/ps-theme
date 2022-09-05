@@ -3,6 +3,8 @@
 <section class="container cursos">
     <h2 class="cursos__title">Lista de Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
 
+    <?php echo wpautop(curso_get_option('desc', ''), true); ?>
+
     <?php get_template_part('partials/cursos/filter'); ?>
 
     <div class="cursos__content">
