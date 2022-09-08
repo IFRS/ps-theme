@@ -69,6 +69,7 @@ function bundle(done) {
       'ps': './src/ps.js',
       'cursos': './src/cursos.js',
       'cronograma': './src/cronograma.js',
+      'chamadas': './src/chamadas.js',
       'chamada': './src/chamada.js',
     },
     output: {

@@ -6,6 +6,7 @@
     text-align: center;
 
     &__title {
+        color: #ffffff;
         margin: 0 0 1rem 0;
         font-size: minmax(1.5rem, 2.5rem);
         font-weight: bold;
@@ -15,7 +16,8 @@
         hyphens: auto;
     }
 
-    p {
+    > p {
+        color: #ffffff;
         margin-bottom: 1.5rem;
         text-shadow: $shadow;
 
@@ -23,94 +25,16 @@
             color: inherit
         }
     }
-
-    &__formasingresso {
-        @include media-breakpoint-up(md) {
-            .btn-block {
-                max-width: 50%;
-            }
-        }
-    }
-
-    .breadcrumb {
-        background: none;
-        color: #ffffff;
-        justify-content: center;
-        margin: 0;
-        margin-bottom: 1.5rem;
-        padding: 0.5rem 0;
-        text-shadow: $shadow;
-
-        &-item {
-            font-size: 0.95rem;
-
-            a {
-                color: $gray-100;
-                font-weight: bold;
-            }
-
-            &.active {
-                color: $gray-200;
-            }
-        }
-
-        .breadcrumb-item + .breadcrumb-item::before {
-            color: #ffffff;
-        }
-    }
-}
-
-.btn-formaingresso {
-    @include button-variant($gray-200, $gray-300, $gray-800, $secondary, $secondary, #ffffff);
-
-    display: block;
-    font-weight: bold;
-    margin: 0.5rem auto;
-    max-width: 20ch;
-    text-transform: uppercase;
 }
 
 .btn-campus {
-    @include button-variant($gray-200, $gray-300, $gray-800, $secondary, $secondary, #ffffff);
+    @include button-variant($gray-200, $gray-300, $gray-800, $primary, $primary, #ffffff);
 
     margin: 0.5rem 0.5rem;
     text-align: center;
     text-transform: uppercase;
-}
 
-.chamada {
-    margin: 0 auto 2rem auto;
-    text-align: center;
-
-    @include media-breakpoint-up(sm) {
-        max-width: 50%;
-    }
-
-    &__link {
-        @include button-variant($gray-200, $gray-300, $gray-800, tint-color($secondary, 20%), color-tint($secondary, 20%), #ffffff);
-
-        display: block;
-    }
-
-    &__title {
-        border-bottom: 1px solid rgba($color: $gray-600, $alpha: 0.5);
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin-bottom: 5px;
-        position: relative;
-        overflow: hidden;
-        text-transform: uppercase;
-
-    }
-
-    &__meta {
-        display: inline-block;
-        margin-bottom: 0;
-        padding: 0;
-    }
-
-    &__badges {
-        font-size: 0.85rem;
-        margin: 0;
+    &.active {
+        @include button-variant($primary, $primary, #ffffff, $gray-200, $gray-300, $gray-800);
     }
 }

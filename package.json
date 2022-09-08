@@ -9,6 +9,7 @@
     "@popperjs/core": "^2.9.3",
     "animate.css": "^4.1.1",
     "autoprefixer": "^10.3.3",
+    "axios": "^0.27.2",
     "bootstrap": "^5.1.0",
     "browser-sync": "^2.27.5",
     "datatables.net-bs5": "^1.10.25",
@@ -30,6 +31,7 @@
     "plugin-error": "^2.0.0",
     "postcss": "^8.2.10",
     "sass": "^1.38.2",
+    "vue": "^3.2.38",
     "webpack": "^5.51.1",
     "webpack-bundle-analyzer": "^4.4.1"
   }

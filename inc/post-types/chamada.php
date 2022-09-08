@@ -57,6 +57,7 @@ add_action( 'init', function() {
 		'menu_position'          => 25,
 		'menu_icon'              => 'dashicons-media-spreadsheet',
 		'show_in_admin_bar'      => true,
+		'show_in_rest'           => true,
 		'show_in_nav_menus'      => true,
 		'can_export'             => true,
 		'has_archive'            => true,
@@ -278,3 +279,21 @@ add_action( 'cmb2_admin_init', function() {
 		'query_args' => array( 'type' => 'application/pdf' ),
 	) );
 } );
+
+// REST API
+
+add_filter( 'rest_prepare_chamada', function( $data, $post, $context ) {
+	$modalidades = get_post_meta($post->ID, '_chamada_resultados_group');
+
+	if ($modalidades) {
+		$data->data['modalidades'] = array();
+		foreach ($modalidades[0] as $modalidade) {
+			$modalidade_obj = get_term($modalidade['modalidade'], 'modalidade');
+			if (!empty($modalidade_obj) && !is_wp_error($modalidade_obj)) {
+				$data->data['modalidades'][] = $modalidade_obj->name;
+			}
+		}
+	}
+
+	return $data;
+}, 10, 3 );

@@ -16,7 +16,7 @@
     <section class="home-chamadas">
         <div class="container">
             <div class="row">
-            <?php echo get_template_part('partials/chamadas'); ?>
+            <?php echo get_template_part('partials/home/chamadas'); ?>
             </div>
         </div>
     </section>
