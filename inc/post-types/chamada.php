@@ -115,36 +115,23 @@ add_action( 'cmb2_admin_init', function() {
 		'show_names'    => true,
 	) );
 
-	$resultados_group = $resultados->add_field( array(
-	    'id'          => $prefix . 'resultados_group',
-	    'type'        => 'group',
-	    // 'description' => __( 'Arquivos por modalidade.', 'ifrs-ps-theme' ),
-	    'options'     => array(
-	        'group_title'   => __( 'Resultado {#}', 'ifrs-ps-theme' ),
-	        'add_button'    => __( 'Adicionar outro Resultado', 'ifrs-ps-theme' ),
-	        'remove_button' => __( 'Remover Resultado', 'ifrs-ps-theme' ),
-	    ),
+	$resultados->add_field( array(
+		'name' => 'Atenção',
+		'desc' => __( 'Caso não haja resultados para uma modalidade específica, não carregue arquivos nela. Dessa forma, essa modalidade não aparecerá no site.', 'ifrs-ps-theme' ),
+		'type' => 'title',
+		'id'   => $prefix . 'aviso_resultados',
 	) );
 
-	// Id's for group's fields only need to be unique for the group. Prefix is not needed.
-	$resultados->add_group_field( $resultados_group, array(
-	    'name'             => 'Modalidade',
-	    'desc'             => 'Selecione uma modalidade.',
-	    'id'               => 'modalidade',
-	    'type'             => 'select',
-	    'show_option_none' => true,
-	    'options'          => get_terms(array('taxonomy' => 'modalidade', 'fields' => 'id=>name')),
-		'attributes'  => array(
-			'required' => 'required'
-		)
-	) );
+	$modalidades = get_terms(array('taxonomy' => 'modalidade', 'orderby' => 'term_order'));
 
-	$resultados->add_group_field( $resultados_group, array(
-		'name' => 'Arquivos',
-		'desc' => 'Selecione os arquivos relacionados a este resultado.<br><strong>Lembrete:</strong> preencha corretamente o título de cada arquivo.',
-		'id'   => 'arquivos',
-		'type' => 'file_list',
-	) );
+	foreach ($modalidades as $modalidade) {
+		$resultados->add_field( array(
+			'name' => $modalidade->name,
+			'desc' => 'Selecione os arquivos relacionados a esta modalidade.<br><strong>Lembrete:</strong> preencha corretamente o título de cada arquivo.',
+			'id'   => $prefix . 'modalidade_' . $modalidade->slug,
+			'type' => 'file_list',
+		) );
+	}
 }, 5 );
 
 // Custom Title
@@ -281,19 +268,14 @@ add_action( 'cmb2_admin_init', function() {
 } );
 
 // REST API
-
 add_filter( 'rest_prepare_chamada', function( $data, $post, $context ) {
-	$modalidades = get_post_meta($post->ID, '_chamada_resultados_group');
+	$data->data['modalidades'] = array();
 
-	if ($modalidades) {
-		$data->data['modalidades'] = array();
-		foreach ($modalidades[0] as $modalidade) {
-			$modalidade_obj = get_term($modalidade['modalidade'], 'modalidade');
-			if (!empty($modalidade_obj) && !is_wp_error($modalidade_obj)) {
-				$data->data['modalidades'][] = $modalidade_obj->name;
-			}
-		}
+	$modalidades = get_terms(array('taxonomy' => 'modalidade', 'orderby' => 'term_order'));
+
+	foreach ($modalidades as $modalidade) {
+		$resultados = (array) get_post_meta(get_the_ID(), '_chamada_modalidade_' . $modalidade->slug);
+		if (!empty($resultados)) $data->data['modalidades'][] = $modalidade->name;
 	}
-
 	return $data;
 }, 10, 3 );
