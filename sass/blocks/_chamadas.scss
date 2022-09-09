@@ -16,6 +16,34 @@
         hyphens: auto;
     }
 
+    &__ou {
+        color: $gray-200;
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1;
+        margin: 1rem 0;
+
+        &::before {
+            content: '';
+            background-color: $gray-400;
+            display: inline-block;
+            margin-right: 0.5rem;
+            width: 100%;
+            height: 1px;
+        }
+
+        &::after {
+            content: '';
+            background-color: $gray-400;
+            display: inline-block;
+            margin-left: 0.5rem;
+            width: 100%;
+            height: 1px;
+        }
+    }
+
     > p {
         color: #ffffff;
         margin-bottom: 1.5rem;

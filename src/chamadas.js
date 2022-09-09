@@ -5,7 +5,7 @@ const app = createApp({
   props: {
     WP_API: {
       type: String,
-      default: document.querySelector('link[rel="https://api.w.org/"]').getAttribute('href') + 'wp/v2/',
+      default: document.querySelector('link[rel="https://api.w.org/"]').getAttribute('href'),
     },
   },
   data() {
@@ -15,10 +15,21 @@ const app = createApp({
       chamadas: {},
       selectedCampus: null,
       loadingChamadas: false,
+      search: '',
+      searchResults: null,
+      loadingSearch: false,
     }
   },
+  computed: {
+    isSearch() {
+      return this.search !== '' && Array.isArray(this.searchResults);
+    },
+    hasSearchResults() {
+      return Array.isArray(this.searchResults) && this.searchResults.length > 0;
+    },
+  },
   created() {
-    axios.get(this.WP_API + 'campus')
+    axios.get(this.WP_API + 'wp/v2/campus')
     .then((response) => {
       setTimeout(() => {
         this.campi = response.data;
@@ -28,7 +39,7 @@ const app = createApp({
       console.error(error);
     });
 
-    axios.get(this.WP_API + 'formaingresso')
+    axios.get(this.WP_API + 'wp/v2/formaingresso')
     .then((response) => {
       this.formasingresso = response.data;
     })
@@ -47,7 +58,7 @@ const app = createApp({
           campus: campus.id,
           formaingresso: formaingresso.id,
         };
-        await axios.get(this.WP_API + 'chamada', { params })
+        await axios.get(this.WP_API + 'wp/v2/chamada', { params })
         .then((response) => {
           if (Array.isArray(response.data) && response.data.length > 0) {
             this.chamadas[formaingresso.name] = response.data;
@@ -60,6 +71,29 @@ const app = createApp({
 
       setTimeout(() => {
         this.loadingChamadas = false;
+      }, 250);
+    },
+    async buscar(e) {
+      this.search = e.target[0].value.trim();
+
+      if (this.search === '') return;
+
+      this.loadingSearch = true;
+
+      const params = {
+        s: this.search,
+      };
+
+      await axios.get(this.WP_API + 'ifrs-ps/v1/search-chamadas', { params })
+      .then((response) => {
+        this.searchResults = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+      setTimeout(() => {
+        this.loadingSearch = false;
       }, 250);
     },
   },

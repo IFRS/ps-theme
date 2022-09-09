@@ -4,6 +4,9 @@
 # NPM
 /node_modules/
 
+# Composer
+/vendor/
+
 # CSS
 /css/
 

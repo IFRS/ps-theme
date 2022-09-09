@@ -1,0 +1,12 @@
+{
+    "name": "ifrs/ps-theme",
+    "require": {
+        "smalot/pdfparser": "^2.2"
+    },
+    "authors": [
+        {
+            "name": "Ricardo Moro",
+            "email": "ricardo.moro@ifrs.edu.br"
+        }
+    ]
+}
