@@ -6,6 +6,8 @@ add_action( 'wp_enqueue_scripts', function() {
     /* wp_register_style( $handle, $src, $deps, $ver, $media ); */
     /* wp_enqueue_style( $handle[, $src, $deps, $ver, $media] ); */
 
+    // wp_enqueue_style('animate', get_stylesheet_directory_uri().'/css/animate.css', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/animate.css'), 'all');
+
     wp_enqueue_style('vendor', get_stylesheet_directory_uri().'/css/vendor.css', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/vendor.css'), 'all');
 
     wp_enqueue_style('ps', get_stylesheet_directory_uri().'/css/ps.css', array('vendor'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/ps.css'), 'all');

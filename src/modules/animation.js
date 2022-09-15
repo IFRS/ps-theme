@@ -3,121 +3,103 @@ import 'intersection-observer';
 const intersectionObserver = effect => new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (entry.intersectionRatio > 0) {
-      entry.target.classList.add(effect);
+      entry.target.classList.add(...effect);
       observer.unobserve(entry.target);
     }
   });
 });
 
-jQuery(function($) {
-  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+document.addEventListener('DOMContentLoaded', () => {
+  let delay = 0;
 
-  if (mediaQuery && !mediaQuery.matches) {
-    let delay = 0;
+  document.querySelectorAll('.searchform').forEach(element => {
+    element.classList.add('animate__animated');
+    let observer = intersectionObserver(['animate__slideInRight']);
+    observer.observe(element);
+  });
 
-    $('.searchform').addClass('animate__animated').each(function(i, e) {
-      let observer = intersectionObserver('animate__slideInRight');
-      observer.observe(e);
-    });
+  document.querySelectorAll('.menu-social__item').forEach(element => {
+    element.classList.add('animate__animated');
+    let observer = intersectionObserver(['animate__zoomIn', 'animate__slow']);
+    observer.observe(element);
+  });
 
-    $('.menu-social__item').addClass('animate__animated').each(function(i, e) {
-      let observer = intersectionObserver('animate__zoomIn animate__slow');
-      observer.observe(e);
-    });
+  delay = 0;
+  document.querySelectorAll('.widget-atalhos').forEach(element => {
+    element.classList.add('animate__animated');
+    element.style = 'animation-delay:' + delay + 's';
+    delay = delay + 0.1;
+    let observer = intersectionObserver(['animate__flipInX']);
+    observer.observe(element);
+  });
 
-    delay = 0;
-    $('.widget-atalhos').addClass('animate__animated').each(function(i, e) {
-      $(e).css('animation-delay', delay + 's');
-      delay = delay + 0.1;
-      let observer = intersectionObserver('animate__flipInX');
-      observer.observe(e);
-    });
+  delay = 0;
+  document.querySelectorAll('.btn-campus').forEach(element => {
+    element.classList.add('animate__animated');
+    element.style = 'animation-delay:' + delay + 's';
+    delay = delay + 0.1;
+    let observer = intersectionObserver(['animate__fadeInLeft']);
+    observer.observe(element);
+  });
 
-    delay = 0;
-    $('.btn-formaingresso').addClass('animate__animated').each(function(i, e) {
-      $(e).css('animation-delay', delay + 's');
-      delay = delay + 0.1;
-      let observer = intersectionObserver('animate__fadeInLeft');
-      observer.observe(e);
-    });
+  delay = 0;
+  document.querySelectorAll('.home-faq__item').forEach(element => {
+    element.classList.add('animate__animated');
+    let observer = intersectionObserver(['animate__bounceInRight']);
+    observer.observe(element);
+  });
 
-    $('.chamadas__campi').each(function(i, e) {
-      delay = 0;
-      $(e).find('.btn-campus').addClass('animate__animated').each(function(ii, ee) {
-        $(ee).css('animation-delay', delay + 's');
-        delay = delay + 0.1;
-        let observer = intersectionObserver('animate__fadeInLeft');
-        observer.observe(ee);
-      });
-    });
+  delay = 0;
+  document.querySelectorAll('.aside__item').forEach(element => {
+    element.classList.add('animate__animated');
+    element.style = 'animation-delay:' + delay + 's';
+    delay = delay + 0.1;
+    let observer = intersectionObserver(['animate__fadeInRight']);
+    observer.observe(element);
+  });
 
-    $('.chamadas__list').each(function(i, e) {
-      delay = 0;
-      $(e).find('.chamada').addClass('animate__animated').each(function(ii, ee) {
-        $(ee).css('animation-delay', delay + 's');
-        delay = delay + 0.1;
-        let observer = intersectionObserver('animate__fadeInLeft');
-        observer.observe(ee);
-      });
-    });
+  delay = 0;
+  document.querySelectorAll('.editais .list-group-item').forEach(element => {
+    element.classList.add('animate__animated');
+    element.style = 'animation-delay:' + delay + 's';
+    delay = delay + 0.2;
+    let observer = intersectionObserver(['animate__fadeInDown']);
+    observer.observe(element);
+  });
 
-    delay = 0.5;
-    $('.chamada__badges').addClass('animate__animated').each(function(i, e) {
-      $(e).css('animation-delay', delay + 's');
-      let observer = intersectionObserver('animate__fadeInUp');
-      observer.observe(e);
-    });
+  delay = 0;
+  document.querySelectorAll('.cursos__nav .nav-item').forEach(element => {
+    element.classList.add('animate__animated');
+    element.style = 'animation-delay:' + delay + 's';
+    delay = delay + 0.1;
+    let observer = intersectionObserver(['animate__fadeInDown', 'animate__fast']);
+    observer.observe(element);
+  });
 
-    $('.home-faq__item').addClass('animate__animated').each(function(i, e) {
-      let observer = intersectionObserver('animate__bounceInRight');
-      observer.observe(e);
-    });
+  delay = 0;
+  document.querySelectorAll('.site-map__menu > .menu-item').forEach(element => {
+    element.classList.add('animate__animated');
+    element.style = 'animation-delay:' + delay + 's';
+    delay = delay + 0.2;
+    let observer = intersectionObserver(['animate__fadeIn']);
+    observer.observe(element);
+  });
 
-    delay = 0;
-    $('.aside__item').addClass('animate__animated').each(function(i, e) {
-      $(e).css('animation-delay', delay + 's');
-      delay = delay + 0.1;
-      let observer = intersectionObserver('animate__fadeInRight');
-      observer.observe(e);
-    });
+  document.querySelectorAll('.footer-logo').forEach(element => {
+    element.classList.add('animate__animated');
+    let observer = intersectionObserver(['animate__slideInUp']);
+    observer.observe(element);
+  });
 
-    delay = 0;
-    $('.editais .list-group-item').addClass('animate__animated').each(function(i, e) {
-      $(e).css('animation-delay', delay + 's');
-      delay = delay + 0.2;
-      let observer = intersectionObserver('animate__fadeInDown');
-      observer.observe(e);
-    });
+  document.querySelectorAll('.contato').forEach(element => {
+    element.classList.add('animate__animated');
+    let observer = intersectionObserver(['animate__fadeInUp']);
+    observer.observe(element);
+  });
 
-    delay = 0;
-    $('.cursos__nav .nav-item').addClass('animate__animated').each(function(i, e) {
-      $(e).css('animation-delay', delay + 's');
-      delay = delay + 0.1;
-      let observer = intersectionObserver('animate__fadeInDown animate__fast');
-      observer.observe(e);
-    });
-
-    delay = 0;
-    $('.site-map__menu > .menu-item').addClass('animate__animated').each(function(i, e) {
-      $(e).css('animation-delay', delay + 's');
-      delay = delay + 0.2;
-      let observer = intersectionObserver('animate__fadeIn');
-      observer.observe(e);
-    });
-
-    $('.footer-logo').addClass('animate__animated').each(function(i, e) {
-      let observer = intersectionObserver('animate__slideInUp');
-      observer.observe(e);
-    });
-
-    $('.contato').addClass('animate__animated').each(function(i, e) {
-      let observer = intersectionObserver('animate__fadeInUp');
-      observer.observe(e);
-    });
-
-    $('.creditos').addClass('animate__animated').each(function(i, e) {
-      let observer = intersectionObserver('animate__zoomIn');
-      observer.observe(e);
-    });
-  }
+  document.querySelectorAll('.creditos').forEach(element => {
+    element.classList.add('animate__animated');
+    let observer = intersectionObserver(['animate__zoomIn']);
+    observer.observe(element);
+  });
 });

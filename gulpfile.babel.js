@@ -32,7 +32,12 @@ if (argv.bundleanalyzer) webpackPlugins.push(new BundleAnalyzer.BundleAnalyzerPl
 
 async function clean() {
   return await deleteAsync(['css/', 'js/', 'dist/']);
-};
+}
+
+function vendor() {
+  return src('node_modules/animate.css/animate.css')
+  .pipe(dest('css/'));
+}
 
 function sass() {
   let postCSS_plugins = [
@@ -51,15 +56,14 @@ function sass() {
   .pipe(sourcemaps.write('./'))
   .pipe(dest('css/'))
   .pipe(browserSync.stream());
-};
+}
 
 function css() {
   return src('css/*.css')
   .pipe(csso())
   .pipe(dest('css/'))
   .pipe(browserSync.stream());
-};
-
+}
 
 function bundle(done) {
   webpack({
@@ -102,7 +106,7 @@ function bundle(done) {
 
     done();
   });
-};
+}
 
 function js() {
   return src('js/*.js')
@@ -117,7 +121,7 @@ function js() {
   .pipe(uglify())
   .pipe(dest('js/'))
   .pipe(browserSync.stream());
-};
+}
 
 function dist() {
   return src([
@@ -133,7 +137,7 @@ function dist() {
     '!package*.json',
   ])
   .pipe(dest('dist/' + name));
-};
+}
 
 function serve() {
   browserSync.init({
@@ -151,12 +155,12 @@ function serve() {
   watch('src/**/*.js', bundle);
 
   watch('**/*.php').on('change', browserSync.reload);
-};
+}
 
-const styles = series(sass, css);
+const styles = series(vendor, sass, css);
 const scripts = series(bundle, js);
-const build = IS_PRODUCTION ? series(clean, parallel(styles, scripts), dist) : series(clean, parallel(sass, bundle));
+const build = IS_PRODUCTION ? series(clean, parallel(styles, scripts), dist) : series(clean, parallel(vendor, sass, bundle));
 
-export { clean, sass, bundle, styles, scripts, build };
+export { clean, vendor, sass, bundle, styles, scripts, build };
 
 export default series(build, serve);
