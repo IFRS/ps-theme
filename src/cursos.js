@@ -28,5 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         "sSortDescending": ": Ordenar colunas de forma descendente"
       },
     },
+    "columnDefs": [
+      { "targets": 0, "orderData": [ 1, 2, 0 ] },
+      { "targets": 1, "orderData": [ 1 ] },
+      { "targets": 2, "orderData": [ 1, 2 ] }
+    ],
+    "order": [[1, 'asc']],
   });
 });
