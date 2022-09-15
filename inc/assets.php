@@ -16,22 +16,22 @@ add_action( 'wp_enqueue_scripts', function() {
     /* wp_register_script( $handle, $src, $deps, $ver, $in_footer ); */
     /* wp_enqueue_script( $handle[, $src, $deps, $ver, $in_footer] ); */
 
-    $has_commons = file_exists(get_template_directory_uri().'/js/commons.js');
+    $has_commons = file_exists(get_template_directory().'/js/commons.js');
     $commons_deps = $has_commons ? array('commons') : array();
 
     if ($has_commons) {
         wp_enqueue_script('commons', get_template_directory_uri().'/js/commons.js', array(), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/commons.js'), true);
     }
 
-    wp_enqueue_script('ps', get_template_directory_uri().'/js/ps.js', array_merge($commons_deps, array('jquery')), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ps.js'), true);
+    wp_enqueue_script('ps', get_template_directory_uri().'/js/ps.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/ps.js'), true);
 
     if (is_post_type_archive( 'curso' ) || is_tax('modalidade')) {
-        wp_enqueue_script('cursos', get_template_directory_uri().'/js/cursos.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cursos.js'), true);
+        wp_enqueue_script('cursos', get_template_directory_uri().'/js/cursos.js', array_merge($commons_deps, array('jquery')), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cursos.js'), true);
     }
 
     if (is_post_type_archive( 'evento' )) {
         wp_enqueue_script('cronograma', get_template_directory_uri().'/js/cronograma.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/cronograma.js'), true);
-        wp_add_inline_script('cronograma', "const WP_API = '" . esc_url(get_rest_url(get_current_blog_id(), '/wp/v2/')) . "';");
+        wp_add_inline_script('cronograma', "const WP_API = '" . esc_url(get_rest_url(get_current_blog_id())) . "';", 'before');
     }
 
     if (is_front_page() || is_post_type_archive('chamada')) {

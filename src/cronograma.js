@@ -1,3 +1,4 @@
+import axios from 'axios';
 import ics from 'ics';
 import FileSaver from 'file-saver';
 import dayjs from 'dayjs';
@@ -73,8 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       btn.classList.add('disabled');
       let eventos = [];
-      jQuery.get(WP_API + 'cronograma?per_page=100', (data) => {
-        if (Array.isArray(data)) data.forEach((evento) => {
+      axios.get(WP_API + 'wp/v2/cronograma?per_page=100')
+      .then(response => {
+        if (Array.isArray(response.data)) response.data.forEach((evento) => {
           eventos.push({
             start: dayjs.unix(evento.cmb2._evento_datas['_evento_data-inicio']).toArray().slice(0, 5),
             end: dayjs.unix(evento.cmb2._evento_datas['_evento_data-fim']).toArray().slice(0, 5),
@@ -89,11 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         ics.createEvents(eventos, (error, calendar) => {
           if (error) console.error(error);
-          const blob = new Blob([calendar], {type: 'text/calendar;charset=utf-8'});
+          const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
           FileSaver.saveAs(blob, 'ps.ics');
         });
       })
-      .always(() => {
+      .catch(err => {
+        console.error(err);
+      })
+      .finally(() => {
         btn.classList.remove('disabled');
       });
     });
