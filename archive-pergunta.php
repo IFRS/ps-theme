@@ -3,12 +3,12 @@
 <section class="container">
     <article class="faq" id="faq">
         <h2 class="faq__title">Voc&ecirc; tem alguma d&uacute;vida?</h2>
+        <?php $accordion_id = uniqid('perguntas-'); ?>
         <?php $field_id = uniqid(); ?>
         <label for="<?php echo $field_id; ?>" class="visually-hidden">Buscar nas perguntas</label>
-        <input type="search" id="<?php echo $field_id; ?>" class="form-control form-control-sm faq__busca search" placeholder="buscar nas perguntas...">
+        <input type="search" id="<?php echo $field_id; ?>" class="form-control form-control-sm faq__busca search" placeholder="buscar nas perguntas..." aria-controls="<?php echo $accordion_id; ?>">
         <?php if (have_posts()) : ?>
-            <?php $accordion_id = uniqid('perguntas-'); ?>
-            <div class="accordion faq__perguntas" id="<?php echo $accordion_id; ?>">
+            <div class="accordion faq__perguntas" id="<?php echo $accordion_id; ?>" aria-live="assertive">
                 <?php while (have_posts()) : the_post(); ?>
                     <dl class="accordion-item">
                         <dt class="accordion-header" id="pergunta<?php the_ID(); ?>">
