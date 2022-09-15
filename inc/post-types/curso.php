@@ -49,7 +49,7 @@ add_action( 'init', function() {
         'description'         => __( 'Curso do Portal de Ingresso', 'ifrs-ps-theme' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'revisions' ),
-        'taxonomies'          => array( 'campus', 'turno', 'modalidade' ),
+        'taxonomies'          => array( 'campus', 'turno', 'modalidade', 'formaingresso' ),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,

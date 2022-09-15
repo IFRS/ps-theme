@@ -37,7 +37,7 @@ add_action( 'init', function() {
         'capabilities'               => $capabilities,
     );
 
-    register_taxonomy( 'formaingresso', array( 'chamada', 'documento' ), $args );
+    register_taxonomy( 'formaingresso', array( 'chamada', 'documento', 'curso' ), $args );
 }, 0);
 
 // Metabox
@@ -63,7 +63,32 @@ add_action( 'cmb2_admin_init', function() {
         'text'              => array(
             'no_terms_text' => __( 'Ops! Nenhuma Forma de Ingresso encontrada. Por favor, crie alguma Forma de Ingresso antes de cadastrar isto.', 'ifrs-ps-theme')
         ),
-        'remove_default'    => 'true',
+        'remove_default'    => true,
+    ) );
+
+        /**
+	 * Taxonomy Forma de Ingresso for Curso
+	 */
+    $formaingresso_curso_metabox = new_cmb2_box( array(
+		'id'           => '_formaingresso_curso_taxonomy_metabox',
+		'title'        => __( 'Formas de Ingresso', 'ifrs-ps-theme' ),
+		'object_types' => array( 'curso' ),
+		'context'      => 'side',
+		'priority'     => 'low',
+		'show_names'   => false,
+    ) );
+
+    $formaingresso_curso_metabox->add_field( array(
+        'id'                => '_formaingresso_curso_taxonomy',
+        'name'              => __( 'Formas de Ingresso', 'ifrs-ps-theme' ),
+        'taxonomy'          => 'formaingresso',
+        'type'              => 'taxonomy_multicheck',
+        'show_option_none'  => false,
+        'text'              => array(
+            'no_terms_text' => __( 'Ops! Nenhuma Forma de Ingresso encontrada. Por favor, crie alguma Forma de Ingresso antes de cadastrar isto.', 'ifrs-ps-theme')
+        ),
+        'remove_default'    => true,
+        'select_all_button' => false,
     ) );
 
     /**
