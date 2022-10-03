@@ -20,6 +20,9 @@ require_once('inc/resource-hints.php');
 // Configuração do Tema
 require_once('inc/theme-config.php');
 
+// Gutenberg Config
+require_once('inc/gutenberg.php');
+
 // Menus
 require_once('inc/menus.php');
 require_once('inc/sitemap-walker.class.php');
