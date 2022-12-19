@@ -116,3 +116,9 @@ add_action( 'cmb2_admin_init', function() {
         ), */
     ) );
 }, 5 );
+
+/* Disable Gutenberg */
+add_filter('use_block_editor_for_post_type', function($current_status, $post_type) {
+	if ($post_type === 'documento') return false;
+	return $current_status;
+}, 10, 2);

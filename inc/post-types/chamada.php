@@ -279,3 +279,9 @@ add_filter( 'rest_prepare_chamada', function( $data, $post, $context ) {
 	}
 	return $data;
 }, 10, 3 );
+
+/* Disable Gutenberg */
+add_filter('use_block_editor_for_post_type', function($current_status, $post_type) {
+	if ($post_type === 'chamada') return false;
+	return $current_status;
+}, 10, 2);
