@@ -1,7 +1,4 @@
 <?php
-// Composer autoload
-require get_template_directory() . '/vendor/autoload.php';
-
 // Carregamento eficiente de fontes
 require_once('inc/fonts.php');
 
@@ -63,6 +60,3 @@ require_once('inc/post-types/evento.php');
 
 // Shortcodes
 require_once('inc/shortcodes/campi.php');
-
-// API
-require_once('inc/api/search-chamadas.php');

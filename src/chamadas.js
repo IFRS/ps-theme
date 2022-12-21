@@ -15,21 +15,10 @@ const app = createApp({
       chamadas: {},
       selectedCampus: null,
       loadingChamadas: false,
-      search: '',
-      searchResults: null,
-      loadingSearch: false,
     }
   },
-  computed: {
-    isSearch() {
-      return this.search !== '' && Array.isArray(this.searchResults);
-    },
-    hasSearchResults() {
-      return Array.isArray(this.searchResults) && this.searchResults.length > 0;
-    },
-  },
   created() {
-    axios.get(this.WP_API + 'wp/v2/campus')
+    axios.get(this.WP_API + 'wp/v2/campus', { params: { 'per_page': '20' } })
     .then((response) => {
       setTimeout(() => {
         this.campi = response.data;
@@ -71,29 +60,6 @@ const app = createApp({
 
       setTimeout(() => {
         this.loadingChamadas = false;
-      }, 250);
-    },
-    async buscar(e) {
-      this.search = e.target[0].value.trim();
-
-      if (this.search === '') return;
-
-      this.loadingSearch = true;
-
-      const params = {
-        s: this.search,
-      };
-
-      await axios.get(this.WP_API + 'ifrs-ps/v1/search-chamadas', { params })
-      .then((response) => {
-        this.searchResults = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-
-      setTimeout(() => {
-        this.loadingSearch = false;
       }, 250);
     },
   },
