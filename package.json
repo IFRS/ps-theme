@@ -32,7 +32,7 @@
     "postcss": "^8.2.10",
     "sass": "^1.38.2",
     "vue": "^3.2.38",
-    "webpack": "^5.51.1",
+    "webpack": "^5.76.0",
     "webpack-bundle-analyzer": "^4.4.1"
   }
 }
