@@ -58,7 +58,7 @@ $input-bg:                      null;
     $body-bg:                    $gray-200 !global;
 
     $accordion-bg:               $gray-200 !global;
-    $accordion-button-active-bg: tint-color($accent, 30%);
+    $accordion-button-active-bg: $accent !global;
 
     $table-border-color:         $gray-400 !global;
 
