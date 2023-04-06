@@ -1,1 +1,6 @@
-$cor-destaque: #cd191e;
+$primary-shade: shade-color($primary, 20%);
+$accent: #e94d32;
+
+$custom-colors: (
+  "accent": $accent,
+);

@@ -37,7 +37,7 @@
 
             &__link {
                 @extend .btn;
-                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $cor-destaque, $cor-destaque, color-contrast($cor-destaque));
+                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $accent, $accent, color-contrast($accent));
 
                 border-radius: 0;
                 text-transform: uppercase;

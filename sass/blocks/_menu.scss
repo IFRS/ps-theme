@@ -18,14 +18,9 @@
 
         &:hover,
         &:focus {
-            background-color: $secondary;
-            color: color-contrast($secondary);
+            background-color: $primary-shade;
+            color: color-contrast($primary-shade);
         }
-
-        // &:active,
-        // &.active {
-        //     background-color: $secondary;
-        // }
     }
 
     .dropdown-toggle {

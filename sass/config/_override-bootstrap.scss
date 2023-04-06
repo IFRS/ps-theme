@@ -1,14 +1,13 @@
 @import "bootstrap/scss/functions";
 
-$primary:                       shade-color(#2f9e41, 15%);
-$secondary:                     shade-color(#2f9e41, 30%);
-$body-bg:                       #e5e5e5;
+$primary:                       #563a8f;
+$body-bg:                       null;
 $link-hover-decoration:         none;
 
 $font-family-base:              null;
 
 $accordion-bg:                  null;
-$accordion-button-active-bg:    tint-color($secondary, 30%);
+$accordion-button-active-bg:    null;
 $accordion-button-active-color: #ffffff;
 $accordion-button-bg:           #ffffff;
 
@@ -52,22 +51,26 @@ $input-bg:                      null;
     @import "bootstrap/scss/mixins";
     @import "bootstrap/scss/utilities";
 
+    $theme-colors:               map-merge($theme-colors, $custom-colors);
+
     $font-family-base:           "Inter", #{$font-family-sans-serif} !global;
 
+    $body-bg:                    $gray-200 !global;
+
     $accordion-bg:               $gray-200 !global;
+    $accordion-button-active-bg: tint-color($accent, 30%);
 
     $table-border-color:         $gray-400 !global;
 
     $breadcrumb-active-color:    $gray-800 !global;
 
     $dropdown-bg:                $primary !global;
-    $dropdown-link-hover-color:  color-contrast($secondary) !global;
-    $dropdown-link-hover-bg:     $secondary !global;
-    $dropdown-link-active-color: color-contrast($secondary) !global;
-    $dropdown-link-active-bg:    $secondary !global;
+    $dropdown-link-hover-color:  color-contrast($primary-shade) !global;
+    $dropdown-link-hover-bg:     $primary-shade !global;
+    $dropdown-link-active-color: color-contrast($primary-shade) !global;
+    $dropdown-link-active-bg:    $primary-shade !global;
 
-    // $nav-pills-link-active-bg:   $link-color !global;
-    $nav-pills-link-active-bg:   $cor-destaque !global;
+    $nav-pills-link-active-bg:   $accent !global;
 
     $navbar-light-active-color:  $gray-100 !global;
 
