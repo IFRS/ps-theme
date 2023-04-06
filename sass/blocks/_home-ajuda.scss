@@ -1,5 +1,5 @@
 .home-ajuda {
-    background-color: $secondary;
+    background-color: $primary;
     background-position: center center;
     background-repeat: repeat;
     background-size: cover;
@@ -37,7 +37,7 @@
 
             &__link {
                 @extend .btn;
-                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $accent, $accent, color-contrast($accent));
+                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $gray-500, $gray-500, color-contrast($gray-500));
 
                 border-radius: 0;
                 text-transform: uppercase;
