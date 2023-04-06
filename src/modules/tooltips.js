@@ -9,7 +9,7 @@ tooltipTriggerList.map(function (tooltipTriggerEl) {
 document.querySelectorAll('.menu-social__link').forEach(function(el) {
   let texto = el.getAttribute('aria-label');
   new Tooltip(el, {
-    placement: 'top',
+    placement: 'bottom',
     title: texto.trim(),
   });
 });
