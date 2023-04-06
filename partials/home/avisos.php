@@ -23,7 +23,7 @@
                 </article>
             <?php endwhile; ?>
         </div>
-        <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="btn btn-ps">Todos os avisos</a>
+        <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="btn btn-primary text-uppercase">Todos os avisos</a>
     <?php else : ?>
         <div class="alert alert-warning" role="alert">
             <p><strong>Ops!</strong> Ainda n&atilde;o existem avisos cadastrados.</p>
