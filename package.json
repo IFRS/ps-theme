@@ -23,7 +23,7 @@
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "ics": "^2.40.0",
+    "ics": "^3.1.0",
     "intersection-observer": "^0.12.0",
     "list.js": "^2.3.1",
     "masonry-layout": "^4.2.2",
