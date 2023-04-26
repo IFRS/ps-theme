@@ -46,19 +46,25 @@ add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args, $depth ) 
 add_filter( 'wp_nav_menu_items', function( $items ) {
     $now = time() - (3 * 60 * 60); // Hora atual em UTC-3
 
+    do_action( 'qm/info', "Data atual do servidor: $now" );
+
     $inscricao_url = cmb2_get_option( 'programacao_options', 'inscricao_url' );
     $inscricao_inicio = cmb2_get_option( 'programacao_options', 'inscricao_inicio' );
     $inscricao_fim = cmb2_get_option( 'programacao_options', 'inscricao_fim' );
+
+    if ($inscricao_url && $inscricao_inicio && $inscricao_fim) do_action( 'qm/info', "Inscrição Programada! URL: $inscricao_url / Início: $inscricao_inicio / Fim: $inscricao_fim" );
 
     $matricula_url = cmb2_get_option( 'programacao_options', 'matricula_url' );
     $matricula_inicio = cmb2_get_option( 'programacao_options', 'matricula_inicio' );
     $matricula_fim = cmb2_get_option( 'programacao_options', 'matrio$matricula_fim' );
 
-    if ($inscricao_url && $now >= $inscricao_inicio && $now <= $inscricao_fim) {
+    if ($matricula_url && $matricula_inicio && $matricula_fim) do_action( 'qm/info', "Matrícula Programada! URL: $matricula_url / Início: $matricula_inicio / Fim: $matricula_fim" );
+
+    if ($inscricao_url && $now > $inscricao_inicio && $now < $inscricao_fim) {
         $items .= '<li class="nav-item"><a class="nav-link" href="' . $inscricao_url . '">Inscri&ccedil;&otilde;es</a></li>';
     }
 
-    if ($matricula_url && $now >= $matricula_inicio && $now <= $matricula_fim) {
+    if ($matricula_url && $now > $matricula_inicio && $now < $matricula_fim) {
         $items .= '<li class="nav-item"><a class="nav-link" href="' . $matricula_url . '">Inscri&ccedil;&otilde;es</a></li>';
     }
 
