@@ -65,7 +65,7 @@ add_filter( 'wp_nav_menu_items', function( $items ) {
     }
 
     if ($matricula_url && $now > $matricula_inicio && $now < $matricula_fim) {
-        $items .= '<li class="nav-item"><a class="nav-link" href="' . $matricula_url . '">Inscri&ccedil;&otilde;es</a></li>';
+        $items .= '<li class="nav-item"><a class="nav-link" href="' . $matricula_url . '">Matr&iacute;culas</a></li>';
     }
 
     return $items;
