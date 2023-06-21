@@ -56,7 +56,7 @@ add_filter( 'wp_nav_menu_items', function( $items ) {
 
     $matricula_url = cmb2_get_option( 'programacao_options', 'matricula_url' );
     $matricula_inicio = cmb2_get_option( 'programacao_options', 'matricula_inicio' );
-    $matricula_fim = cmb2_get_option( 'programacao_options', 'matrio$matricula_fim' );
+    $matricula_fim = cmb2_get_option( 'programacao_options', 'matricula_fim' );
 
     if ($matricula_url && $matricula_inicio && $matricula_fim) do_action( 'qm/info', "Matrícula Programada! URL: $matricula_url / Início: $matricula_inicio / Fim: $matricula_fim" );
 
