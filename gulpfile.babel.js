@@ -5,7 +5,7 @@ import parseArgs        from 'minimist';
 import babel            from 'gulp-babel';
 import browserSync      from 'browser-sync';
 import csso             from 'gulp-csso';
-import dartSass         from 'sass';
+import * as dartSass    from 'sass';
 import gulpSass         from 'gulp-sass';
 import autoprefixer     from 'autoprefixer';
 import path             from 'path';
