@@ -60,7 +60,7 @@ $input-bg:                      null;
     @import "bootstrap/scss/mixins";
     @import "bootstrap/scss/utilities";
 
-    $link-hover-decoration:      none;
+    $link-hover-decoration:      none !global;
 
     $font-family-base:           "Inter", #{$font-family-sans-serif} !global;
 
