@@ -100,7 +100,7 @@ add_action( 'cmb2_init', function() {
 
     $datas->add_field( array(
         'name' => '',
-        'desc' => 'Em caso de data única, preencha os dois campos com a mesma data.',
+        'desc' => 'Em caso de data única, preencha os dois campos com a mesma data.<br><strong>Atenção</strong>: as datas e horários estão em formato dos EUA.',
         'type' => 'title',
         'id'   => $prefix . 'datas_desc',
         'show_in_rest' => false,
@@ -110,10 +110,13 @@ add_action( 'cmb2_init', function() {
         'name'        => __( 'De', 'ifrs-ps-theme'),
         'desc'        => __( 'Data de início do evento.', 'ifrs-ps-theme' ),
         'id'          => $prefix . 'data-inicio',
-        'type'        => 'text_date_timestamp',
-        'date_format' => 'd/m/Y',
+        'type'        => 'text_datetime_timestamp',
+        'default'     => '12:00 AM',
         'attributes'  => array(
             'required'    => 'required',
+            'data-timepicker' => json_encode( array(
+        		'stepMinute' => 1,
+        	) ),
         ),
     ) );
 
@@ -121,16 +124,19 @@ add_action( 'cmb2_init', function() {
         'name'        => __( 'Até', 'ifrs-ps-theme'),
         'desc'        => __( 'Data de término do evento.', 'ifrs-ps-theme' ),
         'id'          => $prefix . 'data-fim',
-        'type'        => 'text_date_timestamp',
-        'date_format' => 'd/m/Y',
+        'type'        => 'text_datetime_timestamp',
+        'default'     => '11:59 PM',
         'attributes'  => array(
             'required'    => 'required',
+            'data-timepicker' => json_encode( array(
+        		'stepMinute' => 1,
+        	) ),
         ),
     ) );
 
     $marco = new_cmb2_box( array(
-        'id'            => $prefix . 'fases',
-        'title'         => __( 'Fases', 'ifrs-ps-theme' ),
+        'id'            => $prefix . 'etapa',
+        'title'         => __( 'Etapa Importante', 'ifrs-ps-theme' ),
         'object_types'  => array( 'evento' ),
         'context'       => 'side',
         'priority'      => 'low',
@@ -139,10 +145,39 @@ add_action( 'cmb2_init', function() {
 
     $marco->add_field( array(
         'name' => '',
-        'desc' => 'Marque caso esse evento seja importante.',
+        'desc' => 'Marque caso esse evento seja uma etapa importante do PS.',
         'type' => 'checkbox',
         'id'   => $prefix . 'marco',
     ) );
+
+    $programacao = new_cmb2_box( array(
+        'id'            => $prefix . 'programacao',
+        'title'         => __( 'Programação de link no Menu', 'ifrs-ps-theme' ),
+        'object_types'  => array( 'evento' ),
+        'context'       => 'side',
+        'priority'      => 'low',
+        'show_names'    => false,
+    ) );
+
+    $programacao->add_field( array(
+        'id'   => $prefix . 'programacao_desc',
+        'desc' => __( 'Ao preencher título e endereço, um link será adicionado ao menu principal durante essa etapa.', 'ifrs-ps-theme' ),
+        'type' => 'title',
+    ) );
+
+    $programacao->add_field( array(
+		'name' => __( 'Título', 'ifrs-ps-theme' ),
+		'desc' => __( 'Título do item de menu.', 'ifrs-ps-theme' ),
+		'id'   => $prefix . 'programacao_titulo',
+		'type' => 'text',
+	) );
+
+    $programacao->add_field( array(
+		'name' => __( 'Endereço', 'ifrs-ps-theme' ),
+		'desc' => __( 'Indique a URL para essa etapa.', 'ifrs-ps-theme' ),
+		'id'   => $prefix . 'programacao_url',
+		'type' => 'text_url',
+	) );
 }, 5 );
 
 /* Admin Columns */
@@ -154,7 +189,7 @@ add_filter( 'manage_evento_posts_columns' , function( $columns ) {
             array_slice($columns, 0 , $pos),
             array(
                 'datas' => __('Período', 'ifrs-ps-theme'),
-                'marco' => __('Fase Importante', 'ifrs-ps-theme'),
+                'marco' => __('Etapa Importante', 'ifrs-ps-theme'),
             ),
             array_slice($columns, $pos)
         );
@@ -169,11 +204,13 @@ add_action( 'manage_evento_posts_custom_column' , function( $column, $post_id ) 
 			$data_inicio = get_post_meta( $post_id, '_evento_data-inicio', true );
             $data_fim = get_post_meta( $post_id, '_evento_data-fim', true );
 
-            echo date_i18n(get_option('date_format'), $data_inicio);
+            $format = get_option('date_format');
 
-            if ($data_inicio !== $data_fim) {
+            echo wp_date($format, $data_inicio, new DateTimeZone('UTC'));
+
+            if (date('Ymd', $data_inicio) !== date('Ymd', $data_fim)) {
                 echo ' - ';
-                echo date_i18n(get_option('date_format'), $data_fim);
+                echo wp_date($format, $data_fim, new DateTimeZone('UTC'));
             }
 		break;
         case 'marco':

@@ -42,30 +42,43 @@ add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args, $depth ) 
     return $atts;
 }, 10, 4 );
 
-/* Adiciona items automaticamente ao menu, conforme configurações */
+/* Adiciona items automaticamente ao menu, conforme configurações das etapas atuais */
 add_filter( 'wp_nav_menu_items', function( $items ) {
-    $now = time() - (3 * 60 * 60); // Hora atual em UTC-3
+    // $now = time() - (3 * 60 * 60); // Hora atual em UTC-3
+    $now = wp_date( 'U' );
 
-    do_action( 'qm/info', "Data atual do servidor: $now" );
+    do_action( 'qm/info', "Data e hora atual do servidor: $now" );
 
-    $inscricao_url = cmb2_get_option( 'programacao_options', 'inscricao_url' );
-    $inscricao_inicio = cmb2_get_option( 'programacao_options', 'inscricao_inicio' );
-    $inscricao_fim = cmb2_get_option( 'programacao_options', 'inscricao_fim' );
+    $marcos_atuais = get_posts(array(
+        'post_type'      => 'evento',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'nopaging'       => true,
+        'orderby'        => 'meta_value_num',
+        'order'          => 'ASC',
+        'meta_key'       => array('_evento_data-inicio', '_evento_data-fim'),
+        'meta_query'     => array(
+            array(
+                'key'     => '_evento_data-inicio',
+                'compare' => '<=',
+                'value'   => $now,
+            ),
+            array(
+                'key'     => '_evento_data-fim',
+                'compare' => '>=',
+                'value'   => $now,
+            ),
+        ),
+    ));
 
-    if ($inscricao_url && $inscricao_inicio && $inscricao_fim) do_action( 'qm/info', "Inscrição Programada! URL: $inscricao_url / Início: $inscricao_inicio / Fim: $inscricao_fim" );
+    foreach ($marcos_atuais as $marco) {
+        $url = get_post_meta( $marco->ID, '_evento_programacao_url', true );
+        $titulo = get_post_meta( $marco->ID, '_evento_programacao_titulo', true );
 
-    $matricula_url = cmb2_get_option( 'programacao_options', 'matricula_url' );
-    $matricula_inicio = cmb2_get_option( 'programacao_options', 'matricula_inicio' );
-    $matricula_fim = cmb2_get_option( 'programacao_options', 'matricula_fim' );
-
-    if ($matricula_url && $matricula_inicio && $matricula_fim) do_action( 'qm/info', "Matrícula Programada! URL: $matricula_url / Início: $matricula_inicio / Fim: $matricula_fim" );
-
-    if ($inscricao_url && $now > $inscricao_inicio && $now < $inscricao_fim) {
-        $items .= '<li class="nav-item"><a class="nav-link" href="' . $inscricao_url . '">Inscri&ccedil;&otilde;es</a></li>';
-    }
-
-    if ($matricula_url && $now > $matricula_inicio && $now < $matricula_fim) {
-        $items .= '<li class="nav-item"><a class="nav-link" href="' . $matricula_url . '">Matr&iacute;culas</a></li>';
+        if ($url && $titulo) {
+            do_action( 'qm/info', sprintf("Etapa Programada! %s (%s)", $titulo, $url) );
+            $items .= sprintf( '<li class="nav-item"><a class="nav-link" href="%s">%s</a></li>', $url, $titulo );
+        }
     }
 
     return $items;

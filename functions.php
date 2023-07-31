@@ -42,9 +42,6 @@ require_once('inc/empty-search.php');
 // Função para mostrar tempo relativo
 require_once('inc/relative-time.php');
 
-// Página com opções de programação do PS
-require_once('inc/options.php');
-
 // Taxonomies
 // require_once('inc/taxonomies/ps-taxonomy.php');
 require_once('inc/taxonomies/campus-taxonomy.php');

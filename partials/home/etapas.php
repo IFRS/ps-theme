@@ -1,5 +1,5 @@
 <?php
-  $hoje = strtotime('today midnight');
+  $agora = time() - (3 * 60 * 60); // Hora atual em UTC-3
 
   $marcos_atuais = get_posts(array(
     'post_type'      => 'evento',
@@ -17,35 +17,15 @@
       array(
         'key'     => '_evento_data-inicio',
         'compare' => '<=',
-        'value'   => $hoje,
+        'value'   => $agora,
       ),
       array(
         'key'     => '_evento_data-fim',
         'compare' => '>=',
-        'value'   => $hoje,
+        'value'   => $agora,
       ),
     ),
   ));
-
-  // $marcos_anteriores = get_posts(array(
-  //   'post_type'      => 'evento',
-  //   'post_status'    => 'publish',
-  //   'posts_per_page' => 1,
-  //   'orderby'        => 'meta_value_num',
-  //   'order'          => 'DESC',
-  //   'meta_key'       => array('_evento_data-fim'),
-  //   'meta_query'     => array(
-  //     array(
-  //       'key'     => '_evento_marco',
-  //       'compare' => 'EXISTS',
-  //     ),
-  //     array(
-  //       'key'     => '_evento_data-fim',
-  //       'compare' => '<',
-  //       'value'   => $hoje,
-  //     ),
-  //   ),
-  // ));
 
   $marcos_futuros = get_posts(array(
     'post_type'      => 'evento',
@@ -62,7 +42,7 @@
       array(
         'key'     => '_evento_data-inicio',
         'compare' => '>',
-        'value'   => $hoje,
+        'value'   => strtotime('tomorrow midnight'),
       ),
     ),
   ));
