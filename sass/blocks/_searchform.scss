@@ -4,7 +4,7 @@
     }
 
     &__submit {
-        @include button-variant($gray-400, $input-border-color);
+        @include button-variant($gray-400, $border-color);
 
         box-shadow: none;
         fill: $primary;

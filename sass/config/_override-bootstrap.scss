@@ -1,10 +1,18 @@
 @import "bootstrap/scss/functions";
 
 $primary:                       #563a8f;
-$body-bg:                       null;
-$link-hover-decoration:         none;
+$primary-shade:                 shade-color($primary, 20%);
+$accent:                        #e94d32;
+
+$theme-colors: (
+    "accent": $accent,
+);
+
+$link-hover-decoration:         null;
 
 $font-family-base:              null;
+
+$body-bg:                       null;
 
 $accordion-bg:                  null;
 $accordion-button-active-bg:    null;
@@ -44,14 +52,14 @@ $navbar-light-active-color:     null;
 $input-bg:                      null;
 
 %scope {
-    @import "vars";
     @import "bootstrap/scss/functions";
     @import "bootstrap/scss/variables";
+    @import "bootstrap/scss/variables-dark";
     @import "bootstrap/scss/maps";
     @import "bootstrap/scss/mixins";
     @import "bootstrap/scss/utilities";
 
-    $theme-colors:               map-merge($theme-colors, $custom-colors);
+    $link-hover-decoration:      none;
 
     $font-family-base:           "Inter", #{$font-family-sans-serif} !global;
 
@@ -78,6 +86,7 @@ $input-bg:                      null;
 }
 
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
