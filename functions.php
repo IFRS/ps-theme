@@ -57,6 +57,3 @@ require_once('inc/post-types/publicacao.php');
 require_once('inc/post-types/chamada.php');
 require_once('inc/post-types/documento.php');
 require_once('inc/post-types/evento.php');
-
-// Shortcodes
-require_once('inc/shortcodes/campi.php');
