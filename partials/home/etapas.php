@@ -1,5 +1,5 @@
 <?php
-  $agora = time() - (3 * 60 * 60); // Hora atual em UTC-3
+  $agora = wp_date( 'U' );
 
   $marcos_atuais = get_posts(array(
     'post_type'      => 'evento',
@@ -8,7 +8,7 @@
     'nopaging'       => true,
     'orderby'        => 'meta_value_num',
     'order'          => 'ASC',
-    'meta_key'       => array('_evento_data-inicio', '_evento_data-fim'),
+    'meta_key'       => '_evento_data-fim',
     'meta_query'     => array(
       array(
         'key'     => '_evento_marco',
@@ -33,7 +33,7 @@
     'posts_per_page' => count($marcos_atuais) === 0 ? 2 : 1,
     'orderby'        => 'meta_value_num',
     'order'          => 'ASC',
-    'meta_key'       => array('_evento_data-inicio', '_evento_data-fim'),
+    'meta_key'       => '_evento_data-inicio',
     'meta_query'     => array(
       array(
         'key'     => '_evento_marco',
@@ -42,7 +42,7 @@
       array(
         'key'     => '_evento_data-inicio',
         'compare' => '>',
-        'value'   => strtotime('tomorrow midnight'),
+        'value'   => strtotime('today 23:59:59'),
       ),
     ),
   ));
