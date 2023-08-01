@@ -1,10 +1,14 @@
 .header {
-    &__link {
+    .custom-logo-link {
         display: inline-block;
-        margin-top: 1.5rem;
+        margin: 1rem 0;
 
         &:hover {
             text-decoration: none;
+        }
+
+        .custom-logo {
+            @include img-fluid();
         }
     }
 

@@ -40,15 +40,7 @@
         <section class="container header">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-8">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__link">
-                        <?php if (has_custom_logo()) : ?>
-                            <?php $logo = wp_get_attachment_image_src(get_theme_mod('custom_logo') , 'full'); ?>
-                            <img src="<?php echo esc_url($logo[0]) ?>" width="<?php echo esc_attr($logo[1]); ?>" height="<?php echo esc_attr($logo[2]); ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
-                        <?php else : ?>
-                            <?php list($logo_width, $logo_height, $logo_type, $logo_attr) = getimagesize(get_stylesheet_directory() . '/img/ps.png'); ?>
-                            <img src="<?php echo get_stylesheet_directory_uri() . '/img/ps.png'; ?>" width="<?php echo esc_attr($logo_width); ?>" height="<?php echo esc_attr($logo_height); ?>" alt="<?php bloginfo('name'); ?> - Ir para P&aacute;gina Inicial" class="img-fluid"/>
-                        <?php endif; ?>
-                    </a>
+                    <?php the_custom_logo(); ?>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="header__social">

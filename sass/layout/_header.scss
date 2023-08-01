@@ -1,10 +1,10 @@
 header {
-    background-color: $white;
+    background-color: $primary;
     background-image: var(--bg-xs, none);
     background-position: center top;
     background-repeat: repeat-x;
     background-size: cover;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
 
     @include media-breakpoint-up(sm) {
         background-image: var(--bg-sm, none);
