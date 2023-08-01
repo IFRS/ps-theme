@@ -25,6 +25,12 @@
         &.destaque {
             background-color: $accent;
             color: color-contrast($accent);
+
+            &:hover,
+            &:focus {
+                background-color: $accent-shade;
+                color: color-contrast($accent-shade);
+            }
         }
     }
 

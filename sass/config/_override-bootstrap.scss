@@ -3,6 +3,7 @@
 $primary:                       #563a8f;
 $primary-shade:                 shade-color($primary, 20%);
 $accent:                        #e94d32;
+$accent-shade:                  shade-color($accent, 20%);
 
 $theme-colors: (
     "primary": $primary,
