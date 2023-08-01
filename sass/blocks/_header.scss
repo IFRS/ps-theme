@@ -1,29 +1,4 @@
 .header {
-    position: relative;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-
-    &__principal {
-        flex: 0 1 auto;
-        align-self: flex-end;
-        text-align: center;
-    }
-
-    &__foto {
-        margin: 3.5rem 1.5rem 0;
-        max-width: 20%;
-        flex: 0 0 20%;
-        align-self: flex-end;
-
-        @include media-breakpoint-down(lg) {
-            display: none;
-        }
-    }
-
     &__link {
         display: inline-block;
         margin-top: 1.5rem;
@@ -34,25 +9,11 @@
     }
 
     &__social {
-        display: block;
         margin: 1rem 0;
-
-        @include media-breakpoint-up(lg) {
-            position: absolute;
-            left: 0;
-            top: 1rem;
-            margin-top: 0;
-        }
+        text-align: center;
     }
 
     &__search {
         margin: 1rem 0;
-
-        @include media-breakpoint-up(lg) {
-            position: absolute;
-            right: 0;
-            top: 1rem;
-            margin-top: 0;
-        }
     }
 }
