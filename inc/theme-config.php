@@ -57,7 +57,7 @@ add_action( 'after_switch_theme', function() {
 
 // Enable Custom Logo
 add_theme_support( 'custom-logo', array(
-    'height'               => 400,
+    'height'               => 180,
     'width'                => 720,
     'flex-height'          => true,
     'flex-width'           => true,
@@ -69,7 +69,7 @@ add_theme_support( 'custom-logo', array(
 add_theme_support( 'custom-header', array(
     'default-image'          => '',
     'width'                  => 1920,
-    'height'                 => 600,
+    'height'                 => 480,
     'flex-height'            => true,
     'flex-width'             => false,
     'uploads'                => true,
@@ -114,7 +114,7 @@ add_action('widgets_init', function() {
 
 // Starter Content
 add_action( 'after_setup_theme',function() {
-    add_theme_support('starter_content', array(
+    add_theme_support('starter-content', array(
         'posts' => array(
             'home' => array(
                 'post_title'   => 'Página Inicial',
