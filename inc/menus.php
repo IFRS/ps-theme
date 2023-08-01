@@ -44,7 +44,6 @@ add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args, $depth ) 
 
 /* Adiciona items automaticamente ao menu, conforme configurações das etapas atuais */
 add_filter( 'wp_nav_menu_items', function( $items ) {
-    // $now = time() - (3 * 60 * 60); // Hora atual em UTC-3
     $now = wp_date( 'U' );
 
     do_action( 'qm/info', "Data e hora atual do servidor: $now" );
@@ -77,7 +76,7 @@ add_filter( 'wp_nav_menu_items', function( $items ) {
 
         if ($url && $titulo) {
             do_action( 'qm/info', sprintf("Etapa Programada! %s (%s)", $titulo, $url) );
-            $items .= sprintf( '<li class="nav-item"><a class="nav-link" href="%s">%s</a></li>', $url, $titulo );
+            $items .= sprintf( '<li class="nav-item"><a class="nav-link destaque" href="%s">%s</a></li>', $url, $titulo );
         }
     }
 

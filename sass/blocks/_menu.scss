@@ -21,6 +21,11 @@
             background-color: $primary-shade;
             color: color-contrast($primary-shade);
         }
+
+        &.destaque {
+            background-color: $accent;
+            color: color-contrast($accent);
+        }
     }
 
     .dropdown-toggle {
