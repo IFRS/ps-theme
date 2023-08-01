@@ -1,19 +1,15 @@
+<?php $svgID = uniqid(); ?>
+
 <form role="search" method="get" class="searchform" action="<?php echo esc_url(home_url('/')); ?>">
     <label class="visually-hidden" for="search-field">Buscar por:</label>
     <div class="input-group">
         <input type="search" value="<?php echo get_search_query(); ?>" name="s" id="search-field" class="form-control form-control-sm searchform__input" placeholder="Buscar em todo o site" required>
-        <span class="input-group-append">
-            <button type="submit" class="btn btn-sm searchform__submit">
-                <span class="visually-hidden">Buscar no Site</span>
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 22.2 22.2" style="enable-background:new 0 0 22.2 22.2;" xml:space="preserve">
-                    <g><path class="st0" d="M21.8,19.3l-4.6-4.6c1.1-1.6,1.7-3.4,1.7-5.3c0-1.3-0.2-2.5-0.7-3.7c-0.5-1.2-1.2-2.2-2-3
-                    c-0.8-0.8-1.8-1.5-3-2C11.9,0.2,10.7,0,9.4,0C8.1,0,6.9,0.2,5.8,0.7c-1.2,0.5-2.2,1.2-3,2c-0.8,0.8-1.5,1.8-2,3
-                    C0.2,6.9,0,8.1,0,9.4c0,1.3,0.2,2.5,0.7,3.7c0.5,1.2,1.2,2.2,2,3c0.8,0.8,1.8,1.5,3,2c1.2,0.5,2.4,0.7,3.7,0.7c2,0,3.7-0.6,5.3-1.7
-                    l4.6,4.6c0.3,0.3,0.7,0.5,1.2,0.5c0.5,0,0.9-0.2,1.2-0.5c0.3-0.3,0.5-0.7,0.5-1.2C22.2,20.1,22.1,19.7,21.8,19.3z M13.6,13.6
-                    c-1.2,1.2-2.6,1.8-4.2,1.8c-1.6,0-3.1-0.6-4.2-1.8C4,12.5,3.4,11.1,3.4,9.4c0-1.6,0.6-3.1,1.8-4.2C6.4,4,7.8,3.4,9.4,3.4
-                    c1.6,0,3.1,0.6,4.2,1.8c1.2,1.2,1.8,2.6,1.8,4.2C15.4,11.1,14.8,12.5,13.6,13.6z"/></g>
-                </svg>
-            </button>
-        </span>
+        <button type="submit" class="btn btn-sm btn-light input-group-append searchform__submit" aria-labelledby="<?php echo $svgID; ?>">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" role="img">
+                <title id="<?php echo $svgID; ?>">Buscar no Site</title>
+                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+            </svg>
+        </button>
     </div>
 </form>
