@@ -57,7 +57,7 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 }, 99 );
 
-add_filter('script_loader_tag', function($tag, $handle) {
+add_filter( 'script_loader_tag', function($tag, $handle) {
     $scripts_to_defer = array('vlibras');
     $scripts_to_async = array();
 
@@ -74,4 +74,15 @@ add_filter('script_loader_tag', function($tag, $handle) {
     }
 
     return $tag;
-}, 99, 2);
+}, 99, 2 );
+
+/* Gutenberg Assets */
+add_action( 'enqueue_block_assets', function() {
+    wp_enqueue_script(
+        'ps-admin-notices',
+        get_template_directory_uri() . '/js/admin_campi-alert.js',
+        array( 'wp-blocks', 'wp-block-editor' ),
+        WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/admin_campi-alert.js'),
+        true
+    );
+}, 99 );

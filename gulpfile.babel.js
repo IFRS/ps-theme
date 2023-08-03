@@ -75,6 +75,7 @@ function bundle(done) {
       'cronograma': './src/cronograma.js',
       'chamadas': './src/chamadas.js',
       'chamada': './src/chamada.js',
+      'admin_campi-alert': './src/admin_campi-alert.js',
     },
     output: {
       path: path.resolve(path.dirname(''), 'js'),
