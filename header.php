@@ -90,7 +90,7 @@
 
     <main role="main" id="main">
     <?php
-        if ( function_exists('yoast_breadcrumb') ) {
+        if ( function_exists('yoast_breadcrumb') && !is_front_page() ) {
             yoast_breadcrumb( '<div class="breadcrumb-wrapper"><nav aria-label="Você está em:" class="container">', '</nav></div>' );
         } else {
             ps_breadcrumb();
