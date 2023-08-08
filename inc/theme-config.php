@@ -135,3 +135,6 @@ add_action( 'after_setup_theme',function() {
         ),
     ));
 } );
+
+// YoastSEO Breadcrumbs
+add_theme_support( 'yoast-seo-breadcrumbs' );

@@ -12,6 +12,10 @@ add_action( 'wp_enqueue_scripts', function() {
 
     wp_enqueue_style('ps', get_stylesheet_directory_uri().'/css/ps.css', array('vendor'), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/css/ps.css'), 'all');
 
+    if ( function_exists('yoast_breadcrumb') ) {
+        wp_add_inline_style( 'ps', ':root { --bs-breadcrumb-divider: none;' );
+    }
+
     /**
      * Scripts
      */

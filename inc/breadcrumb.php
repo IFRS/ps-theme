@@ -1,4 +1,21 @@
 <?php
+// YoastSEO
+add_filter( 'wpseo_breadcrumb_output_class', function($class) {
+    $class = 'breadcrumb-yoast';
+    return $class;
+}, 99);
+
+add_filter( 'wpseo_breadcrumb_output_wrapper', function($wrapper) {
+    $wrapper = 'ol';
+    return $wrapper;
+}, 99 );
+
+add_filter( 'wpseo_breadcrumb_single_link_wrapper', function($wrapper) {
+    $wrapper = 'li';
+    return $wrapper;
+}, 99 );
+
+// Custom
 function ps_breadcrumb() {
     $home      = 'Home';
     $before    = '<li class="breadcrumb-item active" aria-current="page">';

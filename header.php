@@ -89,4 +89,10 @@
     <a href="#inicio-conteudo" id="inicio-conteudo" class="visually-hidden">In&iacute;cio do conte&uacute;do</a>
 
     <main role="main" id="main">
-    <?php ps_breadcrumb(); ?>
+    <?php
+        if ( function_exists('yoast_breadcrumb') ) {
+            yoast_breadcrumb( '<div class="breadcrumb-wrapper"><nav aria-label="Você está em:" class="container">', '</nav></div>' );
+        } else {
+            ps_breadcrumb();
+        }
+    ?>
