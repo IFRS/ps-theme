@@ -5,7 +5,7 @@ add_action( 'init', function() {
         'singular_name'         => _x( 'Eventos', 'Post Type Singular Name', 'ifrs-ps-theme' ),
         'menu_name'             => __( 'Cronograma', 'ifrs-ps-theme' ),
         'name_admin_bar'        => __( 'Cronograma', 'ifrs-ps-theme' ),
-        'archives'              => __( 'Cronograma', 'ifrs-ps-theme' ),
+        'archives'              => __( 'Datas Importantes', 'ifrs-ps-theme' ),
         'attributes'            => __( 'Atributos do Evento', 'ifrs-ps-theme' ),
         'parent_item_colon'     => __( 'Evento pai:', 'ifrs-ps-theme' ),
         'all_items'             => __( 'Todos os Eventos', 'ifrs-ps-theme' ),
@@ -235,7 +235,7 @@ add_filter( 'pre_get_posts', function( $query ) {
 /* Archive Title */
 add_filter( 'post_type_archive_title', function ( $title ) {
     if ( is_post_type_archive( 'evento' ) ) {
-        $title = 'Cronograma';
+        $title = 'Datas Importantes';
     }
 
     return $title;
