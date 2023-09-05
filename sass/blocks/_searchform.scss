@@ -1,12 +1,32 @@
 .searchform {
-    &__input {
-        background-color: #ffffff;
+    margin-bottom: 2rem;
+
+    .input-group {
+        margin: {
+            top: 0;
+            bottom: 2rem;
+            left: auto;
+            right: auto;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 70%;
+        }
+
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+        }
     }
 
     &__submit {
-        @include button-variant($gray-400, $border-color);
+        @include button-variant($gray-300, $border-color);
 
         box-shadow: none;
-        fill: $primary;
+        fill: $body-color;
+
+        &:hover,
+        &:focus {
+            fill: $accent;
+        }
     }
 }

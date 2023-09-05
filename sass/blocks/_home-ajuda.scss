@@ -3,11 +3,11 @@
     background-position: center center;
     background-repeat: repeat;
     background-size: cover;
-    color: #ffffff;
+    color: color-contrast($primary);
     padding: 3rem 0;
 
     a {
-        color: #ffffff;
+        color: inherit;
 
         &:active,
         &:hover {
@@ -17,8 +17,12 @@
 
     &__title {
         @extend %ps-title;
-        color: #ffffff;
-        margin-top: 0;
+
+        color: inherit;
+        margin: {
+            top: 0;
+            bottom: 2rem;
+        }
         text-align: center;
     }
 
@@ -37,9 +41,8 @@
 
             &__link {
                 @extend .btn;
-                @include button-variant($gray-200, $gray-300, color-contrast($gray-200), $gray-500, $gray-500, color-contrast($gray-500));
+                @include button-variant($gray-900, $gray-900, color-contrast($gray-900));
 
-                border-radius: 0;
                 text-transform: uppercase;
             }
         }

@@ -1,5 +1,9 @@
-.menu {
-    padding: 1rem;
+.navbar-light {
+    background-color: #fef7cb;
+    border: {
+        top: 2px solid $body-color;
+        bottom: 2px solid $body-color;
+    }
 }
 
 .menu-principal {
@@ -14,22 +18,29 @@
     }
 
     .nav-link {
-        background-color: $primary;
+        color: color-contrast(#fef7cb);
 
         &:hover,
         &:focus {
-            background-color: $primary-shade;
-            color: color-contrast($primary-shade);
+            font-weight: bold;
+        }
+
+        &.active {
+            font-weight: 900;
         }
 
         &.destaque {
-            background-color: $accent;
-            color: color-contrast($accent);
+            background-color: #f2e96d;
+            border: 2px solid $body-color;
+            border-radius: $btn-border-radius;
+            color: color-contrast(#f2e96d);
+            font-weight: 900;
+            margin-left: 0.5rem;
 
             &:hover,
             &:focus {
-                background-color: $accent-shade;
-                color: color-contrast($accent-shade);
+                background-color: #fab365;
+                color: color-contrast(#fab365);
             }
         }
     }

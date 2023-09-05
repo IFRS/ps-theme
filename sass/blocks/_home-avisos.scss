@@ -7,50 +7,23 @@
 }
 
 .home-aviso {
-    display: flex;
+    // display: flex;
     margin-bottom: 1.5rem;
 
     &__meta {
-        color: #ffffff;
-        display: block;
-        flex: 0 0 16%;
-        align-self: center;
-        font-size: 1.75rem;
-        font-weight: 900;
-        line-height: 32px;
+        color: $gray-800;
+        display: inline-block;
+        // flex: 0 0 16%;
+        // align-self: center;
+        font-size: 1rem;
+        // font-weight: 900;
+        // line-height: 32px;
         margin-bottom: 0;
-        margin-right: 2rem;
+        // margin-right: 2rem;
 
-        @include media-breakpoint-down(sm) {
-            font-size: 22px;
-        }
-    }
-
-    &__day {
-        background: $primary;
-        display: inline-block;
-        margin: 0 auto;
-        padding: 3px 5px 2px 5px;
-
-        @include media-breakpoint-up(sm) {
-            padding: 5px 15px 2px 15px;
-        }
-    }
-
-    &__month {
-        background: $primary;
-        display: inline-block;
-        margin: 0 auto;
-        padding: 1px 5px 2px 5px;
-        text-transform: uppercase;
-
-        @include media-breakpoint-up(sm) {
-            padding: 2px 20px 5px 15px;
-        }
-    }
-
-    &__content {
-        flex: 0 1 auto;
+        // @include media-breakpoint-down(sm) {
+            // font-size: 22px;
+        // }
     }
 
     .post-categories {
@@ -62,6 +35,7 @@
         li {
             color: $primary;
             display: inline-block;
+            font-size: 0.9rem;
             font-weight: 900;
             text-transform: uppercase;
 
@@ -88,10 +62,10 @@
 
     &__title {
         font-size: 1.1rem;
-        font-weight: bold;
+        font-weight: 500;
         margin-bottom: 0.25rem;
         margin-top: 0;
-        text-transform: uppercase;
+        // text-transform: uppercase;
 
         a {
             color: inherit;
