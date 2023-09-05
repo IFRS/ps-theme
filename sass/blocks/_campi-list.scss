@@ -13,7 +13,7 @@
         position: relative;
 
         &::after {
-            background: $primary;
+            background: $accent;
             content: '';
             position: absolute;
             width: 40%;
