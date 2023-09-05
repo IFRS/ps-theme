@@ -21,6 +21,8 @@ $body-color:                    null;
 
 $body-bg:                       null;
 
+$link-color:                    null;
+
 $border-radius:                 null;
 
 $accordion-bg:                  null;
@@ -76,6 +78,8 @@ $input-bg:                      null;
     $body-color:                 #0f0f0f !global;
 
     $body-bg:                    #f0f9fa !global;
+
+    $link-color:                 shift-color($primary, 50%) !global;
 
     $border-radius:              1rem !global;
 
