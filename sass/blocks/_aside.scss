@@ -18,7 +18,7 @@
     }
 
     &__item {
-        color: $primary;
+        color: $body-color;
         margin-bottom: 2rem;
 
         page-break-inside: avoid;   /* Theoretically FF 20+ */
@@ -31,10 +31,6 @@
         font-size: 1.1rem;
         font-weight: bold;
         margin-bottom: 0.25rem;
-
-        a {
-            color: inherit;
-        }
     }
 
     &__item-meta {
