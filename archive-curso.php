@@ -29,7 +29,7 @@
                         <tbody>
                         <?php if (have_posts()) : ?>
                             <?php while ( have_posts() ) : the_post(); ?>
-                                <?php get_template_part('partials/cursos/row'); ?>
+                                <?php get_template_part('partials/cursos/row', null, array('hide_unidades' => false)); ?>
                             <?php endwhile;?>
                         <?php endif; ?>
                         </tbody>
@@ -45,7 +45,6 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th>Curso</th>
-                                    <th>Campus</th>
                                     <th>Modalidade</th>
                                     <th>Formas de Ingresso</th>
                                     <th>Turnos</th>
@@ -67,7 +66,7 @@
                                     $cursos_per_campus = new WP_Query($args);
                                 ?>
                                 <?php while ( $cursos_per_campus->have_posts() ) : $cursos_per_campus->the_post(); ?>
-                                    <?php get_template_part('partials/cursos/row'); ?>
+                                    <?php get_template_part('partials/cursos/row', null, array('hide_unidades' => true)); ?>
                                 <?php endwhile;?>
                                 <?php $cursos_per_campus->wp_reset_query(); ?>
                             </tbody>
