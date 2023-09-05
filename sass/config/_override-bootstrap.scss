@@ -44,6 +44,8 @@ $dropdown-link-hover-bg:        null;
 $dropdown-link-active-color:    null;
 $dropdown-link-active-bg:       null;
 
+$list-group-bg:                 null;
+
 $caret-width:                   0.4rem;
 
 $nav-link-font-weight:          500;
@@ -93,6 +95,8 @@ $input-bg:                      null;
     $dropdown-link-hover-bg:     $accent !global;
     $dropdown-link-active-color: color-contrast($accent) !global;
     $dropdown-link-active-bg:    $accent !global;
+
+    $list-group-bg:              $white !global;
 
     $navbar-light-active-color:  $gray-900 !global;
 
