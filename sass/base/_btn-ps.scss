@@ -1,0 +1,3 @@
+.btn-ps {
+  @include button-variant($gray-800, $gray-800, $body-bg, $primary, $primary);
+}
