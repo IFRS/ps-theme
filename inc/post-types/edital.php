@@ -158,3 +158,34 @@ add_filter('use_block_editor_for_post_type', function($current_status, $post_typ
 	if ($post_type === 'edital') return false;
 	return $current_status;
 }, 10, 2);
+
+/* Options */
+add_action( 'cmb2_admin_init', function() {
+	$options = new_cmb2_box( array(
+		'id'           => 'ps_edital_option_metabox',
+		'title'        => esc_html__( 'Opções para Editais', 'ifrs-ps-theme' ),
+		'object_types' => array( 'options-page' ),
+		'option_key'      => 'edital_options',
+		// 'icon_url'        => 'dashicons-palmtree',
+		'menu_title'      => esc_html__( 'Opções', 'ifrs-ps-theme' ),
+		'parent_slug'     => 'edit.php?post_type=edital',
+		'capability'      => 'manage_editais',
+		// 'position'        => 1,
+		// 'admin_menu_hook' => 'network_admin_menu',
+		// 'display_cb'      => false,
+		// 'save_button'     => esc_html__( 'Salvar Opções', 'ifrs-ps-theme' ),
+	) );
+
+	$options->add_field( array(
+		'name' => __( 'Descrição', 'ifrs-ps-theme' ),
+		'desc' => __( 'Texto para a lista de Editais.', 'ifrs-ps-theme' ),
+		'id'   => 'desc',
+		'type' => 'wysiwyg',
+		'options' => array(
+			'wpautop'       => true,
+			'media_buttons' => false,
+			'textarea_rows' => get_option('default_post_edit_rows', 10),
+			'teeny'         => true,
+		),
+	) );
+} );

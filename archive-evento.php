@@ -21,6 +21,7 @@
     <?php if (!empty($atualizacao)) : ?>
         <p class="cronograma__meta">Atualizado em <?php echo $atualizacao; ?></p>
     <?php endif; ?>
+    <?php echo wpautop(cmb2_get_option('evento_options', 'desc', '')); ?>
     <?php if (have_posts()) : ?>
         <div class="d-grid d-md-flex justify-content-md-end">
             <button id="ics" class="btn btn-dark btn-sm">Exporte para sua agenda</button>
