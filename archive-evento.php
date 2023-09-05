@@ -23,7 +23,7 @@
     <?php endif; ?>
     <?php if (have_posts()) : ?>
         <div class="d-grid d-md-flex justify-content-md-end">
-            <button id="ics" class="btn btn-light btn-sm">Exportar Cronograma</button>
+            <button id="ics" class="btn btn-dark btn-sm">Exporte para sua agenda</button>
         </div>
         <div class="table-responsive-sm mt-3">
             <table class="table cronograma__table">
@@ -63,6 +63,16 @@
                             <td class="evento__content">
                                 <strong><?php the_title(); ?></strong>
                                 <?php the_content(); ?>
+                                <?php
+                                    $url = get_post_meta( get_the_ID(), '_evento_programacao_url', true );
+                                    $now = wp_date( 'U' );
+                                    $inicio = get_post_meta( get_the_ID(), '_evento_data-inicio', true );
+                                    $fim = get_post_meta( get_the_ID(), '_evento_data-fim', true );
+                                ?>
+                                <?php if ($data_inicio <= $now && $data_fim >= $now) : ?>
+                                    <br>
+                                    <a href="<?php echo esc_url($url); ?>"><?php echo $url; ?></a>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endwhile; ?>
