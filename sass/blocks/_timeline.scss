@@ -17,6 +17,8 @@
   }
 
   &::after {
+    @extend %estrela;
+
     content: '';
     position: absolute;
     right: 0; top: 50%;
@@ -24,7 +26,6 @@
 
     width: 30px; height: 30px;
 
-    @extend %estrela;
   }
 
   &__title {
@@ -58,14 +59,18 @@
     color: $gray-600;
     display: inline;
     font-size: 0.9rem;
-    font-style: italic;
     font-weight: 600;
-    margin-right: 0.75rem;
 
     &--atual {
       color: $gray-900;
       font-style: normal;
       font-weight: 900;
+    }
+
+    &:not(:last-child) {
+      &::after {
+        content: ', ';
+      }
     }
   }
 
