@@ -50,7 +50,7 @@ $caret-width:                   0.4rem;
 
 $nav-link-font-weight:          500;
 
-$nav-pills-link-active-color:   #ffffff;
+$nav-pills-link-active-color:   null;
 $nav-pills-link-active-bg:      null;
 
 $navbar-light-color:            #ffffff;
@@ -100,7 +100,8 @@ $input-bg:                      null;
 
     $navbar-light-active-color:  $gray-900 !global;
 
-    $nav-pills-link-active-bg:   $accent !global;
+    $nav-pills-link-active-bg:    $accent !global;
+    $nav-pills-link-active-color: color-contrast($nav-pills-link-active-bg) !global;
 
     $input-bg:                   $gray-100 !global;
 }
