@@ -1,8 +1,10 @@
 @import "bootstrap/scss/functions";
 
-$primary:                       #563a8f;
+$primary:                       #26B6BF;
 $primary-shade:                 shade-color($primary, 20%);
-$accent:                        #e94d32;
+// $accent:                        #F2E96D;
+// $accent:                        #fef7cb;
+$accent:                        #fab365;
 $accent-shade:                  shade-color($accent, 20%);
 
 $theme-colors: (
@@ -14,7 +16,11 @@ $link-hover-decoration:         null;
 
 $font-family-base:              null;
 
+$body-color:                    null;
+
 $body-bg:                       null;
+
+$border-radius:                 null;
 
 $accordion-bg:                  null;
 $accordion-button-active-bg:    null;
@@ -28,21 +34,18 @@ $breadcrumb-bg:                 none;
 $breadcrumb-active-color:       null;
 $breadcrumb-padding-y:          1rem;
 
-$btn-border-radius:             0;
-$btn-border-radius-lg:          0;
+$btn-font-weight:               null;
 
 $dropdown-padding-y:            0;
 $dropdown-bg:                   null;
-$dropdown-border-radius:        none;
-$dropdown-border-width:         0;
-$dropdown-inner-border-radius:  0;
-$dropdown-link-color:           #ffffff;
 $dropdown-link-hover-color:     null;
 $dropdown-link-hover-bg:        null;
 $dropdown-link-active-color:    null;
 $dropdown-link-active-bg:       null;
 
 $caret-width:                   0.4rem;
+
+$nav-link-font-weight:          500;
 
 $nav-pills-link-active-color:   #ffffff;
 $nav-pills-link-active-bg:      null;
@@ -65,7 +68,13 @@ $input-bg:                      null;
 
     $font-family-base:           "Bricolage Grotesque", #{$font-family-sans-serif} !global;
 
-    $body-bg:                    $gray-200 !global;
+    $body-color:                 #0f0f0f !global;
+
+    $body-bg:                    #f0f9fa !global;
+
+    $border-radius:              1rem !global;
+
+    $btn-font-weight:            900 !global;
 
     $accordion-bg:               $gray-200 !global;
     $accordion-button-active-bg: $accent !global;
@@ -74,15 +83,15 @@ $input-bg:                      null;
 
     $breadcrumb-active-color:    $gray-800 !global;
 
-    $dropdown-bg:                $primary !global;
-    $dropdown-link-hover-color:  color-contrast($primary-shade) !global;
-    $dropdown-link-hover-bg:     $primary-shade !global;
-    $dropdown-link-active-color: color-contrast($primary-shade) !global;
-    $dropdown-link-active-bg:    $primary-shade !global;
+    $dropdown-bg:                #fffdf2 !global;
+    $dropdown-link-hover-color:  color-contrast($accent) !global;
+    $dropdown-link-hover-bg:     $accent !global;
+    $dropdown-link-active-color: color-contrast($accent) !global;
+    $dropdown-link-active-bg:    $accent !global;
+
+    $navbar-light-active-color:  $gray-900 !global;
 
     $nav-pills-link-active-bg:   $accent !global;
-
-    $navbar-light-active-color:  $gray-100 !global;
 
     $input-bg:                   $gray-100 !global;
 }
