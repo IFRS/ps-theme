@@ -55,7 +55,16 @@
         <h2 class="timeline__title timeline__title--atual"><?php echo _n('Etapa Atual:','Etapas Atuais',count($marcos_atuais),'ifrs-ps-theme'); ?></h2>
         <ul class="timeline__list">
         <?php foreach ($marcos_atuais as $marco) : ?>
-          <li class="timeline__item timeline__item--atual"><?php echo $marco->post_title; ?></li>
+          <li class="timeline__item timeline__item--atual">
+            <?php echo $marco->post_title; ?>
+            <?php
+              $data_inicio = get_post_meta( $marco->ID, '_evento_data-inicio', true );
+              $data_fim = get_post_meta( $marco->ID, '_evento_data-fim', true );
+            ?>
+            <?php if ($data_inicio && $data_fim) : ?>
+              (<?php echo date_i18n( 'd/m', $data_inicio ), ' a ', date_i18n( 'd/m', $data_fim ); ?>)
+            <?php endif; ?>
+          </li>
         <?php endforeach; ?>
         </ul>
       <?php endif; ?>
