@@ -24,19 +24,26 @@
     }
 
     &__meta {
-        font-size: 12px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.9rem;
         font-style: italic;
-        margin-top: 10px;
+        margin: 1rem 0;
+
+        > * {
+            margin: 0;
+        }
     }
 
     &__categories {
-        font-size: 90%;
         list-style: none;
-        text-align: right;
 
         li {
             display: inline-block;
-            margin-left: 4px;
+            margin-right: 4px;
             margin-bottom: 4px;
         }
     }

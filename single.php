@@ -11,23 +11,18 @@
                     the_post_thumbnail('full', array('class' => 'post__thumb'));
                 }
             ?>
-            <?php the_content(); ?>
-            <hr>
-            <div class="row post__meta">
-                <div class="col-12 col-md-6">
-                    <p class="post__date">Publicado em <?php the_date('d/m/Y'); ?></p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <?php $cats = get_the_category(); ?>
-                    <?php if (!empty($cats)) : ?>
-                        <ul class="post__categories">
-                            <?php foreach ($cats as $key => $cat) : ?>
-                                <li><a href="<?php echo get_category_link( $cat->term_id ); ?>"><?php echo $cat->name; ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
-                </div>
+            <div class="post__meta">
+                <p class="post__date">Publicado em <?php the_date('d/m/Y'); ?></p>
+                <?php $cats = get_the_category(); ?>
+                <?php if (!empty($cats)) : ?>
+                    <ul class="post__categories">
+                        <?php foreach ($cats as $key => $cat) : ?>
+                            <li><a href="<?php echo get_category_link( $cat->term_id ); ?>"><?php echo $cat->name; ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
+            <?php the_content(); ?>
         </div>
     </article>
     <?php
