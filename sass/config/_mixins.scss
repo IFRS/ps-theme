@@ -1,8 +1,14 @@
 %ps-title {
-    color: $gray-800;
+    color: $gray-900;
     font-weight: 900;
     margin-bottom: 1rem;
     margin-top: 2rem;
     text-align: left;
     text-transform: uppercase;
+}
+
+%estrela {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 38.73 37.71"><path fill="%23fab365" stroke="%23231f20" stroke-miterlimit="10" stroke-width="1.5" d="M17.86 35.47c-2.77-6.44-8.05-11.35-15.81-14.73-1.26-.55-1.27-2.32-.02-2.91C9.14 14.5 14.59 9.44 17.91 2.2c.57-1.25 2.36-1.22 2.91.04 3.06 7.09 8.42 12.23 15.86 15.6 1.27.58 1.25 2.37-.04 2.92-8.03 3.41-13.28 8.31-15.83 14.66-.53 1.33-2.38 1.36-2.95.05z"/></svg>');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
