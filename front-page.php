@@ -39,8 +39,9 @@
     <section class="home-ajuda">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col">
                     <h2 class="home-ajuda__title">Voc&ecirc; tem alguma d&uacute;vida?</h2>
+                    <?php get_search_form(); ?>
                     <?php dynamic_sidebar('home_ajuda'); ?>
                 </div>
             </div>
