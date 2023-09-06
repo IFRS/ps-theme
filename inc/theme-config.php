@@ -80,24 +80,12 @@ add_theme_support( 'custom-header', array(
 
 // Widgets
 add_action('widgets_init', function() {
-    // register_sidebar(array(
-    //     'name'          => 'Home Atalhos',
-    //     'id'            => 'home_atalhos',
-    //     'description'   => 'Atalhos na página inicial.',
-    //     'before_widget' => '<div id="%1$s" class="col-12 col-sm-6 col-md-4 col-lg-2 widget widget-atalhos %2$s">',
-    //     'after_widget'  => '</div>',
-    //     'before_title'  => '<span class="visually-hidden">',
-    //     'after_title'   => '</span>',
-    // ));
-
     register_sidebar(array(
         'name'          => 'Home Ajuda',
         'id'            => 'home_ajuda',
         'description'   => 'Área de ajuda na página inicial.',
         'before_widget' => '<div id="%1$s" class="home-ajuda__widget %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="visually-hidden">',
-        'after_title'   => '</h3>',
     ));
     register_sidebar(array(
         'name'           => 'Contato',
@@ -105,8 +93,6 @@ add_action('widgets_init', function() {
         'description'    => 'Área de contato no rodapé das páginas.',
         'before_widget'  => '<div id="%1$s" class="%2$s">',
         'after_widget'   => '</div>',
-        'before_title'   => '<h3 class="visually-hidden">',
-        'after_title'    => '</h3>',
         'before_sidebar' => '<address id="%1$s" class="contato %2$s">',
         'after_sidebar'  => '</address>',
     ));
