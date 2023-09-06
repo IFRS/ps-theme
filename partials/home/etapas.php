@@ -49,32 +49,32 @@
 ?>
 
 <?php if (!empty($marcos_atuais) || !empty($marcos_futuros)) : ?>
-  <div class="container text-center">
+  <div class="container">
     <a class="timeline" href="<?php echo get_post_type_archive_link('evento'); ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ir para o Cronograma Completo">
       <?php if (!empty($marcos_atuais)) : ?>
-        <h2 class="timeline__title timeline__title--atual"><?php echo _n('Etapa Atual:','Etapas Atuais',count($marcos_atuais),'ifrs-ps-theme'); ?></h2>
-        <ul class="timeline__list">
-        <?php foreach ($marcos_atuais as $marco) : ?>
-          <li class="timeline__item timeline__item--atual">
-            <?php echo $marco->post_title; ?>
-            <?php
-              $data_inicio = get_post_meta( $marco->ID, '_evento_data-inicio', true );
-              $data_fim = get_post_meta( $marco->ID, '_evento_data-fim', true );
-            ?>
-            <?php if ($data_inicio && $data_fim) : ?>
-              (<?php echo date_i18n( 'd/m', $data_inicio ), ' a ', date_i18n( 'd/m', $data_fim ); ?>)
-            <?php endif; ?>
-          </li>
-        <?php endforeach; ?>
-        </ul>
+        <p class="timeline__item timeline__item--atual">
+          <span class="timeline__title timeline__title--atual"><?php echo _n('Etapa Atual: ','Etapas Atuais: ',count($marcos_atuais), 'ifrs-ps-theme'); ?></span>
+          <?php foreach ($marcos_atuais as $marco) : ?>
+            <span class="timeline__evento timeline__evento--atual">
+              <?php echo $marco->post_title; ?>
+              <?php
+                $data_inicio = get_post_meta( $marco->ID, '_evento_data-inicio', true );
+                $data_fim = get_post_meta( $marco->ID, '_evento_data-fim', true );
+              ?>
+              <?php if ($data_inicio && $data_fim) : ?>
+                (<?php echo 'até ', date_i18n( 'd/m', $data_fim ); ?>)
+              <?php endif; ?>
+              </span>
+          <?php endforeach; ?>
+        </p>
       <?php endif; ?>
       <?php if (!empty($marcos_futuros)) : ?>
-        <h2 class="timeline__title"><?php echo _n('Pr&oacute;xima Etapa:', 'Pr&oacute;ximas Etapas:',count($marcos_atuais),'ifrs-ps-theme'); ?></h2>
-        <ul class="timeline__list">
-        <?php foreach ($marcos_futuros as $marco) : ?>
-          <li class="timeline__item"><?php echo $marco->post_title; ?></li>
-        <?php endforeach; ?>
-        </ul>
+        <p class="timeline__item">
+          <span class="timeline__title"><?php echo _n('Pr&oacute;xima Etapa: ', 'Pr&oacute;ximas Etapas: ',count($marcos_atuais), 'ifrs-ps-theme'); ?></span>
+          <?php foreach ($marcos_futuros as $marco) : ?>
+            <span class="timeline__evento"><?php echo $marco->post_title; ?></li>
+          <?php endforeach; ?>
+        </p>
       <?php endif; ?>
     </a>
   </div>
