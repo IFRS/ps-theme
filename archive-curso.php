@@ -30,6 +30,22 @@
                         <?php if (have_posts()) : ?>
                             <?php while ( have_posts() ) : the_post(); ?>
                                 <?php get_template_part('partials/cursos/row', null, array('hide_unidades' => false)); ?>
+                                <?php add_action( 'wp_footer', function() { the_post(); ?>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="modal-<?php echo get_the_ID(); ?>" tabindex="-1" aria-labelledby="modal-title-<?php echo get_the_ID(); ?>" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="modal-title-<?php echo get_the_ID(); ?>"><?php the_title(); ?></h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <?php echo get_template_part( 'partials/cursos/curso' ); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ); ?>
                             <?php endwhile;?>
                         <?php endif; ?>
                         </tbody>
