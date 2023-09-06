@@ -82,7 +82,7 @@ add_filter( 'script_loader_tag', function($tag, $handle) {
 
 /* Gutenberg Assets */
 add_action( 'enqueue_block_assets', function() {
-    wp_enqueue_script(
+    if (get_post_type() == 'page') wp_enqueue_script(
         'ps-admin-notices',
         get_template_directory_uri() . '/js/admin_campi-alert.js',
         array( 'wp-blocks', 'wp-block-editor' ),
