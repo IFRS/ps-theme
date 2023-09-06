@@ -55,8 +55,8 @@ $nav-link-font-weight:          500;
 $nav-pills-link-active-color:   null;
 $nav-pills-link-active-bg:      null;
 
-$navbar-light-color:            #ffffff;
-$navbar-light-hover-color:      #ffffff;
+$navbar-light-color:            null;
+$navbar-light-hover-color:      null;
 $navbar-light-active-color:     null;
 
 $input-bg:                      null;
@@ -102,6 +102,8 @@ $input-bg:                      null;
 
     $list-group-bg:              $white !global;
 
+    $navbar-light-color:         $body-color !global;
+    $navbar-light-hover-color:   $gray-900 !global;
     $navbar-light-active-color:  $gray-900 !global;
 
     $nav-pills-link-active-bg:    $accent !global;

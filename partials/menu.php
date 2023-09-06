@@ -5,7 +5,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $collapse_ID; ?>" aria-controls="<?php echo $collapse_ID; ?>" aria-expanded="false" aria-label="Alternar Menu Principal">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>&nbsp;Menu
         </button>
         <?php
             wp_nav_menu( array(
