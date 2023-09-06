@@ -3,7 +3,7 @@
     <?php echo wpautop(chamada_get_option('desc', ''), true); ?>
     <p>
         <small>
-            <?php printf(__('Os resultados ser&atilde;o divulgados conforme <a href="%s">cronograma</a>.', 'ifrs-ps-theme'), get_post_type_archive_link( 'evento' )); ?>
+            <?php printf(__('Os resultados ser&atilde;o divulgados conforme <a href="%s">Cronograma</a>.', 'ifrs-ps-theme'), get_post_type_archive_link( 'evento' )); ?>
         </small>
     </p>
 

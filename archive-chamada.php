@@ -56,7 +56,7 @@ foreach ($formasingresso_selecionadas as $id1) {
         </div>
         <?php if (empty($formasingresso_selecionadas)) : ?>
             <div class="alert alert-warning" role="alert">
-                Os resultados de cada forma de ingresso ser&atilde;o divulgados conforme cronograma.
+                Os resultados de cada forma de ingresso ser&atilde;o divulgados conforme Cronograma.
             </div>
         <?php endif; ?>
         <div class="row">
@@ -116,7 +116,7 @@ foreach ($formasingresso_selecionadas as $id1) {
         </div>
     </div>
 <?php else : ?>
-    <div class="alert alert-warning"><strong>Ops!</strong> Os Resultados ainda n&atilde;o foram publicados. Confira o cronograma para saber mais.</div>
+    <div class="alert alert-warning"><strong>Ops!</strong> Os Resultados ainda n&atilde;o foram publicados. Confira as <a href="<?php echo get_post_type_archive_link('evento'); ?>" class="alert-link">datas importantes</a> para saber mais.</div>
 <?php endif; ?>
 </section>
 

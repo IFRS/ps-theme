@@ -50,7 +50,7 @@
 
 <?php if (!empty($marcos_atuais) || !empty($marcos_futuros)) : ?>
   <div class="container">
-    <a class="timeline" href="<?php echo get_post_type_archive_link('evento'); ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ir para o Cronograma Completo">
+    <a class="timeline" href="<?php echo get_post_type_archive_link('evento'); ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ir para as Datas Importantes">
       <?php if (!empty($marcos_atuais)) : ?>
         <p class="timeline__item timeline__item--atual">
           <span class="timeline__title timeline__title--atual"><?php echo _n('Etapa Atual: ','Etapas Atuais: ',count($marcos_atuais), 'ifrs-ps-theme'); ?></span>
