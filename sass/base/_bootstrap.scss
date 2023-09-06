@@ -23,6 +23,12 @@
     }
 }
 
+.navbar-light {
+    .navbar-toggler {
+        background-color: $accent;
+    }
+}
+
 .pagination {
     .page-item {
         a {
