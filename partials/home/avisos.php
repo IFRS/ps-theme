@@ -7,7 +7,7 @@
     $noticias = new WP_Query($args);
 ?>
 <section class="home-avisos">
-    <h2 class="home-avisos__title">&Uacute;ltimos Avisos</h2>
+    <h2 class="home-avisos__title">Se liga!</h2>
     <?php if ($noticias->have_posts()) : ?>
         <div class="home-avisos__content">
             <?php while ($noticias->have_posts()) : $noticias->the_post(); ?>
@@ -21,10 +21,10 @@
                 </article>
             <?php endwhile; ?>
         </div>
-        <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="btn btn-ps text-uppercase">Todos os avisos</a>
+        <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="btn btn-ps text-uppercase"><?php echo get_the_title( get_option( 'page_for_posts' ) ); ?></a>
     <?php else : ?>
         <div class="alert alert-warning" role="alert">
-            <p><strong>Ops!</strong> Ainda n&atilde;o existem avisos cadastrados.</p>
+            <p>Ainda n&atilde;o h&aacute; novidades para esse Processo Seletivo.</p>
         </div>
     <?php endif; ?>
 </section>
