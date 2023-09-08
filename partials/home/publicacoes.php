@@ -10,6 +10,9 @@
 ?>
 <section class="publicacoes">
     <h2 class="publicacoes__title">&Uacute;ltimas Publica&ccedil;&otilde;es</h2>
+
+    <?php echo wpautop(cmb2_get_option('publicacao_options', 'desc', '')); ?>
+
     <?php if ($publicacoes->have_posts()) : ?>
         <ul class="publicacoes__list">
         <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
