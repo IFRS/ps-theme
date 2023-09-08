@@ -13,7 +13,7 @@
                             </ul>
                         <?php endif; ?>
                     <h3 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    <small class="d-block text-muted mb-2"><?php the_date(); ?></small>
+                    <small class="d-block text-muted mb-2"><?php echo get_the_date(); ?></small>
                     <div class="card-text"><?php the_excerpt(); ?></div>
                 </div>
             </article>
