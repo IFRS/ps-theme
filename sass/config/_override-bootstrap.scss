@@ -30,6 +30,11 @@ $accordion-button-active-bg:    null;
 $accordion-button-active-color: null;
 $accordion-button-bg:           null;
 
+$card-border-width:             null;
+$card-border-color:             null;
+$card-box-shadow:               null;
+$card-bg:                       null;
+
 $table-border-color:            null;
 
 $breadcrumb-font-size:          0.9rem;
@@ -71,45 +76,50 @@ $input-bg:                      null;
 
     $theme-colors: map-merge($theme-colors, $custom-colors) !global;
 
-    $link-hover-decoration:      none !global;
+    $link-hover-decoration:         none !global;
 
-    $font-family-base:           "Bricolage Grotesque", #{$font-family-sans-serif} !global;
+    $font-family-base:              "Bricolage Grotesque", #{$font-family-sans-serif} !global;
 
-    $body-color:                 #0f0f0f !global;
+    $body-color:                    #0f0f0f !global;
 
-    $body-bg:                    #f0f9fa !global;
+    $body-bg:                       #f0f9fa !global;
 
-    $link-color:                 shift-color($primary, 50%) !global;
+    $link-color:                    shift-color($primary, 50%) !global;
 
-    $border-radius:              1rem !global;
+    $border-radius:                 1rem !global;
 
-    $btn-font-weight:            900 !global;
+    $btn-font-weight:               900 !global;
 
     $accordion-bg:                  $white !global;
     $accordion-button-active-bg:    $accent !global;
     $accordion-button-active-color: color-contrast($accent) !global;
     $accordion-button-bg:           $gray-100 !global;
 
-    $table-border-color:         $gray-400 !global;
+    $card-border-width:             2px !global;
+    $card-border-color:             $body-color !global;
+    $card-box-shadow:               rgba(0, 0, 0, 0.16) 0px 1px 4px !global;
+    $card-bg:                       $gray-100 !global;
 
-    $breadcrumb-active-color:    $gray-800 !global;
+    $table-border-color:            $gray-400 !global;
 
-    $dropdown-bg:                #fffdf2 !global;
-    $dropdown-link-hover-color:  color-contrast($accent) !global;
-    $dropdown-link-hover-bg:     $accent !global;
-    $dropdown-link-active-color: color-contrast($accent) !global;
-    $dropdown-link-active-bg:    $accent !global;
+    $breadcrumb-active-color:       $gray-800 !global;
 
-    $list-group-bg:              $white !global;
+    $dropdown-bg:                   #fffdf2 !global;
+    $dropdown-link-hover-color:     color-contrast($accent) !global;
+    $dropdown-link-hover-bg:        $accent !global;
+    $dropdown-link-active-color:    color-contrast($accent) !global;
+    $dropdown-link-active-bg:       $accent !global;
 
-    $navbar-light-color:         $body-color !global;
-    $navbar-light-hover-color:   $gray-900 !global;
-    $navbar-light-active-color:  $gray-900 !global;
+    $list-group-bg:                 $white !global;
 
-    $nav-pills-link-active-bg:    $accent !global;
-    $nav-pills-link-active-color: color-contrast($nav-pills-link-active-bg) !global;
+    $navbar-light-color:            $body-color !global;
+    $navbar-light-hover-color:      $gray-900 !global;
+    $navbar-light-active-color:     $gray-900 !global;
 
-    $input-bg:                   $gray-100 !global;
+    $nav-pills-link-active-bg:      $accent !global;
+    $nav-pills-link-active-color:   color-contrast($nav-pills-link-active-bg) !global;
+
+    $input-bg:                      $gray-100 !global;
 }
 
 @import "bootstrap/scss/variables";
