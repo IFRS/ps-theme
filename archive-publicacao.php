@@ -17,7 +17,9 @@
     <article class="publicacoes publicacoes--archive">
         <h2 class="publicacoes__title">Publica&ccedil;&otilde;es</h2>
 
-        <?php echo wpautop(cmb2_get_option('publicacao_options', 'desc', '')); ?>
+        <div class="publicacoes__text">
+            <?php echo wpautop(cmb2_get_option('publicacao_options', 'desc', '')); ?>
+        </div>
 
         <?php if ($publicacoes->have_posts()) : ?>
             <ul class="publicacoes__list">
