@@ -64,7 +64,7 @@
               <?php if ($data_inicio && $data_fim) : ?>
                 (<?php echo 'até ', date_i18n( 'd/m', $data_fim ); ?>)
               <?php endif; ?>
-              </span>
+            </span>
           <?php endforeach; ?>
         </p>
       <?php endif; ?>
@@ -72,7 +72,7 @@
         <p class="timeline__item">
           <span class="timeline__title"><?php echo _n('Pr&oacute;xima Etapa: ', 'Pr&oacute;ximas Etapas: ',count($marcos_atuais), 'ifrs-ps-theme'); ?></span>
           <?php foreach ($marcos_futuros as $marco) : ?>
-            <span class="timeline__evento"><?php echo $marco->post_title; ?></li>
+            <span class="timeline__evento"><?php echo $marco->post_title; ?></span>
           <?php endforeach; ?>
         </p>
       <?php endif; ?>
