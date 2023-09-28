@@ -45,6 +45,7 @@ add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args, $depth ) 
 /* Adiciona items automaticamente ao menu, conforme configurações das etapas atuais */
 add_filter( 'wp_nav_menu_items', function( $items ) {
     $now = wp_date( 'U' );
+    $now = $now - (3 * 60 * 60);
 
     do_action( 'qm/info', "Data e hora atual do servidor: $now" );
 
