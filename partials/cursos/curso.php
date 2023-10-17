@@ -30,7 +30,7 @@
         <?php
             if (!empty($turnos)) {
                 foreach ($turnos as $turno) :
-                    echo ($turnos_counter == count($turnos) ? $turno->name : $turno->name . ', ');
+                    echo ($turnos_counter == count($turnos) ? $turno->name : $turno->name . ' e ');
                     $turnos_counter++;
                 endforeach;
             } else {
@@ -64,7 +64,7 @@
                     } else {
                         echo $formaingresso->name;
                     }
-                    echo ($key !== array_key_last($formasingresso)) ? ', ' : '';
+                    echo ($key !== array_key_last($formasingresso)) ? ' ou ' : '';
                 }
             } else {
                 echo '-';

@@ -29,7 +29,7 @@
                     } else {
                         echo $formaingresso->name;
                     }
-                    echo ($key !== array_key_last($formasingresso)) ? ', ' : '';
+                    echo ($key !== array_key_last($formasingresso)) ? ' ou ' : '';
                 }
             }
         ?>
@@ -37,7 +37,7 @@
     <td>
         <?php $turnos = get_the_terms(get_the_ID(), 'turno'); ?>
         <?php foreach ($turnos as $key => $turno) : ?>
-            <?php echo $turno->name; echo ($key !== array_key_last($turnos)) ? ',' : ''; ?>
+            <?php echo $turno->name; echo ($key !== array_key_last($turnos)) ? ' e ' : ''; ?>
         <?php endforeach; ?>
     </td>
     <td class="text-center">
