@@ -35,7 +35,7 @@
         ?>
     </td>
     <td>
-        <?php $turnos = get_the_terms(get_the_ID(), 'turno'); ?>
+        <?php $turnos = wp_get_post_terms(get_the_ID(), 'turno', array('orderby' => 'term_order')); ?>
         <?php foreach ($turnos as $key => $turno) : ?>
             <?php echo $turno->name; echo ($key !== array_key_last($turnos)) ? ' e ' : ''; ?>
         <?php endforeach; ?>

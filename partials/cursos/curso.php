@@ -23,7 +23,7 @@
         ?>
     </p>
 
-    <?php $turnos = get_the_terms(get_the_ID(), 'turno'); ?>
+    <?php $turnos = wp_get_post_terms(get_the_ID(), 'turno', array('orderby' => 'term_order')); ?>
     <?php $turnos_counter = 1; ?>
     <p class="col-auto my-2">
         <strong><?php echo _n( 'Turno', 'Turnos', count($turnos), 'ifrs-ps-theme' ) ?>: </strong>
