@@ -41,16 +41,17 @@
                             $data_inicio = get_post_meta( get_the_ID(), '_evento_data-inicio', true );
                             $data_fim = get_post_meta( get_the_ID(), '_evento_data-fim', true );
 
-                            $hoje = strtotime('today midnight');
+                            $agora = wp_date( 'U' );
+                            $agora = $agora - (3 * 60 * 60);
 
-                            $evento_inicia_hoje = ($data_inicio == $hoje);
-                            $evento_termina_hoje = ($data_fim == $hoje);
-                            $evento_atual = ($data_inicio <= $hoje && $data_fim > $hoje);
-                            $evento_passou = ($data_fim < $hoje);
+                            $evento_termina_hoje = date_i18n('d/m/Y', $data_fim) === date_i18n('d/m/Y', $agora);
+                            $evento_mesmo_dia = date_i18n('d/m/Y', $data_inicio) === date_i18n('d/m/Y', $data_fim);
+                            $evento_atual = ($data_inicio <= $agora && $data_fim > $agora);
+                            $evento_passou = ($data_fim < $agora);
                         ?>
                         <tr class="<?php echo ($evento_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>">
                             <td class="evento__datas<?php echo ($evento_atual) ? ' text-success' : ''; ?>">
-                                <?php if ($data_inicio !== $data_fim) : ?>
+                                <?php if (!$evento_mesmo_dia) : ?>
                                     <?php echo date_i18n('d/m', $data_inicio); ?> a
                                 <?php endif; ?>
                                 <?php if ($evento_termina_hoje) : ?>
@@ -66,11 +67,8 @@
                                 <?php the_content(); ?>
                                 <?php
                                     $url = get_post_meta( get_the_ID(), '_evento_programacao_url', true );
-                                    $now = wp_date( 'U' );
-                                    $inicio = get_post_meta( get_the_ID(), '_evento_data-inicio', true );
-                                    $fim = get_post_meta( get_the_ID(), '_evento_data-fim', true );
                                 ?>
-                                <?php if ($data_inicio <= $now && $data_fim >= $now) : ?>
+                                <?php if ($evento_atual) : ?>
                                     <br>
                                     <a href="<?php echo esc_url($url); ?>"><?php echo $url; ?></a>
                                 <?php endif; ?>
