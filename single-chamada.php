@@ -110,12 +110,16 @@
                             <strong><?php _e('Matrículas', 'ifrs-ps-theme'); ?></strong>
                         </div>
                         <div class="list-group list-group-flush">
-                            <?php foreach($chamadas_matricula as $id => $url) : ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
-                            <?php endforeach; ?>
-                            <?php foreach($matriculas[0] as $id => $url) : ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
-                            <?php endforeach; ?>
+                            <?php if (!empty($chamadas_matricula)) : ?>
+                                <?php foreach($chamadas_matricula as $id => $url) : ?>
+                                    <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <?php if (!empty($matriculas[0])) : ?>
+                                <?php foreach($matriculas[0] as $id => $url) : ?>
+                                    <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-success"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -128,12 +132,16 @@
                             <strong><?php _e('Comissão de Heteroidentificação', 'ifrs-ps-theme'); ?></strong>
                         </div>
                         <div class="list-group list-group-flush">
-                            <?php foreach($chamadas_bancas as $id => $url): ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
-                            <?php endforeach; ?>
-                            <?php foreach($bancas[0] as $id => $url): ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
-                            <?php endforeach; ?>
+                            <?php if (!empty($chamadas_bancas)) : ?>
+                                <?php foreach($chamadas_bancas as $id => $url): ?>
+                                    <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <?php if (!empty($bancas[0])) : ?>
+                                <?php foreach($bancas[0] as $id => $url): ?>
+                                    <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -146,12 +154,16 @@
                             <strong><?php _e('Análise de Reserva de Vagas para Renda Inferior a 1,5 Salário Mínimo', 'ifrs-ps-theme'); ?></strong>
                         </div>
                         <div class="list-group list-group-flush">
-                            <?php foreach($chamadas_renda as $id => $url): ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
-                            <?php endforeach; ?>
-                            <?php foreach($renda[0] as $id => $url): ?>
-                                <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
-                            <?php endforeach; ?>
+                            <?php if (!empty($chamadas_renda)) : ?>
+                                <?php foreach($chamadas_renda as $id => $url): ?>
+                                    <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <?php if (!empty($renda[0])) : ?>
+                                <?php foreach($renda[0] as $id => $url): ?>
+                                    <a href="<?php echo esc_url($url); ?>" target="_blank" class="list-group-item list-group-item-action list-group-item-warning"><?php echo get_the_title($id); ?><span class="visually-hidden">&nbsp;(abre uma nova p&aacute;gina)</span></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
