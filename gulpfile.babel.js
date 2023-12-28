@@ -143,11 +143,9 @@ function dist() {
 function serve() {
   browserSync.init({
     ui: argv.ui,
-    ghostMode: false,
-    online: false,
+    ghostMode: true,
     open: false,
     notify: false,
-    host: BROWSERSYNC_URL,
     proxy: BROWSERSYNC_URL,
   });
 
