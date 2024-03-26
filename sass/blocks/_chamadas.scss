@@ -56,13 +56,13 @@
 }
 
 .btn-campus {
-    @include button-variant($gray-200, $gray-300, $gray-800, $primary, $primary, #ffffff);
+    @include button-variant($gray-200, $gray-300, $gray-800, $primary-shade, $primary-shade, color-contrast($primary-shade));
 
     margin: 0.5rem 0.5rem;
     text-align: center;
     text-transform: uppercase;
 
     &.active {
-        @include button-variant($primary, $primary, #ffffff, $gray-200, $gray-300, $gray-800);
+        @include button-variant($primary-shade, $primary-shade, #ffffff, $gray-200, $gray-300, $gray-800);
     }
 }

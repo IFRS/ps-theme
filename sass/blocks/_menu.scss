@@ -1,5 +1,5 @@
 .navbar-light {
-    background-color: #fef7cb;
+    background-color: $accent;
     border: {
         top: 2px solid $body-color;
         bottom: 2px solid $body-color;
@@ -18,7 +18,7 @@
     }
 
     .nav-link {
-        color: color-contrast(#fef7cb);
+        color: color-contrast($accent);
 
         &:hover,
         &:focus {
@@ -30,10 +30,10 @@
         }
 
         &.destaque {
-            background-color: #f2e96d;
+            background-color: $accent-shade;
             border: 2px solid $body-color;
             border-radius: $btn-border-radius;
-            color: color-contrast(#f2e96d);
+            color: color-contrast($accent-shade);
             font-weight: 900;
             padding: var(--bs-navbar-nav-link-padding-x);
             width: fit-content;
@@ -44,8 +44,9 @@
 
             &:hover,
             &:focus {
-                background-color: #fab365;
-                color: color-contrast(#fab365);
+                $color: tint-color($accent, 30%);
+                background-color: $color;
+                color: color-contrast($color);
             }
         }
     }

@@ -21,8 +21,8 @@
     <div v-if="chamadas && !loadingChamadas" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center mt-1">
         <h4 v-if="selectedCampus" class="visually-hidden">{{ selectedCampus.name }}</h4>
         <div v-for="(resultados, key) in chamadas" :key="key" class="col">
-            <div class="card border-primary">
-                <div class="card-header bg-primary text-white">
+            <div class="card border-accent">
+                <div class="card-header bg-accent text-white">
                     <h5 class="m-0">{{ key }}</h5>
                 </div>
                 <div class="list-group list-group-flush">

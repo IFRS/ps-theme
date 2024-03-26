@@ -26,12 +26,16 @@
     }
 
     &__item-meta {
+        border-bottom: 1px dotted $body-color;
         display: inline-block;
         font-size: 0.9rem;
         margin-bottom: 0;
-        padding-bottom: 5px;
         padding-right: 5px;
         cursor: help;
+
+        &:hover {
+            border-bottom-color: transparent;
+        }
     }
 
     &__item-title {

@@ -22,7 +22,7 @@
                             <h3 class="edital__files-title">Arquivos</h3>
                         </div>
                         <div class="list-group list-group-flush">
-                            <a href="<?php echo get_post_meta(get_the_ID(), '_edital_arquivo', true); ?>" class="list-group-item list-group-item-action list-group-item-primary"><?php the_title(); ?></a>
+                            <a href="<?php echo get_post_meta(get_the_ID(), '_edital_arquivo', true); ?>" class="list-group-item list-group-item-action"><?php the_title(); ?></a>
                             <?php $retificacoes = get_post_meta(get_the_ID(), '_edital_retificacoes', true); ?>
                             <?php if (!empty($retificacoes)) : ?>
                                 <?php foreach ($retificacoes as $id => $retificacao) : ?>

@@ -1,11 +1,9 @@
 @import "bootstrap/scss/functions";
 
-$primary:                       #26B6BF;
-$primary-shade:                 shade-color($primary, 20%);
-// $accent:                        #F2E96D;
-// $accent:                        #fef7cb;
-$accent:                        #fab365;
-$accent-shade:                  shade-color($accent, 20%);
+$primary:                       #b9dcaa;
+$primary-shade:                 #81c467;
+$accent:                        #faad47;
+$accent-shade:                  #f0605f;
 
 $custom-colors: (
     "accent": $accent,
@@ -44,6 +42,8 @@ $breadcrumb-padding-y:          1rem;
 
 $btn-font-weight:               null;
 
+$h2-font-size:                  null;
+
 $dropdown-padding-y:            0;
 $dropdown-bg:                   null;
 $dropdown-link-hover-color:     null;
@@ -74,7 +74,7 @@ $input-bg:                      null;
     @import "bootstrap/scss/mixins";
     @import "bootstrap/scss/utilities";
 
-    $theme-colors: map-merge($theme-colors, $custom-colors) !global;
+    $theme-colors:                  map-merge($theme-colors, $custom-colors) !global;
 
     $link-hover-decoration:         none !global;
 
@@ -89,6 +89,8 @@ $input-bg:                      null;
     $border-radius:                 1rem !global;
 
     $btn-font-weight:               900 !global;
+
+    $h2-font-size:                  $font-size-base * 2.1 !global;
 
     $accordion-bg:                  $white !global;
     $accordion-button-active-bg:    $accent !global;
