@@ -7,8 +7,21 @@
             text-decoration: none;
         }
 
+        + p {
+            margin-top: -1rem;
+        }
+
         .custom-logo {
             @include img-fluid();
+        }
+    }
+
+    p {
+        font-weight: bold;
+        text-align: center;
+
+        @include media-breakpoint-down(md) {
+            display: none;
         }
     }
 

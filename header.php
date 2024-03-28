@@ -8,7 +8,7 @@
     <meta name="keywords" content="ifrs, processo, seletivo, vestibular, ingresso, estudar">
     <meta name="description" content="Site com informações sobre o Processo Seletivo de Estudantes do IFRS.">
     <!-- Favicons -->
-    <?php echo get_template_part('partials/favicons'); ?>
+    <?php if (!has_site_icon()) echo get_template_part('partials/favicons'); ?>
     <!-- WP -->
     <?php wp_head(); ?>
     <?php echo get_template_part('partials/header-image'); ?>
@@ -26,6 +26,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-auto">
                     <?php the_custom_logo(); ?>
+                    <p><?php bloginfo('description'); ?></p>
                 </div>
             </div>
         </section>
