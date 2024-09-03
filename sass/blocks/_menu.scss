@@ -14,12 +14,12 @@
     }
 
     .nav-link {
+        border-radius: $border-radius-pill;
         color: color-contrast($primary);
-        font-weight: 500;
+        font-weight: 600;
 
         &:hover,
         &:focus {
-            // font-weight: bold;
             background-color: $white;
             color: $primary;
         }
@@ -70,7 +70,7 @@
 
     // .current-menu-item,
     .current-menu-ancestor {
-        > a {
+        > .nav-link {
             background-color: $white;
             color: $primary;
             font-weight: bold;
