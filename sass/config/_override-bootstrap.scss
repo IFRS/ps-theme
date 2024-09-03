@@ -106,7 +106,7 @@ $input-bg:                      null;
 
     $breadcrumb-active-color:       $gray-800 !global;
 
-    $dropdown-bg:                   #fffdf2 !global;
+    $dropdown-bg:                   tint-color(#D2AF6E, 85%) !global;
     $dropdown-link-hover-color:     color-contrast($accent) !global;
     $dropdown-link-hover-bg:        $accent !global;
     $dropdown-link-active-color:    color-contrast($accent) !global;
