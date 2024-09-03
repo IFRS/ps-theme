@@ -1,9 +1,5 @@
 .navbar-light {
-    background-color: $accent;
-    border: {
-        top: 2px solid $body-color;
-        bottom: 2px solid $body-color;
-    }
+    background-color: $primary;
 }
 
 .menu-principal {
@@ -18,21 +14,26 @@
     }
 
     .nav-link {
-        color: color-contrast($accent);
+        color: color-contrast($primary);
+        font-weight: 500;
 
         &:hover,
         &:focus {
-            font-weight: bold;
+            // font-weight: bold;
+            background-color: $white;
+            color: $primary;
         }
 
         &.active {
+            background-color: $white;
+            color: $primary;
             font-weight: 900;
         }
 
         &.destaque {
             background-color: $accent-shade;
             border: 2px solid $body-color;
-            border-radius: $btn-border-radius;
+            border-radius: $border-radius-pill;
             color: color-contrast($accent-shade);
             font-weight: 900;
             padding: var(--bs-navbar-nav-link-padding-x);
@@ -44,9 +45,9 @@
 
             &:hover,
             &:focus {
-                $color: tint-color($accent, 30%);
-                background-color: $color;
-                color: color-contrast($color);
+                $bg: shade-color($accent, 50%);
+                background-color: $bg;
+                color: color-contrast($bg);
             }
         }
     }

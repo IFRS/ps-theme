@@ -1,28 +1,23 @@
+.timeline-wrapper {
+  background-color: $accent;
+  padding: 1rem 0;
+}
+
 .timeline {
-  background-color: #fffdf2;
-  border: 2px solid $gray-700;
-  border-radius: $border-radius-xl;
+  background-color: $white;
+  // border: 2px solid $gray-700;
+  border-radius: $border-radius-pill;
+  color: $primary;
   display: flex;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 1rem auto;
+  margin: 0 auto;
   max-width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   position: relative;
   text-decoration: none;
   width: fit-content;
-
-  &::after {
-    @extend %estrela;
-
-    content: '';
-    position: absolute;
-    right: 0; top: 50%;
-    transform: translateY(-50%) translateX(70%);
-
-    width: 30px; height: 30px;
-  }
 
  &__item {
     flex: 0 1 auto;
@@ -34,7 +29,7 @@
   }
 
   &__title {
-    color: $gray-600;
+    // color: $gray-600;
     display: inline-block;
     font-size: 0.9rem;
     font-weight: 600;
@@ -42,19 +37,19 @@
     text-transform: uppercase;
 
     &--atual {
-      color: $gray-900;
+      // color: $gray-900;
       font-weight: 900;
     }
   }
 
   &__evento {
-    color: $gray-600;
+    // color: $gray-600;
     display: inline;
     font-size: 0.9rem;
     font-weight: 600;
 
     &--atual {
-      color: $gray-900;
+      // color: $gray-900;
       font-style: normal;
       font-weight: 900;
     }
