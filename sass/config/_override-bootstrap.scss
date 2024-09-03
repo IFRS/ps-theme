@@ -1,9 +1,9 @@
 @import "bootstrap/scss/functions";
 
-$primary:                       #b9dcaa;
-$primary-shade:                 #81c467;
-$accent:                        #faad47;
-$accent-shade:                  #f0605f;
+$primary:                       #232382;
+$primary-shade:                 shade-color($primary, 20%);
+$accent:                        #F16237;
+$accent-shade:                  shade-color($accent, 20%);
 
 $custom-colors: (
     "accent": $accent,
@@ -82,7 +82,7 @@ $input-bg:                      null;
 
     $body-color:                    #0f0f0f !global;
 
-    $body-bg:                       #f0f9fa !global;
+    $body-bg:                       tint-color(#D2AF6E, 85%) !global;
 
     $link-color:                    shift-color($primary, 50%) !global;
 
