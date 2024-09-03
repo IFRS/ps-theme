@@ -119,6 +119,13 @@ add_filter( 'pre_get_posts', function( $query ) {
         $query->set('nopaging', true);
         $query->set('orderby', 'title');
         $query->set('order', 'ASC');
+        $query->set('tax_query', array(
+            array(
+                'taxonomy' => 'formaingresso',
+                'field'    => 'term_id',
+                'terms'    => curso_get_option('formas', array()),
+            )
+        ));
     }
     return $query;
 } );
@@ -151,6 +158,20 @@ add_action( 'cmb2_admin_init', function() {
 			'textarea_rows' => get_option('default_post_edit_rows', 10),
 			'teeny'         => true,
 		),
+	) );
+    $formasingresso = get_terms(array(
+		'taxonomy' => 'formaingresso',
+		'orderby'  => 'name',
+		'fields'   => 'id=>name',
+	));
+
+	$options->add_field( array(
+		'name'              => __( 'Formas de Ingresso', 'ifrs-ps-theme' ),
+		'desc'              => __( 'Marque quais formas de ingresso serão mostradas na listagem.', 'ifrs-ps-theme' ),
+		'id'                => 'formas',
+		'type'              => 'multicheck',
+		'select_all_button' => false,
+		'options'           => $formasingresso,
 	) );
 } );
 
