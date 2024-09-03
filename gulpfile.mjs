@@ -114,7 +114,7 @@ function js() {
   .pipe(babel({
     presets: [
       [
-        '@babel/env',
+        '@babel/preset-env',
         { 'modules': false }
       ]
     ]
