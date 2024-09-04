@@ -7,13 +7,17 @@
     );
 
     $publicacoes = new WP_Query($args);
+
+    $desc = cmb2_get_option('publicacao_options', 'desc', '');
 ?>
 <section class="publicacoes">
     <h2 class="publicacoes__title">&Uacute;ltimas Publica&ccedil;&otilde;es</h2>
 
-    <div class="publicacoes__text">
-        <?php echo wpautop(cmb2_get_option('publicacao_options', 'desc', '')); ?>
-    </div>
+    <?php if (!empty($desc)) : ?>
+        <div class="publicacoes__text">
+            <?php echo wpautop($desc); ?>
+        </div>
+    <?php endif; ?>
 
     <?php if ($publicacoes->have_posts()) : ?>
         <ul class="publicacoes__list">
