@@ -27,16 +27,15 @@
         &.active {
             background-color: $white;
             color: $primary;
-            font-weight: 900;
+            font-weight: bold;
         }
 
         &.destaque {
             background-color: $accent-shade;
-            border: 2px solid $body-color;
             border-radius: $border-radius-pill;
             color: color-contrast($accent-shade);
-            font-weight: 900;
-            padding: var(--bs-navbar-nav-link-padding-x);
+            font-weight: bold;
+            padding: $btn-padding-y $btn-padding-x;
             width: fit-content;
 
             @include media-breakpoint-up(lg) {
