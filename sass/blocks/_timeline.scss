@@ -7,19 +7,20 @@
   background-color: $white;
   border-radius: $border-radius-pill;
   color: $primary;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  display: block;
   margin: 0 auto;
+  max-width: 100%;
   padding: 1.5rem 2rem;
   text-decoration: none;
-  width: 100%;
+  width: fit-content;
 
  &__item {
-    flex: 1 1 calc(50% - 0.5rem);
+    display: inline-block;
     margin: 0;
+
+    &--atual {
+      margin-inline-end: 1.5rem;
+    }
   }
 
   &__title {
