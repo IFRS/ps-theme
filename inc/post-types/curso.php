@@ -112,6 +112,36 @@ add_action( 'cmb2_admin_init', function() {
     ) );
 }, 2 );
 
+/* Admin Filter */
+add_action( 'restrict_manage_posts', function( $post_type ) {
+	if ($post_type !== 'curso') {
+		return;
+	}
+
+	$taxonomies_slugs = array(
+		'campus',
+        'modalidade',
+		'formaingresso',
+	);
+
+	foreach ($taxonomies_slugs as $slug) {
+		$taxonomy = get_taxonomy( $slug );
+
+		$selected = '';
+		$selected = isset( $_REQUEST[ $slug ] ) ? $_REQUEST[ $slug ] : '';
+
+		wp_dropdown_categories( array(
+			'show_option_all' =>  $taxonomy->labels->all_items,
+			'taxonomy'        =>  $slug,
+			'name'            =>  $slug,
+			'orderby'         =>  'name',
+			'value_field'     =>  'slug',
+			'selected'        =>  $selected,
+			'hierarchical'    =>  true,
+		) );
+	}
+}, 10, 1 );
+
 /* Custom Query */
 add_filter( 'pre_get_posts', function( $query ) {
     if ($query->is_main_query() && ($query->is_post_type_archive('curso') || $query->is_tax('modalidade') || $query->is_tax('turno'))) {

@@ -267,6 +267,35 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 } );
 
+/* Admin Filter */
+add_action( 'restrict_manage_posts', function( $post_type ) {
+	if ($post_type !== 'chamada') {
+		return;
+	}
+
+	$taxonomies_slugs = array(
+		'campus',
+		'formaingresso',
+	);
+
+	foreach ($taxonomies_slugs as $slug) {
+		$taxonomy = get_taxonomy( $slug );
+
+		$selected = '';
+		$selected = isset( $_REQUEST[ $slug ] ) ? $_REQUEST[ $slug ] : '';
+
+		wp_dropdown_categories( array(
+			'show_option_all' =>  $taxonomy->labels->all_items,
+			'taxonomy'        =>  $slug,
+			'name'            =>  $slug,
+			'orderby'         =>  'name',
+			'value_field'     =>  'slug',
+			'selected'        =>  $selected,
+			'hierarchical'    =>  true,
+		) );
+	}
+}, 10, 1 );
+
 // REST API
 add_filter( 'rest_prepare_chamada', function( $data, $post, $context ) {
 	$data->data['modalidades'] = array();

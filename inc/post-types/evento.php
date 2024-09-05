@@ -1,8 +1,8 @@
 <?php
 add_action( 'init', function() {
     $labels = array(
-        'name'                  => _x( 'Evento', 'Post Type General Name', 'ifrs-ps-theme' ),
-        'singular_name'         => _x( 'Eventos', 'Post Type Singular Name', 'ifrs-ps-theme' ),
+        'name'                  => _x( 'Eventos', 'Post Type General Name', 'ifrs-ps-theme' ),
+        'singular_name'         => _x( 'Evento', 'Post Type Singular Name', 'ifrs-ps-theme' ),
         'menu_name'             => __( 'Cronograma', 'ifrs-ps-theme' ),
         'name_admin_bar'        => __( 'Cronograma', 'ifrs-ps-theme' ),
         'archives'              => __( 'Datas Importantes', 'ifrs-ps-theme' ),
