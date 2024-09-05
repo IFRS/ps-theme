@@ -1,45 +1,35 @@
 <?php
-    $modalidades = get_terms(array(
-        'taxonomy' => 'modalidade',
-        'hide_empty' => false,
-        'orderby' => 'term_order',
-    ));
-
-    $turnos = get_terms(array(
-        'taxonomy' => 'turno',
-        'hide_empty' => false,
-        'orderby' => 'term_order',
-    ));
+    $taxonomies = array();
+    $taxonomies[] = get_taxonomy( 'modalidade' );
+    $taxonomies[] = get_taxonomy( 'turno' );
 ?>
 <form class="cursos__filters row g-2 align-items-center justify-content-start" method="POST" action="<?php echo get_post_type_archive_link( 'curso' ); ?>">
-    <div class="col-auto">
-        <?php $field_id = uniqid(); ?>
-        <label for="<?php echo $field_id; ?>" class="visually-hidden">Modalidade</label>
-        <select name="modalidade[]" id="<?php echo $field_id; ?>" class="form-select form-select-sm my-1 mr-1">
-            <option hidden selected disabled>Modalidades</option>
-            <?php foreach ($modalidades as $modalidade): ?>
-                <?php $modalidade_check = (isset($_POST['modalidade']) && in_array($modalidade->slug, $_POST['modalidade'])) || is_tax('modalidade', $modalidade->slug); ?>
-                <option value="<?php echo $modalidade->slug; ?>"<?php echo $modalidade_check ? ' selected' : ''; ?>><?php echo $modalidade->name; ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
-
-    <div class="col-auto">
-        <?php $field_id = uniqid(); ?>
-        <label for="<?php echo $field_id; ?>" class="visually-hidden">Turno</label>
-        <select name="turno[]" id="<?php echo $field_id; ?>" class="form-select form-select-sm my-1 mr-1">
-            <option hidden selected disabled>Turnos</option>
-            <?php foreach ($turnos as $turno): ?>
-                <?php $turno_check = (isset($_POST['turno']) && in_array($turno->slug, $_POST['turno'])) || is_tax('turno', $turno->slug); ?>
-                <option value="<?php echo $turno->slug; ?>"<?php echo $turno_check ? ' selected' : ''; ?>><?php echo $turno->name; ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+    <?php foreach ($taxonomies as $taxonomy) : ?>
+        <div class="col-auto">
+            <?php $field_id = uniqid(); ?>
+            <label for="<?php echo $field_id; ?>" class="visually-hidden"><?php echo $taxonomy->labels->singular_name ?></label>
+            <?php
+                wp_dropdown_categories( array(
+                    'show_option_all' => $taxonomy->labels->all_items,
+                    'taxonomy'        => $taxonomy->name,
+                    'name'            => $taxonomy->name,
+                    'orderby'         => 'name',
+                    'value_field'     => 'slug',
+                    'selected'        => $_POST[$taxonomy->name] ?? '0',
+                    'hierarchical'    => true,
+                    'hide_empty'      => false,
+                    'name'            => $taxonomy->name,
+                    'id'              => $field_id,
+                    'class'           => 'form-select form-select-sm',
+                ) );
+            ?>
+        </div>
+    <?php endforeach; ?>
 
     <div class="col-auto">
         <?php $field_id = uniqid(); ?>
         <label class="visually-hidden" for="<?php echo $field_id; ?>">Buscar por:</label>
-        <input class="form-control form-control-sm my-1 mr-1" type="text" value="<?php echo (get_search_query() ? get_search_query() : ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar nos cursos..."/>
+        <input class="form-control form-control-sm" type="text" value="<?php echo (get_search_query() ?? ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar nos cursos..."/>
     </div>
 
     <div class="col-auto">
