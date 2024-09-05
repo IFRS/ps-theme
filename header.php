@@ -14,6 +14,11 @@
     <?php echo get_template_part('partials/header-image'); ?>
 </head>
 
+<?php
+    $extra_image = get_theme_mod('extra-header-image');
+    $extra_image_position = get_theme_mod('extra-header-image-position');
+?>
+
 <body <?php body_class() ?>>
     <a href="#main" class="visually-hidden">Pular para o conte&uacute;do</a>
 
@@ -24,11 +29,19 @@
         <h1 class="visually-hidden"><?php bloginfo('name'); ?></h1>
         <section class="container header">
             <div class="row align-items-center justify-content-center">
-                <div class="col-auto">
+                <div class="col-auto col-lg-6 col-xl-auto flex-shrink-1">
                     <?php the_custom_logo(); ?>
-                    <p><?php bloginfo('description'); ?></p>
                 </div>
+                <?php if ($extra_image) : ?>
+                    <div class="col-lg-6 col-xl-auto flex-shrink-1 d-none d-lg-block <?php echo ($extra_image_position ? 'order-first' : 'order-last') ?>">
+                        <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" class="extra-header-image">
+                    </div>
+                <?php endif; ?>
             </div>
+            <?php if (display_header_text()) : ?>
+                <p><?php bloginfo('description'); ?></p>
+            <?php endif; ?>
+
         </section>
     </header>
 

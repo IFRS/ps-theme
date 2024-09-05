@@ -74,7 +74,7 @@ add_theme_support( 'custom-header', array(
     'flex-width'             => false,
     'uploads'                => true,
     'random-default'         => false,
-    'header-text'            => false,
+    'header-text'            => true,
     'default-text-color'     => '',
 ) );
 

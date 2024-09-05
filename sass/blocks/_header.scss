@@ -1,14 +1,9 @@
 .header {
     .custom-logo-link {
         display: inline-block;
-        margin: 1rem 0;
 
         &:hover {
             text-decoration: none;
-        }
-
-        + p {
-            margin-top: -1rem;
         }
 
         .custom-logo {
@@ -16,9 +11,15 @@
         }
     }
 
+    .extra-header-image {
+        @include img-fluid();
+    }
+
     p {
-        font-weight: bold;
+        font-weight: 600;
         text-align: center;
+        margin-bottom: 0;
+        margin-top: 1rem;
 
         @include media-breakpoint-down(md) {
             display: none;
