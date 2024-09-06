@@ -34,7 +34,7 @@
                 </div>
                 <?php if ($extra_image) : ?>
                     <div class="col-lg-6 col-xl-auto flex-shrink-1 d-none d-lg-block <?php echo ($extra_image_position ? 'order-first' : 'order-last') ?>">
-                        <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" class="extra-header-image">
+                        <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="extra-header-image">
                     </div>
                 <?php endif; ?>
             </div>
