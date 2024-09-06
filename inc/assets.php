@@ -49,6 +49,10 @@ add_action( 'wp_enqueue_scripts', function() {
         wp_enqueue_script('chamada', get_template_directory_uri().'/js/chamada.js', array_merge($commons_deps, array()), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/chamada.js'), true);
     }
 
+    if (is_post_type_archive( 'pergunta' ) ) {
+        wp_enqueue_script('faq', get_template_directory_uri().'/js/faq.js', array_merge($commons_deps, array('jquery')), WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/faq.js'), true);
+    }
+
     if (!WP_DEBUG) {
         wp_enqueue_script( 'vlibras', 'https://vlibras.gov.br/app/vlibras-plugin.js', array(), null, true );
         wp_add_inline_script( 'vlibras',
