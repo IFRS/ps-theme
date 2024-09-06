@@ -33,8 +33,9 @@
                     <?php the_custom_logo(); ?>
                 </div>
                 <?php if ($extra_image) : ?>
+                    <?php list($width, $height, $type, $attr) = getimagesize($extra_image); ?>
                     <div class="col-lg-6 col-xl-auto flex-shrink-1 d-none d-lg-block <?php echo ($extra_image_position ? 'order-first' : 'order-last') ?>">
-                        <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="extra-header-image">
+                        <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="extra-header-image" <?php echo $attr; ?>>
                     </div>
                 <?php endif; ?>
             </div>
