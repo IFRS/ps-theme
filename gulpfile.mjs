@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { read, readFileSync } from 'fs';
 import { deleteAsync }  from 'del';
 import gulp             from 'gulp';
 import parseArgs        from 'minimist';
@@ -130,14 +130,16 @@ function dist() {
     '**',
     '!.**',
     '!css/*.map',
-    '!dist{,/**}',
+    '!dist/**',
     '!js/*.map',
-    '!node_modules{,/**}',
-    '!sass{,/**}',
-    '!src{,/**}',
-    '!gulpfile*.js',
+    '!node_modules/**',
+    '!sass/**',
+    '!src/**',
+    '!gulpfile.mjs',
     '!package*.json',
-  ])
+  ], {
+    encoding: false,
+  })
   .pipe(dest('dist/' + name));
 }
 
