@@ -137,10 +137,13 @@ function dist() {
     '!src/**',
     '!gulpfile.mjs',
     '!package*.json',
+    '!README.md',
   ], {
     encoding: false,
   })
-  .pipe(dest('dist/' + name));
+  .pipe(dest('dist/' + name), {
+    encoding: false,
+  });
 }
 
 function serve() {
