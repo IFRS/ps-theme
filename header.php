@@ -29,7 +29,7 @@
         <h1 class="visually-hidden"><?php bloginfo('name'); ?></h1>
         <section class="container header">
             <div class="row align-items-center justify-content-center">
-                <div class="col-auto col-lg-6 col-xl-auto flex-shrink-1">
+                <div class="col-auto col-lg-6 col-xl-auto flex-shrink-1 px-5 p-sm-0">
                     <?php the_custom_logo(); ?>
                 </div>
                 <?php if ($extra_image) : ?>
