@@ -2,12 +2,6 @@
 // Carregamento eficiente de fontes
 require_once('inc/fonts.php');
 
-// Remove a versão do WP
-require_once('inc/remove-version.php');
-
-// Desabilita o suporte a emojis
-require_once('inc/disable-emojis.php');
-
 // Permissions & Roles
 require_once('inc/permissions.php');
 
@@ -44,7 +38,6 @@ require_once('inc/empty-search.php');
 require_once('inc/relative-time.php');
 
 // Taxonomies
-// require_once('inc/taxonomies/ps-taxonomy.php');
 require_once('inc/taxonomies/campus-taxonomy.php');
 require_once('inc/taxonomies/modalidade-taxonomy.php');
 require_once('inc/taxonomies/turno-taxonomy.php');
