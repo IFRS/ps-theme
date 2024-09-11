@@ -11,6 +11,7 @@ require_once('inc/resource-hints.php');
 // Configuração do Tema
 require_once('inc/theme-config.php');
 require_once('inc/extra-header-image.php');
+require_once('inc/banner-especial.php');
 
 // Gutenberg Config
 require_once('inc/gutenberg.php');

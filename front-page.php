@@ -1,16 +1,9 @@
 <?php get_header(); ?>
 
-<?php if (is_active_sidebar('home_atalhos')) : ?>
-    <section class="home-atalhos">
-        <div class="container">
-            <div class="row home-atalhos__content">
-                <?php dynamic_sidebar('home_atalhos'); ?>
-            </div>
-        </div>
-    </section>
-<?php endif; ?>
 
 <?php echo get_template_part('partials/home/etapas'); ?>
+
+<?php get_template_part('partials/banner-especial'); ?>
 
 <?php if (chamada_get_option('publish', false)) : ?>
     <section class="home-chamadas">
