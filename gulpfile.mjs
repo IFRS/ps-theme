@@ -114,10 +114,7 @@ function js() {
   return src('js/*.js')
   .pipe(babel({
     presets: [
-      [
-        '@babel/preset-env',
-        { 'modules': false }
-      ]
+      ['@babel/preset-env']
     ]
   }))
   .pipe(uglify())
