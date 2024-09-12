@@ -5,9 +5,9 @@
 ?>
 <?php if (!empty($banner_enabled) && !empty($banner_img)) : ?>
   <section class="banner-especial">
-    <div class="container">
+    <div class="container text-center">
       <?php if (!empty($banner_url)) : ?>
-        <a href="<?php echo $banner_url ?>">
+        <a href="<?php echo $banner_url ?>" class="d-inline-block">
       <?php endif; ?>
           <?php echo $banner_img; ?>
       <?php if (!empty($banner_url)) : ?>
