@@ -3,7 +3,7 @@
 
 <?php echo get_template_part('partials/home/etapas'); ?>
 
-<?php get_template_part('partials/banner-especial'); ?>
+<?php echo get_template_part('partials/home/banner-especial'); ?>
 
 <?php if (chamada_get_option('publish', false)) : ?>
     <section class="home-chamadas">
