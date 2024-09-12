@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createApp } from 'vue/dist/vue.esm-browser.js';
+import { createApp } from 'vue';
 
 const app = createApp({
   props: {
