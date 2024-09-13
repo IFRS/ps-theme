@@ -10,15 +10,19 @@
     <td><a href="<?php echo get_permalink() ?>" data-bs-toggle="modal" data-bs-target="#modal-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a><?php echo get_post_meta( get_the_ID(), '_curso_ead', 1 ) ? '&sup2;' : '' ?></td>
     <?php if (!$hide_unidades) : ?>
         <td>
-            <?php foreach ($campi as $campus) : ?>
-                <?php echo $campus->name; ?>
-            <?php endforeach; ?>
+            <?php if ($campi) : ?>
+                <?php foreach ($campi as $campus) : ?>
+                    <?php echo $campus->name; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </td>
     <?php endif; ?>
     <td>
-        <?php foreach ($modalidades as $modalidade) : ?>
-            <?php echo $modalidade->name; ?>
-        <?php endforeach; ?>
+        <?php if ($modalidades) : ?>
+            <?php foreach ($modalidades as $modalidade) : ?>
+                <?php echo $modalidade->name; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </td>
     <td>
         <?php
