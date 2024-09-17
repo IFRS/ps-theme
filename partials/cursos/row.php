@@ -10,7 +10,7 @@
     <td><a href="<?php echo get_permalink() ?>" data-bs-toggle="modal" data-bs-target="#modal-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a><?php echo get_post_meta( get_the_ID(), '_curso_ead', 1 ) ? '&sup2;' : '' ?></td>
     <?php if (!$hide_unidades) : ?>
         <td>
-            <?php if ($campi) : ?>
+            <?php if (!empty($campi)) : ?>
                 <?php foreach ($campi as $campus) : ?>
                     <?php echo $campus->name; ?>
                 <?php endforeach; ?>
@@ -18,7 +18,7 @@
         </td>
     <?php endif; ?>
     <td>
-        <?php if ($modalidades) : ?>
+        <?php if (!empty($modalidades)) : ?>
             <?php foreach ($modalidades as $modalidade) : ?>
                 <?php echo $modalidade->name; ?>
             <?php endforeach; ?>
@@ -26,7 +26,7 @@
     </td>
     <td>
         <?php
-            if ($formasingresso) {
+            if (!empty($formasingresso)) {
                 foreach ($formasingresso as $key => $formaingresso) {
                     if (!empty($formaingresso->description)) {
                         printf('<span class="formaingresso-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="%s">%s</span>', $formaingresso->description, $formaingresso->name);
