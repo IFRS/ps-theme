@@ -1,6 +1,6 @@
 .campi-list {
     @include media-breakpoint-up(lg) {
-        column-count: 2;
+        columns: 2 auto;
     }
 
     margin-top: 2rem;
