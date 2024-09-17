@@ -12,6 +12,14 @@
         }
     }
 
+    &__title + &__text {
+        margin-top: -1.5rem;
+    }
+
+    &__text {
+        margin-bottom: 2rem;
+    }
+
     &__filters {
         margin-bottom: 1rem;
         margin-top: 1rem;

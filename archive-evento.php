@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 <?php
+    $desc = cmb2_get_option('evento_options', 'desc', '');
+
     $ultimo_evento = new WP_Query( array(
 		'post_type'      => 'evento',
 		'posts_per_page' => 1,
@@ -16,12 +18,16 @@
     $eventos_js = array();
 ?>
 
-<section class="container">
+<section class="container cronograma">
     <h2 class="cronograma__title"><?php echo post_type_archive_title(); ?></h2>
+    <?php if (!empty($desc)) : ?>
+        <div class="cronograma__text">
+            <?php echo wpautop($desc, true); ?>
+        </div>
+    <?php endif; ?>
     <?php if (!empty($atualizacao)) : ?>
         <p class="cronograma__meta">Atualizado em <?php echo $atualizacao; ?></p>
     <?php endif; ?>
-    <?php echo wpautop(cmb2_get_option('evento_options', 'desc', '')); ?>
     <?php if (have_posts()) : ?>
         <div class="d-grid d-md-flex justify-content-md-end">
             <button id="ics" class="btn btn-dark btn-sm">Exporte para sua agenda</button>
