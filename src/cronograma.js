@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.setAttribute('data-bs-toggle', 'collapse');
     button.setAttribute('data-bs-target', '.evento--passado');
     button.setAttribute('aria-expanded', 'false');
-    button.innerText = "\u23F7 Exibir Datas Passadas \u23F7";
+    button.innerText = "&#9207; Exibir Datas Passadas &#9207;";
 
     td.appendChild(button);
     tr.appendChild(td);
@@ -64,10 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
     evento_passado.parentNode.insertBefore(tr, evento_passado.nextSibling);
 
     evento_passado.addEventListener('shown.bs.collapse', function () {
-      button.innerText = '\u23F6 Ocultar Datas Passadas \u23F6';
+      button.innerText = '&#9206; Ocultar Datas Passadas &#9206;';
     });
     evento_passado.addEventListener('hidden.bs.collapse', function () {
-      button.innerText = '\u23F7 Exibir Datas Passadas \u23F7';
+      button.innerText = '&#9207; Exibir Datas Passadas &#9207;';
     });
   }
 
