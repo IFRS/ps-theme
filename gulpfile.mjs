@@ -82,9 +82,21 @@ function bundle(done) {
       path: path.resolve(path.dirname(''), 'js'),
       filename: '[name].js',
     },
-    plugins: [...webpackPlugins],
+    plugins: [
+      new webpack.DefinePlugin({
+        __VUE_OPTIONS_API__: 'true',
+        __VUE_PROD_DEVTOOLS__: 'false',
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false'
+      }),
+      ...webpackPlugins
+    ],
     externals: {
       jquery: 'jQuery',
+    },
+    resolve: {
+      alias: {
+        'vue$': 'vue/dist/vue.esm-bundler.js',
+      },
     },
     optimization: {
       minimize: false,
