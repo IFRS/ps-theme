@@ -2,11 +2,11 @@
 
 $primary:                       #232382;
 $primary-shade:                 shade-color($primary, 20%);
-$accent:                        #F16237;
+$accent:                        #F5501E;
 $accent-shade:                  shade-color($accent, 20%);
 
 $custom-colors: (
-    "accent": $accent,
+  "accent": $accent,
 );
 
 $theme-colors: null;
@@ -67,61 +67,61 @@ $navbar-light-active-color:     null;
 $input-bg:                      null;
 
 %scope {
-    @import "bootstrap/scss/functions";
-    @import "bootstrap/scss/variables";
-    @import "bootstrap/scss/variables-dark";
-    @import "bootstrap/scss/maps";
-    @import "bootstrap/scss/mixins";
-    @import "bootstrap/scss/utilities";
+  @import "bootstrap/scss/functions";
+  @import "bootstrap/scss/variables";
+  @import "bootstrap/scss/variables-dark";
+  @import "bootstrap/scss/maps";
+  @import "bootstrap/scss/mixins";
+  @import "bootstrap/scss/utilities";
 
-    $theme-colors:                  map-merge($theme-colors, $custom-colors) !global;
+  $theme-colors:                  map-merge($theme-colors, $custom-colors) !global;
 
-    $link-hover-decoration:         none !global;
+  $link-hover-decoration:         none !global;
 
-    $font-family-base:              "Kumbh Sans", #{$font-family-sans-serif} !global;
+  $font-family-base:              "Kumbh Sans", #{$font-family-sans-serif} !global;
 
-    $body-color:                    #0f0f0f !global;
+  $body-color:                    #0f0f0f !global;
 
-    $body-bg:                       tint-color(#D2AF6E, 85%) !global;
+  $body-bg:                       tint-color(#D2AF6E, 85%) !global;
 
-    $link-color:                    shift-color($primary, 50%) !global;
+  $link-color:                    shift-color($primary, 50%) !global;
 
-    $border-radius:                 1rem !global;
+  $border-radius:                 1rem !global;
 
-    $btn-font-weight:               800 !global;
+  $btn-font-weight:               800 !global;
 
-    $h2-font-size:                  $font-size-base * 2.1 !global;
+  $h2-font-size:                  $font-size-base * 2.1 !global;
 
-    $accordion-bg:                  $white !global;
-    $accordion-button-active-bg:    $accent !global;
-    $accordion-button-active-color: color-contrast($accent) !global;
-    $accordion-button-bg:           $gray-100 !global;
+  $accordion-bg:                  $white !global;
+  $accordion-button-active-bg:    $accent !global;
+  $accordion-button-active-color: color-contrast($accent) !global;
+  $accordion-button-bg:           $gray-100 !global;
 
-    $card-border-width:             2px !global;
-    $card-border-color:             $body-color !global;
-    $card-box-shadow:               rgba(0, 0, 0, 0.16) 0px 1px 4px !global;
-    $card-bg:                       $gray-100 !global;
+  $card-border-width:             2px !global;
+  $card-border-color:             $body-color !global;
+  $card-box-shadow:               rgba(0, 0, 0, 0.16) 0px 1px 4px !global;
+  $card-bg:                       $gray-100 !global;
 
-    $table-border-color:            $gray-400 !global;
+  $table-border-color:            $gray-400 !global;
 
-    $breadcrumb-active-color:       $gray-800 !global;
+  $breadcrumb-active-color:       $gray-800 !global;
 
-    $dropdown-bg:                   tint-color(#D2AF6E, 85%) !global;
-    $dropdown-link-hover-color:     color-contrast($accent-shade) !global;
-    $dropdown-link-hover-bg:        $accent-shade !global;
-    $dropdown-link-active-color:    color-contrast($accent-shade) !global;
-    $dropdown-link-active-bg:       $accent-shade !global;
+  $dropdown-bg:                   tint-color(#D2AF6E, 85%) !global;
+  $dropdown-link-hover-color:     color-contrast($accent-shade) !global;
+  $dropdown-link-hover-bg:        $accent-shade !global;
+  $dropdown-link-active-color:    color-contrast($accent-shade) !global;
+  $dropdown-link-active-bg:       $accent-shade !global;
 
-    $list-group-bg:                 $white !global;
+  $list-group-bg:                 $white !global;
 
-    $navbar-light-color:            $body-color !global;
-    $navbar-light-hover-color:      $gray-900 !global;
-    $navbar-light-active-color:     $gray-900 !global;
+  $navbar-light-color:            $body-color !global;
+  $navbar-light-hover-color:      $gray-900 !global;
+  $navbar-light-active-color:     $gray-900 !global;
 
-    $nav-pills-link-active-bg:      $accent !global;
-    $nav-pills-link-active-color:   color-contrast($nav-pills-link-active-bg) !global;
+  $nav-pills-link-active-bg:      $accent !global;
+  $nav-pills-link-active-color:   color-contrast($nav-pills-link-active-bg) !global;
 
-    $input-bg:                      $gray-100 !global;
+  $input-bg:                      $gray-100 !global;
 }
 
 @import "bootstrap/scss/variables";

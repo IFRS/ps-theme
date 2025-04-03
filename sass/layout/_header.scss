@@ -4,7 +4,7 @@ header {
     background-position: center center;
     background-repeat: repeat-x;
     background-size: cover;
-    padding: 2.5rem 0;
+    padding-top: 2.5rem;
 
     @include media-breakpoint-up(sm) {
         background-image: var(--bg-sm, none);
