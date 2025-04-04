@@ -1,7 +1,7 @@
 .menu-wrapper {
-    background-color: $primary;
-    margin-top: 2.5rem;
-    padding: 0.75rem;
+    background-color: $gray-100;
+    margin-top: 3rem;
+    padding: 1.5rem;
 }
 
 .menu-principal {
@@ -24,19 +24,19 @@
 
     .nav-link {
         border-radius: $border-radius-pill;
-        color: color-contrast($primary);
+        color: color-contrast($gray-100);
         font-weight: 600;
         padding: $btn-padding-y $btn-padding-x;
 
         &:hover,
         &:focus {
-            background-color: $white;
-            color: $primary;
+            background-color: $primary;
+            color: color-contrast($primary);
         }
 
         &.active {
-            background-color: $white;
-            color: $primary;
+            background-color: $primary;
+            color: color-contrast($primary);
             font-weight: bold;
         }
 
@@ -77,8 +77,8 @@
     // .current-menu-item,
     .current-menu-ancestor {
         > .nav-link {
-            background-color: $white;
-            color: $primary;
+            background-color: $primary;
+            color: color-contrast($primary);
             font-weight: bold;
         }
     }
