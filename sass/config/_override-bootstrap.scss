@@ -82,7 +82,7 @@ $input-bg:                      null;
 
   $body-color:                    #0f0f0f !global;
 
-  $body-bg:                       tint-color(#D2AF6E, 85%) !global;
+  $body-bg:                       tint-color(#FFF212, 95%) !global;
 
   $link-color:                    shift-color($primary, 50%) !global;
 
@@ -106,7 +106,7 @@ $input-bg:                      null;
 
   $breadcrumb-active-color:       $gray-800 !global;
 
-  $dropdown-bg:                   tint-color(#D2AF6E, 85%) !global;
+  $dropdown-bg:                   tint-color(#FFF212, 90%) !global;
   $dropdown-link-hover-color:     color-contrast($accent-shade) !global;
   $dropdown-link-hover-bg:        $accent-shade !global;
   $dropdown-link-active-color:    color-contrast($accent-shade) !global;
