@@ -5,7 +5,7 @@ import parseArgs        from 'minimist';
 import babel            from 'gulp-babel';
 import browserSync      from 'browser-sync';
 import csso             from 'gulp-csso';
-import * as dartSass    from 'sass';
+import * as dartSass    from 'sass-embedded';
 import gulpSass         from 'gulp-sass';
 import autoprefixer     from 'autoprefixer';
 import path             from 'path';
@@ -45,8 +45,9 @@ function sass() {
   ];
 
   let sass_options = {
-    includePaths: ['sass', 'node_modules'],
-    outputStyle: 'expanded',
+    loadPaths: ['sass', 'node_modules'],
+    style: 'expanded',
+    quietDeps: true,
   };
 
   return src('sass/*.scss')
