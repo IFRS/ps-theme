@@ -144,7 +144,7 @@ add_action( 'restrict_manage_posts', function( $post_type ) {
 
 /* Custom Query */
 add_filter( 'pre_get_posts', function( $query ) {
-    if ($query->is_main_query() && ($query->is_post_type_archive('curso') || $query->is_tax('modalidade') || $query->is_tax('turno'))) {
+    if (!is_admin() && $query->is_main_query() && ($query->is_post_type_archive('curso') || $query->is_tax('modalidade') || $query->is_tax('turno'))) {
         $query->set('posts_per_page', -1);
         $query->set('nopaging', true);
         $query->set('orderby', 'title');
@@ -157,6 +157,7 @@ add_filter( 'pre_get_posts', function( $query ) {
             )
         ));
     }
+
     return $query;
 } );
 
