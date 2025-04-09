@@ -41,7 +41,7 @@
 
     <?php $modalidades = get_the_terms(get_the_ID(), 'modalidade'); ?>
     <p class="col-auto my-2">
-        <strong>Modalidade: </strong>
+        <strong>N&iacute;vel: </strong>
         <?php
             if (!empty($modalidades)) {
                 foreach ($modalidades as $modalidade) {

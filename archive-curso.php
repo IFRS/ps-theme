@@ -26,7 +26,7 @@
                             <tr>
                                 <th>Curso</th>
                                 <th>Campus</th>
-                                <th>Modalidade</th>
+                                <th>N&iacute;vel</th>
                                 <th>Formas de Ingresso</th>
                                 <th>Turnos</th>
                                 <th class="text-center">Vagas&sup1;</th>
@@ -67,7 +67,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th>Curso</th>
-                                    <th>Modalidade</th>
+                                    <th>N&iacute;vel</th>
                                     <th>Formas de Ingresso</th>
                                     <th>Turnos</th>
                                     <th class="text-center">Vagas&sup1;</th>
