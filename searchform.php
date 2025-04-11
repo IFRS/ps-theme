@@ -1,10 +1,12 @@
 <?php $svgID = uniqid(); ?>
 
-<form role="search" method="get" class="searchform" action="<?php echo esc_url(home_url('/')); ?>">
-    <label class="visually-hidden" for="search-field">Buscar por:</label>
-    <div class="input-group">
+<form role="search" method="get" class="row g-1 align-items-center searchform" action="<?php echo esc_url(home_url('/')); ?>">
+    <div class="col">
+        <label class="visually-hidden" for="search-field">Buscar por:</label>
         <input type="search" value="<?php echo get_search_query(); ?>" name="s" id="search-field" class="form-control form-control-sm searchform__input" placeholder="Buscar em todo o site" required>
-        <button type="submit" class="btn btn-sm btn-light input-group-append searchform__submit" aria-labelledby="<?php echo $svgID; ?>">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-sm searchform__submit" aria-labelledby="<?php echo $svgID; ?>">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" role="img">
                 <title id="<?php echo $svgID; ?>">Buscar no Site</title>
                 <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
