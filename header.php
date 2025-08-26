@@ -29,12 +29,12 @@
     <h1 class="visually-hidden"><?php bloginfo('name'); ?></h1>
     <section class="container header">
       <div class="row align-items-center justify-content-center">
-        <div class="col-auto col-lg-6 col-xl-auto flex-shrink-1 px-5 p-sm-0">
+        <div class="col-auto col-lg-6 col-xl-6 flex-shrink-1 px-4 p-sm-0">
           <?php the_custom_logo(); ?>
         </div>
         <?php if ($extra_image) : ?>
           <?php list($width, $height, $type, $attr) = getimagesize($extra_image); ?>
-          <div class="col-lg-6 col-xl-auto flex-shrink-1 d-none d-lg-block <?php echo ($extra_image_position ? 'order-first' : 'order-last') ?>">
+          <div class="col-lg-6 col-xl-6 flex-shrink-1 d-none d-lg-block <?php echo ($extra_image_position ? 'order-first' : 'order-last') ?>">
             <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="extra-header-image" <?php echo $attr; ?>>
           </div>
         <?php endif; ?>
