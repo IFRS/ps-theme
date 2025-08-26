@@ -1,8 +1,8 @@
 @import "bootstrap/scss/functions";
 
-$primary:                       #232382;
+$primary:                       #0050a0;
 $primary-shade:                 shade-color($primary, 20%);
-$accent:                        #F5501E;
+$accent:                        #ffc500;
 $accent-shade:                  shade-color($accent, 20%);
 
 $custom-colors: (
@@ -80,9 +80,9 @@ $input-bg:                      null;
 
   $font-family-base:              "degular-variable", #{$font-family-sans-serif} !global;
 
-  $body-color:                    #0f0f0f !global;
+  $body-color:                    #0a0a0a !global;
 
-  $body-bg:                       tint-color(#FFF212, 95%) !global;
+  $body-bg:                       #f9edbc !global;
 
   $link-color:                    shift-color($primary, 50%) !global;
 
@@ -106,7 +106,7 @@ $input-bg:                      null;
 
   $breadcrumb-active-color:       $gray-800 !global;
 
-  $dropdown-bg:                   tint-color(#FFF212, 90%) !global;
+  $dropdown-bg:                   tint-color($accent, 90%) !global;
   $dropdown-link-hover-color:     color-contrast($accent-shade) !global;
   $dropdown-link-hover-bg:        $accent-shade !global;
   $dropdown-link-active-color:    color-contrast($accent-shade) !global;
