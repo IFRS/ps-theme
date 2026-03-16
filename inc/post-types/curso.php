@@ -224,6 +224,14 @@ function curso_get_option( $key = '', $default = false ) {
 	return $val;
 }
 
+/* Disable Single Template */
+add_action( 'template_redirect', function() {
+    if ( is_singular( 'curso' ) ) {
+        wp_safe_redirect( get_post_type_archive_link( 'curso' ), 308 );
+        exit;
+    }
+} );
+
 /* Disable Gutenberg */
 add_filter('use_block_editor_for_post_type', function($current_status, $post_type) {
 	if ($post_type === 'curso') return false;

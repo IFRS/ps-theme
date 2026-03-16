@@ -1,7 +1,9 @@
 <?php
     $taxonomies = array();
+    $taxonomies[] = get_taxonomy( 'campus' );
     $taxonomies[] = get_taxonomy( 'modalidade' );
     $taxonomies[] = get_taxonomy( 'turno' );
+    // $taxonomies[] = get_taxonomy( 'formaingresso' );
 ?>
 <form class="cursos__filters row g-2 align-items-center justify-content-start" method="POST" action="<?php echo get_post_type_archive_link( 'curso' ); ?>">
     <?php foreach ($taxonomies as $taxonomy) : ?>
@@ -20,7 +22,7 @@
                     'hide_empty'      => false,
                     'name'            => $taxonomy->name,
                     'id'              => $field_id,
-                    'class'           => 'form-select form-select-sm',
+                    'class'           => 'form-select',
                 ) );
             ?>
         </div>
@@ -29,7 +31,7 @@
     <div class="col-auto">
         <?php $field_id = uniqid(); ?>
         <label class="visually-hidden" for="<?php echo $field_id; ?>">Buscar por:</label>
-        <input class="form-control form-control-sm" type="text" value="<?php echo (get_search_query() ?? ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar nos cursos..."/>
+        <input class="form-control" type="text" value="<?php echo (get_search_query() ?? ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Buscar nos cursos..."/>
     </div>
 
     <div class="col-auto">

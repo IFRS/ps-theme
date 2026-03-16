@@ -25,18 +25,48 @@
         margin-top: 1rem;
     }
 
-    &__nav {
-        margin-bottom: 1rem;
+    &__list {
+        display: grid;
+        gap: $grid-gutter-width;
+        margin: $grid-gutter-width 0;
+        grid-template-columns: 1fr;
 
-        .nav-link {
-            color: $gray-800;
-            font-weight: bold;
-        }
+        @include media-breakpoint-up(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        @include media-breakpoint-up(lg) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        @include media-breakpoint-up(xl) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+}
+
+.curso {
+    background-color: var(--bs-primary-bg-subtle);
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: var(--bs-box-shadow-sm);
+    color: var(--bs-primary-text-emphasis);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+
+    &__header {
+        margin-bottom: 0.25rem;
     }
 
-    .dataTables_wrapper {
-        padding-left: 0;
-        padding-right: 0;
+    &__title {
+        font-size: 1.5rem;
+    }
+
+    &__help {
+        cursor: help;
+        font-weight: 500;
+        margin-inline-start: 0.1rem;
+        text-decoration: dotted underline;
+    }
+
+    &__footer {
+        margin-top: auto;
     }
 }
 

@@ -3,7 +3,7 @@
 <?php $desc = curso_get_option('desc', ''); ?>
 
 <section class="container cursos">
-    <h2 class="cursos__title">Lista de Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
+    <h2 class="cursos__title">Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
 
     <?php if (!empty($desc)) : ?>
         <div class="cursos__text">
@@ -13,93 +13,78 @@
 
     <?php get_template_part('partials/cursos/filter'); ?>
 
-    <div class="cursos__content">
-        <!-- Nav tabs -->
-        <?php get_template_part('partials/cursos/nav'); ?>
+    <div class="cursos__list">
+        <?php if (have_posts()) : ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+                <?php
+                    $campi = get_the_terms(get_the_ID(), 'campus');
+                    $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
+                    $modalidades = get_the_terms(get_the_ID(), 'modalidade');
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="tab-todos" role="tabpanel">
-                <div class="table-responsive-md">
-                    <table class="table table-striped table-cursos">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Curso</th>
-                                <th>Campus</th>
-                                <th>N&iacute;vel</th>
-                                <th>Formas de Ingresso</th>
-                                <th>Turnos</th>
-                                <th class="text-center">Vagas&sup1;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if (have_posts()) : ?>
-                            <?php while ( have_posts() ) : the_post(); ?>
-                                <?php get_template_part('partials/cursos/row', null, array('hide_unidades' => false)); ?>
-                                <?php add_action( 'wp_footer', function() { the_post(); ?>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="modal-<?php echo get_the_ID(); ?>" tabindex="-1" aria-labelledby="modal-title-<?php echo get_the_ID(); ?>" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="modal-title-<?php echo get_the_ID(); ?>"><?php the_title(); ?></h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <?php echo get_template_part( 'partials/cursos/curso' ); ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ); ?>
-                            <?php endwhile;?>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <?php if ( ! is_search()) : ?>
-                <?php $terms = get_terms('campus'); ?>
-                <?php foreach ($terms as $key => $campus) : ?>
-                <div class="tab-pane fade" id="tab-<?php echo $campus->slug; ?>" role="tabpanel">
-                    <div class="table-responsive-md">
-                        <table class="table table-striped table-cursos">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Curso</th>
-                                    <th>N&iacute;vel</th>
-                                    <th>Formas de Ingresso</th>
-                                    <th>Turnos</th>
-                                    <th class="text-center">Vagas&sup1;</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    global $wp_query;
-                                    $args = array(
-                                        'post_type' => 'curso',
-                                        'orderby' => 'title',
-                                        'order' => 'ASC',
-                                        'campus' => $campus->slug,
-                                        'posts_per_page' => -1,
-                                        'nopaging' => true
-                                    );
-                                    $args = array_merge($wp_query->query_vars, $args);
-                                    $cursos_per_campus = new WP_Query($args);
-                                ?>
-                                <?php while ( $cursos_per_campus->have_posts() ) : $cursos_per_campus->the_post(); ?>
-                                    <?php get_template_part('partials/cursos/row', null, array('hide_unidades' => true)); ?>
-                                <?php endwhile;?>
-                                <?php $cursos_per_campus->wp_reset_query(); ?>
-                            </tbody>
-                        </table>
+                    $turnos = wp_get_post_terms(get_the_ID(), 'turno', array('orderby' => 'term_order'));
+
+                    $duracao = get_post_meta(get_the_ID(), '_curso_duracao', true);
+                    $vagas = get_post_meta(get_the_ID(), '_curso_vagas', true);
+                ?>
+                <article class="curso">
+                    <div class="curso__header">
+                        <?php
+                            if (!empty($campi) && !is_wp_error($campi)) {
+                                echo esc_html(implode(', ', wp_list_pluck($campi, 'name')));
+                            }
+                        ?>
                     </div>
-                </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
-        <?php get_template_part('partials/cursos/alert'); ?>
+
+                    <!-- <h3 class="curso__title"><a class="stretched-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> -->
+                    <h3 class="curso__title"><?php the_title(); ?></h3>
+
+                    <div class="curso__content">
+                        <p>
+                            <?php
+                                if (!empty($modalidades) && !is_wp_error($modalidades)) {
+                                    echo esc_html(implode(', ', wp_list_pluck($modalidades, 'name')));
+                                    echo '&nbsp;&ndash;&nbsp;';
+                                }
+                                if (!empty($turnos) && !is_wp_error($turnos)) {
+                                    echo esc_html(wp_sprintf_l('%l', wp_list_pluck($turnos, 'name')));
+                                }
+                            ?>
+                        </p>
+                        <p>
+                            <strong>Dura&ccedil;&atilde;o: </strong>
+                            <?php echo (!empty($duracao) && !is_wp_error($duracao)) ? $duracao : '-'; ?>
+                            <!-- Carga Horária EaD -->
+                            <?php if (get_post_meta( get_the_ID(), '_curso_ead', 1 )) : ?>
+                                <sup class="curso__help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Esse Curso possui parte da carga hor&aacute;ria a dist&acirc;ncia.">EaD</sup>
+                            <?php endif; ?>
+
+                            <br>
+
+                            <strong><?php echo _n( 'Forma', 'Formas', count($formasingresso), 'ifrs-ps-theme' ) ?> de Ingresso: </strong>
+                            <?php
+                                if (!empty($formasingresso) && !is_wp_error($formasingresso)) {
+                                    foreach ($formasingresso as $key => $formaingresso) {
+                                        if (!empty($formaingresso->description)) {
+                                            printf('<span class="formaingresso-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="%s">%s</span>', $formaingresso->description, $formaingresso->name);
+                                        } else {
+                                            echo $formaingresso->name;
+                                        }
+                                        echo ($key !== array_key_last($formasingresso)) ? ' ou ' : '';
+                                    }
+                                } else {
+                                    echo '-';
+                                }
+                            ?>
+                        </p>
+                    </div>
+                    <div class="curso__footer">
+                        <p><?php echo (!empty($vagas) && !is_wp_error($vagas)) ? $vagas : '-'; ?>&nbsp;<?php echo _n('vaga', 'vagas', intval($vagas), 'ifrs-ps-theme'); ?></p>
+                    </div>
+                </article>
+            <?php endwhile;?>
+        <?php endif; ?>
     </div>
+    <?php get_template_part('partials/cursos/alert'); ?>
 </section>
 
 <?php get_footer(); ?>
