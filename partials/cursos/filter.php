@@ -17,10 +17,9 @@
                     'name'            => $taxonomy->name,
                     'orderby'         => 'name',
                     'value_field'     => 'slug',
-                    'selected'        => $_POST[$taxonomy->name] ?? '0',
+                    'selected'        => $_POST[$taxonomy->name] ?? 0,
                     'hierarchical'    => true,
                     'hide_empty'      => false,
-                    'name'            => $taxonomy->name,
                     'id'              => $field_id,
                     'class'           => 'form-select',
                 ) );
