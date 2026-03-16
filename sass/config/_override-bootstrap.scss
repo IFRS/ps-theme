@@ -1,8 +1,14 @@
 @import "bootstrap/scss/functions";
 
 $primary:                       #303891;
-$primary-shade:                 shade-color($primary, 20%);
+$info:                          #155BCB;
+$success:                       #168821;
+$warning:                       #FFCD07;
+$danger:                        #E52207;
+
 $accent:                        #0050a0;
+
+$primary-shade:                 shade-color($primary, 20%);
 $accent-shade:                  shade-color($accent, 20%);
 
 $custom-colors: (
