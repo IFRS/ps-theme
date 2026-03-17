@@ -69,15 +69,3 @@
         margin-top: auto;
     }
 }
-
-.tab-content {
-    margin-bottom: math.div($grid-gutter-width, 2);
-
-    a {
-        color: darken($link-color, 15%);
-    }
-
-    .dataTables_info {
-        font-size: 90%;
-    }
-}
