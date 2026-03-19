@@ -145,7 +145,7 @@ add_action( 'cmb2_init', function() {
 
     $marco->add_field( array(
         'name' => '',
-        'desc' => 'Marque caso esse evento seja uma etapa importante do PS.',
+        'desc' => 'Marque caso esse evento seja uma etapa importante do Processo Seletivo.',
         'type' => 'checkbox',
         'id'   => $prefix . 'marco',
     ) );

@@ -79,6 +79,7 @@ function bundle(done) {
       'chamada': './src/chamada.js',
       'faq': './src/faq.js',
       'admin_campi-alert': './src/admin_campi-alert.js',
+      'etapas-timeline-block': './src/etapas-timeline-block.js',
     },
     output: {
       path: path.resolve(path.dirname(''), 'js'),

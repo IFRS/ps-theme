@@ -35,7 +35,6 @@
                         ?>
                     </div>
 
-                    <!-- <h3 class="curso__title"><a class="stretched-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> -->
                     <h3 class="curso__title"><?php the_title(); ?></h3>
 
                     <div class="curso__content">

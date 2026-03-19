@@ -1,0 +1,81 @@
+.etapas-timeline {
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 1.5rem 2rem;
+  width: fit-content;
+
+  &__titulo {
+    margin-bottom: 1.5rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+.etapa {
+  $self: &;
+  border-left: 2px solid transparent;
+  border-image: linear-gradient(to bottom, $gray-300, $gray-300) 1;
+  margin-left: 0.25rem;
+  padding: 0 0 1rem 1rem;
+  position: relative;
+
+  &::before {
+    background-color: $white;
+    border: 2px solid $primary;
+    border-radius: 100%;
+    content: '';
+    height: 0.8rem;
+    left: -0.46rem;
+    position: absolute;
+    top: 0.35rem;
+    width: 0.8rem;
+  }
+
+  &:first-child {
+    border-image: linear-gradient(to bottom, transparent 0.35rem, $gray-300 1rem) 1;
+  }
+
+  &:last-child {
+    border-image: linear-gradient(to bottom, $gray-300 50%, transparent) 1;
+  }
+
+  &--atual {
+    border-image: linear-gradient(to bottom, $primary 70%, $gray-300) 1;
+
+    &::before {
+      background-color: $primary;
+    }
+
+    #{$self}__periodo,
+    #{$self}__titulo {
+      font-weight: 600;
+    }
+
+    #{$self}__periodo {
+      &::after {
+        content: ' (Atual)';
+        font-size: 0.75rem;
+        font-weight: normal;
+      }
+    }
+  }
+
+  &--passado {
+    color: $text-muted;
+    opacity: 0.8;
+  }
+
+  &__periodo {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  &__titulo {
+    font-size: 1.1rem;
+  }
+}

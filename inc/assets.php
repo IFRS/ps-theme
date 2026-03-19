@@ -94,3 +94,19 @@ add_action( 'enqueue_block_assets', function() {
         true
     );
 }, 99 );
+
+add_action( 'enqueue_block_editor_assets', function() {
+    $asset_path = get_stylesheet_directory() . '/js/etapas-timeline-block.js';
+
+    if (!file_exists($asset_path)) {
+        return;
+    }
+
+    wp_enqueue_script(
+        'ps-etapas-timeline-block',
+        get_template_directory_uri() . '/js/etapas-timeline-block.js',
+        array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render'),
+        WP_DEBUG ? null : filemtime($asset_path),
+        true
+    );
+}, 99 );

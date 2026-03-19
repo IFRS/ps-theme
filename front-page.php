@@ -5,6 +5,10 @@
 
 <?php echo get_template_part('partials/home/banner-especial'); ?>
 
+<section class="container">
+    <?php echo do_blocks( '<!-- wp:ifrs-ps/etapas-timeline /-->' ); ?>
+</section>
+
 <?php if (chamada_get_option('publish', false)) : ?>
     <section class="home-chamadas">
         <div class="container">

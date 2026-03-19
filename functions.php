@@ -52,3 +52,6 @@ require_once('inc/post-types/publicacao.php');
 require_once('inc/post-types/chamada.php');
 require_once('inc/post-types/documento.php');
 require_once('inc/post-types/evento.php');
+
+// Blocks
+require_once('inc/blocks/etapas-timeline.php');
