@@ -85,18 +85,10 @@ add_filter( 'script_loader_tag', function($tag, $handle) {
 }, 99, 2 );
 
 /* Gutenberg Assets */
-add_action( 'enqueue_block_assets', function() {
-    if (get_post_type() == 'page') wp_enqueue_script(
-        'ps-admin-notices',
-        get_template_directory_uri() . '/js/admin_campi-alert.js',
-        array( 'wp-blocks', 'wp-block-editor' ),
-        WP_DEBUG ? null : filemtime(get_stylesheet_directory() . '/js/admin_campi-alert.js'),
-        true
-    );
-}, 99 );
 
 add_action( 'enqueue_block_editor_assets', function() {
     $editor_style = get_stylesheet_directory() . '/css/editor.css';
+    $admin_campi_alert = get_stylesheet_directory() . '/js/admin_campi-alert.js';
     $etapas_timeline_block = get_stylesheet_directory() . '/js/etapas-timeline-block.js';
 
     if (file_exists($editor_style)) {
@@ -106,6 +98,16 @@ add_action( 'enqueue_block_editor_assets', function() {
             array(),
             WP_DEBUG ? null : filemtime($editor_style),
             'all'
+        );
+    }
+
+    if (file_exists($admin_campi_alert) && get_post_type() == 'page') {
+        wp_enqueue_script(
+            'ps-admin-notices',
+            get_template_directory_uri() . '/js/admin_campi-alert.js',
+            array( 'wp-blocks', 'wp-block-editor' ),
+            WP_DEBUG ? null : filemtime($admin_campi_alert),
+            true
         );
     }
 
