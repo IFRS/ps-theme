@@ -1,8 +1,5 @@
 <?php get_header(); ?>
 
-
-<?php echo get_template_part('partials/home/etapas'); ?>
-
 <?php echo get_template_part('partials/home/banner-especial'); ?>
 
 <section class="container">
