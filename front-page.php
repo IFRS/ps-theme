@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
-<?php echo get_template_part('partials/home/banner-especial'); ?>
-
 <section class="container">
-    <?php echo do_blocks( '<!-- wp:ifrs-ps/etapas-timeline /-->' ); ?>
+    <?php the_content(); ?>
 </section>
 
 <?php if (chamada_get_option('publish', false)) : ?>
