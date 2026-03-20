@@ -96,17 +96,26 @@ add_action( 'enqueue_block_assets', function() {
 }, 99 );
 
 add_action( 'enqueue_block_editor_assets', function() {
-    $asset_path = get_stylesheet_directory() . '/js/etapas-timeline-block.js';
+    $editor_style = get_stylesheet_directory() . '/css/editor.css';
+    $etapas_timeline_block = get_stylesheet_directory() . '/js/etapas-timeline-block.js';
 
-    if (!file_exists($asset_path)) {
-        return;
+    if (file_exists($editor_style)) {
+        wp_enqueue_style(
+            'ps-editor',
+            get_template_directory_uri() . '/css/editor.css',
+            array(),
+            WP_DEBUG ? null : filemtime($editor_style),
+            'all'
+        );
     }
 
-    wp_enqueue_script(
-        'ps-etapas-timeline-block',
-        get_template_directory_uri() . '/js/etapas-timeline-block.js',
-        array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render'),
-        WP_DEBUG ? null : filemtime($asset_path),
-        true
-    );
+    if (file_exists($etapas_timeline_block)) {
+        wp_enqueue_script(
+            'ps-etapas-timeline-block',
+            get_template_directory_uri() . '/js/etapas-timeline-block.js',
+            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render'),
+            WP_DEBUG ? null : filemtime($etapas_timeline_block),
+            true
+        );
+    }
 }, 99 );
