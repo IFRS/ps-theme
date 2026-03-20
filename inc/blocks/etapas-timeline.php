@@ -5,6 +5,10 @@ add_action('init', function() {
     'editor_script'   => 'ps-etapas-timeline-block',
     'render_callback' => 'ifrs_ps_render_etapas_timeline_block',
     'attributes'      => array(
+      'title' => array(
+        'type'    => 'string',
+        'default' => __('Próximas etapas importantes', 'ifrs-ps-theme'),
+      ),
       'hidePast' => array(
         'type'    => 'boolean',
         'default' => true,
@@ -19,6 +23,9 @@ add_action('init', function() {
 
 if (!function_exists('ifrs_ps_render_etapas_timeline_block')) {
   function ifrs_ps_render_etapas_timeline_block($attributes) {
+    $title = !empty($attributes['title'])
+      ? wp_kses_post($attributes['title'])
+      : esc_html__('Próximas etapas importantes', 'ifrs-ps-theme');
     $hide_past = !empty($attributes['hidePast']);
     $agora = current_time('timestamp');
 
@@ -59,7 +66,7 @@ if (!function_exists('ifrs_ps_render_etapas_timeline_block')) {
     ob_start();
     ?>
     <section class="etapas-timeline" aria-label="<?php esc_attr_e('Linha do tempo de etapas importantes próximas', 'ifrs-ps-theme'); ?>">
-      <h2 class="etapas-timeline__titulo"><?php esc_html_e('Próximas etapas importantes', 'ifrs-ps-theme'); ?></h2>
+      <h2 class="etapas-timeline__titulo"><?php echo $title; ?></h2>
       <ol class="etapas-timeline__list">
         <?php while ($eventos->have_posts()) : $eventos->the_post(); ?>
           <?php

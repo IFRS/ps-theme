@@ -5,7 +5,7 @@
   const useBlockProps = (wp.blockEditor && wp.blockEditor.useBlockProps)
     ? wp.blockEditor.useBlockProps
     : () => ({ });
-  const { PanelBody, ToggleControl, RangeControl } = wp.components;
+  const { PanelBody, ToggleControl, RangeControl, TextControl } = wp.components;
   const ServerSideRender = wp.serverSideRender;
   const createElement = wp.element.createElement;
 
@@ -16,6 +16,10 @@
     icon: 'calendar-alt',
     category: 'widgets',
     attributes: {
+      title: {
+        type: 'string',
+        default: __('Próximas etapas importantes', 'ifrs-ps-theme'),
+      },
       hidePast: {
         type: 'boolean',
         default: true,
@@ -36,6 +40,11 @@
             title: __('Configurações', 'ifrs-ps-theme'),
             initialOpen: true,
           },
+          createElement(TextControl, {
+            label: __('Título', 'ifrs-ps-theme'),
+            value: attributes.title,
+            onChange: (value) => setAttributes({ title: value }),
+          }),
           createElement(ToggleControl, {
             label: __('Ocultar datas já passadas', 'ifrs-ps-theme'),
             checked: !!attributes.hidePast,
