@@ -42,8 +42,11 @@
       <?php if (display_header_text()) : ?>
         <p><?php bloginfo('description'); ?></p>
       <?php endif; ?>
-
     </section>
+
+    <?php if (is_active_sidebar('faixa_destaque')) : ?>
+      <?php dynamic_sidebar('faixa_destaque'); ?>
+    <?php endif; ?>
 
     <!-- Menu -->
     <?php echo get_template_part('partials/menu'); ?>

@@ -80,13 +80,15 @@ add_theme_support( 'custom-header', array(
 
 // Widgets
 add_action('widgets_init', function() {
-    register_sidebar(array(
-        'name'          => 'Home Ajuda',
-        'id'            => 'home_ajuda',
-        'description'   => 'Área de ajuda na página inicial.',
-        'before_widget' => '<div id="%1$s" class="home-ajuda__widget %2$s">',
+    register_sidebar( array(
+        'name'          => 'Faixa Destaque',
+        'id'            => 'faixa_destaque',
+        'description'   => 'Faixa de destaque no topo do site, acima do menu.',
+        'before_widget' => '<div id="%1$s" class="faixa-destaque__widget %2$s">',
         'after_widget'  => '</div>',
-    ));
+        'before_sidebar' => '<div class="container"><div id="%1$s" class="faixa-destaque %2$s">',
+        'after_sidebar'  => '</div></div>',
+    ) );
     register_sidebar(array(
         'name'           => 'Contato',
         'id'             => 'contato',
