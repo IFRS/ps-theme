@@ -1,0 +1,14 @@
+.ajuda {
+    background-color: $accent;
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: cover;
+    border-radius: $border-radius;
+    color: color-contrast($accent);
+    margin: 1rem 0;
+    padding: 3rem 1rem;
+
+    & > *:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
