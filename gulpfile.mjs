@@ -73,7 +73,6 @@ function bundle(done) {
     devtool: IS_PRODUCTION ? 'source-map' : 'eval-source-map',
     entry: {
       'ps': './src/ps.js',
-      'cursos': './src/cursos.js',
       'cronograma': './src/cronograma.js',
       'chamadas': './src/chamadas.js',
       'chamada': './src/chamada.js',
