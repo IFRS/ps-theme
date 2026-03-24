@@ -17,7 +17,7 @@
                     'name'            => $taxonomy->name,
                     'orderby'         => 'name',
                     'value_field'     => 'slug',
-                    'selected'        => $_POST[$taxonomy->name] ?? 0,
+                    'selected'        => (!empty($_POST[$taxonomy->name]) && !is_array($_POST[$taxonomy->name])) ? $_POST[$taxonomy->name] : 0,
                     'hierarchical'    => true,
                     'hide_empty'      => false,
                     'id'              => $field_id,

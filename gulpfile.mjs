@@ -80,6 +80,7 @@ function bundle(done) {
       'faq': './src/faq.js',
       'admin_campi-alert': './src/admin_campi-alert.js',
       'etapas-timeline-block': './src/etapas-timeline-block.js',
+      'cursos-helper-block': './src/cursos-helper-block.js',
     },
     output: {
       path: path.resolve(path.dirname(''), 'js'),

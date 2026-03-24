@@ -90,6 +90,7 @@ add_action( 'enqueue_block_editor_assets', function() {
     $editor_style = get_stylesheet_directory() . '/css/editor.css';
     $admin_campi_alert = get_stylesheet_directory() . '/js/admin_campi-alert.js';
     $etapas_timeline_block = get_stylesheet_directory() . '/js/etapas-timeline-block.js';
+    $cursos_helper_block = get_stylesheet_directory() . '/js/cursos-helper-block.js';
 
     if (file_exists($editor_style)) {
         wp_enqueue_style(
@@ -118,6 +119,38 @@ add_action( 'enqueue_block_editor_assets', function() {
             array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render'),
             WP_DEBUG ? null : filemtime($etapas_timeline_block),
             true
+        );
+    }
+
+    if (file_exists($cursos_helper_block)) {
+        $terms = get_terms(array(
+            'taxonomy'   => 'modalidade',
+            'hide_empty' => false,
+        ));
+
+        if (is_wp_error($terms)) {
+            $terms = array();
+        }
+
+        $modalidades = array_map(function($term) {
+            return array(
+                'slug' => $term->slug,
+                'name' => $term->name,
+            );
+        }, $terms);
+
+        wp_enqueue_script(
+            'ps-cursos-helper-block',
+            get_template_directory_uri() . '/js/cursos-helper-block.js',
+            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n'),
+            WP_DEBUG ? null : filemtime($cursos_helper_block),
+            true
+        );
+
+        wp_add_inline_script(
+            'ps-cursos-helper-block',
+            'window.ifrsPsModalidadesTerms = ' . wp_json_encode($modalidades) . ';',
+            'before'
         );
     }
 }, 99 );
