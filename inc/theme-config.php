@@ -2,16 +2,6 @@
 // Content Width
 if ( ! isset( $content_width ) ) $content_width = 1296;
 
-// Remove some Gutenberg custom options
-add_theme_support( 'custom-units', array() );
-add_theme_support( 'editor-color-palette', array() );
-add_theme_support( 'editor-gradient-presets', array() );
-add_theme_support( 'editor-font-sizes', array() );
-add_theme_support( 'disable-custom-font-sizes', true );
-add_theme_support( 'disable-custom-colors' );
-add_theme_support( 'disable-custom-gradients' );
-// add_theme_support( 'disable-layout-styles' );
-
 // Gutenberg Default Theme Styles
 add_theme_support( 'wp-block-styles' );
 
