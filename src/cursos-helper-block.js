@@ -45,7 +45,7 @@
       const items = Array.isArray(attributes.items) ? attributes.items : [];
       const title = attributes.title || '';
       const options = getModalidadeOptions();
-      const blockProps = useBlockProps({ className: 'ifrs-ps-cursos-helper-block' });
+      const blockProps = useBlockProps();
 
       const updateItem = (index, field, value) => {
         const nextItems = items.map((item, itemIndex) => {
@@ -117,8 +117,8 @@
           }, __('Adicionar link', 'ifrs-ps-theme'))
           )
         ),
-        createElement('div', null,
-          createElement('h2', null, title || __('Defina o título no painel lateral', 'ifrs-ps-theme')),
+        createElement('div', { className: 'cursos-helper-block' },
+          createElement('h2', { className: 'cursos-helper-block__title' }, title || __('Defina o título no painel lateral', 'ifrs-ps-theme')),
           createElement('div', { className: 'cursos-helper-block__content' },
             createElement(InnerBlocks, {
               template: [
@@ -128,8 +128,8 @@
             })
           ),
           items.length === 0
-            ? createElement('p', null, __('Nenhum link configurado. Use o painel lateral para adicionar.', 'ifrs-ps-theme'))
-            : items.map((item, index) => createElement('p', { key: `preview-${index}` },
+            ? createElement('p', { className: 'cursos-helper-block__no-items' }, __('Nenhum link configurado. Use o painel lateral para adicionar.', 'ifrs-ps-theme'))
+            : items.map((item, index) => createElement('form', { key: `preview-${index}` },
               createElement('button', {
                 type: 'button',
                 className: 'btn btn-link',
