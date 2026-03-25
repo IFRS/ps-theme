@@ -86,8 +86,8 @@ add_action('widgets_init', function() {
         'description'   => 'Faixa de destaque no topo do site, acima do menu.',
         'before_widget' => '<div id="%1$s" class="faixa-destaque__widget %2$s">',
         'after_widget'  => '</div>',
-        'before_sidebar' => '<div class="container"><div id="%1$s" class="faixa-destaque %2$s">',
-        'after_sidebar'  => '</div></div>',
+        'before_sidebar' => '<section class="container"><div id="%1$s" class="faixa-destaque %2$s">',
+        'after_sidebar'  => '</div></section>',
     ) );
     register_sidebar(array(
         'name'           => 'Contato',

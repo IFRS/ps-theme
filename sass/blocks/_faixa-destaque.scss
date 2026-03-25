@@ -1,10 +1,18 @@
 .faixa-destaque {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+
   background-color: var(--bs-accent);
   border-top-left-radius: $border-radius-sm;
   border-top-right-radius: $border-radius-sm;
+  box-shadow: $box-shadow-sm;
   color: color-contrast($primary);
   font-size: 1.25rem;
   font-weight: 500;
+  min-height: 60px;
   padding: 0.5rem 1rem;
   text-align: center;
 }
