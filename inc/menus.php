@@ -77,7 +77,7 @@ add_filter( 'wp_nav_menu_items', function( $items ) {
 
         if ($url && $titulo) {
             do_action( 'qm/info', sprintf("Etapa Programada! %s (%s)", $titulo, $url) );
-            $items .= sprintf( '<li class="nav-item"><a class="nav-link destaque" href="%s">%s</a></li>', $url, $titulo );
+            $items .= sprintf( '<li class="nav-item"><a class="btn btn-accent rounded-1" href="%s">%s</a></li>', $url, $titulo );
         }
     }
 

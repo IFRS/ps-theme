@@ -27,6 +27,10 @@
   <!-- Cabeçalho -->
   <header>
     <h1 class="visually-hidden"><?php bloginfo('name'); ?></h1>
+
+    <!-- Menu -->
+    <?php echo get_template_part('partials/menu'); ?>
+
     <section class="container header">
       <div class="row align-items-center justify-content-center">
         <div class="col-auto col-lg-6 col-xl-6 flex-shrink-1 px-4 p-sm-0">
@@ -47,9 +51,6 @@
     <?php if (is_active_sidebar('faixa_destaque')) : ?>
       <?php dynamic_sidebar('faixa_destaque'); ?>
     <?php endif; ?>
-
-    <!-- Menu -->
-    <?php echo get_template_part('partials/menu'); ?>
   </header>
 
   <!-- Corpo -->
