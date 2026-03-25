@@ -79,10 +79,10 @@ if (!function_exists('ifrs_ps_render_etapas_timeline_block')) {
 
             if ($data_inicio > 0 && $data_fim > 0) {
               $periodo = $evento_mesmo_dia
-                ? date_i18n(get_option('date_format'), $data_fim)
-                : date_i18n(get_option('date_format'), $data_inicio) . ' - ' . date_i18n(get_option('date_format'), $data_fim);
+                ? date_i18n('d/m/Y', $data_fim)
+                : date_i18n('d/m/Y', $data_inicio) . ' a ' . date_i18n('d/m/Y', $data_fim);
             } elseif ($data_inicio > 0) {
-              $periodo = date_i18n(get_option('date_format'), $data_inicio);
+              $periodo = date_i18n('d/m/Y', $data_inicio);
             } else {
               $periodo = esc_html__('Sem data', 'ifrs-ps-theme');
             }
@@ -95,12 +95,18 @@ if (!function_exists('ifrs_ps_render_etapas_timeline_block')) {
             }
           ?>
           <li class="<?php echo esc_attr($item_class); ?>">
-            <p class="etapa__periodo">
-              <?php echo esc_html($periodo); ?>
-            </p>
-            <h3 class="etapa__titulo">
-              <?php the_title(); ?>
-            </h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="etapa__icone" aria-hidden="true">
+              <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
+              <path d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2M5 20V8h14V6v14z"></path><path d="M12 13h5v5h-5z"></path>
+            </svg>
+            <div class="etapa__conteudo">
+              <h3 class="etapa__titulo">
+                <?php the_title(); ?>
+              </h3>
+              <p class="etapa__periodo">
+                <?php echo esc_html($periodo); ?>
+              </p>
+            </div>
           </li>
           <?php endwhile; ?>
         </ol>

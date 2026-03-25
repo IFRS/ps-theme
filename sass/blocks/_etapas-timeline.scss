@@ -12,55 +12,52 @@
   &__list {
     list-style: none;
     padding: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      background-color: $gray-400;
+      height: 100%;
+      left: calc(#{$card-spacer-x} + 0.5rem + 10px);
+      position: absolute;
+      top: 0;
+      width: 2px;
+      z-index: 5;
+    }
   }
 }
 
 .etapa {
   $self: &;
-  border-left: 2px solid transparent;
-  border-image: linear-gradient(to bottom, $gray-300, $gray-300) 1;
-  margin-left: 0.25rem;
-  padding: 0 0 1rem 1rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  gap: 0.75rem;
+
+  background-color: $gray-200;
+  border-radius: $border-radius-lg + $card-spacer-x;
+  padding: $card-spacer-y $card-spacer-x;
   position: relative;
+  z-index: 10;
 
-  &::before {
-    background-color: $white;
-    border: 2px solid $primary;
-    border-radius: 100%;
-    content: '';
-    height: 0.8rem;
-    left: -0.46rem;
-    position: absolute;
-    top: 0.35rem;
-    width: 0.8rem;
-  }
-
-  &:first-child {
-    border-image: linear-gradient(to bottom, transparent 0.35rem, $gray-300 1rem) 1;
-  }
-
-  &:last-child {
-    border-image: linear-gradient(to bottom, $gray-300 50%, transparent) 1;
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
   }
 
   &--atual {
-    border-image: linear-gradient(to bottom, $primary 70%, $gray-300) 1;
+    background-color: var(--bs-primary-bg-subtle);
+    color: var(--bs-primary-text-emphasis);
 
-    &::before {
-      background-color: $primary;
-    }
-
-    #{$self}__periodo,
     #{$self}__titulo {
       font-weight: 600;
     }
 
-    #{$self}__periodo {
-      &::after {
-        content: ' (Atual)';
-        font-size: 0.75rem;
-        font-weight: normal;
-      }
+    #{$self}__icone {
+      background-color: var(--bs-primary);
+      color: $white;
     }
   }
 
@@ -69,13 +66,26 @@
     opacity: 0.8;
   }
 
+  &__icone {
+    flex: 0 1 auto;
+    background-color: var(--bs-primary-bg-subtle);
+    border-radius: $border-radius-lg;
+    color: $gray-700;
+    padding: 0.5rem;
+    width: 42px; height: auto;
+  }
+
+  &__conteudo {
+    flex: 1 1 auto;
+  }
+
   &__periodo {
-    font-size: 0.85rem;
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
+    font-size: 0.95rem;
+    margin: 0;
   }
 
   &__titulo {
     font-size: 1.1rem;
+    margin: 0;
   }
 }
