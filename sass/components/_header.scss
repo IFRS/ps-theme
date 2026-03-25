@@ -1,9 +1,19 @@
 .header {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0 $spacer;
+
     color: $gray-100;
     padding-top: 1rem;
 
     .custom-logo-link {
         display: inline-block;
+        flex: 1 1 auto;
+        text-align: center;
 
         &:hover {
             text-decoration: none;
@@ -15,7 +25,14 @@
     }
 
     .extra-header-image {
+        @include media-breakpoint-down(lg) {
+            display: none;
+        }
+
         @include img-fluid();
+
+        flex: 0 1 auto;
+        margin-inline-start: auto;
     }
 
     p {

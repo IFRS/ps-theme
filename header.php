@@ -17,6 +17,7 @@
 <?php
   $extra_image = get_theme_mod('extra-header-image');
   $extra_image_position = get_theme_mod('extra-header-image-position');
+  $extra_image_class = $extra_image_position ? 'order-first' : 'order-last';
 ?>
 
 <body <?php body_class() ?>>
@@ -32,21 +33,18 @@
     <?php echo get_template_part('partials/menu'); ?>
 
     <section class="container header">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-auto col-lg-6 col-xl-6 flex-shrink-1 px-4 p-sm-0">
-          <?php the_custom_logo(); ?>
-        </div>
-        <?php if ($extra_image) : ?>
-          <?php list($width, $height, $type, $attr) = getimagesize($extra_image); ?>
-          <div class="col-lg-6 col-xl-6 flex-shrink-1 d-none d-lg-block <?php echo ($extra_image_position ? 'order-first' : 'order-last') ?>">
-            <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="extra-header-image" <?php echo $attr; ?>>
-          </div>
-        <?php endif; ?>
-      </div>
-      <?php if (display_header_text()) : ?>
-        <p><?php bloginfo('description'); ?></p>
+      <?php the_custom_logo(); ?>
+      <?php if ($extra_image) : ?>
+        <?php list($width, $height, $type, $attr) = getimagesize($extra_image); ?>
+          <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="extra-header-image <?php echo $extra_image_class ?>" <?php echo $attr; ?>>
       <?php endif; ?>
     </section>
+
+    <?php if (display_header_text()) : ?>
+      <div class="container">
+        <p><?php bloginfo('description'); ?></p>
+      </div>
+    <?php endif; ?>
 
     <?php if (is_active_sidebar('faixa_destaque')) : ?>
       <?php dynamic_sidebar('faixa_destaque'); ?>
