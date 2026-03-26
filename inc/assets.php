@@ -86,7 +86,7 @@ add_action( 'enqueue_block_editor_assets', function() {
     $editor_style = get_stylesheet_directory() . '/css/editor.css';
     $admin_campi_alert = get_stylesheet_directory() . '/js/admin_campi-alert.js';
     $etapas_timeline_block = get_stylesheet_directory() . '/js/etapas-timeline-block.js';
-    $cursos_helper_block = get_stylesheet_directory() . '/js/cursos-helper-block.js';
+    $intro_helper_block = get_stylesheet_directory() . '/js/intro-helper-block.js';
 
     if (file_exists($editor_style)) {
         wp_enqueue_style(
@@ -118,7 +118,7 @@ add_action( 'enqueue_block_editor_assets', function() {
         );
     }
 
-    if (file_exists($cursos_helper_block)) {
+    if (file_exists($intro_helper_block)) {
         $terms = get_terms(array(
             'taxonomy'   => 'modalidade',
             'hide_empty' => false,
@@ -136,15 +136,15 @@ add_action( 'enqueue_block_editor_assets', function() {
         }, $terms);
 
         wp_enqueue_script(
-            'ps-cursos-helper-block',
-            get_template_directory_uri() . '/js/cursos-helper-block.js',
+            'ps-intro-helper-block',
+            get_template_directory_uri() . '/js/intro-helper-block.js',
             array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n'),
-            WP_DEBUG ? null : filemtime($cursos_helper_block),
+            WP_DEBUG ? null : filemtime($intro_helper_block),
             true
         );
 
         wp_add_inline_script(
-            'ps-cursos-helper-block',
+            'ps-intro-helper-block',
             'window.ifrsPsModalidadesTerms = ' . wp_json_encode($modalidades) . ';',
             'before'
         );

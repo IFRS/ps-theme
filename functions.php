@@ -54,4 +54,4 @@ require_once('inc/post-types/evento.php');
 
 // Blocks
 require_once('inc/blocks/etapas-timeline.php');
-require_once('inc/blocks/cursos-helper.php');
+require_once('inc/blocks/intro-helper.php');

@@ -1,0 +1,86 @@
+.intro-helper-block {
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 1.5rem 2rem;
+  width: 100%;
+
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+
+  &__steps {
+    display: grid;
+    gap: $grid-gutter-width;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-bottom: $grid-gutter-width;
+  }
+
+  &__step {
+    background: $light;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 13rem;
+    padding: $card-spacer-y $card-spacer-x;
+    position: relative;
+  }
+
+  &__step-number {
+    align-items: center;
+    color: $gray-400;
+    display: inline-flex;
+    font-size: 2rem;
+    font-weight: 700;
+    height: 1.75rem;
+    justify-content: center;
+    left: 0.75rem;
+    min-width: 1.75rem;
+    padding: 0 0.5rem;
+    position: absolute;
+    top: 0.75rem;
+  }
+
+  &__step-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  &__step-icon svg {
+    display: block;
+    fill: none;
+    stroke: $primary;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    width: 4rem;
+  }
+
+  &__step-text {
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__content {
+    margin-bottom: 1.5rem;
+  }
+
+  &__links-title {
+    margin-bottom: 1rem;
+  }
+
+  &__links {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  &__no-items {
+    margin-bottom: 0;
+  }
+}
