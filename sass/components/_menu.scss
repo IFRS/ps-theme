@@ -1,7 +1,16 @@
-.menu-wrapper {
+body.admin-bar {
+    nav.menu {
+        top: var(--wp-admin--admin-bar--height, 46px);
+    }
+}
+
+nav.menu {
     background-color: $gray-100;
-    // padding: 1.5rem;
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .menu-principal {
@@ -23,7 +32,6 @@
     }
 
     .nav-link {
-        // border-radius: $border-radius-pill;
         border-bottom: 4px solid transparent;
         color: color-contrast($gray-100);
         font-weight: 500;
@@ -31,34 +39,18 @@
 
         &:hover,
         &:focus {
-            // background-color: $primary;
-            // color: color-contrast($primary);
             border-bottom-color: $primary;
         }
 
         &.active {
-            // background-color: $primary;
-            // color: color-contrast($primary);
             font-weight: bold;
             border-bottom-color: $primary;
         }
 
         &.destaque {
-            // background-color: $white;
-            // border: 2px solid $accent;
-            // border-radius: $border-radius-pill;
-            // color: color-contrast($white);
-            // font-size: 1.1em;
-            // font-weight: 700;
-            // padding: $btn-padding-y $btn-padding-x;
-            // width: fit-content;
-
             &:hover,
             &:focus {
                 border-bottom-color: transparent;
-                // background-color: $accent-shade;
-                // border-color: $accent-shade;
-                // color: color-contrast($accent-shade);
             }
         }
     }
@@ -82,8 +74,6 @@
     // .current-menu-item,
     .current-menu-ancestor {
         > .nav-link {
-            // background-color: $primary;
-            // color: color-contrast($primary);
             border-bottom-color: $primary;
             font-weight: bold;
         }

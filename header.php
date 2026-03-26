@@ -25,12 +25,12 @@
 
   <?php wp_body_open(); ?>
 
+  <!-- Menu -->
+  <?php echo get_template_part('partials/menu'); ?>
+
   <!-- Cabeçalho -->
   <header>
     <h1 class="visually-hidden"><?php bloginfo('name'); ?></h1>
-
-    <!-- Menu -->
-    <?php echo get_template_part('partials/menu'); ?>
 
     <section class="container header">
       <?php the_custom_logo(); ?>
