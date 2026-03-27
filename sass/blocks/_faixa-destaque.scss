@@ -5,11 +5,11 @@
   justify-items: center;
   justify-content: center;
 
-  background-color: var(--bs-accent);
+  background-color: $accent;
   border-top-left-radius: $border-radius-sm;
   border-top-right-radius: $border-radius-sm;
   box-shadow: $box-shadow-sm;
-  color: color-contrast($primary);
+  color: color-contrast($accent);
   font-size: 1.25rem;
   font-weight: 500;
   min-height: 60px;
