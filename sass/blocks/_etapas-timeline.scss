@@ -34,7 +34,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   gap: 0.75rem;
 
   background-color: $gray-200;
@@ -51,13 +51,17 @@
     background-color: var(--bs-primary-bg-subtle);
     color: var(--bs-primary-text-emphasis);
 
-    #{$self}__titulo {
-      font-weight: 600;
-    }
-
     #{$self}__icone {
       background-color: var(--bs-primary);
       color: $white;
+    }
+
+    #{$self}__periodo {
+      font-weight: 500;
+    }
+
+    #{$self}__titulo {
+      font-weight: 600;
     }
   }
 
@@ -67,10 +71,11 @@
   }
 
   &__icone {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     background-color: var(--bs-primary-bg-subtle);
     border-radius: $border-radius-lg;
     color: $gray-700;
+    margin-top: 3px;
     padding: 0.5rem;
     width: 42px; height: auto;
   }
@@ -80,12 +85,11 @@
   }
 
   &__periodo {
-    font-size: 0.95rem;
     margin: 0;
   }
 
   &__titulo {
     font-size: 1.1rem;
-    margin: 0;
+    margin-bottom: 0.25rem;
   }
 }
