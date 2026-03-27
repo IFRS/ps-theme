@@ -341,6 +341,113 @@
             }
           }
         }
+      },
+      "core/latest-posts": {
+        "border": {
+          "radius": "var:custom|bootstrap|radius|base"
+        },
+        "color": {
+          "background": "#fff"
+        },
+        "spacing": {
+          "padding": {
+            "top": "var:preset|spacing|bs-4",
+            "right": "var:preset|spacing|bs-4",
+            "bottom": "var:preset|spacing|bs-4",
+            "left": "var:preset|spacing|bs-4"
+          },
+          "blockGap": "var:preset|spacing|bs-4",
+          "margin": {
+            "bottom": "var:preset|spacing|bs-4"
+          }
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "inherit"
+            },
+            "typography": {
+              "fontSize": "1.1rem",
+              "fontWeight": "500",
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "typography": {
+                "textDecoration": "underline"
+              }
+            }
+          }
+        }
+      },
+      "core/post-date": {
+        "color": {
+          "text": "var:preset|color|gray-800"
+        },
+        "spacing": {
+          "margin": {
+            "bottom": "var:preset|spacing|bs-0"
+          }
+        },
+        "typography": {
+          "fontSize": "1rem"
+        }
+      },
+      "core/post-terms": {
+        "color": {
+          "text": "var:preset|color|primary"
+        },
+        "spacing": {
+          "margin": {
+            "bottom": "0.25rem"
+          }
+        },
+        "typography": {
+          "fontSize": "0.9rem",
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "inherit"
+            },
+            "typography": {
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "typography": {
+                "textDecoration": "underline"
+              }
+            }
+          }
+        }
+      },
+      "core/post-title": {
+        "spacing": {
+          "margin": {
+            "top": "var:preset|spacing|bs-0",
+            "bottom": "0.25rem"
+          }
+        },
+        "typography": {
+          "fontSize": "1.1rem",
+          "fontWeight": "500"
+        },
+        "elements": {
+          "link": {
+            "color": {
+              "text": "inherit"
+            },
+            "typography": {
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "typography": {
+                "textDecoration": "underline"
+              }
+            }
+          }
+        }
       }
     }
   }
