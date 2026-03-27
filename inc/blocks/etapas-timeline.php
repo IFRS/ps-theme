@@ -146,9 +146,19 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
           <?php
         endwhile; ?>
         </ol>
-        <a href="<?php echo get_post_type_archive_link(
-          "evento",
-        ); ?>" class="btn btn-ps">Confira todas as Datas Importantes</a>
+        <?php
+        $eventos_archive_link = get_post_type_archive_link("evento");
+
+        if (!empty($eventos_archive_link)) {
+          echo do_blocks(
+            sprintf(
+              '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
+              esc_url($eventos_archive_link),
+              esc_html__("Confira todas as Datas Importantes", "ifrs-ps-theme"),
+            ),
+          );
+        }
+        ?>
     </section>
     <?php
     wp_reset_postdata();

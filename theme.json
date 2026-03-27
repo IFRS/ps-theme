@@ -293,11 +293,27 @@
     "blocks": {
       "core/button": {
         "border": {
-          "radius": "var:custom|bootstrap|radius|base"
+          "color": "var:preset|color|gray-800",
+          "radius": "var:custom|bootstrap|radius|base",
+          "style": "solid",
+          "width": "1px"
+        },
+        "color": {
+          "background": "var:preset|color|gray-800",
+          "text": "var:preset|color|gray-100"
+        },
+        "spacing": {
+          "padding": {
+            "top": "0.375rem",
+            "right": "0.75rem",
+            "bottom": "0.375rem",
+            "left": "0.75rem"
+          }
         },
         "shadow": "var:preset|shadow|bs-sm",
         "typography": {
-          "fontWeight": "var:custom|bootstrap|typography|button-font-weight"
+          "fontWeight": "var:custom|bootstrap|typography|button-font-weight",
+          "textDecoration": "none"
         }
       },
       "core/group": {

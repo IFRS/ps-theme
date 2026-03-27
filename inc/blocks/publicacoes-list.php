@@ -68,7 +68,15 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
           <?php endwhile; ?>
           </ul>
           <?php if (!empty($publicacoes_link)) : ?>
-            <a href="<?php echo esc_url($publicacoes_link); ?>" class="btn btn-ps text-uppercase">Todas as Publicações</a>
+            <?php
+              echo do_blocks(
+                sprintf(
+                  '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
+                  esc_url($publicacoes_link),
+                  esc_html__('Todas as Publicações', 'ifrs-ps-theme')
+                )
+              );
+            ?>
           <?php endif; ?>
         <?php else : ?>
           <div class="alert alert-warning" role="alert">
