@@ -179,7 +179,7 @@
         createElement('div', { className: 'intro-helper-block' },
           createElement(RichText, {
             tagName: 'h2',
-            className: 'intro-helper-block__title',
+            className: 'wp-block-heading intro-helper-block__title',
             value: title,
             allowedFormats: [],
             placeholder: __('Adicione o título do bloco', 'ifrs-ps-theme'),
@@ -197,7 +197,7 @@
           ),
           createElement(RichText, {
             tagName: 'h3',
-            className: 'intro-helper-block__links-title',
+            className: 'wp-block-heading intro-helper-block__links-title',
             value: linksTitle,
             allowedFormats: [],
             placeholder: __('Adicione o título da seção de links', 'ifrs-ps-theme'),

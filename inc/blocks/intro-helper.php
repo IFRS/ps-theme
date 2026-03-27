@@ -69,7 +69,14 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
     ?>
     <div class="intro-helper-block">
       <?php if (!empty($title)) : ?>
-        <h2 class="intro-helper-block__title"><?php echo wp_kses_post($title); ?></h2>
+        <?php
+          echo do_blocks(
+            sprintf(
+              '<!-- wp:heading {"level":2,"className":"intro-helper-block__title"} --><h2 class="wp-block-heading intro-helper-block__title">%s</h2><!-- /wp:heading -->',
+              wp_kses_post($title)
+            )
+          );
+        ?>
       <?php endif; ?>
 
       <div class="intro-helper-block__steps" aria-label="<?php esc_attr_e('Passo a passo simplificado', 'ifrs-ps-theme'); ?>">
@@ -85,7 +92,14 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
       </div>
 
       <?php if (!empty($links_title)) : ?>
-        <h3 class="intro-helper-block__links-title"><?php echo wp_kses_post($links_title); ?></h3>
+        <?php
+          echo do_blocks(
+            sprintf(
+              '<!-- wp:heading {"level":3,"className":"intro-helper-block__links-title"} --><h3 class="wp-block-heading intro-helper-block__links-title">%s</h3><!-- /wp:heading -->',
+              wp_kses_post($links_title)
+            )
+          );
+        ?>
       <?php endif; ?>
 
       <?php if (!empty($inner_content)) : ?>

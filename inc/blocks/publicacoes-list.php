@@ -42,7 +42,14 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
     ?>
     <div class="publicacoes-list-block">
       <section class="publicacoes">
-        <h2 class="publicacoes__title"><?php echo $title; ?></h2>
+        <?php
+          echo do_blocks(
+            sprintf(
+              '<!-- wp:heading {"level":2,"className":"publicacoes__title"} --><h2 class="wp-block-heading publicacoes__title">%s</h2><!-- /wp:heading -->',
+              $title
+            )
+          );
+        ?>
 
         <?php if (!empty($desc)) : ?>
           <div class="publicacoes__text">
