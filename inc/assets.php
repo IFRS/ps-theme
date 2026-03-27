@@ -87,6 +87,7 @@ add_action( 'enqueue_block_editor_assets', function() {
     $admin_campi_alert = get_stylesheet_directory() . '/js/admin_campi-alert.js';
     $etapas_timeline_block = get_stylesheet_directory() . '/js/etapas-timeline-block.js';
     $intro_helper_block = get_stylesheet_directory() . '/js/intro-helper-block.js';
+    $publicacoes_list_block = get_stylesheet_directory() . '/js/publicacoes-list-block.js';
 
     if (file_exists($editor_style)) {
         wp_enqueue_style(
@@ -147,6 +148,16 @@ add_action( 'enqueue_block_editor_assets', function() {
             'ps-intro-helper-block',
             'window.ifrsPsModalidadesTerms = ' . wp_json_encode($modalidades) . ';',
             'before'
+        );
+    }
+
+    if (file_exists($publicacoes_list_block)) {
+        wp_enqueue_script(
+            'ps-publicacoes-list-block',
+            get_template_directory_uri() . '/js/publicacoes-list-block.js',
+            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render'),
+            WP_DEBUG ? null : filemtime($publicacoes_list_block),
+            true
         );
     }
 }, 99 );
