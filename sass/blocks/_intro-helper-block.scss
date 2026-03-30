@@ -76,8 +76,25 @@
   }
 
   &__links {
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 0.5rem;
+
+    > * {
+      flex: 1 1 250px;
+      width: min-content;
+    }
+
+    button {
+      &::before {
+        content: '→';
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+    }
   }
 
   &__no-items {
