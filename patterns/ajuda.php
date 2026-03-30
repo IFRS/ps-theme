@@ -5,7 +5,7 @@
  * Description: Ajuda para os usuários encontrarem o que precisam
  * Categories: call-to-action, featured
  * Keywords: ajuda, faq, perguntas frequentes, tutoriais
- * Viewport Width: 1280
+ * Viewport Width: 1296
  * Post Types: page
  * Inserter: true
  */

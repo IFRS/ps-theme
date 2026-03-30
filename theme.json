@@ -5,6 +5,12 @@
     "appearanceTools": false,
     "custom": {
       "bootstrap": {
+        "border": {
+          "color": "var(--bs-border-color)",
+          "radius": "var(--bs-border-radius)",
+          "style": "var(--bs-border-style)",
+          "width": "var(--bs-border-width)"
+        },
         "color": {
           "primary": "var(--bs-primary)",
           "secondary": "var(--bs-secondary)",
@@ -359,19 +365,7 @@
         }
       },
       "core/latest-posts": {
-        "border": {
-          "radius": "var:custom|bootstrap|radius|base"
-        },
-        "color": {
-          "background": "#fff"
-        },
         "spacing": {
-          "padding": {
-            "top": "var:preset|spacing|bs-4",
-            "right": "var:preset|spacing|bs-4",
-            "bottom": "var:preset|spacing|bs-4",
-            "left": "var:preset|spacing|bs-4"
-          },
           "blockGap": "var:preset|spacing|bs-4",
           "margin": {
             "bottom": "var:preset|spacing|bs-4"
