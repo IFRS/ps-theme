@@ -443,11 +443,10 @@
         "spacing": {
           "margin": {
             "top": "var:preset|spacing|bs-0",
-            "bottom": "0.25rem"
+            "bottom": "var:preset|spacing|bs-3"
           }
         },
         "typography": {
-          "fontSize": "1.1rem",
           "fontWeight": "500"
         },
         "elements": {
