@@ -1,8 +1,15 @@
 <?php get_header(); ?>
 
 <section class="container">
-    <h2 class="avisos__title"><?php echo get_the_title(get_option( 'page_for_posts' )); ?></h2>
-    <?php echo get_template_part('partials/avisos/loop'); ?>
+  <?php ob_start(); ?>
+
+  <!-- wp:heading {"className":"mb-4"} -->
+  <h2 class="wp-block-heading mb-4">Todas as Not&iacute;cias</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:template-part {"slug":"avisos","lock":{"move":true,"remove":true}} /-->
+
+  <?php echo do_blocks(ob_get_clean()); ?>
 </section>
 
 <?php get_footer(); ?>

@@ -21,7 +21,7 @@
 ?>
 
 <body <?php body_class() ?>>
-  <a href="#main" class="visually-hidden">Pular para o conte&uacute;do</a>
+  <a href="#inicio-conteudo" class="visually-hidden">Pular para o conte&uacute;do</a>
 
   <?php wp_body_open(); ?>
 
@@ -54,7 +54,7 @@
   <!-- Corpo -->
   <a href="#inicio-conteudo" id="inicio-conteudo" class="visually-hidden">In&iacute;cio do conte&uacute;do</a>
 
-  <main role="main" id="main">
+  <main>
   <?php
     if ( function_exists('yoast_breadcrumb') && !is_front_page() ) {
       yoast_breadcrumb( '<div class="breadcrumb-wrapper"><nav aria-label="Você está em:" class="container">', '</nav></div>' );

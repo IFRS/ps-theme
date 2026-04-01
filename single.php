@@ -1,65 +1,35 @@
 <?php get_header(); ?>
 
-<?php the_post(); ?>
+<section id="post-<?php the_ID(); ?>" <?php post_class(['container']); ?>>
+  <?php ob_start(); ?>
 
-<section class="container">
-    <article class="post">
-        <h2 class="post__title"><?php the_title(); ?></h2>
-        <div class="post__content">
-            <?php
-                if (has_post_thumbnail()) {
-                    the_post_thumbnail('full', array('class' => 'post__thumb'));
-                }
-            ?>
-            <div class="post__meta">
-                <p class="post__date">Publicado em <?php the_date('d/m/Y'); ?></p>
-                <?php $cats = get_the_category(); ?>
-                <?php if (!empty($cats)) : ?>
-                    <ul class="post__categories">
-                        <?php foreach ($cats as $key => $cat) : ?>
-                            <li><a href="<?php echo get_category_link( $cat->term_id ); ?>"><?php echo $cat->name; ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
-            </div>
-            <?php the_content(); ?>
-        </div>
-    </article>
-    <?php
-        // Outros posts das mesmas categorias.
-        global $post;
+  <!-- wp:post-terms {"term":"category"} /-->
 
-        $cat_ID = array();
-        $categories = get_the_category();
+  <!-- wp:post-title /-->
 
-        foreach ($categories as $category) {
-            array_push($cat_ID, $category->cat_ID);
-        }
+  <!-- wp:group {"className":"my-4 p-2 border-top border-bottom","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+  <div class="wp-block-group my-4 p-2 border-top border-bottom">
+    <!-- wp:post-date {"format":"\\P\\u\\b\\l\\i\\c\\a\\d\\o \\e\\m j \\d\\e F \\d\\e Y"} /-->
 
-        $args = array(
-            'orderby' => 'date',
-            'order' => 'DESC',
-            'post_type' => 'post',
-            'numberposts' => 5,
-            'post__not_in' => array($post->ID),
-            'category__in' => $cat_ID,
-        );
+    <div class="vr"></div>
 
-        $cat_posts = get_posts($args);
-    ?>
-    <?php if (!empty($cat_posts)) : ?>
-        <aside class="aside">
-            <h3 class="aside__title">Saiba mais</h3>
-            <div class="aside__content">
-                <?php foreach ($cat_posts as $cat_post) : ?>
-                    <div class="aside__item">
-                        <h4 class="aside__item-title"><a href="<?php echo get_permalink($cat_post); ?>" rel="bookmark"><?php echo $cat_post->post_title; ?></a></h4>
-                        <p class="aside__item-meta"><?php echo get_the_date('d/m/Y', $cat_post->ID); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </aside>
-    <?php endif; ?>
+    <!-- wp:post-date {"displayType":"modified","format":"\\A\\t\\u\\a\\l\\i\\z\\a\\d\\o \\e\\m j \\d\\e F \\d\\e Y"} /-->
+
+    <!-- wp:spacer {"style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
+    <div aria-hidden="true" class="wp-block-spacer"></div>
+    <!-- /wp:spacer -->
+
+    <!-- wp:pattern {"slug":"ifrs-ps/share"} /-->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:post-featured-image {"width":"75%","align":"center"} /-->
+
+  <!-- wp:post-content /-->
+
+  <!-- wp:post-terms {"term":"post_tag","prefix":"\u003cstrong\u003ePalavras-chave:\u003c/strong\u003e ","className":"mt-5","style":{"typography":{"textTransform":"capitalize"}}} /-->
+
+  <?php echo do_blocks(ob_get_clean()); ?>
 </section>
 
 <?php get_footer(); ?>

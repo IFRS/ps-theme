@@ -11,7 +11,7 @@
 <?php endif; ?>
 
 <section class="container">
-    <?php the_content(); ?>
+    <?php echo do_blocks('<!-- wp:post-content /-->'); ?>
 </section>
 
 <?php get_footer(); ?>

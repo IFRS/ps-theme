@@ -2,35 +2,34 @@
 
 <?php the_post(); ?>
 
-<section class="container">
-    <article class="post">
-        <h2 class="post__title"><?php the_title(); ?></h2>
-        <div class="post__content">
-            <?php
-                if (has_post_thumbnail()) {
-                    the_post_thumbnail('full', array('class' => 'post__thumb'));
-                }
-            ?>
-            <?php the_content(); ?>
-            <?php
-                $campi = get_terms(array(
-                    'taxonomy' => 'campus',
-                    'orderby' => 'name',
-                    'hide_empty' => false,
-                ));
-            ?>
-            <div class="campi-list">
-            <?php foreach ($campi as $campus) : ?>
-                <dl class="campi-list__item">
-                    <dt class="campi-list__title"><em>Campus</em>&nbsp;<?php echo $campus->name; ?></dt>
-                    <?php if (!empty($campus->description)) : ?>
-                        <dd><?php echo nl2br($campus->description); ?></dd>
-                    <?php endif; ?>
-                </dl>
-            <?php endforeach; ?>
-            </div>
-        </div>
-    </article>
+<section id="page-<?php the_ID(); ?>" <?php post_class(['container-lg']); ?>>
+  <?php ob_start(); ?>
+
+  <!-- wp:post-title /-->
+
+  <!-- wp:pattern {"slug":"ifrs-ps/subpages"} /-->
+
+  <!-- wp:post-featured-image {"width":"100%","align":"center"} /-->
+
+  <!-- wp:post-content /-->
+
+  <div class="clearfix"></div>
+
+  <!-- wp:pattern {"slug":"ifrs-ps/campi"} /-->
+
+  <!-- wp:group {"className":"my-4 p-2 border-top","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+  <div class="wp-block-group my-4 p-2 border-top">
+    <!-- wp:post-date {"displayType":"modified","format":"\\A\\t\\u\\a\\l\\i\\z\\a\\d\\o \\e\\m j \\d\\e F \\d\\e Y"} /-->
+
+    <!-- wp:spacer {"style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
+    <div aria-hidden="true" class="wp-block-spacer"></div>
+    <!-- /wp:spacer -->
+
+    <!-- wp:pattern {"slug":"ifrs-ps/share"} /-->
+  </div>
+  <!-- /wp:group -->
+
+  <?php echo do_blocks(ob_get_clean()); ?>
 </section>
 
 <?php get_footer(); ?>
