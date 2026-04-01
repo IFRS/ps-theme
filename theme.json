@@ -322,6 +322,13 @@
           "textDecoration": "none"
         }
       },
+      "core/heading": {
+        "spacing": {
+          "margin": {
+            "bottom": "var:preset|spacing|bs-4"
+          }
+        }
+      },
       "core/group": {
         "spacing": {
           "blockGap": "var:preset|spacing|bs-3"
