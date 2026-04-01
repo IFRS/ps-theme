@@ -120,34 +120,12 @@ add_action( 'enqueue_block_editor_assets', function() {
     }
 
     if (file_exists($intro_helper_block)) {
-        $terms = get_terms(array(
-            'taxonomy'   => 'modalidade',
-            'hide_empty' => false,
-        ));
-
-        if (is_wp_error($terms)) {
-            $terms = array();
-        }
-
-        $modalidades = array_map(function($term) {
-            return array(
-                'slug' => $term->slug,
-                'name' => $term->name,
-            );
-        }, $terms);
-
         wp_enqueue_script(
             'ps-intro-helper-block',
             get_template_directory_uri() . '/js/intro-helper-block.js',
             array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n'),
             WP_DEBUG ? null : filemtime($intro_helper_block),
             true
-        );
-
-        wp_add_inline_script(
-            'ps-intro-helper-block',
-            'window.ifrsPsModalidadesTerms = ' . wp_json_encode($modalidades) . ';',
-            'before'
         );
     }
 
