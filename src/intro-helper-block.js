@@ -10,11 +10,11 @@
   const createElement = wp.element.createElement;
 
   const STEPS = [
-    __('Escolha um Campus e Curso', 'ifrs-ps-theme'),
-    __('Leia atentamente o Edital e faça sua Inscrição', 'ifrs-ps-theme'),
-    __('Realize a Prova ou acompanhe o Sorteio', 'ifrs-ps-theme'),
-    __('Acompanhe os Resultados', 'ifrs-ps-theme'),
-    __('Faça sua Pré-matrícula', 'ifrs-ps-theme'),
+    { text: __('Escolha um Campus e Curso', 'ifrs-ps-theme'), link_text: 'Lista de Cursos' },
+    { text: __('Leia atentamente o Edital e faça sua Inscrição', 'ifrs-ps-theme'), link_text: 'Editais' },
+    { text: __('Realize a Prova ou acompanhe o Sorteio', 'ifrs-ps-theme'), link_text: null },
+    { text: __('Acompanhe os Resultados', 'ifrs-ps-theme'), link_text: 'Resultados' },
+    { text: __('Faça sua Pré-matrícula', 'ifrs-ps-theme'), link_text: null },
   ];
 
   const getModalidadeOptions = () => {
@@ -30,11 +30,15 @@
       })),
     ];
   };
-
   const renderSvg = (children) => createElement(
     'svg',
     {
-      viewBox: '0 0 48 48',
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': '1',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
       focusable: 'false',
       'aria-hidden': 'true',
     },
@@ -45,39 +49,36 @@
     switch (stepIndex) {
       case 0:
         return renderSvg([
-          createElement('path', { d: 'M12 18h24v16H12z', key: 'p1' }),
-          createElement('path', { d: 'M18 18v-4h12v4', key: 'p2' }),
-          createElement('path', { d: 'M24 25l3 2 5-5', key: 'p3' }),
-          createElement('path', { d: 'M16 10h16', key: 'p4' }),
+          createElement('path', { d: 'M8 19h-3a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v11a1 1 0 0 1 -1 1', key: 'p1' }),
+          createElement('path', { d: 'M11 16m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z', key: 'p2' }),
         ]);
       case 1:
         return renderSvg([
-          createElement('path', { d: 'M16 10h16l4 4v24H12V10z', key: 'p1' }),
-          createElement('path', { d: 'M18 20h12', key: 'p2' }),
-          createElement('path', { d: 'M18 26h12', key: 'p3' }),
-          createElement('path', { d: 'M18 32h8', key: 'p4' }),
-          createElement('path', { d: 'M31 11v5h5', key: 'p5' }),
+          createElement('path', { d: 'M14 3v4a1 1 0 0 0 1 1h4', key: 'p1' }),
+          createElement('path', { d: 'M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z', key: 'p2' }),
+          createElement('path', { d: 'M9 9l1 0', key: 'p3' }),
+          createElement('path', { d: 'M9 13l6 0', key: 'p4' }),
+          createElement('path', { d: 'M9 17l6 0', key: 'p5' }),
         ]);
       case 2:
         return renderSvg([
-          createElement('path', { d: 'M12 16h24v20H12z', key: 'p1' }),
-          createElement('path', { d: 'M18 10v8', key: 'p2' }),
-          createElement('path', { d: 'M30 10v8', key: 'p3' }),
-          createElement('path', { d: 'M12 22h24', key: 'p4' }),
-          createElement('path', { d: 'M20 29l3 3 6-7', key: 'p5' }),
+          createElement('path', { d: 'M14 3v4a1 1 0 0 0 1 1h4', key: 'p1' }),
+          createElement('path', { d: 'M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z', key: 'p2' }),
+          createElement('path', { d: 'M10 18l5 -5a1.414 1.414 0 0 0 -2 -2l-5 5v2h2z', key: 'p3' }),
         ]);
       case 3:
         return renderSvg([
-          createElement('path', { d: 'M14 34V20', key: 'p1' }),
-          createElement('path', { d: 'M24 34V14', key: 'p2' }),
-          createElement('path', { d: 'M34 34V24', key: 'p3' }),
-          createElement('path', { d: 'M10 38h28', key: 'p4' }),
+          createElement('path', { d: 'M4 4m0 1a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1z', key: 'p1' }),
+          createElement('path', { d: 'M4 8h16', key: 'p2' }),
+          createElement('path', { d: 'M8 4v4', key: 'p3' }),
+          createElement('path', { d: 'M9.5 14.5l1.5 1.5l3 -3', key: 'p4' }),
         ]);
       case 4:
         return renderSvg([
-          createElement('path', { d: 'M24 11a6 6 0 1 1 0 12a6 6 0 0 1 0-12Z', key: 'p1' }),
-          createElement('path', { d: 'M14 37a10 10 0 0 1 20 0', key: 'p2' }),
-          createElement('path', { d: 'M31 30l3 3 6-7', key: 'p3' }),
+          createElement('path', { d: 'M14 20h-8a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5', key: 'p1' }),
+          createElement('path', { d: 'M11 16h-5a2 2 0 0 0 -2 2', key: 'p2' }),
+          createElement('path', { d: 'M15 16l3 -3l3 3', key: 'p3' }),
+          createElement('path', { d: 'M18 13v9', key: 'p4' }),
         ]);
     }
   };
@@ -190,11 +191,20 @@
               className: 'intro-helper-block__step',
               key: `step-${index}`,
             },
-            createElement('span', { className: 'intro-helper-block__step-number' }, `${index + 1}`),
-            createElement('div', { className: 'intro-helper-block__step-icon' }, renderStepIcon(index)),
-            createElement('p', { className: 'intro-helper-block__step-text' }, step)
-            ))
-          ),
+            createElement('div', { className: 'intro-helper-block__step-content' },
+              createElement('span', { className: 'intro-helper-block__step-number' }, `${index + 1}`),
+              createElement('div', { className: 'intro-helper-block__step-icon' }, renderStepIcon(index)),
+              createElement('p', { className: 'intro-helper-block__step-text' }, step.text),
+            ),
+            step.link_text &&createElement('a',
+              {
+                'aria-disabled': true,
+                tabIndex: -1,
+                className: 'intro-helper-block__step-link',
+              },
+              step.link_text || 'Link'
+            )
+          ))),
           createElement(RichText, {
             tagName: 'h3',
             className: 'wp-block-heading intro-helper-block__links-title',

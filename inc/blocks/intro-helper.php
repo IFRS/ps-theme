@@ -24,15 +24,15 @@ if (!function_exists('ifrs_ps_get_intro_helper_step_icon')) {
   function ifrs_ps_get_intro_helper_step_icon($index) {
     switch ((int) $index) {
       case 0:
-        return '<svg viewBox="0 0 48 48" focusable="false"><path d="M12 18h24v16H12z" /><path d="M18 18v-4h12v4" /><path d="M24 25l3 2 5-5" /><path d="M16 10h16" /></svg>';
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19h-3a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v11a1 1 0 0 1 -1 1" /><path d="M11 16m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /></svg>';
       case 1:
-        return '<svg viewBox="0 0 48 48" focusable="false"><path d="M16 10h16l4 4v24H12V10z" /><path d="M18 20h12" /><path d="M18 26h12" /><path d="M18 32h8" /><path d="M31 11v5h5" /></svg>';
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 9l1 0" /><path d="M9 13l6 0" /><path d="M9 17l6 0" /></svg>';
       case 2:
-        return '<svg viewBox="0 0 48 48" focusable="false"><path d="M12 16h24v20H12z" /><path d="M18 10v8" /><path d="M30 10v8" /><path d="M12 22h24" /><path d="M20 29l3 3 6-7" /></svg>';
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M10 18l5 -5a1.414 1.414 0 0 0 -2 -2l-5 5v2h2z" /></svg>';
       case 3:
-        return '<svg viewBox="0 0 48 48" focusable="false"><path d="M14 34V20" /><path d="M24 34V14" /><path d="M34 34V24" /><path d="M10 38h28" /></svg>';
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4m0 1a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1z" /><path d="M4 8h16" /><path d="M8 4v4" /><path d="M9.5 14.5l1.5 1.5l3 -3" /></svg>';
       case 4:
-        return '<svg viewBox="0 0 48 48" focusable="false"><path d="M24 11a6 6 0 1 1 0 12a6 6 0 0 1 0-12Z" /><path d="M14 37a10 10 0 0 1 20 0" /><path d="M31 30l3 3 6-7" /></svg>';
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 20h-8a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5" /><path d="M11 16h-5a2 2 0 0 0 -2 2" /><path d="M15 16l3 -3l3 3" /><path d="M18 13v9" /></svg>';
     }
   }
 }
@@ -53,11 +53,11 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
     $inner_content = !empty($content) ? $content : '';
 
     $steps = array(
-      __('Escolha um Campus e Curso', 'ifrs-ps-theme'),
-      __('Leia atentamente o Edital e faça sua Inscrição', 'ifrs-ps-theme'),
-      __('Realize a Prova ou acompanhe o Sorteio', 'ifrs-ps-theme'),
-      __('Acompanhe os Resultados', 'ifrs-ps-theme'),
-      __('Faça sua Pré-matrícula', 'ifrs-ps-theme'),
+      array('text' => __('Escolha um Campus e Curso', 'ifrs-ps-theme'), 'link_url' => get_post_type_archive_link( 'curso' ), 'link_text' => 'Lista de Cursos'),
+      array('text' => __('Leia atentamente o Edital e faça sua Inscrição', 'ifrs-ps-theme'), 'link_url' => get_post_type_archive_link( 'edital' ), 'link_text' => 'Editais'),
+      array('text' => __('Realize a Prova ou acompanhe o Sorteio', 'ifrs-ps-theme'), 'link_url' => null, 'link_text' => null),
+      array('text' => __('Acompanhe os Resultados', 'ifrs-ps-theme'), 'link_url' => get_post_type_archive_link( 'chamada' ), 'link_text' => 'Resultados'),
+      array('text' => __('Faça sua Pré-matrícula', 'ifrs-ps-theme'), 'link_url' => null, 'link_text' => null),
     );
 
     $action = get_post_type_archive_link('curso');
@@ -72,7 +72,7 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
         <?php
           echo do_blocks(
             sprintf(
-              '<!-- wp:heading {"level":2,"className":"intro-helper-block__title"} --><h2 class="wp-block-heading intro-helper-block__title">%s</h2><!-- /wp:heading -->',
+              '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">%s</h2><!-- /wp:heading -->',
               wp_kses_post($title)
             )
           );
@@ -82,11 +82,16 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
       <div class="intro-helper-block__steps" aria-label="<?php esc_attr_e('Passo a passo simplificado', 'ifrs-ps-theme'); ?>">
         <?php foreach ($steps as $index => $step) : ?>
           <article class="intro-helper-block__step">
-            <span class="intro-helper-block__step-number"><?php echo esc_html($index + 1); ?></span>
-            <div class="intro-helper-block__step-icon" aria-hidden="true">
-              <?php echo ifrs_ps_get_intro_helper_step_icon($index); ?>
+            <div class="intro-helper-block__step-content">
+              <span class="intro-helper-block__step-number"><?php echo esc_html($index + 1); ?></span>
+              <div class="intro-helper-block__step-icon" aria-hidden="true">
+                <?php echo ifrs_ps_get_intro_helper_step_icon($index); ?>
+              </div>
+              <p class="intro-helper-block__step-text"><?php echo esc_html($step['text']); ?></p>
             </div>
-            <p class="intro-helper-block__step-text"><?php echo esc_html($step); ?></p>
+            <?php if ($step['link_url']) : ?>
+              <a href="<?php echo esc_url( $step['link_url'] ); ?>" class="intro-helper-block__step-link"><?php echo esc_html( $step['link_text'] ); ?></a>
+            <?php endif; ?>
           </article>
         <?php endforeach; ?>
       </div>
