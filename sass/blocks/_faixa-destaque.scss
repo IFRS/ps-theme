@@ -6,8 +6,8 @@
   justify-content: center;
 
   background-color: $accent;
-  border-top-left-radius: $border-radius-sm;
-  border-top-right-radius: $border-radius-sm;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
   box-shadow: $box-shadow-sm;
   color: color-contrast($accent);
   font-size: 1.25rem;
