@@ -45,7 +45,7 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
         <?php
           echo do_blocks(
             sprintf(
-              '<!-- wp:heading {"level":2,"className":"publicacoes__title"} --><h2 class="wp-block-heading publicacoes__title">%s</h2><!-- /wp:heading -->',
+              '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">%s</h2><!-- /wp:heading -->',
               $title
             )
           );

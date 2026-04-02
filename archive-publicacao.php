@@ -13,10 +13,9 @@
     $publicacoes = new WP_Query($args);
 ?>
 
-<div class="container">
+<section class="container">
+    <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
     <article class="publicacoes publicacoes--archive">
-        <h2 class="publicacoes__title">Publica&ccedil;&otilde;es</h2>
-
         <div class="publicacoes__text">
             <?php echo wpautop(cmb2_get_option('publicacao_options', 'desc', '')); ?>
         </div>
@@ -41,6 +40,6 @@
 
         <?php echo custom_pagination(); ?>
     </article>
-</div>
+</section>
 
 <?php get_footer(); ?>

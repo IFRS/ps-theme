@@ -1,12 +1,6 @@
 .editais {
     margin-bottom: 2rem;
 
-    &__title {
-        @extend %ps-title;
-
-        margin-top: 0;
-    }
-
     &__title + &__text {
         margin-top: -1.5rem;
     }

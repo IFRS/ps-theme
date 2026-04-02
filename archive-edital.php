@@ -3,7 +3,7 @@
 <?php $desc = cmb2_get_option('edital_options', 'desc', ''); ?>
 
 <section class="container editais">
-    <h2 class="editais__title">Editais</h2>
+    <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
     <?php if (!empty($desc)) : ?>
         <div class="editais__text">
             <?php echo wpautop($desc, true); ?>
