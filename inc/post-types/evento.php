@@ -134,20 +134,29 @@ add_action( 'cmb2_init', function() {
         ),
     ) );
 
-    $marco = new_cmb2_box( array(
+    $etapa = new_cmb2_box( array(
         'id'            => $prefix . 'etapa',
-        'title'         => __( 'Etapa Importante', 'ifrs-ps-theme' ),
+        'title'         => __( 'Sobre essa Etapa', 'ifrs-ps-theme' ),
         'object_types'  => array( 'evento' ),
         'context'       => 'side',
         'priority'      => 'low',
         'show_names'    => false,
     ) );
 
-    $marco->add_field( array(
-        'name' => '',
-        'desc' => 'Marque caso esse evento seja uma etapa importante do Processo Seletivo.',
-        'type' => 'checkbox',
-        'id'   => $prefix . 'marco',
+    $etapa->add_field( array(
+        'name'    => __( 'Tipo', 'ifrs-ps-theme' ),
+        'desc'    => __( 'Tipo de Evento.', 'ifrs-ps-theme' ),
+        'id'      => $prefix . 'tipo',
+        'type'    => 'select',
+        'default' => '',
+        'show_in_rest' => WP_REST_Server::READABLE,
+        'options' => array(
+            ''          => __( 'Geral', 'ifrs-ps-theme' ),
+            'inscricao' => __( 'Isenção/Inscrição', 'ifrs-ps-theme' ),
+            'selecao'   => __( 'Selecão (Prova, Sorteio, etc.)', 'ifrs-ps-theme' ),
+            'resultado' => __( 'Resultado (Chamadas, Divulgações, etc.)', 'ifrs-ps-theme' ),
+            'matricula' => __( 'Matrícula', 'ifrs-ps-theme' ),
+        ),
     ) );
 
     $programacao = new_cmb2_box( array(
@@ -189,7 +198,7 @@ add_filter( 'manage_evento_posts_columns' , function( $columns ) {
             array_slice($columns, 0 , $pos),
             array(
                 'datas' => __('Período', 'ifrs-ps-theme'),
-                'marco' => __('Etapa Importante', 'ifrs-ps-theme'),
+                'tipo' => __('Tipo de Etapa', 'ifrs-ps-theme'),
             ),
             array_slice($columns, $pos)
         );
@@ -213,9 +222,9 @@ add_action( 'manage_evento_posts_custom_column' , function( $column, $post_id ) 
                 echo wp_date($format, $data_fim, new DateTimeZone('UTC'));
             }
 		break;
-        case 'marco':
-            $is_marco = get_post_meta( $post_id, '_evento_marco', true );
-            echo !empty($is_marco) ? 'Sim' : '-';
+        case 'tipo':
+            $evento_tipo = get_post_meta( $post_id, '_evento_tipo', true );
+            echo !empty($evento_tipo) ? esc_html__($evento_tipo, 'ifrs-ps-theme') : '-';
         break;
 	}
 }, 10, 2 );

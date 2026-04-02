@@ -49,7 +49,7 @@ add_filter( 'wp_nav_menu_items', function( $items ) {
 
     do_action( 'qm/info', "Data e hora atual do servidor: $now" );
 
-    $marcos_atuais = get_posts(array(
+    $etapas_atuais = get_posts(array(
         'post_type'      => 'evento',
         'post_status'    => 'publish',
         'posts_per_page' => -1,
@@ -71,9 +71,9 @@ add_filter( 'wp_nav_menu_items', function( $items ) {
         ),
     ));
 
-    foreach ($marcos_atuais as $marco) {
-        $url = get_post_meta( $marco->ID, '_evento_programacao_url', true );
-        $titulo = get_post_meta( $marco->ID, '_evento_programacao_titulo', true );
+    foreach ($etapas_atuais as $etapa) {
+        $url = get_post_meta( $etapa->ID, '_evento_programacao_url', true );
+        $titulo = get_post_meta( $etapa->ID, '_evento_programacao_titulo', true );
 
         if ($url && $titulo) {
             do_action( 'qm/info', sprintf("Etapa Programada! %s (%s)", $titulo, $url) );

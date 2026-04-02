@@ -22,20 +22,22 @@ add_action("init", function () {
 });
 
 if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
-  function ifrs_ps_render_etapas_timeline_block($attributes)
-  {
+  function ifrs_ps_render_etapas_timeline_block($attributes) {
     $title = !empty($attributes["title"])
       ? wp_kses_post($attributes["title"])
-      : esc_html__("Próximas etapas importantes", "ifrs-ps-theme");
+      : esc_html__("Próximas datas importantes", "ifrs-ps-theme");
     $hide_past = !empty($attributes["hidePast"]);
     $agora = current_time("timestamp");
 
-    $meta_query = [
-      [
-        "key" => "_evento_marco",
-        "compare" => "EXISTS",
-      ],
+    $icon_paths = [
+      '' => '<path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M16 3l0 4" /><path d="M8 3l0 4" /><path d="M4 11l16 0" /><path d="M8 15h2v2h-2z" />',
+      'inscricao' => '<path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M16 19h6" /><path d="M19 16v6" />',
+      'selecao' => '<path d="M12 21h-6a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4.5" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M19 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M22 22a2 2 0 0 0 -2 -2h-2a2 2 0 0 0 -2 2" />',
+      'resultado' => '<path d="M4 4m0 1a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1z" /><path d="M4 8h16" /><path d="M8 4v4" /><path d="M9.5 14.5l1.5 1.5l3 -3" />',
+      'matricula' => '<path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" />',
     ];
+
+    $meta_query = [];
 
     if ($hide_past) {
       $meta_query[] = [
@@ -65,7 +67,7 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
     if (!$eventos->have_posts()) {
       return "<p>" .
         esc_html__(
-          "Nenhuma etapa importante cadastrada no momento.",
+          "Nenhuma data importante cadastrada no momento.",
           "ifrs-ps-theme",
         ) .
         "</p>";
@@ -73,10 +75,7 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
 
     ob_start();
     ?>
-    <section class="etapas-timeline" aria-label="<?php esc_attr_e(
-      "Linha do tempo de etapas importantes próximas",
-      "ifrs-ps-theme",
-    ); ?>">
+    <section class="etapas-timeline">
       <?php
       echo do_blocks(
         sprintf(
@@ -87,8 +86,7 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
       ?>
       <ol class="etapas-timeline__list">
         <?php while ($eventos->have_posts()):
-          $eventos->the_post(); ?>
-          <?php
+          $eventos->the_post();
           $data_inicio = (int) get_post_meta(
             get_the_ID(),
             "_evento_data-inicio",
@@ -128,12 +126,14 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
           } elseif ($evento_passou) {
             $item_class .= " etapa--passado";
           }
-          ?>
+
+          $evento_tipo = get_post_meta(get_the_ID(), "_evento_tipo", true);
+        ?>
           <li class="<?php echo esc_attr($item_class); ?>">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="etapa__icone" aria-hidden="true">
-              <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
-              <path d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2M5 20V8h14V6v14z"></path><path d="M12 13h5v5h-5z"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="etapa__icone">
+              <?php echo $icon_paths[$evento_tipo] ?? $icon_paths[""]; ?>
             </svg>
+
             <div class="etapa__conteudo">
               <h3 class="etapa__titulo">
                 <?php the_title(); ?>

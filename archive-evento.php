@@ -54,8 +54,10 @@
                             $evento_mesmo_dia = date_i18n('d/m/Y', $data_inicio) === date_i18n('d/m/Y', $data_fim);
                             $evento_atual = ($data_inicio <= $agora && $data_fim > $agora);
                             $evento_passou = ($data_fim < $agora);
+
+                            $evento_tipo = get_post_meta( get_the_ID(), '_evento_tipo', true );
                         ?>
-                        <tr class="<?php echo ($evento_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>">
+                        <tr class="<?php echo ($evento_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>" data-tipo="<?php echo !empty($evento_tipo) ? esc_attr($evento_tipo) : ''; ?>">
                             <td class="evento__datas<?php echo ($evento_atual) ? ' text-success' : ''; ?>">
                                 <?php if (!$evento_mesmo_dia) : ?>
                                     <?php echo date_i18n('d/m', $data_inicio); ?> a
