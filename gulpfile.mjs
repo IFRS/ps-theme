@@ -1,4 +1,4 @@
-import { read, readFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import { deleteAsync }  from 'del';
 import gulp             from 'gulp';
 import parseArgs        from 'minimist';
@@ -18,25 +18,51 @@ import BundleAnalyzer   from 'webpack-bundle-analyzer';
 
 browserSync.create();
 
-const { name } = JSON.parse(readFileSync('./package.json'));
+const { themeSlug } = JSON.parse(readFileSync('./package.json'));
 const { src, dest, series, parallel, watch } = gulp;
+
 const sassCompiler = gulpSass(dartSass);
-const argv = parseArgs(process.argv.slice(2));
+
+const knownOptions = {
+  string: [
+    'url',
+  ],
+  boolean: [
+    'production',
+    'bundleanalyzer',
+    'ui',
+  ],
+  alias: {
+    'url': 'URL',
+    'production': 'prod',
+    'bundleanalyzer': ['wpba', 'ba'],
+  },
+  default: {
+    'url': 'localhost',
+    'production': false,
+    'bundleanalyzer': false,
+    'ui': false,
+  },
+};
+const argv = parseArgs(process.argv.slice(2), knownOptions);
 
 const IS_PRODUCTION = argv.production || argv.prod;
 
-const BROWSERSYNC_URL = argv.URL || argv.url || 'localhost';
+const BROWSERSYNC_URL = argv.URL || argv.url;
 
 let webpackPlugins = [];
 if (argv.bundleanalyzer) webpackPlugins.push(new BundleAnalyzer.BundleAnalyzerPlugin());
 
-async function clean() {
-  return await deleteAsync(['css/', 'js/', 'dist/']);
-}
+async function cleanBuild() {
+  return await deleteAsync(['build/**'])
+};
+async function cleanDist() {
+  return await deleteAsync(['dist/'])
+};
 
 function vendor() {
   return src('node_modules/animate.css/animate.css')
-  .pipe(dest('css/'));
+  .pipe(dest('build/css/'));
 }
 
 function sass() {
@@ -56,14 +82,14 @@ function sass() {
   .pipe(sassCompiler.sync(sass_options).on('error', sassCompiler.logError))
   .pipe(postcss(postCSS_plugins))
   .pipe(sourcemaps.write('./'))
-  .pipe(dest('css/'))
+  .pipe(dest('build/css/'))
   .pipe(browserSync.stream());
 }
 
 function css() {
-  return src('css/*.css')
+  return src('build/css/*.css')
   .pipe(csso())
-  .pipe(dest('css/'))
+  .pipe(dest('build/css/'))
   .pipe(browserSync.stream());
 }
 
@@ -83,7 +109,7 @@ function bundle(done) {
       'publicacoes-list-block': './src/publicacoes-list-block.js',
     },
     output: {
-      path: path.resolve(path.dirname(''), 'js'),
+      path: path.resolve(path.dirname(''), 'build/js'),
       filename: '[name].js',
     },
     plugins: [
@@ -127,58 +153,119 @@ function bundle(done) {
 }
 
 function js() {
-  return src('js/*.js')
+  return src('build/js/*.js')
   .pipe(babel({
     presets: [
-      ['@babel/preset-env']
-    ]
+      [
+        '@babel/preset-env',
+        {
+          bugfixes: true,
+          modules: false,
+        },
+      ],
+    ],
   }))
   .pipe(uglify())
-  .pipe(dest('js/'))
+  .pipe(dest('build/js/'))
   .pipe(browserSync.stream());
+}
+
+function buildCopy() {
+  return src([
+    'theme/**/*',
+    'favicons{,/**}',
+    // 'fonts{,/**}',
+    'img{,/**}',
+    '!.**',
+  ], { encoding: false })
+  .pipe(dest('build/'))
 }
 
 function dist() {
   return src([
-    '**',
-    '!.**',
-    '!css/*.map',
-    '!dist/**',
-    '!js/*.map',
-    '!node_modules/**',
-    '!sass/**',
-    '!src/**',
-    '!gulpfile.mjs',
-    '!package*.json',
-    '!README.md',
-  ], {
-    encoding: false,
-  })
-  .pipe(dest('dist/' + name), {
-    encoding: false,
-  });
+    'build/**/*',
+    '!build/css/*.map',
+    '!build/js/*.map',
+  ], { encoding: false })
+  .pipe(dest('dist/' + themeSlug))
 }
 
 function serve() {
   browserSync.init({
     ui: argv.ui,
-    ghostMode: true,
+    ghostMode: false,
+    online: false,
     open: false,
     notify: false,
+    host: BROWSERSYNC_URL,
     proxy: BROWSERSYNC_URL,
   });
 
-  watch('sass/**/*.scss', sass);
+  // Watch SASS files
+  watch('sass/**/*.scss', sass)
 
-  watch('src/**/*.js', bundle);
+  // Watch JavaScript source files
+  watch('src/**/*.js', bundle)
 
-  watch('**/*.php').on('change', browserSync.reload);
+  // Watch theme files (hot reload)
+  watch('theme/**/*')
+    .on('change', function(file) {
+      return src(file, { base: 'theme' })
+        .pipe(dest('build/'))
+        .pipe(browserSync.stream())
+    })
+    .on('add', function(file) {
+      return src(file, { base: 'theme' })
+        .pipe(dest('build/'))
+        .pipe(browserSync.stream())
+    })
+    .on('unlink', function(file) {
+      const buildFile = file.replace(/^theme\//, 'build/')
+      deleteAsync([buildFile])
+    })
+
+  // Watch favicons
+  watch('favicons/**/*')
+    .on('change', function(file) {
+      return src(file, { base: '.' })
+        .pipe(dest('build/'))
+        .pipe(browserSync.stream())
+    })
+    .on('add', function(file) {
+      return src(file, { base: '.' })
+        .pipe(dest('build/'))
+        .pipe(browserSync.stream())
+    })
+    .on('unlink', function(file) {
+      deleteAsync([`build/${file}`])
+    })
+
+  // Watch images
+  watch('img/**/*')
+    .on('change', function(file) {
+      return src(file, { base: '.' })
+        .pipe(dest('build/'))
+        .pipe(browserSync.stream())
+    })
+    .on('add', function(file) {
+      return src(file, { base: '.' })
+        .pipe(dest('build/'))
+        .pipe(browserSync.stream())
+    })
+    .on('unlink', function(file) {
+      deleteAsync([`build/${file}`])
+    })
+
+  // Watch build directory
+  watch('build/**/*', { ignoreInitial: true, delay: 500 })
+    .on('change', browserSync.reload)
 }
 
+const clean = parallel(cleanBuild, cleanDist);
 const styles = series(vendor, sass, css);
 const scripts = series(bundle, js);
-const build = IS_PRODUCTION ? series(clean, parallel(styles, scripts), dist) : series(clean, parallel(vendor, sass, bundle));
+const build = IS_PRODUCTION ? series(clean, parallel(styles, scripts), buildCopy, dist, cleanBuild) : series(clean, parallel(series(sass, vendor), bundle, buildCopy));
 
-export { clean, vendor, sass, bundle, styles, scripts, build };
+export { clean, sass, bundle, styles, scripts, build };
 
 export default series(build, serve);

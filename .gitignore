@@ -7,11 +7,8 @@
 # Composer
 /vendor/
 
-# CSS
-/css/
-
-# JS
-/js/
-
 # Build
+/build/
+
+# Distribution
 /dist/
