@@ -14,7 +14,7 @@
 <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"nowrap","verticalAlignment":"center","className":"ajuda"}} -->
 <div class="wp-block-group ajuda">
   <!-- wp:heading {"textAlign":"center","style":{"typography":{"textTransform":"uppercase"}}} -->
-  <h2 class="wp-block-heading has-text-align-center" style="text-transform:uppercase">Você tem alguma dúvida?</h2>
+  <h2 class="wp-block-heading has-text-align-center" style="text-transform:uppercase">Você ainda tem alguma dúvida?</h2>
   <!-- /wp:heading -->
 
   <!-- wp:search {"label":"Pesquisar","showLabel":false,"placeholder":"Buscar em todo o site","width":100,"widthUnit":"%","buttonText":"Pesquisar","buttonUseIcon":true,"style":{"layout":{"selfStretch":"fit","flexSize":null}}} /-->
