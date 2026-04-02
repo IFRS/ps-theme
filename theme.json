@@ -361,12 +361,7 @@
         "elements": {
           "textInput": {
             "border": {
-              "radius": "var:custom|bootstrap|radius|sm"
-            }
-          },
-          "button": {
-            "border": {
-              "radius": "var:custom|bootstrap|radius|sm"
+              "radius": "var:custom|bootstrap|radius|base"
             }
           }
         }
