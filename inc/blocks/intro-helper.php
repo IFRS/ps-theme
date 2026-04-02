@@ -25,7 +25,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
     return array(
       array(
         'text' => __('Escolha um Campus e Curso', 'ifrs-ps-theme'),
-        'link_post_type' => 'curso',
+        'link_url' => get_post_type_archive_link('curso'),
         'link_text' => __('Lista de Cursos', 'ifrs-ps-theme'),
         'icon_paths' => array(
           'M8 19h-3a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v11a1 1 0 0 1 -1 1',
@@ -33,8 +33,8 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
         ),
       ),
       array(
-        'text' => __('Leia atentamente o Edital e faça sua Inscrição', 'ifrs-ps-theme'),
-        'link_post_type' => 'edital',
+        'text' => __('Leia o Edital com atenção e faça sua Inscrição', 'ifrs-ps-theme'),
+        'link_url' => get_post_type_archive_link('edital'),
         'link_text' => __('Editais', 'ifrs-ps-theme'),
         'icon_paths' => array(
           'M14 3v4a1 1 0 0 0 1 1h4',
@@ -45,9 +45,9 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
         ),
       ),
       array(
-        'text' => __('Realize a Prova ou acompanhe o Sorteio', 'ifrs-ps-theme'),
-        'link_post_type' => null,
-        'link_text' => null,
+        'text' => __('Realize a prova ou acompanhe o sorteio', 'ifrs-ps-theme'),
+        'link_url' => get_post_type_archive_link( 'evento' ),
+        'link_text' => __('Cronograma', 'ifrs-ps-theme'),
         'icon_paths' => array(
           'M14 3v4a1 1 0 0 0 1 1h4',
           'M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z',
@@ -56,7 +56,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
       ),
       array(
         'text' => __('Acompanhe os Resultados', 'ifrs-ps-theme'),
-        'link_post_type' => 'chamada',
+        'link_url' => get_post_type_archive_link('chamada'),
         'link_text' => __('Resultados', 'ifrs-ps-theme'),
         'icon_paths' => array(
           'M4 4m0 1a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1z',
@@ -66,8 +66,8 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
         ),
       ),
       array(
-        'text' => __('Faça sua Pré-matrícula', 'ifrs-ps-theme'),
-        'link_post_type' => null,
+        'text' => __('Faça sua Pré-matrícula após os resultados', 'ifrs-ps-theme'),
+        'link_url' => null,
         'link_text' => null,
         'icon_paths' => array(
           'M14 20h-8a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5',
@@ -193,11 +193,6 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
 
       <div class="intro-helper-block__steps" aria-label="<?php esc_attr_e('Passo a passo simplificado', 'ifrs-ps-theme'); ?>">
         <?php foreach ($steps as $index => $step) : ?>
-          <?php
-            $step_link_url = !empty($step['link_post_type'])
-              ? get_post_type_archive_link($step['link_post_type'])
-              : null;
-          ?>
           <article class="intro-helper-block__step">
             <div class="intro-helper-block__step-content">
               <span class="intro-helper-block__step-number"><?php echo esc_html($index + 1); ?></span>
@@ -206,8 +201,8 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
               </div>
               <p class="intro-helper-block__step-text"><?php echo esc_html($step['text']); ?></p>
             </div>
-            <?php if (!empty($step_link_url) && !empty($step['link_text'])) : ?>
-              <a href="<?php echo esc_url($step_link_url); ?>" class="intro-helper-block__step-link"><?php echo esc_html($step['link_text']); ?></a>
+            <?php if (!empty($step['link_url']) && !empty($step['link_text'])) : ?>
+              <a href="<?php echo esc_url($step['link_url']); ?>" class="intro-helper-block__step-link"><?php echo esc_html($step['link_text']); ?></a>
             <?php endif; ?>
           </article>
         <?php endforeach; ?>
