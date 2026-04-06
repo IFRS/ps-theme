@@ -64,15 +64,6 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
       "ignore_sticky_posts" => true,
     ]);
 
-    if (!$eventos->have_posts()) {
-      return "<p>" .
-        esc_html__(
-          "Nenhuma data importante cadastrada no momento.",
-          "ifrs-ps-theme",
-        ) .
-        "</p>";
-    }
-
     ob_start();
     ?>
     <section class="etapas-timeline">
@@ -84,6 +75,7 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
         ),
       );
       ?>
+      <?php if ($eventos->have_posts()) : ?>
       <ol class="etapas-timeline__list">
         <?php while ($eventos->have_posts()):
           $eventos->the_post();
@@ -146,6 +138,11 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
           <?php
         endwhile; ?>
         </ol>
+        <?php else : ?>
+          <p>
+            <?php echo esc_html__("Nenhuma data importante cadastrada no momento.", "ifrs-ps-theme"); ?>
+          </p>
+        <?php endif; ?>
         <?php
         $eventos_archive_link = get_post_type_archive_link("evento");
 
