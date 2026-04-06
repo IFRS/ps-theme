@@ -18,7 +18,7 @@ import BundleAnalyzer   from 'webpack-bundle-analyzer';
 
 browserSync.create();
 
-const { themeSlug } = JSON.parse(readFileSync('./package.json'));
+const { name: themeSlug } = JSON.parse(readFileSync('./package.json'));
 const { src, dest, series, parallel, watch } = gulp;
 
 const sassCompiler = gulpSass(dartSass);
