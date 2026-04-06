@@ -17,7 +17,7 @@
     <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
     <article class="publicacoes publicacoes--archive">
         <div class="publicacoes__text">
-            <?php echo wpautop(cmb2_get_option('publicacao_options', 'desc', '')); ?>
+            <?php echo wpautop(wp_kses_post(cmb2_get_option('publicacao_options', 'desc', ''))); ?>
         </div>
 
         <?php if ($publicacoes->have_posts()) : ?>

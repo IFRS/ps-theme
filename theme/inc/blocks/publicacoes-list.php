@@ -53,7 +53,7 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
 
         <?php if (!empty($desc)) : ?>
           <div class="publicacoes__text">
-            <?php echo wpautop($desc); ?>
+            <?php echo wpautop(wp_kses_post($desc)); ?>
           </div>
         <?php endif; ?>
 

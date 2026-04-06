@@ -128,7 +128,10 @@ add_action( 'restrict_manage_posts', function( $post_type ) {
 		$taxonomy = get_taxonomy( $slug );
 
 		$selected = '';
-		$selected = isset( $_REQUEST[ $slug ] ) ? $_REQUEST[ $slug ] : '';
+        if (isset($_REQUEST[$slug]) && !is_array($_REQUEST[$slug])) {
+            $candidate = sanitize_key(wp_unslash($_REQUEST[$slug]));
+            $selected = term_exists($candidate, $slug) ? $candidate : '';
+        }
 
 		wp_dropdown_categories( array(
 			'show_option_all' =>  $taxonomy->labels->all_items,

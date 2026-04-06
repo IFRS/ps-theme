@@ -19,10 +19,10 @@
 ?>
 
 <section class="container cronograma">
-    <h2 class="cronograma__title"><?php echo post_type_archive_title(); ?></h2>
+    <h2 class="cronograma__title"><?php echo esc_html(post_type_archive_title('', false)); ?></h2>
     <?php if (!empty($desc)) : ?>
         <div class="cronograma__text">
-            <?php echo wpautop($desc, true); ?>
+            <?php echo wpautop(wp_kses_post($desc), true); ?>
         </div>
     <?php endif; ?>
     <?php if (!empty($atualizacao)) : ?>
@@ -78,7 +78,7 @@
                                 ?>
                                 <?php if ($evento_atual) : ?>
                                     <br>
-                                    <a href="<?php echo esc_url($url); ?>"><?php echo $url; ?></a>
+                                    <a href="<?php echo esc_url($url); ?>"><?php echo esc_html($url); ?></a>
                                 <?php endif; ?>
                             </td>
                         </tr>

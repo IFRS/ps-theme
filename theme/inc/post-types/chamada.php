@@ -140,7 +140,20 @@ add_filter( 'pre_get_document_title', function($title) {
 		global $post;
 		$campi = get_the_terms($post->ID, 'campus');
 		$formasingresso = get_the_terms($post->ID, 'formaingresso');
-		return get_the_title($post) . ' | ' . $formasingresso[0]->name . ' | ' . __('Campus ', 'ifrs-ps-theme') . $campi[0]->name . ' - ' . get_bloginfo('name');
+
+		$parts = array(get_the_title($post));
+
+		if (!empty($formasingresso) && !is_wp_error($formasingresso) && isset($formasingresso[0]->name)) {
+			$parts[] = $formasingresso[0]->name;
+		}
+
+		if (!empty($campi) && !is_wp_error($campi) && isset($campi[0]->name)) {
+			$parts[] = __('Campus', 'ifrs-ps-theme') . ' ' . $campi[0]->name;
+		}
+
+		$parts[] = get_bloginfo('name');
+
+		return implode(' | ', $parts);
 	}
 
 	return $title;
@@ -282,7 +295,10 @@ add_action( 'restrict_manage_posts', function( $post_type ) {
 		$taxonomy = get_taxonomy( $slug );
 
 		$selected = '';
-		$selected = isset( $_REQUEST[ $slug ] ) ? $_REQUEST[ $slug ] : '';
+		if (isset($_REQUEST[$slug]) && !is_array($_REQUEST[$slug])) {
+			$candidate = sanitize_key(wp_unslash($_REQUEST[$slug]));
+			$selected = term_exists($candidate, $slug) ? $candidate : '';
+		}
 
 		wp_dropdown_categories( array(
 			'show_option_all' =>  $taxonomy->labels->all_items,
@@ -302,8 +318,12 @@ add_filter( 'rest_prepare_chamada', function( $data, $post, $context ) {
 
 	$modalidades = get_terms(array('taxonomy' => 'modalidade', 'orderby' => 'term_order'));
 
+	if (is_wp_error($modalidades) || empty($modalidades)) {
+		return $data;
+	}
+
 	foreach ($modalidades as $modalidade) {
-		$resultados = (array) get_post_meta(get_the_ID(), '_chamada_modalidade_' . $modalidade->slug);
+		$resultados = (array) get_post_meta($post->ID, '_chamada_modalidade_' . $modalidade->slug);
 		if (!empty($resultados)) $data->data['modalidades'][] = $modalidade->name;
 	}
 	return $data;

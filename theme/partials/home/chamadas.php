@@ -1,9 +1,9 @@
 <article id="chamadas" class="chamadas" aria-live="polite">
-    <h2 class="chamadas__title"><?php echo chamada_get_option('title', __('Chamadas', 'ifrs-ps-theme')); ?></h2>
-    <?php echo wpautop(chamada_get_option('desc', ''), true); ?>
+    <h2 class="chamadas__title"><?php echo esc_html(chamada_get_option('title', __('Chamadas', 'ifrs-ps-theme'))); ?></h2>
+    <?php echo wpautop(wp_kses_post(chamada_get_option('desc', '')), true); ?>
     <p>
         <small>
-            <?php printf(__('Os resultados ser&atilde;o divulgados conforme <a href="%s">Cronograma</a>.', 'ifrs-ps-theme'), get_post_type_archive_link( 'evento' )); ?>
+            <?php printf(__('Os resultados ser&atilde;o divulgados conforme <a href="%s">Cronograma</a>.', 'ifrs-ps-theme'), esc_url(get_post_type_archive_link( 'evento' ))); ?>
         </small>
     </p>
 

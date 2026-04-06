@@ -3,11 +3,11 @@
 <?php $desc = curso_get_option('desc', ''); ?>
 
 <section class="container cursos">
-    <h2 class="cursos__title">Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo get_search_query(); ?>&rdquo;)</small><?php endif; ?></h2>
+    <h2 class="cursos__title">Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo esc_html(get_search_query()); ?>&rdquo;)</small><?php endif; ?></h2>
 
     <?php if (!empty($desc)) : ?>
         <div class="cursos__text">
-            <?php echo wpautop($desc, true); ?>
+            <?php echo wpautop(wp_kses_post($desc), true); ?>
         </div>
     <?php endif; ?>
 
@@ -51,7 +51,7 @@
                         </p>
                         <p>
                             <strong>Dura&ccedil;&atilde;o: </strong>
-                            <?php echo (!empty($duracao) && !is_wp_error($duracao)) ? $duracao : '-'; ?>
+                            <?php echo (!empty($duracao) && !is_wp_error($duracao)) ? esc_html($duracao) : '-'; ?>
                             <!-- Carga Horária EaD -->
                             <?php if (get_post_meta( get_the_ID(), '_curso_ead', 1 )) : ?>
                                 <sup class="curso__help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Esse Curso possui parte da carga hor&aacute;ria a dist&acirc;ncia.">EaD</sup>
@@ -64,9 +64,9 @@
                                 if (!empty($formasingresso) && !is_wp_error($formasingresso)) {
                                     foreach ($formasingresso as $key => $formaingresso) {
                                         if (!empty($formaingresso->description)) {
-                                            printf('<span class="formaingresso-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="%s">%s</span>', $formaingresso->description, $formaingresso->name);
+                                            printf('<span class="formaingresso-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="%s">%s</span>', esc_attr($formaingresso->description), esc_html($formaingresso->name));
                                         } else {
-                                            echo $formaingresso->name;
+                                            echo esc_html($formaingresso->name);
                                         }
                                         echo ($key !== array_key_last($formasingresso)) ? ' ou ' : '';
                                     }
@@ -77,7 +77,7 @@
                         </p>
                     </div>
                     <div class="curso__footer">
-                        <p><?php echo (!empty($vagas) && !is_wp_error($vagas)) ? $vagas : '-'; ?>&nbsp;<?php echo _n('vaga', 'vagas', intval($vagas), 'ifrs-ps-theme'); ?></p>
+                        <p><?php echo (!empty($vagas) && !is_wp_error($vagas)) ? esc_html($vagas) : '-'; ?>&nbsp;<?php echo _n('vaga', 'vagas', intval($vagas), 'ifrs-ps-theme'); ?></p>
                     </div>
                 </article>
             <?php endwhile;?>

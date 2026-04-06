@@ -5,19 +5,29 @@
     $taxonomies[] = get_taxonomy( 'turno' );
     // $taxonomies[] = get_taxonomy( 'formaingresso' );
 ?>
-<form class="cursos__filters row g-2 align-items-center justify-content-start" method="POST" action="<?php echo get_post_type_archive_link( 'curso' ); ?>">
+<form class="cursos__filters row g-2 align-items-center justify-content-start" method="POST" action="<?php echo esc_url(get_post_type_archive_link( 'curso' )); ?>">
     <?php foreach ($taxonomies as $taxonomy) : ?>
         <div class="col-auto">
             <?php $field_id = uniqid(); ?>
             <label for="<?php echo $field_id; ?>" class="visually-hidden"><?php echo $taxonomy->labels->singular_name ?></label>
             <?php
+                $selected = 0;
+
+                if (isset($_POST[$taxonomy->name]) && !is_array($_POST[$taxonomy->name])) {
+                    $candidate = sanitize_key(wp_unslash($_POST[$taxonomy->name]));
+
+                    if (!empty($candidate) && term_exists($candidate, $taxonomy->name)) {
+                        $selected = $candidate;
+                    }
+                }
+
                 wp_dropdown_categories( array(
                     'show_option_all' => $taxonomy->labels->all_items,
                     'taxonomy'        => $taxonomy->name,
                     'name'            => $taxonomy->name,
                     'orderby'         => 'name',
                     'value_field'     => 'slug',
-                    'selected'        => (!empty($_POST[$taxonomy->name]) && !is_array($_POST[$taxonomy->name])) ? $_POST[$taxonomy->name] : 0,
+                    'selected'        => $selected,
                     'hierarchical'    => true,
                     'hide_empty'      => false,
                     'id'              => $field_id,
