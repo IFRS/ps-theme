@@ -1,38 +1,105 @@
 .screen-reader-text {
-    @extend .visually-hidden;
+  @extend .visually-hidden;
 }
 
-.alignnone {
-    @extend .clearfix;
-}
-
+/* Alinhamento */
 .aligncenter {
-    @extend .mx-auto;
+  margin-inline: auto !important;
+  text-align: center !important;
 }
 
 .alignleft {
-    float: left;
-    margin-right: 10px;
+  margin-inline-end: auto !important;
+  text-align: left !important;
 }
 
 .alignright {
-    float: right;
-    margin-left: 10px;
+  margin-inline-start: auto !important;
+  text-align: right !important;
 }
 
-.wp-caption-text {
-    font-size: 80%;
+.alignwide {
+  width: 100dvw !important;
+  max-width: var(--wp--style--global--wide-size, 2560px) !important;
+  margin-inline-start: 50% !important;
+  transform: translateX(-50%) !important;
+  padding: 0 $grid-gutter-width !important;
+  position: relative !important;
 }
 
-.wp-block-file:not(.wp-element-button) {
-    font-size: 1rem;
+.alignfull {
+  @extend .alignwide;
+
+  max-width: 100vw;
+  padding: 0 !important;
 }
 
+/* Botão */
 .wp-block-button {
-    &__link {
-        &:hover {
-            background-color: var(--bs-primary);
-            border-color: var(--bs-primary);
-        }
+  &__link {
+    &:hover {
+      background-color: var(--bs-primary);
+      border-color: var(--bs-primary);
     }
+  }
+}
+
+/* Arquivo */
+.wp-block-file:not(.wp-element-button) {
+  font-size: 1rem;
+}
+
+/* Imagem Destacada */
+.wp-block-post-featured-image {
+  @include img-fluid;
+  margin: 1.5rem auto;
+}
+
+/* Paginação */
+.wp-block-query-pagination {
+  .wp-block-query-pagination-previous,
+  .page-numbers,
+  .wp-block-query-pagination-next {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 100em;
+    color: $primary;
+    display: inline-flex;
+    justify-content: center;
+    margin: 0 4px;
+    min-height: 32px;
+    min-width: 32px;
+    padding: 0 8px;
+    white-space: nowrap;
+
+    &:not(.current):not(.dots):hover {
+      background-color: var(--bs-primary-bg-subtle);
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+
+  .wp-block-query-pagination-previous-arrow {
+    margin-inline-end: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .wp-block-query-pagination-next-arrow {
+    margin-inline-start: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .page-numbers {
+    &.current {
+      background-color: $primary;
+      border-color: $primary;
+      color: #fff;
+    }
+  }
+
+  .wp-block-query-pagination-previous,
+  .wp-block-query-pagination-next {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
 }
