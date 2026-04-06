@@ -364,7 +364,8 @@
               "radius": "var:custom|bootstrap|radius|base"
             }
           }
-        }
+        },
+        "css": "width: 100%;"
       },
       "core/latest-posts": {
         "spacing": {
