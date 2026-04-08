@@ -164,6 +164,27 @@ add_filter( 'pre_get_posts', function( $query ) {
     return $query;
 } );
 
+/* Custom Orderby */
+add_filter( 'posts_clauses', function( $clauses, $query ) {
+    if (is_admin() || !$query->get('ps_orderby_campus_title')) {
+        return $clauses;
+    }
+
+    global $wpdb;
+
+    $clauses['join'] .= "\n        LEFT JOIN {$wpdb->term_relationships} AS ps_campus_rel ON ({$wpdb->posts}.ID = ps_campus_rel.object_id)\n        LEFT JOIN {$wpdb->term_taxonomy} AS ps_campus_tax ON (ps_campus_rel.term_taxonomy_id = ps_campus_tax.term_taxonomy_id AND ps_campus_tax.taxonomy = 'campus')\n        LEFT JOIN {$wpdb->terms} AS ps_campus_terms ON (ps_campus_tax.term_id = ps_campus_terms.term_id)";
+
+    if (empty($clauses['groupby'])) {
+        $clauses['groupby'] = "{$wpdb->posts}.ID";
+    } elseif (strpos($clauses['groupby'], "{$wpdb->posts}.ID") === false) {
+        $clauses['groupby'] .= ", {$wpdb->posts}.ID";
+    }
+
+    $clauses['orderby'] = "COALESCE(MIN(ps_campus_terms.name), '') ASC, {$wpdb->posts}.post_title ASC";
+
+    return $clauses;
+}, 10, 2 );
+
 // Options
 add_action( 'cmb2_admin_init', function() {
 	$options = new_cmb2_box( array(
