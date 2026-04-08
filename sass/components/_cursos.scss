@@ -3,19 +3,6 @@
 .cursos {
     margin-bottom: 2rem;
 
-    &__title {
-        @extend %ps-title;
-
-        small {
-            display: inline-block;
-            font-size: 0.65em;
-        }
-    }
-
-    &__title + &__text {
-        margin-top: -1.5rem;
-    }
-
     &__text {
         margin-bottom: 2rem;
     }

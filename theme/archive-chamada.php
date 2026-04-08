@@ -47,13 +47,7 @@ foreach ($formasingresso_selecionadas as $id1) {
 <section class="container">
 <?php if (chamada_get_option('publish', false)) : ?>
     <div class="chamadas-lista">
-        <div class="row">
-            <div class="col-12">
-                <div class="chamadas-lista__title">
-                    <h2>Chamadas</h2>
-                </div>
-            </div>
-        </div>
+        <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
         <?php if (empty($formasingresso_selecionadas)) : ?>
             <div class="alert alert-warning" role="alert">
                 Os resultados de cada forma de ingresso ser&atilde;o divulgados conforme Cronograma.

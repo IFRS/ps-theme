@@ -19,7 +19,7 @@
 ?>
 
 <section class="container cronograma">
-    <h2 class="cronograma__title"><?php echo esc_html(post_type_archive_title('', false)); ?></h2>
+    <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
     <?php if (!empty($desc)) : ?>
         <div class="cronograma__text">
             <?php echo wpautop(wp_kses_post($desc), true); ?>

@@ -2,7 +2,7 @@
 
 <section class="container">
     <article class="faq" id="faq">
-        <h2 class="faq__title">Voc&ecirc; tem alguma d&uacute;vida?</h2>
+        <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2,"className":"text-center"} /-->') ?>
         <?php $accordion_id = uniqid('perguntas-'); ?>
         <?php $field_id = uniqid(); ?>
         <label for="<?php echo $field_id; ?>" class="visually-hidden">Buscar nas perguntas</label>

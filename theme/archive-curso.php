@@ -3,7 +3,8 @@
 <?php $desc = curso_get_option('desc', ''); ?>
 
 <section class="container cursos">
-  <h2 class="cursos__title">Cursos ofertados<?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo esc_html(get_search_query()); ?>&rdquo;)</small><?php endif; ?></h2>
+  <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
+  <?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo esc_html(get_search_query()); ?>&rdquo;)</small><?php endif; ?>
 
   <?php if (!empty($desc)) : ?>
     <div class="cursos__text">
