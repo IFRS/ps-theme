@@ -152,13 +152,14 @@ add_filter( 'pre_get_posts', function( $query ) {
         $query->set('nopaging', true);
         $query->set('orderby', 'title');
         $query->set('order', 'ASC');
-        $query->set('tax_query', array(
-            array(
-                'taxonomy' => 'formaingresso',
-                'field'    => 'term_id',
-                'terms'    => curso_get_option('formas', array()),
-            )
-        ));
+        $query->set('ps_orderby_campus_title', true);
+        // $query->set('tax_query', array(
+        //     array(
+        //         'taxonomy' => 'formaingresso',
+        //         'field'    => 'term_id',
+        //         'terms'    => curso_get_option('formas', array()),
+        //     )
+        // ));
     }
 
     return $query;
