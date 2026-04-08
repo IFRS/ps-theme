@@ -5,7 +5,7 @@ add_action( 'init', function() {
         'singular_name'      => _x( 'Publicação', 'Post Type Singular Name', 'ifrs-ps-theme' ),
         'menu_name'          => __( 'Publicações', 'ifrs-ps-theme' ),
         'name_admin_bar'     => __( 'Publicações', 'ifrs-ps-theme' ),
-        'archives'           => __( 'Publicações', 'ifrs-ps-theme' ),
+        'archives'           => __( 'Documentos Publicados', 'ifrs-ps-theme' ),
         'parent_item_colon'  => __( 'Publicação principal:', 'ifrs-ps-theme' ),
         'all_items'          => __( 'Todas as Publicações', 'ifrs-ps-theme' ),
         'add_new_item'       => __( 'Adicionar Nova Publicação', 'ifrs-ps-theme' ),
@@ -14,7 +14,7 @@ add_action( 'init', function() {
         'edit_item'          => __( 'Editar Publicação', 'ifrs-ps-theme' ),
         'update_item'        => __( 'Atualizar Publicação', 'ifrs-ps-theme' ),
         'view_item'          => __( 'Ver Publicação', 'ifrs-ps-theme' ),
-        'search_items'       => __( 'Buscar Publicação', 'ifrs-ps-theme' ),
+        'search_items'       => __( 'Buscar Documentos Publicados', 'ifrs-ps-theme' ),
         'not_found'          => __( 'Não encontrada', 'ifrs-ps-theme' ),
         'not_found_in_trash' => __( 'Não encontrada na Lixeira', 'ifrs-ps-theme' ),
     );

@@ -73,7 +73,7 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
                 sprintf(
                   '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
                   esc_url($publicacoes_link),
-                  esc_html__('Todas as Publicações', 'ifrs-ps-theme')
+                  esc_html__('Todos os Documentos Publicados', 'ifrs-ps-theme')
                 )
               );
             ?>
