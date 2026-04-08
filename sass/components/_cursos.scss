@@ -60,6 +60,7 @@
 
     &__help {
         cursor: help;
+        font-size: 0.875em;
         font-weight: 500;
         margin-inline-start: 0.1rem;
         text-decoration: dotted underline;
@@ -67,5 +68,8 @@
 
     &__footer {
         margin-top: auto;
+        p {
+            margin-bottom: 0;
+        }
     }
 }
