@@ -78,48 +78,48 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('disabled');
       let eventos = [];
       axios.get(WP_API + 'wp/v2/cronograma?per_page=100')
-      .then(response => {
-        if (Array.isArray(response.data)) response.data.forEach((evento) => {
-          let start_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-inicio']).utc().toArray().slice(0, 6);
-          start_date[1]++ // Workaround para correção de "bug" no método toArray, que conta os meses a partir do 0 (zero).
+        .then(response => {
+          if (Array.isArray(response.data)) response.data.forEach((evento) => {
+            let start_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-inicio']).utc().toArray().slice(0, 6);
+            start_date[1]++ // Workaround para correção de "bug" no método toArray, que conta os meses a partir do 0 (zero).
 
-          let end_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-fim']).utc().toArray().slice(0, 6);
-          end_date[1]++
+            let end_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-fim']).utc().toArray().slice(0, 6);
+            end_date[1]++
 
-          let created_date = dayjs(evento.date_gmt).toArray().slice(0, 6);
-          created_date[1]++
+            let created_date = dayjs(evento.date_gmt).toArray().slice(0, 6);
+            created_date[1]++
 
-          let modified_date = dayjs(evento.modified_gmt).toArray().slice(0, 6);
-          modified_date[1]++
+            let modified_date = dayjs(evento.modified_gmt).toArray().slice(0, 6);
+            modified_date[1]++
 
-          eventos.push({
-            start: start_date,
-            startOutputType: 'local',
-            end: end_date,
-            endOutputType: 'local',
-            organizer: { name: 'IFRS', email: 'processoseletivo@ifrs.edu.br' },
-            title: evento.title.rendered,
-            description: evento.content.rendered.replace(/(<([^>]+)>)/gi, '').replace('\n', ''),
-            htmlContent: evento.content.rendered,
-            url: window.location.origin,
-            status: 'CONFIRMED',
-            classification: 'PUBLIC',
-            created: created_date,
-            lastModified: modified_date,
+            eventos.push({
+              start: start_date,
+              startOutputType: 'local',
+              end: end_date,
+              endOutputType: 'local',
+              organizer: { name: 'IFRS', email: 'processoseletivo@ifrs.edu.br' },
+              title: evento.title.rendered,
+              description: evento.content.rendered.replace(/(<([^>]+)>)/gi, '').replace('\n', ''),
+              htmlContent: evento.content.rendered,
+              url: window.location.origin,
+              status: 'CONFIRMED',
+              classification: 'PUBLIC',
+              created: created_date,
+              lastModified: modified_date,
+            });
           });
+          ics.createEvents(eventos, (error, calendar) => {
+            if (error) console.error(error);
+            const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
+            FileSaver.saveAs(blob, 'ps.ics');
+          });
+        })
+        .catch(err => {
+          console.error(err);
+        })
+        .finally(() => {
+          btn.classList.remove('disabled');
         });
-        ics.createEvents(eventos, (error, calendar) => {
-          if (error) console.error(error);
-          const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
-          FileSaver.saveAs(blob, 'ps.ics');
-        });
-      })
-      .catch(err => {
-        console.error(err);
-      })
-      .finally(() => {
-        btn.classList.remove('disabled');
-      });
     });
   }
 });

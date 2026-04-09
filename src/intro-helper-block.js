@@ -1,9 +1,9 @@
-( function( wp ) {
+(function (wp) {
   const { registerBlockType } = wp.blocks;
   const { __ } = wp.i18n;
   const useBlockProps = (wp.blockEditor && wp.blockEditor.useBlockProps)
     ? wp.blockEditor.useBlockProps
-    : () => ({ });
+    : () => ({});
   const { InspectorControls } = wp.blockEditor || wp.editor;
   const { InnerBlocks, RichText } = wp.blockEditor || wp.editor;
   const { PanelBody, SelectControl, TextControl, Button } = wp.components;
@@ -81,7 +81,7 @@
       },
     },
 
-    edit: ( props ) => {
+    edit: (props) => {
       const { attributes, setAttributes } = props;
       const items = Array.isArray(attributes.items) ? attributes.items : [];
       const title = attributes.title || '';
@@ -129,30 +129,30 @@
             title: __('Configuração dos links', 'ifrs-ps-theme'),
             initialOpen: true,
           },
-          items.map((item, index) => createElement('div', {
-            key: `item-${index}`,
-          },
-          createElement(SelectControl, {
-            label: __('Modalidade', 'ifrs-ps-theme'),
-            value: item.modalidade || '',
-            options,
-            onChange: (value) => updateItem(index, 'modalidade', value),
-          }),
-          createElement(TextControl, {
-            label: __('Frase do link', 'ifrs-ps-theme'),
-            value: item.frase || '',
-            onChange: (value) => updateItem(index, 'frase', value),
-          }),
-          createElement(Button, {
-            variant: 'secondary',
-            isDestructive: true,
-            onClick: () => removeItem(index),
-          }, __('Remover link', 'ifrs-ps-theme'))
-          )),
-          createElement(Button, {
-            variant: 'primary',
-            onClick: addItem,
-          }, __('Adicionar link', 'ifrs-ps-theme'))
+            items.map((item, index) => createElement('div', {
+              key: `item-${index}`,
+            },
+              createElement(SelectControl, {
+                label: __('Modalidade', 'ifrs-ps-theme'),
+                value: item.modalidade || '',
+                options,
+                onChange: (value) => updateItem(index, 'modalidade', value),
+              }),
+              createElement(TextControl, {
+                label: __('Frase do link', 'ifrs-ps-theme'),
+                value: item.frase || '',
+                onChange: (value) => updateItem(index, 'frase', value),
+              }),
+              createElement(Button, {
+                variant: 'secondary',
+                isDestructive: true,
+                onClick: () => removeItem(index),
+              }, __('Remover link', 'ifrs-ps-theme'))
+            )),
+            createElement(Button, {
+              variant: 'primary',
+              onClick: addItem,
+            }, __('Adicionar link', 'ifrs-ps-theme'))
           )
         ),
         createElement('div', { className: 'intro-helper-block' },
@@ -169,20 +169,20 @@
               className: 'intro-helper-block__step',
               key: `step-${index}`,
             },
-            createElement('div', { className: 'intro-helper-block__step-content' },
-              createElement('span', { className: 'intro-helper-block__step-number' }, `${index + 1}`),
-              createElement('div', { className: 'intro-helper-block__step-icon' }, renderStepIcon(step.icon_paths)),
-              createElement('p', { className: 'intro-helper-block__step-text' }, step.text),
-            ),
-            step.link_text &&createElement('a',
-              {
-                'aria-disabled': true,
-                tabIndex: -1,
-                className: 'intro-helper-block__step-link',
-              },
-              step.link_text || 'Link'
-            )
-          ))),
+              createElement('div', { className: 'intro-helper-block__step-content' },
+                createElement('span', { className: 'intro-helper-block__step-number' }, `${index + 1}`),
+                createElement('div', { className: 'intro-helper-block__step-icon' }, renderStepIcon(step.icon_paths)),
+                createElement('p', { className: 'intro-helper-block__step-text' }, step.text),
+              ),
+              step.link_text && createElement('a',
+                {
+                  'aria-disabled': true,
+                  tabIndex: -1,
+                  className: 'intro-helper-block__step-link',
+                },
+                step.link_text || 'Link'
+              )
+            ))),
           createElement(RichText, {
             tagName: 'h3',
             className: 'wp-block-heading intro-helper-block__links-title',
@@ -214,4 +214,4 @@
 
     save: () => createElement(InnerBlocks.Content),
   });
-}( window.wp ));
+}(window.wp));

@@ -1,10 +1,10 @@
-( function( wp ) {
+(function (wp) {
   const { registerBlockType } = wp.blocks;
   const { __ } = wp.i18n;
   const { InspectorControls } = wp.blockEditor || wp.editor;
   const useBlockProps = (wp.blockEditor && wp.blockEditor.useBlockProps)
     ? wp.blockEditor.useBlockProps
-    : () => ({ });
+    : () => ({});
   const { PanelBody, ToggleControl, RangeControl, TextControl } = wp.components;
   const ServerSideRender = wp.serverSideRender;
   const createElement = wp.element.createElement;
@@ -30,7 +30,7 @@
       },
     },
 
-    edit: ( props ) => {
+    edit: (props) => {
       const { attributes, setAttributes } = props;
       const blockProps = useBlockProps();
 
@@ -40,23 +40,23 @@
             title: __('Configurações', 'ifrs-ps-theme'),
             initialOpen: true,
           },
-          createElement(TextControl, {
-            label: __('Título', 'ifrs-ps-theme'),
-            value: attributes.title,
-            onChange: (value) => setAttributes({ title: value }),
-          }),
-          createElement(ToggleControl, {
-            label: __('Ocultar datas já passadas', 'ifrs-ps-theme'),
-            checked: !!attributes.hidePast,
-            onChange: (value) => setAttributes({ hidePast: !!value }),
-          }),
-          createElement(RangeControl, {
-            label: __('Quantidade de eventos', 'ifrs-ps-theme'),
-            value: attributes.postsPerPage,
-            onChange: (value) => setAttributes({ postsPerPage: value }),
-            min: 1,
-            max: 50,
-          }))
+            createElement(TextControl, {
+              label: __('Título', 'ifrs-ps-theme'),
+              value: attributes.title,
+              onChange: (value) => setAttributes({ title: value }),
+            }),
+            createElement(ToggleControl, {
+              label: __('Ocultar datas já passadas', 'ifrs-ps-theme'),
+              checked: !!attributes.hidePast,
+              onChange: (value) => setAttributes({ hidePast: !!value }),
+            }),
+            createElement(RangeControl, {
+              label: __('Quantidade de eventos', 'ifrs-ps-theme'),
+              value: attributes.postsPerPage,
+              onChange: (value) => setAttributes({ postsPerPage: value }),
+              min: 1,
+              max: 50,
+            }))
         ),
         createElement(ServerSideRender, {
           block: 'ifrs-ps/etapas-timeline',
@@ -67,4 +67,4 @@
 
     save: () => null,
   });
-}( window.wp ));
+}(window.wp));

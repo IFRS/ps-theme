@@ -6,7 +6,7 @@ tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new Tooltip(tooltipTriggerEl);
 });
 
-document.querySelectorAll('.menu-social__link').forEach(function(el) {
+document.querySelectorAll('.menu-social__link').forEach(function (el) {
   let texto = el.getAttribute('aria-label');
   new Tooltip(el, {
     placement: 'bottom',
