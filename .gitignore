@@ -1,14 +1,14 @@
-# SASS
-.sass-cache/
-
 # NPM
 /node_modules/
+
+# SASS
+.sass-cache/
 
 # Composer
 /vendor/
 
-# Build
+# Theme Build
 /build/
 
-# Distribution
+# Theme Release
 /dist/
