@@ -3,7 +3,11 @@
   border: 1px solid $border-color;
   border-radius: $border-radius;
   padding: 1.5rem 2rem;
-  width: 100%;
+  max-width: 100%;
+
+  .is-layout-flex > & {
+    flex: 1 1 min-content;
+  }
 
   &__steps {
     display: grid;
