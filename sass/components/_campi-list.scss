@@ -1,6 +1,7 @@
 .campi-list {
     @include media-breakpoint-up(lg) {
         columns: 2 auto;
+        column-gap: 2rem;
     }
 
     margin-top: 2rem;
