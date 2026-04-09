@@ -18,5 +18,4 @@
       --bg-full: url("<?php echo $header_image['full']; ?>");
     }
   </style>
-
 <?php endif; ?>

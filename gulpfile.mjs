@@ -173,7 +173,6 @@ function js() {
 function buildCopy() {
   return src([
     'theme/**/*',
-    'favicons{,/**}',
     // 'fonts{,/**}',
     'img{,/**}',
     '!.**',
@@ -222,22 +221,6 @@ function serve() {
     .on('unlink', function(file) {
       const buildFile = file.replace(/^theme\//, 'build/')
       deleteAsync([buildFile])
-    })
-
-  /* Watch favicons */
-  watch('favicons/**/*')
-    .on('change', function(file) {
-      return src(file, { base: '.' })
-        .pipe(dest('build/'))
-        .pipe(browserSync.stream())
-    })
-    .on('add', function(file) {
-      return src(file, { base: '.' })
-        .pipe(dest('build/'))
-        .pipe(browserSync.stream())
-    })
-    .on('unlink', function(file) {
-      deleteAsync([`build/${file}`])
     })
 
   /* Watch images */

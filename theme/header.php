@@ -7,8 +7,6 @@
   <meta name="author" content="Departamento de Comunicação do IFRS">
   <meta name="keywords" content="ifrs, processo, seletivo, vestibular, ingresso, estudar">
   <meta name="description" content="Site com informações sobre o Processo Seletivo de Estudantes do IFRS.">
-  <!-- Favicons -->
-  <?php if (!has_site_icon()) echo get_template_part('partials/favicons'); ?>
   <!-- WP -->
   <?php wp_head(); ?>
   <?php echo get_template_part('partials/header-image'); ?>
