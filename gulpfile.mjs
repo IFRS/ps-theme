@@ -201,13 +201,13 @@ function serve() {
     proxy: BROWSERSYNC_URL,
   });
 
-  // Watch SASS files
+  /* Watch SASS files */
   watch('sass/**/*.scss', sass)
 
-  // Watch JavaScript source files
+  /* Watch JavaScript source files */
   watch('src/**/*.js', bundle)
 
-  // Watch theme files (hot reload)
+  /* Watch theme files (hot reload) */
   watch('theme/**/*')
     .on('change', function(file) {
       return src(file, { base: 'theme' })
@@ -224,7 +224,7 @@ function serve() {
       deleteAsync([buildFile])
     })
 
-  // Watch favicons
+  /* Watch favicons */
   watch('favicons/**/*')
     .on('change', function(file) {
       return src(file, { base: '.' })
@@ -240,7 +240,7 @@ function serve() {
       deleteAsync([`build/${file}`])
     })
 
-  // Watch images
+  /* Watch images */
   watch('img/**/*')
     .on('change', function(file) {
       return src(file, { base: '.' })
@@ -256,7 +256,7 @@ function serve() {
       deleteAsync([`build/${file}`])
     })
 
-  // Watch build directory
+  /* Watch build directory */
   watch('build/**/*', { ignoreInitial: true, delay: 500 })
     .on('change', browserSync.reload)
 }
