@@ -1,118 +1,94 @@
 <?php
 // Content Width
-if ( ! isset( $content_width ) ) $content_width = 1296;
+if (! isset($content_width)) $content_width = 1296;
 
 // Gutenberg Default Theme Styles
-add_theme_support( 'wp-block-styles' );
+add_theme_support('wp-block-styles');
 
 // Add theme support for Automatic Feed Links
 add_theme_support('automatic-feed-links');
 
 // Add theme support for Featured Images
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 // Add theme support for HTML5 Semantic Markup
-add_theme_support( 'html5', array(
-    'search-form',
-    'comment-form',
-    'comment-list',
-    'gallery',
-    'caption',
-) );
+add_theme_support('html5', array(
+  'search-form',
+  'comment-form',
+  'comment-list',
+  'gallery',
+  'caption',
+));
 
 // Add theme support for Responsive Embeds
-add_theme_support( 'responsive-embeds' );
+add_theme_support('responsive-embeds');
 
 // Add theme support for document <title> tag
-add_theme_support( 'title-tag' );
+add_theme_support('title-tag');
 
 // Media Sizes (from Bootstrap 5)
-add_image_size( 'xs', 576, 576 );
-add_image_size( 'sm', 768, 768 );
-add_image_size( 'md', 992, 992 );
-add_image_size( 'lg', 1200, 1200 );
+add_image_size('xs', 576, 576);
+add_image_size('sm', 768, 768);
+add_image_size('md', 992, 992);
+add_image_size('lg', 1200, 1200);
 
 // Media Sizes for content (medium_large is 768px by default)
-add_action( 'after_switch_theme', function() {
-    update_option( 'thumbnail_size_w', 320 );
-    update_option( 'thumbnail_size_h', 320 );
-    update_option( 'thumbnail_crop', 0 );
+add_action('after_switch_theme', function () {
+  update_option('thumbnail_size_w', 320);
+  update_option('thumbnail_size_h', 320);
+  update_option('thumbnail_crop', 0);
 
-    update_option( 'medium_size_w', 516 );
-    update_option( 'medium_size_h', 516 );
+  update_option('medium_size_w', 516);
+  update_option('medium_size_h', 516);
 
-    update_option( 'large_size_w', 936 );
-    update_option( 'large_size_h', 936 );
-} );
+  update_option('large_size_w', 936);
+  update_option('large_size_h', 936);
+});
 
 // Enable Custom Logo
-add_theme_support( 'custom-logo', array(
-    'height'               => 180,
-    'width'                => 720,
-    'flex-height'          => true,
-    'flex-width'           => true,
-    'header-text'          => array(),
-    'unlink-homepage-logo' => false,
-) );
+add_theme_support('custom-logo', array(
+  'height'               => 180,
+  'width'                => 720,
+  'flex-height'          => true,
+  'flex-width'           => true,
+  'header-text'          => array(),
+  'unlink-homepage-logo' => false,
+));
 
 // Enable Custom Header Image
-add_theme_support( 'custom-header', array(
-    'default-image'          => '',
-    'width'                  => 1920,
-    'height'                 => 480,
-    'flex-height'            => true,
-    'flex-width'             => false,
-    'uploads'                => true,
-    'random-default'         => false,
-    'header-text'            => true,
-    'default-text-color'     => '',
-) );
+add_theme_support('custom-header', array(
+  'default-image'          => '',
+  'width'                  => 1920,
+  'height'                 => 480,
+  'flex-height'            => true,
+  'flex-width'             => false,
+  'uploads'                => true,
+  'random-default'         => false,
+  'header-text'            => true,
+  'default-text-color'     => '',
+));
 
 // Widgets
-add_action('widgets_init', function() {
-    register_sidebar( array(
-        'name'          => 'Faixa Destaque',
-        'id'            => 'faixa_destaque',
-        'description'   => 'Faixa de destaque no topo do site, acima do menu.',
-        'before_widget' => '<div id="%1$s" class="faixa-destaque__widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_sidebar' => '<section class="container"><div id="%1$s" class="faixa-destaque %2$s">',
-        'after_sidebar'  => '</div></section>',
-    ) );
-    register_sidebar(array(
-        'name'           => 'Contato',
-        'id'             => 'contato',
-        'description'    => 'Área de contato no rodapé das páginas.',
-        'before_widget'  => '<div id="%1$s" class="%2$s">',
-        'after_widget'   => '</div>',
-        'before_sidebar' => '<address id="%1$s" class="contato %2$s">',
-        'after_sidebar'  => '</address>',
-    ));
-} );
-
-// Starter Content
-add_action( 'after_setup_theme',function() {
-    add_theme_support('starter-content', array(
-        'posts' => array(
-            'home' => array(
-                'post_title'   => 'Página Inicial',
-                'post_content' => '',
-                'menu_order'   => 0,
-            ),
-            'avisos' => array(
-                'post_title'   => 'Todos os Avisos',
-                'post_content' => '',
-                'menu_order'   => 1,
-            ),
-        ),
-        'options' => array(
-            'show_on_front'  => 'page',
-            'page_on_front'  => '{{home}}',
-            'page_for_posts' => '{{avisos}}',
-            'posts_per_page' => 12,
-        ),
-    ));
-} );
+add_action('widgets_init', function () {
+  register_sidebar(array(
+    'name'          => 'Faixa Destaque',
+    'id'            => 'faixa_destaque',
+    'description'   => 'Faixa de destaque no topo do site, acima do menu.',
+    'before_widget' => '<div id="%1$s" class="faixa-destaque__widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_sidebar' => '<section class="container"><div id="%1$s" class="faixa-destaque %2$s">',
+    'after_sidebar'  => '</div></section>',
+  ));
+  register_sidebar(array(
+    'name'           => 'Contato',
+    'id'             => 'contato',
+    'description'    => 'Área de contato no rodapé das páginas.',
+    'before_widget'  => '<div id="%1$s" class="%2$s">',
+    'after_widget'   => '</div>',
+    'before_sidebar' => '<address id="%1$s" class="contato %2$s">',
+    'after_sidebar'  => '</address>',
+  ));
+});
 
 // YoastSEO Breadcrumbs
-add_theme_support( 'yoast-seo-breadcrumbs' );
+add_theme_support('yoast-seo-breadcrumbs');

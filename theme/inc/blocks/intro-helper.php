@@ -1,5 +1,5 @@
 <?php
-add_action('init', function() {
+add_action('init', function () {
   register_block_type('ifrs-ps/intro-helper', array(
     'api_version'     => 2,
     'render_callback' => 'ifrs_ps_render_intro_helper_block',
@@ -21,7 +21,8 @@ add_action('init', function() {
 });
 
 if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
-  function ifrs_ps_get_intro_helper_steps() {
+  function ifrs_ps_get_intro_helper_steps()
+  {
     return array(
       array(
         'text' => __('Escolha um Campus e Curso', 'ifrs-ps-theme'),
@@ -46,7 +47,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
       ),
       array(
         'text' => __('Realize a prova ou acompanhe o sorteio', 'ifrs-ps-theme'),
-        'link_url' => get_post_type_archive_link( 'evento' ),
+        'link_url' => get_post_type_archive_link('evento'),
         'link_text' => __('Cronograma', 'ifrs-ps-theme'),
         'icon_paths' => array(
           'M14 3v4a1 1 0 0 0 1 1h4',
@@ -81,10 +82,11 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
 }
 
 if (!function_exists('ifrs_ps_get_intro_helper_editor_steps')) {
-  function ifrs_ps_get_intro_helper_editor_steps() {
+  function ifrs_ps_get_intro_helper_editor_steps()
+  {
     $steps = ifrs_ps_get_intro_helper_steps();
 
-    return array_map(function($step) {
+    return array_map(function ($step) {
       return array(
         'text' => !empty($step['text']) ? wp_kses_post($step['text']) : '',
         'link_text' => !empty($step['link_text']) ? wp_kses_post($step['link_text']) : null,
@@ -95,7 +97,8 @@ if (!function_exists('ifrs_ps_get_intro_helper_editor_steps')) {
 }
 
 if (!function_exists('ifrs_ps_get_intro_helper_editor_modalidades')) {
-  function ifrs_ps_get_intro_helper_editor_modalidades() {
+  function ifrs_ps_get_intro_helper_editor_modalidades()
+  {
     $terms = get_terms(array(
       'taxonomy'   => 'modalidade',
       'hide_empty' => false,
@@ -105,7 +108,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_editor_modalidades')) {
       return array();
     }
 
-    return array_map(function($term) {
+    return array_map(function ($term) {
       return array(
         'slug' => sanitize_title($term->slug),
         'name' => sanitize_text_field($term->name),
@@ -114,7 +117,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_editor_modalidades')) {
   }
 }
 
-add_action('enqueue_block_editor_assets', function() {
+add_action('enqueue_block_editor_assets', function () {
   if (!wp_script_is('ps-intro-helper-block', 'enqueued')) {
     return;
   }
@@ -132,7 +135,8 @@ add_action('enqueue_block_editor_assets', function() {
 }, 100);
 
 if (!function_exists('ifrs_ps_get_intro_helper_step_icon')) {
-  function ifrs_ps_get_intro_helper_step_icon($index) {
+  function ifrs_ps_get_intro_helper_step_icon($index)
+  {
     $steps = ifrs_ps_get_intro_helper_steps();
     $step = !empty($steps[(int) $index]) ? $steps[(int) $index] : array();
     $icon_paths = !empty($step['icon_paths']) && is_array($step['icon_paths'])
@@ -156,7 +160,8 @@ if (!function_exists('ifrs_ps_get_intro_helper_step_icon')) {
 }
 
 if (!function_exists('ifrs_ps_render_intro_helper_block')) {
-  function ifrs_ps_render_intro_helper_block($attributes, $content = '') {
+  function ifrs_ps_render_intro_helper_block($attributes, $content = '')
+  {
     $items = !empty($attributes['items']) && is_array($attributes['items'])
       ? $attributes['items']
       : array();
@@ -178,16 +183,16 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
     }
 
     ob_start();
-    ?>
+?>
     <div class="intro-helper-block">
       <?php if (!empty($title)) : ?>
         <?php
-          echo do_blocks(
-            sprintf(
-              '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">%s</h2><!-- /wp:heading -->',
-              wp_kses_post($title)
-            )
-          );
+        echo do_blocks(
+          sprintf(
+            '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">%s</h2><!-- /wp:heading -->',
+            wp_kses_post($title)
+          )
+        );
         ?>
       <?php endif; ?>
 
@@ -210,12 +215,12 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
 
       <?php if (!empty($links_title)) : ?>
         <?php
-          echo do_blocks(
-            sprintf(
-              '<!-- wp:heading {"level":3,"className":"intro-helper-block__links-title"} --><h3 class="wp-block-heading intro-helper-block__links-title">%s</h3><!-- /wp:heading -->',
-              wp_kses_post($links_title)
-            )
-          );
+        echo do_blocks(
+          sprintf(
+            '<!-- wp:heading {"level":3,"className":"intro-helper-block__links-title"} --><h3 class="wp-block-heading intro-helper-block__links-title">%s</h3><!-- /wp:heading -->',
+            wp_kses_post($links_title)
+          )
+        );
         ?>
       <?php endif; ?>
 
@@ -227,26 +232,26 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
         <div class="intro-helper-block__links">
           <?php foreach ($items as $item) : ?>
             <?php
-              if (!is_array($item)) {
-                continue;
-              }
+            if (!is_array($item)) {
+              continue;
+            }
 
-              $modalidade = !empty($item['modalidade']) ? sanitize_title($item['modalidade']) : '';
-              $frase = !empty($item['frase']) ? sanitize_text_field($item['frase']) : '';
+            $modalidade = !empty($item['modalidade']) ? sanitize_title($item['modalidade']) : '';
+            $frase = !empty($item['frase']) ? sanitize_text_field($item['frase']) : '';
 
-              if (empty($modalidade) || empty($frase) || !term_exists($modalidade, 'modalidade')) {
-                continue;
-              }
+            if (empty($modalidade) || empty($frase) || !term_exists($modalidade, 'modalidade')) {
+              continue;
+            }
             ?>
             <form method="POST" action="<?php echo esc_url($action); ?>">
-              <input type="hidden" name="modalidade" value="<?php echo esc_attr($modalidade); ?>"/>
+              <input type="hidden" name="modalidade" value="<?php echo esc_attr($modalidade); ?>" />
               <button type="submit" class="btn btn-link"><?php echo esc_html($frase); ?></button>
             </form>
           <?php endforeach; ?>
         </div>
       <?php endif; ?>
     </div>
-    <?php
+<?php
 
     return ob_get_clean();
   }

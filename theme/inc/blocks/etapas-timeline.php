@@ -22,7 +22,8 @@ add_action("init", function () {
 });
 
 if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
-  function ifrs_ps_render_etapas_timeline_block($attributes) {
+  function ifrs_ps_render_etapas_timeline_block($attributes)
+  {
     $title = !empty($attributes["title"])
       ? wp_kses_post($attributes["title"])
       : esc_html__("Próximas datas importantes", "ifrs-ps-theme");
@@ -65,7 +66,7 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
     ]);
 
     ob_start();
-    ?>
+?>
     <section class="etapas-timeline">
       <?php
       echo do_blocks(
@@ -76,88 +77,88 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
       );
       ?>
       <?php if ($eventos->have_posts()) : ?>
-      <ol class="etapas-timeline__list">
-        <?php while ($eventos->have_posts()):
-          $eventos->the_post();
-          $data_inicio = (int) get_post_meta(
-            get_the_ID(),
-            "_evento_data-inicio",
-            true,
-          );
-          $data_fim = (int) get_post_meta(
-            get_the_ID(),
-            "_evento_data-fim",
-            true,
-          );
+        <ol class="etapas-timeline__list">
+          <?php while ($eventos->have_posts()):
+            $eventos->the_post();
+            $data_inicio = (int) get_post_meta(
+              get_the_ID(),
+              "_evento_data-inicio",
+              true,
+            );
+            $data_fim = (int) get_post_meta(
+              get_the_ID(),
+              "_evento_data-fim",
+              true,
+            );
 
-          $evento_passou = $data_fim > 0 ? $data_fim < $agora : false;
-          $evento_atual =
-            $data_inicio > 0 && $data_fim > 0
+            $evento_passou = $data_fim > 0 ? $data_fim < $agora : false;
+            $evento_atual =
+              $data_inicio > 0 && $data_fim > 0
               ? $data_inicio <= $agora && $data_fim >= $agora
               : false;
-          $evento_mesmo_dia =
-            $data_inicio > 0 && $data_fim > 0
+            $evento_mesmo_dia =
+              $data_inicio > 0 && $data_fim > 0
               ? date_i18n("Ymd", $data_inicio) === date_i18n("Ymd", $data_fim)
               : false;
 
-          if ($data_inicio > 0 && $data_fim > 0) {
-            $periodo = $evento_mesmo_dia
-              ? date_i18n("d/m/Y", $data_fim)
-              : date_i18n("d/m/Y", $data_inicio) .
+            if ($data_inicio > 0 && $data_fim > 0) {
+              $periodo = $evento_mesmo_dia
+                ? date_i18n("d/m/Y", $data_fim)
+                : date_i18n("d/m/Y", $data_inicio) .
                 " a " .
                 date_i18n("d/m/Y", $data_fim);
-          } elseif ($data_inicio > 0) {
-            $periodo = date_i18n("d/m/Y", $data_inicio);
-          } else {
-            $periodo = esc_html__("Sem data", "ifrs-ps-theme");
-          }
+            } elseif ($data_inicio > 0) {
+              $periodo = date_i18n("d/m/Y", $data_inicio);
+            } else {
+              $periodo = esc_html__("Sem data", "ifrs-ps-theme");
+            }
 
-          $item_class = "etapa";
-          if ($evento_atual) {
-            $item_class .= " etapa--atual";
-          } elseif ($evento_passou) {
-            $item_class .= " etapa--passado";
-          }
+            $item_class = "etapa";
+            if ($evento_atual) {
+              $item_class .= " etapa--atual";
+            } elseif ($evento_passou) {
+              $item_class .= " etapa--passado";
+            }
 
-          $evento_tipo = get_post_meta(get_the_ID(), "_evento_tipo", true);
-        ?>
-          <li class="<?php echo esc_attr($item_class); ?>">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="etapa__icone">
-              <?php echo $icon_paths[$evento_tipo] ?? $icon_paths[""]; ?>
-            </svg>
+            $evento_tipo = get_post_meta(get_the_ID(), "_evento_tipo", true);
+          ?>
+            <li class="<?php echo esc_attr($item_class); ?>">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="etapa__icone">
+                <?php echo $icon_paths[$evento_tipo] ?? $icon_paths[""]; ?>
+              </svg>
 
-            <div class="etapa__conteudo">
-              <h3 class="etapa__titulo">
-                <?php the_title(); ?>
-              </h3>
-              <p class="etapa__periodo">
-                <?php echo esc_html($periodo); ?>
-              </p>
-            </div>
-          </li>
+              <div class="etapa__conteudo">
+                <h3 class="etapa__titulo">
+                  <?php the_title(); ?>
+                </h3>
+                <p class="etapa__periodo">
+                  <?php echo esc_html($periodo); ?>
+                </p>
+              </div>
+            </li>
           <?php
-        endwhile; ?>
+          endwhile; ?>
         </ol>
-        <?php else : ?>
-          <p>
-            <?php echo esc_html__("Nenhuma data importante cadastrada no momento.", "ifrs-ps-theme"); ?>
-          </p>
-        <?php endif; ?>
-        <?php
-        $eventos_archive_link = get_post_type_archive_link("evento");
+      <?php else : ?>
+        <p>
+          <?php echo esc_html__("Nenhuma data importante cadastrada no momento.", "ifrs-ps-theme"); ?>
+        </p>
+      <?php endif; ?>
+      <?php
+      $eventos_archive_link = get_post_type_archive_link("evento");
 
-        if (!empty($eventos_archive_link)) {
-          echo do_blocks(
-            sprintf(
-              '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
-              esc_url($eventos_archive_link),
-              esc_html__("Confira todas as Datas Importantes", "ifrs-ps-theme"),
-            ),
-          );
-        }
-        ?>
+      if (!empty($eventos_archive_link)) {
+        echo do_blocks(
+          sprintf(
+            '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
+            esc_url($eventos_archive_link),
+            esc_html__("Confira todas as Datas Importantes", "ifrs-ps-theme"),
+          ),
+        );
+      }
+      ?>
     </section>
-    <?php
+<?php
     wp_reset_postdata();
 
     return ob_get_clean();

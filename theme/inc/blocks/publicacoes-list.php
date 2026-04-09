@@ -1,5 +1,5 @@
 <?php
-add_action('init', function() {
+add_action('init', function () {
   register_block_type('ifrs-ps/publicacoes-list', array(
     'api_version'     => 2,
     'editor_script'   => 'ps-publicacoes-list-block',
@@ -18,7 +18,8 @@ add_action('init', function() {
 });
 
 if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
-  function ifrs_ps_render_publicacoes_list_block($attributes = array()) {
+  function ifrs_ps_render_publicacoes_list_block($attributes = array())
+  {
     $title = !empty($attributes['title'])
       ? wp_kses_post($attributes['title'])
       : esc_html__('Últimas Publicações', 'ifrs-ps-theme');
@@ -39,16 +40,16 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
     $eventos_link = get_post_type_archive_link('evento');
 
     ob_start();
-    ?>
+?>
     <div class="publicacoes-list-block">
       <section class="publicacoes">
         <?php
-          echo do_blocks(
-            sprintf(
-              '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">%s</h2><!-- /wp:heading -->',
-              $title
-            )
-          );
+        echo do_blocks(
+          sprintf(
+            '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">%s</h2><!-- /wp:heading -->',
+            $title
+          )
+        );
         ?>
 
         <?php if (!empty($desc)) : ?>
@@ -59,23 +60,23 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
 
         <?php if ($publicacoes->have_posts()) : ?>
           <ul class="publicacoes__list">
-          <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
-            <li class="publicacoes__item">
-              <h3 class="publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-              <p class="publicacoes__item-meta" data-bs-toggle="tooltip" data-bs-placement="right" title="<?php echo esc_attr(get_the_modified_date('d/m/Y') . ' - ' . get_the_modified_time('G\\hi')); ?>">atualizado <?php echo esc_html(ps_relative_past_time(get_the_modified_date('c'))); ?></p>
-              <?php the_excerpt(); ?>
-            </li>
-          <?php endwhile; ?>
+            <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
+              <li class="publicacoes__item">
+                <h3 class="publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                <p class="publicacoes__item-meta" data-bs-toggle="tooltip" data-bs-placement="right" title="<?php echo esc_attr(get_the_modified_date('d/m/Y') . ' - ' . get_the_modified_time('G\\hi')); ?>">atualizado <?php echo esc_html(ps_relative_past_time(get_the_modified_date('c'))); ?></p>
+                <?php the_excerpt(); ?>
+              </li>
+            <?php endwhile; ?>
           </ul>
           <?php if (!empty($publicacoes_link)) : ?>
             <?php
-              echo do_blocks(
-                sprintf(
-                  '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
-                  esc_url($publicacoes_link),
-                  esc_html__('Todos os Documentos Publicados', 'ifrs-ps-theme')
-                )
-              );
+            echo do_blocks(
+              sprintf(
+                '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
+                esc_url($publicacoes_link),
+                esc_html__('Todos os Documentos Publicados', 'ifrs-ps-theme')
+              )
+            );
             ?>
           <?php endif; ?>
         <?php else : ?>
@@ -85,7 +86,7 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
         <?php endif; ?>
       </section>
     </div>
-    <?php
+<?php
 
     wp_reset_postdata();
 
