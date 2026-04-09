@@ -6,11 +6,15 @@ body.admin-bar {
 
 nav.menu {
     background-color: $gray-100;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid $gray-400;
 
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    @include media-breakpoint-up(md) {
+      border: none;
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 }
 
 .menu-principal {
