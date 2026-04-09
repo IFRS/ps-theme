@@ -1,98 +1,109 @@
 .menu-social {
+  display: inline-block;
+  font-size: 0;
+  list-style: none;
+  padding: 0;
+
+  &__item {
     display: inline-block;
-    font-size: 0;
-    list-style: none;
-    padding: 0;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    width: 38px;
+    height: 38px;
 
-    &__item {
-        display: inline-block;
-        font-size: 1rem;
-        margin-right: 0.5rem;
-        width: 38px;
-        height: 38px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
-        &:last-child {
-            margin-right: 0;
-        }
+  &__link {
+    background-color: $accent;
+    border-radius: $border-radius-xl;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
     }
 
-    &__link {
-        background-color: $accent;
-        border-radius: $border-radius-xl;
-        width: 100%; height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &--facebook {
+
+      &:hover,
+      &:focus {
+        background-color: #1877f2;
+        border-color: #1877f2;
 
         svg {
-            width: 18px;
-            height: 18px;
-            flex: 0 0 auto;
+          path {
+            fill: #ffffff;
+          }
         }
-
-        &--facebook {
-            &:hover,
-            &:focus {
-                background-color: #1877f2;
-                border-color: #1877f2;
-                svg {
-                    path {
-                        fill: #ffffff;
-                    }
-                }
-            }
-        }
-
-        &--twitter {
-            &:hover,
-            &:focus {
-                background-color: #14171a;
-                border-color: #14171a;
-                svg {
-                    path {
-                        fill: #ffffff;
-                    }
-                }
-            }
-        }
-
-        &--instagram {
-            &:hover,
-            &:focus {
-                background-color: #e1306c;
-                border-color: #e1306c;
-                svg {
-                    path {
-                        fill: #ffffff;
-                    }
-                }
-            }
-        }
-
-        &--youtube {
-            &:hover,
-            &:focus {
-                background-color: #ff0000;
-                border-color: #ff0000;
-                svg {
-                    path {
-                        fill: #ffffff;
-                    }
-                }
-            }
-        }
-
-        &--linkedin {
-            &:hover,
-            &:focus {
-                background-color: #0A66C2;
-                border-color: #0A66C2;
-                svg {
-                    path {
-                        fill: #ffffff;
-                    }
-                }
-            }
-        }
+      }
     }
+
+    &--twitter {
+
+      &:hover,
+      &:focus {
+        background-color: #14171a;
+        border-color: #14171a;
+
+        svg {
+          path {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+
+    &--instagram {
+
+      &:hover,
+      &:focus {
+        background-color: #e1306c;
+        border-color: #e1306c;
+
+        svg {
+          path {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+
+    &--youtube {
+
+      &:hover,
+      &:focus {
+        background-color: #ff0000;
+        border-color: #ff0000;
+
+        svg {
+          path {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+
+    &--linkedin {
+
+      &:hover,
+      &:focus {
+        background-color: #0A66C2;
+        border-color: #0A66C2;
+
+        svg {
+          path {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+  }
 }

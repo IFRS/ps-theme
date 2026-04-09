@@ -1,26 +1,26 @@
 .edital {
-    margin-bottom: $grid-gutter-width;
+  margin-bottom: $grid-gutter-width;
 
-    &__title {
-        @extend %ps-title;
+  &__title {
+    @extend %ps-title;
 
-        font-size: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  &__date {
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  &__content {
+    .list-group-item {
+      word-wrap: break-word;
     }
+  }
 
-    &__date {
-        font-size: 12px;
-        font-style: italic;
-    }
-
-    &__content {
-        .list-group-item {
-            word-wrap: break-word;
-        }
-    }
-
-    &__files-title {
-        font-size: 1.5rem;
-        margin: 0;
-        text-align: center;
-    }
+  &__files-title {
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center;
+  }
 }

@@ -1,37 +1,37 @@
 .chamada-single {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 
-    &__title {
-        @extend %ps-title;
+  &__title {
+    @extend %ps-title;
 
-        &--campus,
-        &--formaingresso {
-            &::before {
-                content: ' | ';
-            }
-        }
+    &--campus,
+    &--formaingresso {
+      &::before {
+        content: ' | ';
+      }
+    }
+  }
+
+  &__documento-link {
+    &::after {
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      content: '';
+      display: block;
+      float: right;
+      padding: 5px;
+      transform: rotate(45deg);
+      transition: transform 0.2s;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
-    &__documento-link {
-        &::after {
-            border: solid black;
-            border-width: 0 3px 3px 0;
-            content: '';
-            display: block;
-            float: right;
-            padding: 5px;
-            transform: rotate(45deg);
-            transition: transform 0.2s;
-
-            @media (prefers-reduced-motion: reduce) {
-                transition: none;
-            }
-        }
-
-        &.collapsed {
-            &::after {
-                transform: rotate(-45deg);
-            }
-        }
+    &.collapsed {
+      &::after {
+        transform: rotate(-45deg);
+      }
     }
+  }
 }

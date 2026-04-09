@@ -1,11 +1,11 @@
 .contato {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 
-    @include media-breakpoint-up(md) {
-        text-align: right;
-    }
+  @include media-breakpoint-up(md) {
+    text-align: right;
+  }
 
-    p {
-        margin-bottom: 0.25rem;
-    }
+  p {
+    margin-bottom: 0.25rem;
+  }
 }

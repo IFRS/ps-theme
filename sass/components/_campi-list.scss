@@ -1,40 +1,40 @@
 .campi-list {
-    @include media-breakpoint-up(lg) {
-        columns: 2 auto;
-        column-gap: 2rem;
+  @include media-breakpoint-up(lg) {
+    columns: 2 auto;
+    column-gap: 2rem;
+  }
+
+  margin-top: 2rem;
+
+  &__item {
+    page-break-inside: avoid; // Firefox
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    position: relative;
+
+    &::after {
+      background: $accent;
+      content: '';
+      position: absolute;
+      width: 40%;
+      height: 4px;
+      bottom: 0;
+      left: 0;
     }
 
-    margin-top: 2rem;
-
-    &__item {
-        page-break-inside: avoid; // Firefox
-        break-inside: avoid;
-        margin-bottom: 2rem;
-        padding-bottom: 1.2rem;
-        position: relative;
-
-        &::after {
-            background: $accent;
-            content: '';
-            position: absolute;
-            width: 40%;
-            height: 4px;
-            bottom: 0;
-            left: 0;
-        }
-
-        &:last-child {
-            &::after {
-                content: none;
-                height: 0;
-                width: 0;
-            }
-        }
+    &:last-child {
+      &::after {
+        content: none;
+        height: 0;
+        width: 0;
+      }
     }
+  }
 
-    &__title {
-        color: $gray-800;
-        margin-bottom: 5px;
-        font-size: 1.2rem;
-    }
+  &__title {
+    color: $gray-800;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
 }

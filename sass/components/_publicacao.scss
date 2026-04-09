@@ -1,18 +1,18 @@
 @use "sass:math";
 
 .publicacao {
-    margin-bottom: $grid-gutter-width;
+  margin-bottom: $grid-gutter-width;
 
-    &__title {
-        @extend %ps-title;
-    }
+  &__title {
+    @extend %ps-title;
+  }
 
-    &__date {
-        font-size: 12px;
-        font-style: italic;
-    }
+  &__date {
+    font-size: 12px;
+    font-style: italic;
+  }
 
-    &__content {
-        margin-top: math.div($grid-gutter-width, 2);
-    }
+  &__content {
+    margin-top: math.div($grid-gutter-width, 2);
+  }
 }

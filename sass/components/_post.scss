@@ -1,50 +1,50 @@
 @use "sass:math";
 
 .post {
-    margin-bottom: $grid-gutter-width * 2;
+  margin-bottom: $grid-gutter-width * 2;
 
-    &__title {
-        @extend %ps-title;
+  &__title {
+    @extend %ps-title;
+  }
+
+  &__thumb {
+    width: 50%;
+    height: auto;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 15px;
+  }
+
+  &__content {
+    margin-top: math.div($grid-gutter-width, 2);
+
+    img {
+      @extend .img-fluid;
     }
+  }
 
-    &__thumb {
-        width: 50%;
-        height: auto;
-        float: left;
-        margin-right: 30px;
-        margin-bottom: 15px;
+  &__meta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: 1rem 0;
+
+    >* {
+      margin: 0;
     }
+  }
 
-    &__content {
-        margin-top: math.div($grid-gutter-width, 2);
+  &__categories {
+    list-style: none;
 
-        img {
-            @extend .img-fluid;
-        }
+    li {
+      display: inline-block;
+      margin-right: 4px;
+      margin-bottom: 4px;
     }
-
-    &__meta {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.9rem;
-        font-style: italic;
-        margin: 1rem 0;
-
-        > * {
-            margin: 0;
-        }
-    }
-
-    &__categories {
-        list-style: none;
-
-        li {
-            display: inline-block;
-            margin-right: 4px;
-            margin-bottom: 4px;
-        }
-    }
+  }
 }

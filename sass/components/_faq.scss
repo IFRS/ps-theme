@@ -1,49 +1,49 @@
 .faq {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 
-    &__busca {
-        margin-bottom: 15px;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 360px;
+  &__busca {
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+  }
+
+  &__perguntas {
+    margin-bottom: 0;
+    padding: 0;
+
+    @include media-breakpoint-up(lg) {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    &__perguntas {
+    @include media-breakpoint-up(xl) {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .accordion-item {
+      margin-bottom: 0;
+    }
+
+    .accordion-button {
+      &:not(.collapsed) {
+        font-weight: bold;
+      }
+    }
+
+    .accordion-collapse {
+      margin-bottom: 0;
+    }
+
+    .accordion-body {
+      font-size: 0.9rem;
+
+      p:last-of-type {
         margin-bottom: 0;
-        padding: 0;
-
-        @include media-breakpoint-up(lg) {
-            width: 75%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @include media-breakpoint-up(xl) {
-            width: 50%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .accordion-item {
-            margin-bottom: 0;
-        }
-
-        .accordion-button {
-            &:not(.collapsed) {
-                font-weight: bold;
-            }
-        }
-
-        .accordion-collapse {
-            margin-bottom: 0;
-        }
-
-        .accordion-body {
-            font-size: 0.9rem;
-
-            p:last-of-type {
-                margin-bottom: 0;
-            }
-        }
+      }
     }
+  }
 }

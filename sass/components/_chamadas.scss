@@ -1,68 +1,68 @@
 .chamadas {
-    $shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
+  $shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
 
-    background-color: transparent;
-    padding: 1.5rem 0;
+  background-color: transparent;
+  padding: 1.5rem 0;
+  text-align: center;
+
+  &__title {
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    font-size: minmax(1.5rem, 2.5rem);
+    font-weight: bold;
     text-align: center;
+    text-shadow: $shadow;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
 
-    &__title {
-        color: #ffffff;
-        margin: 0 0 1rem 0;
-        font-size: minmax(1.5rem, 2.5rem);
-        font-weight: bold;
-        text-align: center;
-        text-shadow: $shadow;
-        word-wrap: break-word;
-        hyphens: auto;
+  &__ou {
+    color: $gray-200;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    margin: 1rem 0;
+
+    &::before {
+      content: '';
+      background-color: $gray-400;
+      display: inline-block;
+      margin-right: 0.5rem;
+      width: 100%;
+      height: 1px;
     }
 
-    &__ou {
-        color: $gray-200;
-        display: flex;
-        align-items: center;
-        font-size: 2rem;
-        font-weight: bold;
-        line-height: 1;
-        margin: 1rem 0;
-
-        &::before {
-            content: '';
-            background-color: $gray-400;
-            display: inline-block;
-            margin-right: 0.5rem;
-            width: 100%;
-            height: 1px;
-        }
-
-        &::after {
-            content: '';
-            background-color: $gray-400;
-            display: inline-block;
-            margin-left: 0.5rem;
-            width: 100%;
-            height: 1px;
-        }
+    &::after {
+      content: '';
+      background-color: $gray-400;
+      display: inline-block;
+      margin-left: 0.5rem;
+      width: 100%;
+      height: 1px;
     }
+  }
 
-    > p {
-        color: #ffffff;
-        margin-bottom: 1.5rem;
-        text-shadow: $shadow;
+  > p {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-shadow: $shadow;
 
-        a {
-            color: inherit
-        }
+    a {
+      color: inherit
     }
+  }
 }
 
 .btn-campus {
-    @include button-variant($gray-200, $gray-300, $gray-800, $primary-shade, $primary-shade, color-contrast($primary-shade));
+  @include button-variant($gray-200, $gray-300, $gray-800, $primary-shade, $primary-shade, color-contrast($primary-shade));
 
-    margin: 0.5rem 0.5rem;
-    text-align: center;
-    text-transform: uppercase;
+  margin: 0.5rem 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
 
-    &.active {
-        @include button-variant($primary-shade, $primary-shade, #ffffff, $gray-200, $gray-300, $gray-800);
-    }
+  &.active {
+    @include button-variant($primary-shade, $primary-shade, #ffffff, $gray-200, $gray-300, $gray-800);
+  }
 }

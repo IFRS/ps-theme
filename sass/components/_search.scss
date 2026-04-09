@@ -1,16 +1,16 @@
 .search {
-    &__title {
-        @extend %ps-title;
+  &__title {
+    @extend %ps-title;
 
-        margin-bottom: 30px;
-    }
+    margin-bottom: 30px;
+  }
 
-    &__entry {
-        margin-bottom: 15px;
-    }
+  &__entry {
+    margin-bottom: 15px;
+  }
 
-    &__entry-title {
-        font-size: 1.6rem;
-        margin: 0;
-    }
+  &__entry-title {
+    font-size: 1.6rem;
+    margin: 0;
+  }
 }

@@ -1,14 +1,14 @@
 .searchform {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 
-    &__submit {
-        @include button-variant($gray-300, $border-color);
+  &__submit {
+    @include button-variant($gray-300, $border-color);
 
-        fill: $body-color;
+    fill: $body-color;
 
-        &:hover,
-        &:focus {
-            fill: $accent;
-        }
+    &:hover,
+    &:focus {
+      fill: $accent;
     }
+  }
 }

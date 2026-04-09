@@ -1,15 +1,15 @@
 footer {
-    background-color: #ffffff;
-    color: $gray-800;
-    padding-top: $grid-gutter-width * 2;
-    padding-bottom: $grid-gutter-width;
+  background-color: #ffffff;
+  color: $gray-800;
+  padding-top: $grid-gutter-width * 2;
+  padding-bottom: $grid-gutter-width;
 
-    a {
-        color: #000000;
-        font-weight: bold;
+  a {
+    color: #000000;
+    font-weight: bold;
 
-        &:hover {
-            color: inherit;
-        }
+    &:hover {
+      color: inherit;
     }
+  }
 }

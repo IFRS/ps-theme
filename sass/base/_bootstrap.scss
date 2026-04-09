@@ -1,42 +1,42 @@
 .accordion-item {
+  .badge {
+    border-bottom-left-radius: 0;
+  }
+
+  &:first-of-type {
     .badge {
-        border-bottom-left-radius: 0;
+      border-left: 1px solid $accordion-border-color;
+      margin-left: -1px;
     }
+  }
 
-    &:first-of-type {
-        .badge {
-            border-left: 1px solid $accordion-border-color;
-            margin-left: -1px;
-        }
+  &:not(:first-of-type) {
+    .badge {
+      border-top-left-radius: 0;
     }
-
-    &:not(:first-of-type) {
-        .badge {
-            border-top-left-radius: 0;
-        }
-    }
+  }
 }
 
 .alert {
-    p {
-        margin-bottom: 0;
-    }
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .navbar-light {
-    .navbar-toggler {
-        background-color: $accent;
-    }
+  .navbar-toggler {
+    background-color: $accent;
+  }
 }
 
 .pagination {
-    .page-item {
-        a {
-            @extend .page-link;
-        }
-
-        .current {
-            @extend .page-link;
-        }
+  .page-item {
+    a {
+      @extend .page-link;
     }
+
+    .current {
+      @extend .page-link;
+    }
+  }
 }

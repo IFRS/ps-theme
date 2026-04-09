@@ -1,21 +1,21 @@
 .editais {
+  margin-bottom: 2rem;
+
+  &__title+&__text {
+    margin-top: -1.5rem;
+  }
+
+  &__text {
     margin-bottom: 2rem;
+  }
 
-    &__title + &__text {
-        margin-top: -1.5rem;
+  .list-group {
+    .child {
+      padding-left: 1.5rem;
     }
+  }
 
-    &__text {
-        margin-bottom: 2rem;
-    }
-
-    .list-group {
-        .child {
-            padding-left: 1.5rem;
-        }
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
+  h3 {
+    font-size: 1.5rem;
+  }
 }

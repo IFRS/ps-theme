@@ -1,62 +1,71 @@
 @use "sass:math";
 
 .cursos {
+  margin-bottom: 2rem;
+
+  &__text {
     margin-bottom: 2rem;
+  }
 
-    &__text {
-        margin-bottom: 2rem;
+  &__filters {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__list {
+    display: grid;
+    gap: $grid-gutter-width;
+    margin: $grid-gutter-width 0;
+    grid-template-columns: 1fr;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    &__filters {
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    &__list {
-        display: grid;
-        gap: $grid-gutter-width;
-        margin: $grid-gutter-width 0;
-        grid-template-columns: 1fr;
-
-        @include media-breakpoint-up(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        @include media-breakpoint-up(lg) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        @include media-breakpoint-up(xl) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+  }
 }
 
 .curso {
-    background-color: var(--bs-primary-bg-subtle);
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    box-shadow: var(--bs-box-shadow-sm);
-    color: var(--bs-primary-text-emphasis);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    padding: 1rem;
-    position: relative;
-    width: 100%;
+  background-color: var(--bs-primary-bg-subtle);
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  box-shadow: var(--bs-box-shadow-sm);
+  color: var(--bs-primary-text-emphasis);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
 
-    &__header {
-        margin-bottom: 0.25rem;
-    }
+  &__header {
+    margin-bottom: 0.25rem;
+  }
 
-    &__title {
-        font-size: 1.5rem;
-    }
+  &__title {
+    font-size: 1.5rem;
+  }
 
-    &__help {
-        cursor: help;
-        font-size: 0.875em;
-        font-weight: 500;
-        margin-inline-start: 0.1rem;
-        text-decoration: dotted underline;
-    }
+  &__help {
+    cursor: help;
+    font-size: 0.875em;
+    font-weight: 500;
+    margin-inline-start: 0.1rem;
+    text-decoration: dotted underline;
+  }
 
-    &__footer {
-        margin-top: auto;
-        p {
-            margin-bottom: 0;
-        }
+  &__footer {
+    margin-top: auto;
+
+    p {
+      margin-bottom: 0;
     }
+  }
 }

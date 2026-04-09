@@ -1,85 +1,86 @@
 body.admin-bar {
-    nav.menu {
-        top: var(--wp-admin--admin-bar--height, 46px);
-    }
+  nav.menu {
+    top: var(--wp-admin--admin-bar--height, 46px);
+  }
 }
 
 nav.menu {
-    background-color: $gray-100;
-    border-bottom: 2px solid $gray-400;
+  background-color: $gray-100;
+  border-bottom: 2px solid $gray-400;
 
-    @include media-breakpoint-up(md) {
-      border: none;
-      box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  @include media-breakpoint-up(md) {
+    border: none;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 }
 
 .menu-principal {
-    @include list-unstyled();
+  @include list-unstyled();
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
 
+  margin: 0;
+
+  .nav-item {
+    flex: 0 1 auto;
     margin: 0;
+    text-transform: uppercase;
+  }
 
-    .nav-item {
-        flex: 0 1 auto;
-        margin: 0;
-        text-transform: uppercase;
+  .nav-link {
+    border-bottom: 4px solid transparent;
+    color: color-contrast($gray-100);
+    font-weight: 500;
+    padding: ($btn-padding-y * 3) $btn-padding-x;
+
+    &:hover,
+    &:focus {
+      border-bottom-color: $primary;
     }
 
-    .nav-link {
-        border-bottom: 4px solid transparent;
-        color: color-contrast($gray-100);
-        font-weight: 500;
-        padding: ($btn-padding-y * 3) $btn-padding-x;
-
-        &:hover,
-        &:focus {
-            border-bottom-color: $primary;
-        }
-
-        &.active {
-            font-weight: bold;
-            border-bottom-color: $primary;
-        }
-
-        &.destaque {
-            &:hover,
-            &:focus {
-                border-bottom-color: transparent;
-            }
-        }
+    &.active {
+      font-weight: bold;
+      border-bottom-color: $primary;
     }
 
-    .dropdown-toggle {
-        &::after {
-            transition: transform 500ms;
+    &.destaque {
 
-            @media (prefers-reduced-motion: reduce) {
-                transition: none;
-            }
-        }
+      &:hover,
+      &:focus {
+        border-bottom-color: transparent;
+      }
+    }
+  }
 
-        &.show {
-            &::after {
-                transform: rotateX(-540deg);
-            }
-        }
+  .dropdown-toggle {
+    &::after {
+      transition: transform 500ms;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
-    // .current-menu-item,
-    .current-menu-ancestor {
-        > .nav-link {
-            border-bottom-color: $primary;
-            font-weight: bold;
-        }
+    &.show {
+      &::after {
+        transform: rotateX(-540deg);
+      }
     }
+  }
+
+  // .current-menu-item,
+  .current-menu-ancestor {
+    > .nav-link {
+      border-bottom-color: $primary;
+      font-weight: bold;
+    }
+  }
 }
