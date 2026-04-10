@@ -1,17 +1,4 @@
-.chamada-single {
-  margin-bottom: 2rem;
-
-  &__title {
-    @extend %ps-title;
-
-    &--campus,
-    &--formaingresso {
-      &::before {
-        content: ' | ';
-      }
-    }
-  }
-
+.chamada {
   &__documento-link {
     &::after {
       border: solid black;

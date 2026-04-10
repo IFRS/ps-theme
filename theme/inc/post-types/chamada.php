@@ -134,7 +134,7 @@ add_action('cmb2_admin_init', function () {
   }
 }, 5);
 
-// Custom Title
+// Custom Document Title
 add_filter('pre_get_document_title', function ($title) {
   if (is_singular('chamada')) {
     global $post;
@@ -158,6 +158,28 @@ add_filter('pre_get_document_title', function ($title) {
 
   return $title;
 }, 99);
+
+// Custom Single Title
+add_filter('the_title', function($title, $id) {
+  if (is_singular('chamada') && get_the_ID() === $id) {
+    $campi = get_the_terms($id, 'campus');
+    $formasingresso = get_the_terms($id, 'formaingresso');
+
+    $parts = array($title);
+
+    if (!empty($formasingresso) && !is_wp_error($formasingresso) && isset($formasingresso[0]->name)) {
+      $parts[] = $formasingresso[0]->name;
+    }
+
+    if (!empty($campi) && !is_wp_error($campi) && isset($campi[0]->name)) {
+      $parts[] = __('Campus', 'ifrs-ps-theme') . ' ' . $campi[0]->name;
+    }
+
+    return implode(' | ', $parts);
+  }
+
+  return $title;
+}, 99, 2);
 
 // Options
 add_action('cmb2_admin_init', function () {

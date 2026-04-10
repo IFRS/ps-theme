@@ -1,21 +1,6 @@
 .edital {
-  margin-bottom: $grid-gutter-width;
-
-  &__title {
-    @extend %ps-title;
-
-    font-size: 1.5rem;
-  }
-
-  &__date {
-    font-size: 12px;
-    font-style: italic;
-  }
-
-  &__content {
-    .list-group-item {
-      word-wrap: break-word;
-    }
+  .list-group-item {
+    word-wrap: break-word;
   }
 
   &__files-title {

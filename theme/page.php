@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="page-<?php the_ID(); ?>" <?php post_class(['container-lg']); ?>>
+<article id="page-<?php the_ID(); ?>" <?php post_class(['container-lg']); ?>>
   <?php ob_start(); ?>
 
   <!-- wp:post-title /-->
@@ -26,6 +26,6 @@
   <!-- /wp:group -->
 
   <?php echo do_blocks(ob_get_clean()); ?>
-</section>
+</article>
 
 <?php get_footer(); ?>
