@@ -106,10 +106,11 @@
     }
 
     button {
-      &::before {
-        content: '→';
-        display: inline-block;
-        margin-right: 0.5rem;
+      font-weight: 600;
+
+      svg {
+        margin-inline-end: 0.25rem;
+        vertical-align: center;
       }
     }
   }
