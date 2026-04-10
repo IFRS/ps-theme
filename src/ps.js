@@ -1,4 +1,4 @@
 // import 'bootstrap';
 
-// import './modules/animation.js';
-import './modules/tooltips.js';
+// import './modules/_animation.js';
+import './modules/_tooltips.js';

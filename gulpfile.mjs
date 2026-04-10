@@ -104,9 +104,9 @@ function bundle(done) {
       'chamada': './src/chamada.js',
       'faq': './src/faq.js',
       'admin_campi-alert': './src/admin_campi-alert.js',
-      'etapas-timeline-block': './src/etapas-timeline-block.js',
-      'intro-helper-block': './src/intro-helper-block.js',
-      'publicacoes-list-block': './src/publicacoes-list-block.js',
+      'etapas-timeline-block': './src/blocks/etapas-timeline-block.js',
+      'intro-helper-block': './src/blocks/intro-helper-block.js',
+      'publicacoes-list-block': './src/blocks/publicacoes-list-block.js',
     },
     output: {
       path: path.resolve(path.dirname(''), 'build/js'),
