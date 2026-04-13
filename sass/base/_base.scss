@@ -1,3 +1,11 @@
+/* View Transition */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+/* Table Styles */
 table {
   @extend .table;
 }
