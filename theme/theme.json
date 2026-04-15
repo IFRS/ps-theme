@@ -362,6 +362,9 @@
           "textInput": {
             "border": {
               "radius": "var:custom|bootstrap|radius|base"
+            },
+            "color": {
+              "background": "var:custom|bootstrap|color|gray-200"
             }
           }
         },

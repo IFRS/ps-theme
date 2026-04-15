@@ -1,8 +1,10 @@
 .ajuda {
-  background-color: $accent;
+  background-color: $white;
+  border: 1px solid $border-color;
   border-radius: $border-radius;
-  color: color-contrast($accent);
-  padding: 3rem 1rem;
+  color: color-contrast($white);
+  padding: 1.5rem 2rem;
+  max-width: 100%;
 
   .is-layout-flex > & {
     flex: 1 1 min-content;
