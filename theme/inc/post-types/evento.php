@@ -236,7 +236,7 @@ add_filter('pre_get_posts', function ($query) {
     $query->set('nopaging', true);
     $query->set('orderby', 'meta_value_num');
     $query->set('order', 'ASC');
-    $query->set('meta_key', array('_evento_data-inicio', '_evento_data-fim'));
+    $query->set('meta_key', array('_evento_data-fim', '_evento_data-inicio'));
   }
   return $query;
 });
