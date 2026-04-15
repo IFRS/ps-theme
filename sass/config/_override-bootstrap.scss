@@ -6,10 +6,7 @@ $success:                       #168821;
 $warning:                       #FFCD07;
 $danger:                        #E52207;
 
-$accent:                        #0050a0;
-
-$primary-shade:                 shade-color($primary, 20%);
-$accent-shade:                  shade-color($accent, 20%);
+$accent:                        #d8933e;
 
 $custom-colors: (
   "accent": $accent,
@@ -99,8 +96,8 @@ $input-bg:                      null;
   $h2-font-size:                  $font-size-base * 2.1 !global;
 
   $accordion-bg:                  $white !global;
-  $accordion-button-active-bg:    $accent !global;
-  $accordion-button-active-color: color-contrast($accent) !global;
+  $accordion-button-active-bg:    $primary !global;
+  $accordion-button-active-color: color-contrast($primary) !global;
   $accordion-button-bg:           $gray-100 !global;
 
   $card-border-width:             2px !global;
@@ -112,11 +109,11 @@ $input-bg:                      null;
 
   $breadcrumb-active-color:       $gray-800 !global;
 
-  $dropdown-bg:                   tint-color($accent, 90%) !global;
-  $dropdown-link-hover-color:     color-contrast($accent) !global;
-  $dropdown-link-hover-bg:        $accent !global;
-  $dropdown-link-active-color:    color-contrast($accent) !global;
-  $dropdown-link-active-bg:       $accent !global;
+  $dropdown-bg:                   tint-color($primary, 90%) !global;
+  $dropdown-link-hover-color:     color-contrast($primary) !global;
+  $dropdown-link-hover-bg:        $primary !global;
+  $dropdown-link-active-color:    color-contrast($primary) !global;
+  $dropdown-link-active-bg:       $primary !global;
 
   $list-group-bg:                 $white !global;
 
@@ -124,8 +121,8 @@ $input-bg:                      null;
   $navbar-light-hover-color:      $gray-900 !global;
   $navbar-light-active-color:     $gray-900 !global;
 
-  $nav-pills-link-active-bg:      $accent !global;
-  $nav-pills-link-active-color:   color-contrast($accent) !global;
+  $nav-pills-link-active-bg:      $primary !global;
+  $nav-pills-link-active-color:   color-contrast($primary) !global;
 
   $input-bg:                      $gray-100 !global;
 }
@@ -159,7 +156,7 @@ $input-bg:                      null;
 @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/close";
 // @import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal";
+// @import "bootstrap/scss/modal";
 @import "bootstrap/scss/tooltip";
 // @import "bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";

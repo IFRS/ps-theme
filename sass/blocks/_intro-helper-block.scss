@@ -67,10 +67,10 @@
   }
 
   &__step-link {
-    background-color: $accent;
+    background-color: $primary;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
-    color: color-contrast($accent);
+    color: color-contrast($primary);
     font-weight: 500;
     margin-top: auto;
     padding: $spacer / 2;
@@ -79,8 +79,8 @@
     transition: $transition-base;
 
     &:hover {
-      background-color: darken($accent, 10%);
-      color: color-contrast(darken($accent, 10%));
+      background-color: darken($primary, 10%);
+      color: color-contrast(darken($primary, 10%));
     }
   }
 
