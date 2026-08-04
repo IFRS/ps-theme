@@ -9,6 +9,8 @@ dayjs.extend(UTC);
 dayjs.extend(toArray);
 
 document.addEventListener('DOMContentLoaded', () => {
+  const WP_API = document.querySelector('link[rel="https://api.w.org/"]').getAttribute('href');
+
   let observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.intersectionRatio > 0) {
