@@ -19,18 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  if (typeof cronograma !== 'undefined') {
+  const cronogramaNode = document.querySelector('#cronograma-data');
+  const cronograma = cronogramaNode ? JSON.parse(cronogramaNode.textContent || '[]') : [];
+
+  if (cronograma.length > 0) {
     let cronograma_local = localStorage.getItem('ifrs_ps_cronograma');
 
     if (cronograma_local === null) {
       localStorage.setItem('ifrs_ps_cronograma', JSON.stringify(cronograma));
     }
 
-    cronograma_local = JSON.parse(localStorage.getItem('ifrs_ps_cronograma'));
+    cronograma_local = JSON.parse(localStorage.getItem('ifrs_ps_cronograma') || '[]');
 
     let difference = cronograma.filter(x => !cronograma_local.includes(x));
 
-    if (difference) {
+    if (difference.length > 0) {
       difference.forEach(id => {
         let evento = document.querySelector('#evento-' + id);
         if (evento) {
@@ -83,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => {
           if (Array.isArray(response.data)) response.data.forEach((evento) => {
             let start_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-inicio']).utc().toArray().slice(0, 6);
-            start_date[1]++ // Workaround para correção de "bug" no método toArray, que conta os meses a partir do 0 (zero).
+            start_date[1]++ // Workaround para correção de comportamento no método toArray, que conta os meses a partir do 0 (zero).
 
             let end_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-fim']).utc().toArray().slice(0, 6);
             end_date[1]++

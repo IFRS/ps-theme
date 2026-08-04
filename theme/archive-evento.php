@@ -93,6 +93,6 @@ $eventos_js = array();
   <?php endif; ?>
 </section>
 
-<?php wp_localize_script('cronograma', 'cronograma', $eventos_js); ?>
+<script id="cronograma-data" type="application/json"><?php echo wp_json_encode($eventos_js); ?></script>
 
 <?php get_footer(); ?>
