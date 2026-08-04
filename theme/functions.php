@@ -1,7 +1,4 @@
 <?php
-// Carregamento eficiente de fontes
-require_once('inc/fonts.php');
-
 // Permissions & Roles
 require_once('inc/permissions.php');
 

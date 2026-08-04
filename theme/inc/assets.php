@@ -27,6 +27,14 @@ if (file_exists($manifestFile)) {
     }
   });
 
+  /**
+   * Fonts Preload
+   */
+  add_action('wp_head', function() use ($manifest) {
+    echo '<link rel="preload" href="' . esc_url( get_parent_theme_file_uri( $manifest['node_modules/@fontsource-variable/open-sans/files/open-sans-latin-standard-normal.woff2']['file'] ) ) . '" as="font" type="font/woff2" crossorigin="anonymous"/>';
+    // echo '<link rel="stylesheet" href="https://use.typekit.net/gug5jns.css">'; // Adobe Fonts - Degular Variable
+  }, 1);
+
   /* Frontend Styles and Scripts */
   add_action('wp_enqueue_scripts', function () use ($manifest) {
     /**
@@ -35,6 +43,8 @@ if (file_exists($manifestFile)) {
      * wp_register_style( string $handle, string|false $src, string[] $deps = array(), string|bool|null $ver = false, string $media ): bool
      * wp_enqueue_style( string $handle, string $src, string[] $deps = array(), string|bool|null $ver = false, string $media )
      */
+
+    wp_enqueue_style($manifest['sass/fonts.scss']['name'], get_parent_theme_file_uri($manifest['sass/fonts.scss']['file']), array(), null, 'screen');
 
     wp_enqueue_style($manifest['sass/vendor.scss']['name'], get_parent_theme_file_uri($manifest['sass/vendor.scss']['file']), array(), null, 'all');
 

@@ -61,10 +61,10 @@ export default defineConfig(({ mode }) => ({
         introHelperBlockScript: normalizePath(resolve(_root, 'src/blocks/intro-helper-block.js')),
         publicacoesListBlockScript: normalizePath(resolve(_root, 'src/blocks/publicacoes-list-block.js')),
         /* Styles */
+        fontsStyle: normalizePath(resolve(_root, 'sass/fonts.scss')),
+        vendorStyle: normalizePath(resolve(_root, 'sass/vendor.scss')),
         psStyle: normalizePath(resolve(_root, 'sass/ps.scss')),
         editorStyle: normalizePath(resolve(_root, 'sass/editor.scss')),
-        // fontsStyle: normalizePath(resolve(_root, 'sass/fonts.scss')),
-        vendorStyle: normalizePath(resolve(_root, 'sass/vendor.scss')),
       },
     },
   },
