@@ -5,8 +5,8 @@
 
   &:first-of-type {
     .badge {
-      border-left: 1px solid $accordion-border-color;
       margin-left: -1px;
+      border-left: 1px solid $accordion-border-color;
     }
   }
 

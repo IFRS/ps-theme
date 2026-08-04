@@ -1,12 +1,14 @@
+/* stylelint-disable no-duplicate-at-import-rules */
+@use "sass:map";
 @import "bootstrap/scss/functions";
 
-$primary:                       #303891;
-$info:                          #155BCB;
-$success:                       #168821;
-$warning:                       #FFCD07;
-$danger:                        #E52207;
+$primary: #303891;
+$info: #155BCB;
+$success: #168821;
+$warning: #FFCD07;
+$danger: #E52207;
 
-$accent:                        #d8933e;
+$accent: #d8933e;
 
 $custom-colors: (
   "accent": $accent,
@@ -14,60 +16,60 @@ $custom-colors: (
 
 $theme-colors: null;
 
-$link-hover-decoration:         null;
+$link-hover-decoration: null;
 
-$font-family-base:              null;
+$font-family-base: null;
 
-$body-color:                    null;
+$body-color: null;
 
-$body-bg:                       null;
+$body-bg: null;
 
-$link-color:                    null;
+$link-color: null;
 
-$border-radius:                 null;
+$border-radius: null;
 
-$accordion-bg:                  null;
-$accordion-button-active-bg:    null;
+$accordion-bg: null;
+$accordion-button-active-bg: null;
 $accordion-button-active-color: null;
-$accordion-button-bg:           null;
+$accordion-button-bg: null;
 
-$card-border-width:             null;
-$card-border-color:             null;
-$card-box-shadow:               null;
-$card-bg:                       null;
+$card-border-width: null;
+$card-border-color: null;
+$card-box-shadow: null;
+$card-bg: null;
 
-$table-border-color:            null;
+$table-border-color: null;
 
-$breadcrumb-font-size:          0.9rem;
-$breadcrumb-bg:                 none;
-$breadcrumb-active-color:       null;
-$breadcrumb-padding-y:          1rem;
+$breadcrumb-font-size: 0.9rem;
+$breadcrumb-bg: none;
+$breadcrumb-active-color: null;
+$breadcrumb-padding-y: 1rem;
 
-$btn-font-weight:               null;
+$btn-font-weight: null;
 
-$h2-font-size:                  null;
+$h2-font-size: null;
 
-$dropdown-padding-y:            0;
-$dropdown-bg:                   null;
-$dropdown-link-hover-color:     null;
-$dropdown-link-hover-bg:        null;
-$dropdown-link-active-color:    null;
-$dropdown-link-active-bg:       null;
+$dropdown-padding-y: 0;
+$dropdown-bg: null;
+$dropdown-link-hover-color: null;
+$dropdown-link-hover-bg: null;
+$dropdown-link-active-color: null;
+$dropdown-link-active-bg: null;
 
-$list-group-bg:                 null;
+$list-group-bg: null;
 
-$caret-width:                   0.4rem;
+$caret-width: 0.4rem;
 
-$nav-link-font-weight:          500;
+$nav-link-font-weight: 500;
 
-$nav-pills-link-active-color:   null;
-$nav-pills-link-active-bg:      null;
+$nav-pills-link-active-color: null;
+$nav-pills-link-active-bg: null;
 
-$navbar-light-color:            null;
-$navbar-light-hover-color:      null;
-$navbar-light-active-color:     null;
+$navbar-light-color: null;
+$navbar-light-hover-color: null;
+$navbar-light-active-color: null;
 
-$input-bg:                      null;
+$input-bg: null;
 
 %scope {
   @import "bootstrap/scss/functions";
@@ -77,54 +79,54 @@ $input-bg:                      null;
   @import "bootstrap/scss/mixins";
   @import "bootstrap/scss/utilities";
 
-  $theme-colors:                  map-merge($theme-colors, $custom-colors) !global;
+  $theme-colors: map.merge($theme-colors, $custom-colors) !global;
 
-  $link-hover-decoration:         none !global;
+  $link-hover-decoration: none !global;
 
-  $font-family-base:              "degular-variable", #{$font-family-sans-serif} !global;
+  $font-family-base: "degular-variable", #{$font-family-sans-serif} !global;
 
-  $body-color:                    #0a0a0a !global;
+  $body-color: #0a0a0a !global;
 
-  $body-bg:                       tint-color(#d0c7e4, 80%) !global;
+  $body-bg: tint-color(#d0c7e4, 80%) !global;
 
-  $link-color:                    shift-color($primary, 5%) !global;
+  $link-color: shift-color($primary, 5%) !global;
 
-  $border-radius:                 0.75rem !global;
+  $border-radius: 0.75rem !global;
 
-  $btn-font-weight:               700 !global;
+  $btn-font-weight: 700 !global;
 
-  $h2-font-size:                  $font-size-base * 2.1 !global;
+  $h2-font-size: $font-size-base * 2.1 !global;
 
-  $accordion-bg:                  $white !global;
-  $accordion-button-active-bg:    $primary !global;
+  $accordion-bg: $white !global;
+  $accordion-button-active-bg: $primary !global;
   $accordion-button-active-color: color-contrast($primary) !global;
-  $accordion-button-bg:           $gray-100 !global;
+  $accordion-button-bg: $gray-100 !global;
 
-  $card-border-width:             2px !global;
-  $card-border-color:             $body-color !global;
-  $card-box-shadow:               rgba(0, 0, 0, 0.16) 0px 1px 4px !global;
-  $card-bg:                       $gray-100 !global;
+  $card-border-width: 2px !global;
+  $card-border-color: $body-color !global;
+  $card-box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px !global;
+  $card-bg: $gray-100 !global;
 
-  $table-border-color:            $gray-400 !global;
+  $table-border-color: $gray-400 !global;
 
-  $breadcrumb-active-color:       $gray-800 !global;
+  $breadcrumb-active-color: $gray-800 !global;
 
-  $dropdown-bg:                   tint-color($primary, 90%) !global;
-  $dropdown-link-hover-color:     color-contrast($primary) !global;
-  $dropdown-link-hover-bg:        $primary !global;
-  $dropdown-link-active-color:    color-contrast($primary) !global;
-  $dropdown-link-active-bg:       $primary !global;
+  $dropdown-bg: tint-color($primary, 90%) !global;
+  $dropdown-link-hover-color: color-contrast($primary) !global;
+  $dropdown-link-hover-bg: $primary !global;
+  $dropdown-link-active-color: color-contrast($primary) !global;
+  $dropdown-link-active-bg: $primary !global;
 
-  $list-group-bg:                 $white !global;
+  $list-group-bg: $white !global;
 
-  $navbar-light-color:            $body-color !global;
-  $navbar-light-hover-color:      $gray-900 !global;
-  $navbar-light-active-color:     $gray-900 !global;
+  $navbar-light-color: $body-color !global;
+  $navbar-light-hover-color: $gray-900 !global;
+  $navbar-light-active-color: $gray-900 !global;
 
-  $nav-pills-link-active-bg:      $primary !global;
-  $nav-pills-link-active-color:   color-contrast($primary) !global;
+  $nav-pills-link-active-bg: $primary !global;
+  $nav-pills-link-active-color: color-contrast($primary) !global;
 
-  $input-bg:                      $gray-100 !global;
+  $input-bg: $gray-100 !global;
 }
 
 @import "bootstrap/scss/variables";
@@ -152,15 +154,19 @@ $input-bg:                      null;
 @import "bootstrap/scss/pagination";
 @import "bootstrap/scss/badge";
 @import "bootstrap/scss/alert";
+
 // @import "bootstrap/scss/progress";
 @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/close";
+
 // @import "bootstrap/scss/toasts";
 // @import "bootstrap/scss/modal";
 @import "bootstrap/scss/tooltip";
+
 // @import "bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";
 @import "bootstrap/scss/spinners";
+
 // @import "bootstrap/scss/offcanvas";
 // @import "bootstrap/scss/placeholders";
 @import "bootstrap/scss/helpers";

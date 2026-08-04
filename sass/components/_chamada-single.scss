@@ -1,12 +1,12 @@
 .chamada {
   &__documento-link {
     &::after {
+      float: right;
+      display: block;
+      padding: 5px;
+      content: '';
       border: solid black;
       border-width: 0 3px 3px 0;
-      content: '';
-      display: block;
-      float: right;
-      padding: 5px;
       transform: rotate(45deg);
       transition: transform 0.2s;
 

@@ -1,9 +1,9 @@
 .etapas-timeline {
+  max-width: 100%;
+  padding: 1.5rem 2rem;
   background-color: $white;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  padding: 1.5rem 2rem;
-  max-width: 100%;
 
   .is-layout-flex > & {
     flex: 1 1 min-content;
@@ -14,19 +14,19 @@
   }
 
   &__list {
-    list-style: none;
-    padding: 0;
     position: relative;
+    padding: 0;
+    list-style: none;
 
     &::after {
-      content: '';
-      background-color: $gray-400;
-      height: 100%;
-      left: calc(#{$card-spacer-x} + 0.5rem + 10px);
       position: absolute;
       top: 0;
-      width: 2px;
+      left: calc(#{$card-spacer-x} + 0.5rem + 10px);
       z-index: 5;
+      width: 2px;
+      height: 100%;
+      content: '';
+      background-color: $gray-400;
     }
   }
 }
@@ -34,30 +34,28 @@
 .etapa {
   $self: &;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: start;
-  align-items: start;
-  gap: 0.75rem;
-
-  background-color: $gray-200;
-  border-radius: $border-radius-lg + $card-spacer-x;
-  padding: $card-spacer-y $card-spacer-x;
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.75rem;
+  align-items: start;
+  justify-content: start;
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $gray-200;
+  border-radius: $border-radius-lg + $card-spacer-x;
 
   &:not(:last-child) {
     margin-bottom: 1.5rem;
   }
 
   &--atual {
-    background-color: var(--bs-primary-bg-subtle);
     color: var(--bs-primary-text-emphasis);
+    background-color: var(--bs-primary-bg-subtle);
 
     #{$self}__icone {
-      background-color: var(--bs-primary);
       color: $white;
+      background-color: var(--bs-primary);
     }
 
     #{$self}__periodo {
@@ -76,12 +74,12 @@
 
   &__icone {
     flex: 0 0 auto;
+    width: 48px; height: auto;
+    padding: 0.5rem;
+    margin-top: 3px;
+    color: $gray-700;
     background-color: var(--bs-primary-bg-subtle);
     border-radius: $border-radius-lg;
-    color: $gray-700;
-    margin-top: 3px;
-    padding: 0.5rem;
-    width: 48px; height: auto;
   }
 
   &__conteudo {
@@ -93,7 +91,7 @@
   }
 
   &__titulo {
-    font-size: 1.1rem;
     margin-bottom: 0.25rem;
+    font-size: 1.1rem;
   }
 }

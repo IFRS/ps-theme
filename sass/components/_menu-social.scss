@@ -1,15 +1,15 @@
 .menu-social {
   display: inline-block;
+  padding: 0;
   font-size: 0;
   list-style: none;
-  padding: 0;
 
   &__item {
     display: inline-block;
-    font-size: 1rem;
-    margin-right: 0.5rem;
     width: 38px;
     height: 38px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
 
     &:last-child {
       margin-right: 0;
@@ -17,18 +17,18 @@
   }
 
   &__link {
-    background-color: $primary;
-    border-radius: $border-radius-pill;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: $primary;
+    border-radius: $border-radius-pill;
 
     svg {
+      flex: 0 0 auto;
       width: 18px;
       height: 18px;
-      flex: 0 0 auto;
     }
 
     &--facebook {

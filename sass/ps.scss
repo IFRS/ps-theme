@@ -1,14 +1,11 @@
 @import 'config/override-bootstrap';
 @import 'config/mixins';
-
 @import 'base/base';
 @import 'base/wp';
 @import 'base/bootstrap';
-
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/footer';
-
 @import 'components/menu';
 @import 'components/menu-social';
 @import 'components/header';
@@ -27,7 +24,6 @@
 @import 'components/contato';
 @import 'components/creditos';
 @import 'components/searchform';
-
 @import 'blocks/faixa-destaque';
 @import 'blocks/intro-helper-block';
 @import 'blocks/etapas-timeline';
