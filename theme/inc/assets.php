@@ -15,7 +15,9 @@ if (file_exists($manifestFile)) {
    */
   add_action('enqueue_block_editor_assets', function () use ($manifest) {
     wp_enqueue_style($manifest['sass/editor.scss']['name'], get_parent_theme_file_uri($manifest['sass/editor.scss']['file']));
+
     wp_register_script_module($manifest['src/admin_campi-alert.js']['name'], get_parent_theme_file_uri($manifest['src/admin_campi-alert.js']['file']));
+
     wp_enqueue_script_module($manifest['src/blocks/etapas-timeline-block.js']['name'], get_parent_theme_file_uri($manifest['src/blocks/etapas-timeline-block.js']['file']));
     wp_enqueue_script_module($manifest['src/blocks/intro-helper-block.js']['name'], get_parent_theme_file_uri($manifest['src/blocks/intro-helper-block.js']['file']));
     wp_enqueue_script_module($manifest['src/blocks/publicacoes-list-block.js']['name'], get_parent_theme_file_uri($manifest['src/blocks/publicacoes-list-block.js']['file']));
