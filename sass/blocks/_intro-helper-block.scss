@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .intro-helper-block {
   background-color: $white;
   border: 1px solid $border-color;
@@ -73,7 +75,7 @@
     color: color-contrast($primary);
     font-weight: 500;
     margin-top: auto;
-    padding: $spacer / 2;
+    padding: math.div($spacer, 2);
     text-align: center;
     text-decoration: none;
     transition: $transition-base;
