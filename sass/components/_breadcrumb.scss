@@ -11,17 +11,13 @@
 }
 
 .breadcrumb-yoast {
-  @extend .breadcrumb;
+  gap: 0.5rem;
 
-  li {
-    @extend .breadcrumb-item;
+  a {
+    text-decoration: none;
+  }
 
-    &:not(.breadcrumb_last) {
-      margin-right: var(--bs-breadcrumb-item-padding-x);
-    }
-
-    &[aria-current="page"] {
-      @extend .active;
-    }
+  .breadcrumb-item + .breadcrumb-item {
+    padding-left: 0;
   }
 }
