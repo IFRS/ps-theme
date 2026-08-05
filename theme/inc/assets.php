@@ -51,7 +51,7 @@ if (file_exists($manifestFile)) {
     wp_enqueue_style($manifest['sass/ps.scss']['name'], get_parent_theme_file_uri($manifest['sass/ps.scss']['file']), array($manifest['sass/vendor.scss']['name']), null, 'all');
 
     if (function_exists('yoast_breadcrumb')) {
-      wp_add_inline_style('ps', ':root { --bs-breadcrumb-divider: none;');
+      wp_add_inline_style($manifest['sass/ps.scss']['name'], ':root { --bs-breadcrumb-divider: none;');
     }
 
     /**
