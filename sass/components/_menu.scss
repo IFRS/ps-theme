@@ -9,24 +9,22 @@ nav.menu {
   border-bottom: 2px solid $gray-400;
 
   @include media-breakpoint-up(md) {
-    border: none;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border: none;
+    box-shadow: 0 0 3px 1px rgb(0 0 0 / 30%);
   }
 }
 
 .menu-principal {
-  @include list-unstyled();
+  @include list-unstyled;
 
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row wrap;
   gap: 0.75rem;
-
+  align-items: center;
+  justify-content: center;
   margin: 0;
 
   .nav-item {
@@ -36,10 +34,10 @@ nav.menu {
   }
 
   .nav-link {
-    border-bottom: 4px solid transparent;
-    color: color-contrast($gray-100);
-    font-weight: 500;
     padding: ($btn-padding-y * 3) $btn-padding-x;
+    font-weight: 500;
+    color: color-contrast($gray-100);
+    border-bottom: 4px solid transparent;
 
     &:hover,
     &:focus {
@@ -52,7 +50,6 @@ nav.menu {
     }
 
     &.destaque {
-
       &:hover,
       &:focus {
         border-bottom-color: transparent;
@@ -79,8 +76,8 @@ nav.menu {
   // .current-menu-item,
   .current-menu-ancestor {
     > .nav-link {
-      border-bottom-color: $primary;
       font-weight: bold;
+      border-bottom-color: $primary;
     }
   }
 }

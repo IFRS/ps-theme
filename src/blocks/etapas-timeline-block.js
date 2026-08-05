@@ -1,4 +1,8 @@
 (function (wp) {
+  if (!wp || !wp.blocks) {
+    return;
+  }
+
   const { registerBlockType } = wp.blocks;
   const { __ } = wp.i18n;
   const { InspectorControls } = wp.blockEditor || wp.editor;

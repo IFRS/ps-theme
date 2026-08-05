@@ -1,5 +1,6 @@
 .publicacoes {
   $root: &;
+
   margin-bottom: 2rem;
 
   &__text {
@@ -7,8 +8,8 @@
   }
 
   &__list {
-    list-style: none;
     padding: 0;
+    list-style: none;
   }
 
   &__item {
@@ -16,18 +17,18 @@
   }
 
   &__item-meta {
-    border-bottom: 1px dotted $body-color;
     display: inline-block;
     margin-bottom: 0;
     cursor: help;
+    border-bottom: 1px dotted $body-color;
   }
 
   &__item-title {
-    color: inherit;
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-bottom: 0.25rem;
     margin-top: 0;
+    margin-bottom: 0.25rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: inherit;
     text-transform: uppercase;
 
     a {

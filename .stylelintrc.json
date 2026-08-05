@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order"
+  ],
+  "ignoreFiles": [
+    "build/**",
+    "theme/**",
+    "node_modules/**"
+  ],
+  "rules": {
+    "color-hex-length": "long",
+    "custom-property-pattern": null,
+    "scss/dollar-variable-empty-line-before": null,
+    "selector-class-pattern": null
+  }
+}

@@ -63,8 +63,6 @@ const app = createApp({
       }, 250);
     },
   },
-}, {
-  WP_API: WP_API,
 });
 
 app.mount('#chamadas');

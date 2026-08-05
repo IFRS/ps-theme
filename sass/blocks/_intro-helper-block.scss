@@ -1,9 +1,12 @@
+@use 'sass:math';
+@use 'sass:color';
+
 .intro-helper-block {
+  max-width: 100%;
+  padding: 1.5rem 2rem;
   background-color: $white;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  padding: 1.5rem 2rem;
-  max-width: 100%;
 
   .is-layout-flex > & {
     flex: 1 1 min-content;
@@ -11,20 +14,20 @@
 
   &__steps {
     display: grid;
-    gap: $grid-gutter-width;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: $grid-gutter-width;
     margin-bottom: $grid-gutter-width;
   }
 
   &__step {
-    background: $light;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     min-height: 10rem;
-    position: relative;
+    background: $light;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
   }
 
   &__step-content {
@@ -32,27 +35,27 @@
   }
 
   &__step-number {
-    align-items: center;
-    color: $gray-400;
-    display: inline-flex;
-    font-size: 2rem;
-    font-weight: 700;
-    height: 1.75rem;
-    justify-content: center;
-    left: 0.75rem;
-    min-width: 1.75rem;
-    padding: 0 0.5rem;
     position: absolute;
     top: 0.75rem;
+    left: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $gray-400;
   }
 
   &__step-icon {
-    color: $primary;
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 0.5rem 0;
     width: 100%;
+    margin: 0.5rem 0;
+    color: $primary;
   }
 
   &__step-icon svg {
@@ -61,26 +64,26 @@
   }
 
   &__step-text {
-    font-weight: 600;
     margin: 0;
+    font-weight: 600;
     text-align: center;
   }
 
   &__step-link {
-    background-color: $primary;
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
-    color: color-contrast($primary);
-    font-weight: 500;
+    padding: math.div($spacer, 2);
     margin-top: auto;
-    padding: $spacer / 2;
+    font-weight: 500;
+    color: color-contrast($primary);
     text-align: center;
     text-decoration: none;
+    background-color: $primary;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
     transition: $transition-base;
 
     &:hover {
-      background-color: darken($primary, 10%);
-      color: color-contrast(darken($primary, 10%));
+      color: color-contrast(color.adjust($primary, $lightness: -10%));
+      background-color: color.adjust($primary, $lightness: -10%);
     }
   }
 
@@ -94,11 +97,10 @@
 
   &__links {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-flow: row wrap;
     gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
 
     > * {
       flex: 1 1 250px;
