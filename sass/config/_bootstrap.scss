@@ -1,0 +1,113 @@
+@use "sass:map";
+@import 'custom-variables';
+@import "bootstrap/scss/functions";
+
+$primary: #303891;
+$info: #155BCB;
+$success: #168821;
+$warning: #FFCD07;
+$danger: #E52207;
+
+$link-hover-decoration: none;
+
+$body-color: #0a0a0a;
+
+$border-radius: 0.75rem;
+
+$breadcrumb-font-size: 0.9rem;
+$breadcrumb-bg: none;
+$breadcrumb-padding-y: 1rem;
+
+$btn-font-weight: 700;
+
+$dropdown-padding-y: 0;
+
+$caret-width: 0.4rem;
+
+$nav-link-font-weight: 500;
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+$body-bg: tint-color(#d0c7e4, 80%);
+
+$link-color: shift-color($primary, 5%);
+
+$font-family-base: "degular-variable", "Open Sans Variable", #{$font-family-sans-serif};
+
+$h2-font-size: $font-size-base * 2.1;
+
+$accordion-bg: $white;
+$accordion-button-active-bg: $primary;
+$accordion-button-active-color: color-contrast($primary);
+$accordion-button-bg: $gray-100;
+
+$card-border-width: 2px;
+$card-border-color: $body-color;
+$card-box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+$card-bg: $gray-100;
+
+$table-border-color: $gray-400;
+
+$breadcrumb-active-color: $gray-800;
+
+$dropdown-bg: tint-color($primary, 90%);
+$dropdown-link-hover-color: color-contrast($primary);
+$dropdown-link-hover-bg: $primary;
+$dropdown-link-active-color: color-contrast($primary);
+$dropdown-link-active-bg: $primary;
+
+$list-group-bg: $white;
+
+$navbar-light-color: $body-color;
+$navbar-light-hover-color: $gray-900;
+$navbar-light-active-color: $gray-900;
+
+$nav-pills-link-active-bg: $primary;
+$nav-pills-link-active-color: color-contrast($primary);
+
+$input-bg: $gray-100;
+
+$theme-colors: map.merge($theme-colors, $custom-colors);
+
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+
+// @import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+
+// @import "bootstrap/scss/toasts";
+// @import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+
+// @import "bootstrap/scss/offcanvas";
+// @import "bootstrap/scss/placeholders";
+
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api";

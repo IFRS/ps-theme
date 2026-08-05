@@ -1,8 +1,7 @@
-@import 'config/override-bootstrap';
-@import 'config/mixins';
+@import 'config/bootstrap';
 @import 'base/base';
 @import 'base/wp';
-@import 'base/bootstrap';
+@import 'base/bootstrap-override';
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/footer';
