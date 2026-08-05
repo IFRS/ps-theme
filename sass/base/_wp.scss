@@ -1,5 +1,5 @@
 .screen-reader-text {
-  @extend .visually-hidden;
+  @include visually-hidden;
 }
 
 /* Alinhamento */

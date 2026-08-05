@@ -1,7 +1,7 @@
 <?php
 // YoastSEO
 add_filter('wpseo_breadcrumb_output_class', function ($class) {
-  $class = 'breadcrumb-yoast';
+  $class = 'breadcrumb breadcrumb-yoast';
   return $class;
 }, 99);
 
@@ -13,6 +13,32 @@ add_filter('wpseo_breadcrumb_output_wrapper', function ($wrapper) {
 add_filter('wpseo_breadcrumb_single_link_wrapper', function ($wrapper) {
   $wrapper = 'li';
   return $wrapper;
+}, 99);
+
+add_filter('wpseo_breadcrumb_single_link', function ($link_output) {
+  $is_last = strpos($link_output, 'breadcrumb_last') !== false;
+
+  return preg_replace_callback('/<li\b[^>]*>/', function ($matches) use ($is_last) {
+    $li_tag = $matches[0];
+
+    if (preg_match('/class=("|\')(.*?)\1/', $li_tag, $class_match)) {
+      $classes = preg_split('/\s+/', trim($class_match[2]));
+      if (!in_array('breadcrumb-item', $classes, true)) {
+        $classes[] = 'breadcrumb-item';
+      }
+      if ($is_last && !in_array('active', $classes, true)) {
+        $classes[] = 'active';
+      }
+
+      $new_classes = implode(' ', array_filter($classes));
+      $old_class_attr = 'class=' . $class_match[1] . $class_match[2] . $class_match[1];
+      $new_class_attr = 'class=' . $class_match[1] . $new_classes . $class_match[1];
+      return str_replace($old_class_attr, $new_class_attr, $li_tag);
+    }
+
+    $new_classes = $is_last ? 'breadcrumb-item active' : 'breadcrumb-item';
+    return preg_replace('/<li\b/', '<li class="' . $new_classes . '"', $li_tag, 1);
+  }, $link_output, 1);
 }, 99);
 
 // Custom
