@@ -20,6 +20,8 @@ add_action('after_switch_theme', function () {
       'assign_formaingresso' => true,
       'assign_modalidade'    => true,
       'assign_turno'         => true,
+      'assign_trilha_selecao' => true,
+      'manage_trilha_selecao' => true,
 
       'create_chamadas'      => true,
       'edit_chamadas'        => true,
@@ -58,6 +60,7 @@ add_action('after_switch_theme', function () {
       'assign_campus'        => true,
       'assign_formaingresso' => true,
       'assign_modalidade'    => true,
+      'assign_trilha_selecao' => true,
 
       'create_cursos'        => true,
       'edit_cursos'          => true,
@@ -94,6 +97,7 @@ add_action('after_switch_theme', function () {
       'assign_campus'        => true,
       'assign_formaingresso' => true,
       'assign_modalidade'    => true,
+      'assign_trilha_selecao' => true,
     ));
   }
 
@@ -104,6 +108,8 @@ add_action('after_switch_theme', function () {
   $administrator->add_cap('manage_formaingresso');
   $administrator->add_cap('manage_modalidade');
   $administrator->add_cap('manage_turno');
+  $administrator->add_cap('manage_trilha_selecao');
+  $administrator->add_cap('assign_trilha_selecao');
 
   $administrator->add_cap('create_chamadas');
   $administrator->add_cap('edit_chamadas');

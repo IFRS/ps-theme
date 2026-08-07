@@ -39,6 +39,7 @@ require_once('inc/taxonomies/campus-taxonomy.php');
 require_once('inc/taxonomies/modalidade-taxonomy.php');
 require_once('inc/taxonomies/turno-taxonomy.php');
 require_once('inc/taxonomies/formaingresso-taxonomy.php');
+require_once('inc/taxonomies/trilha-selecao-taxonomy.php');
 
 // Custom Post Types
 require_once('inc/post-types/edital.php');
