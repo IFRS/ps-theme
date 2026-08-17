@@ -5,6 +5,9 @@ function ifrs_ps_get_trilha_post_types()
   return array('edital', 'publicacao', 'curso', 'evento', 'chamada');
 }
 
+define('IFRS_PS_TRILHA_META_INICIO', '_trilha_selecao_data_inicio');
+define('IFRS_PS_TRILHA_META_FIM', '_trilha_selecao_data_fim');
+
 add_action('init', function () {
   $labels = array(
     'name'                       => _x('Trilhas de Seleção', 'Taxonomy General Name', 'ifrs-ps-theme'),
@@ -33,7 +36,7 @@ add_action('init', function () {
 
   $args = array(
     'labels'            => $labels,
-    'hierarchical'      => true,
+    'hierarchical'      => false,
     'public'            => true,
     'show_ui'           => true,
     'show_admin_column' => true,
@@ -150,8 +153,8 @@ add_filter('pre_insert_term', function ($term, $taxonomy, $args) {
     return $term;
   }
 
-  $start_key = '_trilha_selecao_data_inicio';
-  $end_key = '_trilha_selecao_data_fim';
+  $start_key = IFRS_PS_TRILHA_META_INICIO;
+  $end_key = IFRS_PS_TRILHA_META_FIM;
 
   $start = ifrs_ps_parse_trilha_date_from_post($start_key);
   $end = ifrs_ps_parse_trilha_date_from_post($end_key);
@@ -264,3 +267,218 @@ add_action('admin_notices', function () {
   echo esc_html__('Este conteúdo voltou para rascunho: é obrigatório selecionar uma Trilha de Seleção antes de publicar.', 'ifrs-ps-theme');
   echo '</p></div>';
 });
+
+/**
+ * Helpers: resolução, troca e filtragem por Trilha de Seleção.
+ */
+
+function ifrs_ps_get_trilha_periodo($trilha)
+{
+  $term_id = is_object($trilha) ? $trilha->term_id : (int) $trilha;
+
+  if ($term_id <= 0) {
+    return array('inicio' => 0, 'fim' => 0);
+  }
+
+  return array(
+    'inicio' => (int) get_term_meta($term_id, IFRS_PS_TRILHA_META_INICIO, true),
+    'fim'    => (int) get_term_meta($term_id, IFRS_PS_TRILHA_META_FIM, true),
+  );
+}
+
+function ifrs_ps_is_trilha_vigente($trilha, $now = null)
+{
+  $now = $now ?: current_time('timestamp');
+  $periodo = ifrs_ps_get_trilha_periodo($trilha);
+
+  return $periodo['inicio'] > 0 && $periodo['fim'] > 0 && $periodo['inicio'] <= $now && $periodo['fim'] >= $now;
+}
+
+function ifrs_ps_get_trilhas($args = array())
+{
+  $args = wp_parse_args($args, array(
+    'taxonomy'   => 'trilha_selecao',
+    'hide_empty' => false,
+    'meta_key'   => IFRS_PS_TRILHA_META_INICIO,
+    'orderby'    => 'meta_value_num',
+    'order'      => 'DESC',
+  ));
+
+  $terms = get_terms($args);
+
+  return is_wp_error($terms) ? array() : $terms;
+}
+
+/**
+ * Trilha com data_inicio/data_fim abrangendo o instante atual (pode haver mais de uma; usa a de data_inicio mais recente).
+ */
+function ifrs_ps_get_trilha_vigente()
+{
+  static $cache = null;
+
+  if (null !== $cache) {
+    return false === $cache ? null : $cache;
+  }
+
+  $now = current_time('timestamp');
+
+  $terms = ifrs_ps_get_trilhas(array(
+    'meta_query' => array(
+      array(
+        'key'     => IFRS_PS_TRILHA_META_INICIO,
+        'value'   => $now,
+        'compare' => '<=',
+        'type'    => 'NUMERIC',
+      ),
+      array(
+        'key'     => IFRS_PS_TRILHA_META_FIM,
+        'value'   => $now,
+        'compare' => '>=',
+        'type'    => 'NUMERIC',
+      ),
+    ),
+  ));
+
+  $cache = !empty($terms) ? $terms[0] : false;
+
+  return false === $cache ? null : $cache;
+}
+
+/**
+ * Fallback para quando nenhuma trilha está vigente: a última encerrada.
+ */
+function ifrs_ps_get_trilha_mais_recente_encerrada()
+{
+  static $cache = null;
+
+  if (null !== $cache) {
+    return false === $cache ? null : $cache;
+  }
+
+  $now = current_time('timestamp');
+
+  $terms = ifrs_ps_get_trilhas(array(
+    'meta_query' => array(
+      array(
+        'key'     => IFRS_PS_TRILHA_META_FIM,
+        'value'   => $now,
+        'compare' => '<',
+        'type'    => 'NUMERIC',
+      ),
+    ),
+    'meta_key' => IFRS_PS_TRILHA_META_FIM,
+  ));
+
+  $cache = !empty($terms) ? $terms[0] : false;
+
+  return false === $cache ? null : $cache;
+}
+
+function ifrs_ps_get_trilha_by_slug($slug)
+{
+  $slug = sanitize_title($slug);
+
+  if (empty($slug)) {
+    return null;
+  }
+
+  $term = get_term_by('slug', $slug, 'trilha_selecao');
+
+  return ($term && !is_wp_error($term)) ? $term : null;
+}
+
+/**
+ * Trilha ativa para a requisição atual: permite troca manual via ?trilha=slug,
+ * caindo para a vigente e, por fim, para a última encerrada.
+ */
+function ifrs_ps_get_current_trilha()
+{
+  static $cache = null;
+
+  if (null !== $cache) {
+    return false === $cache ? null : $cache;
+  }
+
+  $trilha = null;
+
+  if (!is_admin() && isset($_GET['trilha'])) {
+    $trilha = ifrs_ps_get_trilha_by_slug(wp_unslash($_GET['trilha']));
+  }
+
+  if (!$trilha) {
+    $trilha = ifrs_ps_get_trilha_vigente();
+  }
+
+  if (!$trilha) {
+    $trilha = ifrs_ps_get_trilha_mais_recente_encerrada();
+  }
+
+  $trilha = apply_filters('ifrs_ps_current_trilha', $trilha);
+
+  $cache = $trilha ?: false;
+
+  return false === $cache ? null : $cache;
+}
+
+/**
+ * Monta a URL para trocar a trilha ativa no front-end (usada em seletores "Ver outra trilha").
+ */
+function ifrs_ps_get_trilha_switch_url($trilha, $url = '')
+{
+  $slug = is_object($trilha) ? $trilha->slug : sanitize_title($trilha);
+
+  if (empty($slug)) {
+    return '';
+  }
+
+  if (empty($url)) {
+    $url = isset($_SERVER['REQUEST_URI']) ? esc_url_raw(wp_unslash($_SERVER['REQUEST_URI'])) : home_url('/');
+  }
+
+  return esc_url(add_query_arg('trilha', $slug, $url));
+}
+
+/**
+ * Acrescenta o tax_query da trilha (atual, por padrão) a um array de argumentos de WP_Query.
+ */
+function ifrs_ps_apply_trilha_query_args($query_args, $trilha = null)
+{
+  $trilha = null !== $trilha ? $trilha : ifrs_ps_get_current_trilha();
+
+  if (!$trilha) {
+    return $query_args;
+  }
+
+  $term_id = is_object($trilha) ? $trilha->term_id : (int) $trilha;
+
+  if ($term_id <= 0) {
+    return $query_args;
+  }
+
+  $tax_query = isset($query_args['tax_query']) && is_array($query_args['tax_query']) ? $query_args['tax_query'] : array();
+
+  $tax_query[] = array(
+    'taxonomy' => 'trilha_selecao',
+    'field'    => 'term_id',
+    'terms'    => $term_id,
+  );
+
+  $query_args['tax_query'] = $tax_query;
+
+  return $query_args;
+}
+
+/**
+ * Mesma lógica de ifrs_ps_apply_trilha_query_args, mas aplicada diretamente a um WP_Query (ex.: em pre_get_posts).
+ */
+function ifrs_ps_set_trilha_on_query(WP_Query $query, $trilha = null)
+{
+  $args = ifrs_ps_apply_trilha_query_args(
+    array('tax_query' => $query->get('tax_query') ?: array()),
+    $trilha
+  );
+
+  $query->set('tax_query', $args['tax_query']);
+
+  return $query;
+}
