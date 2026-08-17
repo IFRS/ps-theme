@@ -6,6 +6,8 @@
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
   <?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo esc_html(get_search_query()); ?>&rdquo;)</small><?php endif; ?>
 
+  <?php get_template_part('partials/trilha-switch'); ?>
+
   <?php if (!empty($desc)) : ?>
     <div class="cursos__text">
       <?php echo wpautop(wp_kses_post($desc), true); ?>
@@ -35,6 +37,7 @@
         }
         ?>
         <article class="curso">
+          <?php get_template_part('partials/trilha-badge'); ?>
           <div class="curso__header">
             <?php
             if (!empty($campi) && !is_wp_error($campi)) {

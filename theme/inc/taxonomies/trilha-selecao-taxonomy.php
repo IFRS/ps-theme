@@ -95,12 +95,11 @@ add_action('cmb2_admin_init', function () {
     'id'               => '_trilha_selecao_taxonomy',
     'name'             => __('Trilha de Seleção', 'ifrs-ps-theme'),
     'taxonomy'         => 'trilha_selecao',
-    'type'             => 'taxonomy_select',
-    'show_option_none' => __('Selecione uma trilha', 'ifrs-ps-theme'),
+    'type'             => 'taxonomy_multicheck',
     'remove_default'   => true,
     'query_args'       => array(
-      'orderby' => 'name',
-      'order'   => 'ASC',
+      'orderby'    => 'name',
+      'order'      => 'ASC',
       'hide_empty' => false,
     ),
     'attributes' => array(
@@ -388,8 +387,8 @@ function ifrs_ps_get_trilha_by_slug($slug)
 }
 
 /**
- * Trilha ativa para a requisição atual: permite troca manual via ?trilha=slug,
- * caindo para a vigente e, por fim, para a última encerrada.
+ * Trilha ativa para a requisição atual: permite troca manual via ?trilha=slug
+ * e, quando não houver trilha vigente, mantém a listagem mista sem filtro.
  */
 function ifrs_ps_get_current_trilha()
 {
@@ -407,10 +406,6 @@ function ifrs_ps_get_current_trilha()
 
   if (!$trilha) {
     $trilha = ifrs_ps_get_trilha_vigente();
-  }
-
-  if (!$trilha) {
-    $trilha = ifrs_ps_get_trilha_mais_recente_encerrada();
   }
 
   $trilha = apply_filters('ifrs_ps_current_trilha', $trilha);
@@ -482,3 +477,36 @@ function ifrs_ps_set_trilha_on_query(WP_Query $query, $trilha = null)
 
   return $query;
 }
+
+add_action('pre_get_posts', function ($query) {
+  if (is_admin() || !$query->is_main_query()) {
+    return;
+  }
+
+  $post_types = ifrs_ps_get_trilha_post_types();
+
+  $is_trilha_target = false;
+
+  if (!empty($query->get('post_type'))) {
+    $post_type = $query->get('post_type');
+    $post_type = is_array($post_type) ? $post_type : array($post_type);
+    $is_trilha_target = (bool) array_intersect($post_types, $post_type);
+  }
+
+  if (!$is_trilha_target) {
+    foreach ($post_types as $post_type) {
+      if ($query->is_post_type_archive($post_type) || $query->is_tax('trilha_selecao')) {
+        $is_trilha_target = true;
+        break;
+      }
+    }
+  }
+
+  if (!$is_trilha_target) {
+    return;
+  }
+
+  $tax_query = $query->get('tax_query') ?: array();
+  $args = ifrs_ps_apply_trilha_query_args(array('tax_query' => $tax_query));
+  $query->set('tax_query', $args['tax_query']);
+}, 20);

@@ -4,6 +4,7 @@
 
 <section class="container editais">
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
+  <?php get_template_part('partials/trilha-switch'); ?>
   <?php if (!empty($desc)) : ?>
     <div class="editais__text">
       <?php echo wpautop(wp_kses_post($desc), true); ?>

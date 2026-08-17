@@ -7,14 +7,17 @@ $args = array(
   'posts_per_page' => 12,
   'order' => 'DESC',
   'orderby' => 'date',
-  'paged' => $paged
+  'paged' => $paged,
 );
+
+$args = ifrs_ps_apply_trilha_query_args($args);
 
 $publicacoes = new WP_Query($args);
 ?>
 
 <section class="container">
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
+  <?php get_template_part('partials/trilha-switch'); ?>
   <article class="publicacoes publicacoes--archive">
     <div class="publicacoes__text">
       <?php echo wpautop(wp_kses_post(cmb2_get_option('publicacao_options', 'desc', ''))); ?>
@@ -24,6 +27,7 @@ $publicacoes = new WP_Query($args);
       <ul class="publicacoes__list">
         <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
           <li class="publicacoes__item">
+            <?php get_template_part('partials/trilha-badge'); ?>
             <h4 class="publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
             <p class="publicacoes__item-meta"><span class="publicacoes__item-date"><?php echo get_the_date('d/m/Y'); ?></span>&nbsp;<span class="publicacoes__item-time"><?php echo get_the_time('G\hi'); ?></span></p>
             <?php the_excerpt(); ?>

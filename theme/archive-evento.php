@@ -3,12 +3,16 @@
 <?php
 $desc = cmb2_get_option('evento_options', 'desc', '');
 
-$ultimo_evento = new WP_Query(array(
+$ultimo_evento_args = array(
   'post_type'      => 'evento',
   'posts_per_page' => 1,
   'orderby'        => 'modified',
   'no_found_rows'  => true,
-));
+);
+
+$ultimo_evento_args = ifrs_ps_apply_trilha_query_args($ultimo_evento_args);
+
+$ultimo_evento = new WP_Query($ultimo_evento_args);
 if ($ultimo_evento->have_posts()) {
   $ultimo_evento->the_post();
   $atualizacao = get_the_modified_date();
@@ -25,6 +29,9 @@ $eventos_js = array();
       <?php echo wpautop(wp_kses_post($desc), true); ?>
     </div>
   <?php endif; ?>
+
+  <?php get_template_part('partials/trilha-switch'); ?>
+
   <?php if (!empty($atualizacao)) : ?>
     <p class="cronograma__meta">Atualizado em <?php echo $atualizacao; ?></p>
   <?php endif; ?>
@@ -71,12 +78,13 @@ $eventos_js = array();
                 <?php endif; ?>
               </td>
               <td class="evento__content">
-                <strong><?php the_title(); ?></strong>
+                <?php get_template_part('partials/trilha-badge'); ?>
+                <strong class="d-block"><?php the_title(); ?></strong>
                 <?php the_content(); ?>
                 <?php
                 $url = get_post_meta(get_the_ID(), '_evento_programacao_url', true);
                 ?>
-                <?php if ($evento_atual) : ?>
+                <?php if ($evento_atual && !empty($url)) : ?>
                   <br>
                   <a href="<?php echo esc_url($url); ?>"><?php echo esc_html($url); ?></a>
                 <?php endif; ?>
