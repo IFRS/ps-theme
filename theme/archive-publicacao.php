@@ -38,7 +38,7 @@ $publicacoes = new WP_Query($args);
 
     <?php wp_reset_query(); ?>
 
-    <?php echo custom_pagination(); ?>
+    <?php ifrs_ps_custom_pagination(); ?>
   </article>
 </section>
 
