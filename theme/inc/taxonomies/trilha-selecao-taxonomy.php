@@ -61,14 +61,18 @@ add_action('cmb2_admin_init', function () {
   ));
 
   $cmb_term->add_field(array(
+    'name' => '',
+    'desc' => __('As datas abaixo são preenchidas automaticamente a partir dos eventos do cronograma vinculados a esta trilha. Preencha-as somente quando quiser sobrescrever essa detecção automática.', 'ifrs-ps-theme'),
+    'type' => 'title',
+    'id'   => $prefix . 'datas_desc',
+  ));
+
+  $cmb_term->add_field(array(
     'name'       => __('Data inicial', 'ifrs-ps-theme'),
     'desc'       => __('Data de início da trilha de seleção.', 'ifrs-ps-theme'),
     'id'         => $prefix . 'data_inicio',
     'type'       => 'text_date_timestamp',
     'date_format' => 'd/m/Y',
-    'attributes' => array(
-      'required' => 'required',
-    ),
   ));
 
   $cmb_term->add_field(array(
@@ -77,9 +81,6 @@ add_action('cmb2_admin_init', function () {
     'id'         => $prefix . 'data_fim',
     'type'       => 'text_date_timestamp',
     'date_format' => 'd/m/Y',
-    'attributes' => array(
-      'required' => 'required',
-    ),
   ));
 
   $trilha_metabox = new_cmb2_box(array(
@@ -101,9 +102,6 @@ add_action('cmb2_admin_init', function () {
       'orderby'    => 'name',
       'order'      => 'ASC',
       'hide_empty' => false,
-    ),
-    'attributes' => array(
-      'required' => 'required',
     ),
     'text' => array(
       'no_terms_text' => __('Ops! Nenhuma trilha encontrada. Por favor, crie uma trilha antes de cadastrar este conteúdo.', 'ifrs-ps-theme'),
@@ -161,26 +159,21 @@ add_filter('pre_insert_term', function ($term, $taxonomy, $args) {
   $action = isset($_POST['action']) ? sanitize_key(wp_unslash($_POST['action'])) : '';
   $is_edit = in_array($action, array('editedtag', 'inline-save-tax'), true);
 
-  if ((!$start || !$end) && $is_edit && isset($_POST['tag_ID'])) {
+  if ($is_edit && isset($_POST['tag_ID'])) {
     $term_id = absint(wp_unslash($_POST['tag_ID']));
     if ($term_id > 0) {
       $stored_start = (int) get_term_meta($term_id, $start_key, true);
       $stored_end = (int) get_term_meta($term_id, $end_key, true);
-      if ($stored_start > 0 && $stored_end > 0) {
+      if (!array_key_exists($start_key, $_POST) && $stored_start > 0) {
         $start = $stored_start;
+      }
+      if (!array_key_exists($end_key, $_POST) && $stored_end > 0) {
         $end = $stored_end;
       }
     }
   }
 
-  if (!$start || !$end) {
-    return new WP_Error(
-      'trilha_periodo_obrigatorio',
-      __('Data inicial e data final são obrigatórias para a trilha de seleção.', 'ifrs-ps-theme')
-    );
-  }
-
-  if ($start > $end) {
+  if ($start && $end && $start > $end) {
     return new WP_Error(
       'trilha_periodo_invalido',
       __('A data inicial da trilha não pode ser maior que a data final.', 'ifrs-ps-theme')
@@ -271,6 +264,49 @@ add_action('admin_notices', function () {
  * Helpers: resolução, troca e filtragem por Trilha de Seleção.
  */
 
+function ifrs_ps_get_trilha_periodo_eventos($trilha)
+{
+  $term_id = is_object($trilha) ? (int) $trilha->term_id : (int) $trilha;
+
+  if ($term_id <= 0) {
+    return array('inicio' => 0, 'fim' => 0);
+  }
+
+  $eventos = get_posts(array(
+    'post_type'      => 'evento',
+    'post_status'    => 'publish',
+    'posts_per_page' => -1,
+    'no_found_rows'  => true,
+    'fields'         => 'ids',
+    'ps_trilha_periodo_lookup' => true,
+    'tax_query'      => array(
+      array(
+        'taxonomy' => 'trilha_selecao',
+        'field'    => 'term_id',
+        'terms'    => $term_id,
+      ),
+    ),
+  ));
+
+  $inicio = 0;
+  $fim = 0;
+
+  foreach ($eventos as $evento_id) {
+    $evento_inicio = (int) get_post_meta($evento_id, '_evento_data-inicio', true);
+    $evento_fim = (int) get_post_meta($evento_id, '_evento_data-fim', true);
+
+    if ($evento_inicio > 0 && (!$inicio || $evento_inicio < $inicio)) {
+      $inicio = $evento_inicio;
+    }
+
+    if ($evento_fim > 0 && $evento_fim > $fim) {
+      $fim = $evento_fim;
+    }
+  }
+
+  return array('inicio' => $inicio, 'fim' => $fim);
+}
+
 function ifrs_ps_get_trilha_periodo($trilha)
 {
   $term_id = is_object($trilha) ? $trilha->term_id : (int) $trilha;
@@ -279,9 +315,13 @@ function ifrs_ps_get_trilha_periodo($trilha)
     return array('inicio' => 0, 'fim' => 0);
   }
 
+  $automatico = ifrs_ps_get_trilha_periodo_eventos($term_id);
+  $inicio_manual = (int) get_term_meta($term_id, IFRS_PS_TRILHA_META_INICIO, true);
+  $fim_manual = (int) get_term_meta($term_id, IFRS_PS_TRILHA_META_FIM, true);
+
   return array(
-    'inicio' => (int) get_term_meta($term_id, IFRS_PS_TRILHA_META_INICIO, true),
-    'fim'    => (int) get_term_meta($term_id, IFRS_PS_TRILHA_META_FIM, true),
+    'inicio' => $inicio_manual > 0 ? $inicio_manual : $automatico['inicio'],
+    'fim'    => $fim_manual > 0 ? $fim_manual : $automatico['fim'],
   );
 }
 
@@ -298,9 +338,8 @@ function ifrs_ps_get_trilhas($args = array())
   $args = wp_parse_args($args, array(
     'taxonomy'   => 'trilha_selecao',
     'hide_empty' => false,
-    'meta_key'   => IFRS_PS_TRILHA_META_INICIO,
-    'orderby'    => 'meta_value_num',
-    'order'      => 'DESC',
+    'orderby'    => 'name',
+    'order'      => 'ASC',
   ));
 
   $terms = get_terms($args);
@@ -321,22 +360,16 @@ function ifrs_ps_get_trilha_vigente()
 
   $now = current_time('timestamp');
 
-  $terms = ifrs_ps_get_trilhas(array(
-    'meta_query' => array(
-      array(
-        'key'     => IFRS_PS_TRILHA_META_INICIO,
-        'value'   => $now,
-        'compare' => '<=',
-        'type'    => 'NUMERIC',
-      ),
-      array(
-        'key'     => IFRS_PS_TRILHA_META_FIM,
-        'value'   => $now,
-        'compare' => '>=',
-        'type'    => 'NUMERIC',
-      ),
-    ),
-  ));
+  $terms = array_filter(ifrs_ps_get_trilhas(), function ($term) use ($now) {
+    return ifrs_ps_is_trilha_vigente($term, $now);
+  });
+
+  usort($terms, function ($left, $right) {
+    $left_periodo = ifrs_ps_get_trilha_periodo($left);
+    $right_periodo = ifrs_ps_get_trilha_periodo($right);
+
+    return $right_periodo['inicio'] <=> $left_periodo['inicio'];
+  });
 
   $cache = !empty($terms) ? $terms[0] : false;
 
@@ -356,17 +389,18 @@ function ifrs_ps_get_trilha_mais_recente_encerrada()
 
   $now = current_time('timestamp');
 
-  $terms = ifrs_ps_get_trilhas(array(
-    'meta_query' => array(
-      array(
-        'key'     => IFRS_PS_TRILHA_META_FIM,
-        'value'   => $now,
-        'compare' => '<',
-        'type'    => 'NUMERIC',
-      ),
-    ),
-    'meta_key' => IFRS_PS_TRILHA_META_FIM,
-  ));
+  $terms = array_filter(ifrs_ps_get_trilhas(), function ($term) use ($now) {
+    $periodo = ifrs_ps_get_trilha_periodo($term);
+
+    return $periodo['fim'] > 0 && $periodo['fim'] < $now;
+  });
+
+  usort($terms, function ($left, $right) {
+    $left_periodo = ifrs_ps_get_trilha_periodo($left);
+    $right_periodo = ifrs_ps_get_trilha_periodo($right);
+
+    return $right_periodo['fim'] <=> $left_periodo['fim'];
+  });
 
   $cache = !empty($terms) ? $terms[0] : false;
 
@@ -479,7 +513,7 @@ function ifrs_ps_set_trilha_on_query(WP_Query $query, $trilha = null)
 }
 
 add_action('pre_get_posts', function ($query) {
-  if (is_admin() || !$query->is_main_query()) {
+  if (is_admin() || !$query->is_main_query() || $query->get('ps_trilha_periodo_lookup')) {
     return;
   }
 

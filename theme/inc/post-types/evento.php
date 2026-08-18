@@ -60,7 +60,7 @@ add_action('init', function () {
     'description'           => __('Eventos do Cronograma', 'ifrs-ps-theme'),
     'labels'                => $labels,
     'supports'              => array('title', 'editor', 'revisions'),
-    'taxonomies'            => array(),
+    'taxonomies'            => array('trilha_selecao'),
     'hierarchical'          => false,
     'public'                => true,
     'show_ui'               => true,
