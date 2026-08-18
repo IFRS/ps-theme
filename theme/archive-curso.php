@@ -2,11 +2,11 @@
 
 <?php $desc = curso_get_option('desc', ''); ?>
 
+<?php get_template_part('partials/trilha-switch'); ?>
+
 <section class="container cursos">
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
   <?php if (is_search() && get_search_query()) : ?><small>&nbsp;(Resultados da busca por &ldquo;<?php echo esc_html(get_search_query()); ?>&rdquo;)</small><?php endif; ?>
-
-  <?php get_template_part('partials/trilha-switch'); ?>
 
   <?php if (!empty($desc)) : ?>
     <div class="cursos__text">

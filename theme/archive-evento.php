@@ -22,6 +22,8 @@ wp_reset_postdata();
 $eventos_js = array();
 ?>
 
+<?php get_template_part('partials/trilha-switch'); ?>
+
 <section class="container cronograma">
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
   <?php if (!empty($desc)) : ?>
@@ -30,7 +32,6 @@ $eventos_js = array();
     </div>
   <?php endif; ?>
 
-  <?php get_template_part('partials/trilha-switch'); ?>
 
   <?php if (!empty($atualizacao)) : ?>
     <p class="cronograma__meta">Atualizado em <?php echo $atualizacao; ?></p>

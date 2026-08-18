@@ -12,7 +12,7 @@ $current = ifrs_ps_get_current_trilha();
 $current_id = $current ? $current->term_id : 0;
 $current_url = isset($_SERVER['REQUEST_URI']) ? esc_url_raw(wp_unslash($_SERVER['REQUEST_URI'])) : home_url('/');
 ?>
-<div class="mb-4">
+<div class="container my-4">
   <div class="btn-group flex-wrap" role="group" aria-label="<?php esc_attr_e('Trilha de seleção', 'ifrs-ps-theme'); ?>">
     <?php foreach ($trilhas as $trilha) : ?>
       <?php
@@ -21,7 +21,7 @@ $current_url = isset($_SERVER['REQUEST_URI']) ? esc_url_raw(wp_unslash($_SERVER[
       ?>
       <a
         href="<?php echo esc_url($switch_url); ?>"
-        class="btn btn-sm <?php echo $is_active ? 'btn-primary' : 'btn-outline-primary'; ?>"
+        class="btn btn-sm <?php echo $is_active ? 'btn-primary' : 'btn-outline-secondary'; ?>"
         aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>"
       >
         <?php echo esc_html($trilha->name); ?>

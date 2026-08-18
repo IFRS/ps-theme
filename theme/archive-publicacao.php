@@ -15,9 +15,10 @@ $args = ifrs_ps_apply_trilha_query_args($args);
 $publicacoes = new WP_Query($args);
 ?>
 
+<?php get_template_part('partials/trilha-switch'); ?>
+
 <section class="container">
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
-  <?php get_template_part('partials/trilha-switch'); ?>
   <article class="publicacoes publicacoes--archive">
     <div class="publicacoes__text">
       <?php echo wpautop(wp_kses_post(cmb2_get_option('publicacao_options', 'desc', ''))); ?>
