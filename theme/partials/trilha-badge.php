@@ -15,10 +15,11 @@ if (empty($terms) || is_wp_error($terms)) {
 
 $current_trilha = function_exists('ifrs_ps_get_current_trilha') ? ifrs_ps_get_current_trilha() : null;
 $current_term_id = $current_trilha && is_object($current_trilha) ? (int) $current_trilha->term_id : 0;
+$always_show = is_singular();
 
 $visible_terms = array();
 foreach ($terms as $term) {
-  if ($current_term_id > 0 && (int) $term->term_id === $current_term_id) {
+  if (!$always_show && $current_term_id > 0 && (int) $term->term_id === $current_term_id) {
     continue;
   }
 
