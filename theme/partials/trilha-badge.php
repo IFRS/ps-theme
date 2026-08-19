@@ -31,7 +31,7 @@ if (empty($visible_terms)) {
 }
 ?>
 <?php foreach ($visible_terms as $term) : ?>
-  <span class="badge rounded-pill text-bg-light border border-primary text-primary mb-2 me-1">
+  <span class="badge rounded-pill text-bg-light border border-accent text-accent mb-2 me-1">
     <?php echo esc_html($term->name); ?>
   </span>
 <?php endforeach; ?>

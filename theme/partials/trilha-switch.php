@@ -21,7 +21,7 @@ $current_url = isset($_SERVER['REQUEST_URI']) ? esc_url_raw(wp_unslash($_SERVER[
       ?>
       <a
         href="<?php echo esc_url($switch_url); ?>"
-        class="btn btn-sm <?php echo $is_active ? 'btn-primary' : 'btn-outline-secondary'; ?>"
+        class="btn btn-sm <?php echo $is_active ? 'btn-accent' : 'btn-outline-secondary'; ?>"
         aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>"
       >
         <?php echo esc_html($trilha->name); ?>
