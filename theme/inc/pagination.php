@@ -1,5 +1,5 @@
 <?php
-function custom_pagination()
+function ifrs_ps_custom_pagination()
 {
   global $wp_query;
 

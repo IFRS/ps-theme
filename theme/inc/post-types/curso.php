@@ -49,7 +49,7 @@ add_action('init', function () {
     'description'         => __('Curso do Portal de Ingresso', 'ifrs-ps-theme'),
     'labels'              => $labels,
     'supports'            => array('title', 'editor', 'revisions'),
-    'taxonomies'          => array('campus', 'turno', 'modalidade', 'formaingresso'),
+    'taxonomies'          => array('campus', 'turno', 'modalidade', 'formaingresso', 'trilha_selecao'),
     'hierarchical'        => false,
     'public'              => true,
     'show_ui'             => true,
@@ -147,12 +147,17 @@ add_action('restrict_manage_posts', function ($post_type) {
 
 /* Custom Query */
 add_filter('pre_get_posts', function ($query) {
-  if (!is_admin() && $query->is_main_query() && ($query->is_post_type_archive('curso') || $query->is_tax('modalidade') || $query->is_tax('turno'))) {
+  if (!is_admin() && $query->is_main_query() && ($query->is_post_type_archive('curso') || $query->is_tax('modalidade') || $query->is_tax('turno') || $query->is_tax('campus') || $query->is_tax('formaingresso') || $query->is_tax('trilha_selecao'))) {
     $query->set('posts_per_page', -1);
     $query->set('nopaging', true);
     $query->set('orderby', 'title');
     $query->set('order', 'ASC');
     $query->set('ps_orderby_campus_title', true);
+
+    if (function_exists('ifrs_ps_set_trilha_on_query')) {
+      ifrs_ps_set_trilha_on_query($query);
+    }
+
     // $query->set('tax_query', array(
     //     array(
     //         'taxonomy' => 'formaingresso',

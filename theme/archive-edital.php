@@ -2,6 +2,8 @@
 
 <?php $desc = cmb2_get_option('edital_options', 'desc', ''); ?>
 
+<?php get_template_part('partials/trilha-switch'); ?>
+
 <section class="container editais">
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
   <?php if (!empty($desc)) : ?>

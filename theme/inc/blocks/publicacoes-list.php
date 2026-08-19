@@ -62,6 +62,7 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
           <ul class="publicacoes__list">
             <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
               <li class="publicacoes__item">
+                <?php get_template_part('partials/trilha-badge'); ?>
                 <h3 class="publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <p class="publicacoes__item-meta" data-bs-toggle="tooltip" data-bs-placement="right" title="<?php echo esc_attr(get_the_modified_date('d/m/Y') . ' - ' . get_the_modified_time('G\\hi')); ?>">atualizado <?php echo esc_html(ps_relative_past_time(get_the_modified_date('c'))); ?></p>
                 <?php the_excerpt(); ?>
