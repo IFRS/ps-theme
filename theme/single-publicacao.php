@@ -27,19 +27,42 @@
 
   <!-- wp:post-content /-->
 
-  <?php $files = get_post_meta(get_the_ID(), '_publicacao_arquivos', true); ?>
-    <?php if (!empty($files)) : ?>
-      <div class="card mt-4">
-        <div class="card-header">
-          <h3 class="mb-0">Arquivos</h3>
+  <?php $arquivos = get_post_meta(get_the_ID(), '_publicacao_arquivos', true); ?>
+  <?php $anexos = get_post_meta(get_the_ID(), '_publicacao_anexos', true); ?>
+
+  <?php if (!empty($arquivos) || !empty($anexos)) : ?>
+    <div class="row row-cols-1 row-cols-md-2 mt-4">
+      <?php if (!empty($arquivos)) : ?>
+        <div class="col">
+          <div class="card mb-3">
+            <div class="card-header">
+              <h3 class="mb-0">Arquivos Principais</h3>
+            </div>
+            <div class="list-group list-group-flush">
+              <?php foreach ((array) $arquivos as $id => $arquivo) : ?>
+                <a href="<?php echo esc_url($arquivo); ?>" class="list-group-item list-group-item-action"><?php echo esc_html(get_the_title($id)); ?></a>
+              <?php endforeach; ?>
+            </div>
+          </div>
         </div>
-        <div class="list-group list-group-flush">
-          <?php foreach ($files as $id => $file) : ?>
-            <a class="list-group-item list-group-item-action" href="<?php echo esc_url($file); ?>"><?php echo get_the_title($id); ?></a>
-          <?php endforeach; ?>
+      <?php endif; ?>
+
+      <?php if (!empty($anexos)) : ?>
+        <div class="col">
+          <div class="card mb-3">
+            <div class="card-header">
+              <h3 class="mb-0">Anexos</h3>
+            </div>
+            <div class="list-group list-group-flush">
+              <?php foreach ((array) $anexos as $id => $anexo) : ?>
+                <a class="list-group-item list-group-item-action" href="<?php echo esc_url($anexo); ?>"><?php echo esc_html(get_the_title($id)); ?></a>
+              <?php endforeach; ?>
+            </div>
+          </div>
         </div>
-      </div>
-    <?php endif; ?>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
 
   <?php echo do_blocks(ob_get_clean()); ?>
 </article>

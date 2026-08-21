@@ -2,7 +2,7 @@
 
 function ifrs_ps_get_trilha_post_types()
 {
-  return array('edital', 'publicacao', 'curso', 'evento', 'chamada');
+  return array('publicacao', 'curso', 'evento', 'chamada');
 }
 
 define('IFRS_PS_TRILHA_META_INICIO', '_trilha_selecao_data_inicio');

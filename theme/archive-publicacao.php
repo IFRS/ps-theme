@@ -1,50 +1,40 @@
 <?php get_header(); ?>
 
-<?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
-  'post_type' => array('edital', 'publicacao'),
-  'posts_per_page' => 12,
-  'order' => 'DESC',
-  'orderby' => 'date',
-  'paged' => $paged,
-);
-
-$args = ifrs_ps_apply_trilha_query_args($args);
-
-$publicacoes = new WP_Query($args);
-?>
-
 <?php get_template_part('partials/trilha-switch'); ?>
 
-<section class="container">
+<section class="container publicacoes">
   <?php echo do_blocks('<!-- wp:query-title {"type":"archive","showPrefix":false,"level":2} /-->') ?>
-  <article class="publicacoes publicacoes--archive">
+
+  <?php $desc = cmb2_get_option('publicacao_options', 'desc', ''); ?>
+  <?php if (!empty($desc)) : ?>
     <div class="publicacoes__text">
-      <?php echo wpautop(wp_kses_post(cmb2_get_option('publicacao_options', 'desc', ''))); ?>
+      <?php echo wpautop(wp_kses_post($desc), true); ?>
     </div>
+  <?php endif; ?>
 
-    <?php if ($publicacoes->have_posts()) : ?>
-      <ul class="publicacoes__list">
-        <?php while ($publicacoes->have_posts()) : $publicacoes->the_post(); ?>
-          <li class="publicacoes__item">
-            <?php get_template_part('partials/trilha-badge'); ?>
-            <h4 class="publicacoes__item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-            <p class="publicacoes__item-meta"><span class="publicacoes__item-date"><?php echo get_the_date('d/m/Y'); ?></span>&nbsp;<span class="publicacoes__item-time"><?php echo get_the_time('G\hi'); ?></span></p>
-            <?php the_excerpt(); ?>
-          </li>
-        <?php endwhile; ?>
-      </ul>
-    <?php else : ?>
-      <div class="alert alert-warning" role="alert">
-        <p><strong>Ops!</strong> Ainda n&atilde;o existem publica&ccedil;&otilde;es cadastradas.</p>
-      </div>
-    <?php endif; ?>
-
-    <?php wp_reset_query(); ?>
-
-    <?php ifrs_ps_custom_pagination(); ?>
-  </article>
+  <?php if (have_posts()) : ?>
+  <div class="list-group mt-3">
+    <?php while (have_posts()) : the_post(); ?>
+      <a href="<?php echo get_the_permalink(); ?>" rel="bookmark" class="flex-column align-items-start list-group-item list-group-item-action" title="<?php the_title(); ?>">
+        <?php get_template_part('partials/trilha-badge'); ?>
+        <div class="d-flex w-100 justify-content-between">
+          <h3 class="mb-1"><?php the_title(); ?></h3>
+        </div>
+        <p class="mb-1">
+          <small>publicado em <?php the_time('d \d\e F \d\e Y \à\s G\hi'); ?></small>
+          <?php if (get_the_modified_time() != get_the_time()) : ?>
+            &nbsp;&mdash;&nbsp;
+            <small>atualizado em <?php the_modified_time('d \d\e F \d\e Y \à\s G\hi'); ?></small>
+          <?php endif; ?>
+        </p>
+      </a>
+    <?php endwhile; ?>
+  </div>
+  <?php else : ?>
+    <div class="alert alert-warning" role="alert">
+      <strong>Aguarde!</strong> Em breve os documentos importantes ser&atilde;o publicados.
+    </div>
+  <?php endif; ?>
 </section>
 
 <?php get_footer(); ?>

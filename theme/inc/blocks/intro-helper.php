@@ -35,7 +35,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
       ),
       array(
         'text' => __('Leia o Edital com atenção e faça sua Inscrição', 'ifrs-ps-theme'),
-        'link_url' => get_post_type_archive_link('edital'),
+        'link_url' => get_post_type_archive_link('publicacao'),
         'link_text' => __('Editais', 'ifrs-ps-theme'),
         'icon_paths' => array(
           'M14 3v4a1 1 0 0 0 1 1h4',
