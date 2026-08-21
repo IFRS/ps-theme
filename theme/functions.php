@@ -9,9 +9,6 @@ require_once('inc/resource-hints.php');
 require_once('inc/theme-config.php');
 require_once('inc/extra-header-image.php');
 
-// Gutenberg Config
-require_once('inc/gutenberg.php');
-
 // Menus
 require_once('inc/menus.php');
 require_once('inc/sitemap-walker.class.php');
