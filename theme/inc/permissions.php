@@ -35,10 +35,6 @@ add_action('after_switch_theme', function () {
       'edit_documentos'      => true,
       'manage_documentos'    => true,
 
-      'create_editais'       => true,
-      'edit_editais'         => true,
-      'manage_editais'       => true,
-
       'create_eventos'       => true,
       'edit_eventos'         => true,
       'manage_eventos'       => true,
@@ -65,10 +61,6 @@ add_action('after_switch_theme', function () {
       'create_cursos'        => true,
       'edit_cursos'          => true,
       // 'manage_cursos'        => false,
-
-      'create_editais'       => true,
-      'edit_editais'         => true,
-      'manage_editais'       => false,
 
       'create_eventos'       => true,
       'edit_eventos'         => true,
@@ -122,10 +114,6 @@ add_action('after_switch_theme', function () {
   $administrator->add_cap('create_documentos');
   $administrator->add_cap('edit_documentos');
   $administrator->add_cap('manage_documentos');
-
-  $administrator->add_cap('create_editais');
-  $administrator->add_cap('edit_editais');
-  $administrator->add_cap('manage_editais');
 
   $administrator->add_cap('create_eventos');
   $administrator->add_cap('edit_eventos');

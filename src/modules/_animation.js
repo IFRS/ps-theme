@@ -59,15 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   delay = 0;
-  document.querySelectorAll('.editais .list-group-item').forEach(element => {
-    element.classList.add('animate__animated');
-    element.style = 'animation-delay:' + delay + 's';
-    delay = delay + 0.2;
-    let observer = intersectionObserver(['animate__fadeInDown']);
-    observer.observe(element);
-  });
-
-  delay = 0;
   document.querySelectorAll('.cursos__nav .nav-item').forEach(element => {
     element.classList.add('animate__animated');
     element.style = 'animation-delay:' + delay + 's';

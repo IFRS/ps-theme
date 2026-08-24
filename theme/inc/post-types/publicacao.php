@@ -71,34 +71,75 @@ add_action('init', function () {
   register_post_type('publicacao', $args);
 }, 5);
 
+add_filter('pre_get_posts', function ($query) {
+  if ($query->is_main_query() && $query->is_post_type_archive('publicacao')) {
+    $query->set('posts_per_page', -1);
+    $query->set('nopaging', true);
+    $query->set('post_parent', 0);
+    $query->set('orderby', 'date');
+    $query->set('order', 'DESC');
+  }
+  return $query;
+});
+
 // Metabox
 add_action('cmb2_admin_init', function () {
   $prefix = '_publicacao_';
 
   $cmb = new_cmb2_box(array(
     'id'            => $prefix . 'metabox',
-    'title'         => __('Arquivos Associados', 'ifrs-ps-theme'),
+    'title'         => __('Arquivos da Publicação', 'ifrs-ps-theme'),
     'object_types'  => array('publicacao',),
     'context'       => 'normal',
     'priority'      => 'high',
-    'show_names'    => false,
+    'show_names'    => true,
   ));
 
+  // $cmb->add_field(array(
+  //   'name'    => __('Arquivo Principal', 'ifrs-ps-theme'),
+  //   'desc'    => __('Arquivo principal da publicação, em formato PDF.', 'ifrs-ps-theme'),
+  //   'id'      => $prefix . 'arquivo',
+  //   'type'    => 'file',
+  //   'options' => array(
+  //     'url' => false, // Hide the text input for the url
+  //   ),
+  //   'query_args' => array(
+  //     'type' => 'application/pdf',
+  //   ),
+  // ));
+
   $cmb->add_field(array(
-    'name'    => __('Arquivos', 'ifrs-ps-theme'),
-    'desc'    => __('Clique no botão acima para enviar um ou mais documentos.', 'ifrs-ps-theme'),
+    'name'    => __('Arquivos Principais', 'ifrs-ps-theme'),
+    'desc'    => __('Arquivos principais da publicação, como um Edital ou suas retificações, listas, etc. Preferencialmente, em formato PDF.', 'ifrs-ps-theme'),
     'id'      => $prefix . 'arquivos',
     'type'    => 'file_list',
     'options' => array(
-      'url' => false, // Hide the text input for the url
+      'url' => false,
     ),
-    // 'text'    => array(
-    // 'add_upload_file_text' => 'Add File' // Change upload button text. Default: "Add or Upload File"
-    // ),
-    //'query_args' => array(
-    //    'type' => 'application/pdf',
-    //),
   ));
+
+  $cmb->add_field(array(
+    'name'    => __('Anexos', 'ifrs-ps-theme'),
+    'desc'    => __('Anexos referentes a esta publicação. Preferencialmente, em formato PDF.', 'ifrs-ps-theme'),
+    'id'      => $prefix . 'anexos',
+    'type'    => 'file_list',
+    'options' => array(
+      'url' => false,
+    ),
+  ));
+
+  // $cmb->add_field(array(
+  //   'name'    => __('Retificações', 'ifrs-ps-theme'),
+  //   'desc'    => __('Retificações desta publicação, em formato PDF.', 'ifrs-ps-theme'),
+  //   'id'      => $prefix . 'retificacoes',
+  //   'type'    => 'file_list',
+  //   'options' => array(
+  //     'url' => false,
+  //   ),
+  //   'query_args' => array(
+  //     'type' => 'application/pdf',
+  //   ),
+  // ));
 }, 4);
 
 /* Disable Gutenberg */
@@ -111,7 +152,7 @@ add_filter('use_block_editor_for_post_type', function ($current_status, $post_ty
 add_action('cmb2_admin_init', function () {
   $options = new_cmb2_box(array(
     'id'           => 'ps_publicacao_option_metabox',
-    'title'        => esc_html__('Opções para Cursos', 'ifrs-ps-theme'),
+    'title'        => esc_html__('Opções para Publicações', 'ifrs-ps-theme'),
     'object_types' => array('options-page'),
     'option_key'      => 'publicacao_options',
     // 'icon_url'        => 'dashicons-palmtree',

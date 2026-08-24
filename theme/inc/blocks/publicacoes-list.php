@@ -26,7 +26,7 @@ if (!function_exists('ifrs_ps_render_publicacoes_list_block')) {
     $posts_per_page = !empty($attributes['postsPerPage']) ? (int) $attributes['postsPerPage'] : 5;
 
     $publicacoes = new WP_Query(array(
-      'post_type'           => array('edital', 'publicacao'),
+      'post_type'           => 'publicacao',
       'post_status'         => 'publish',
       'posts_per_page'      => $posts_per_page,
       'order'               => 'DESC',

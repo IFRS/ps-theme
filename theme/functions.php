@@ -9,9 +9,6 @@ require_once('inc/resource-hints.php');
 require_once('inc/theme-config.php');
 require_once('inc/extra-header-image.php');
 
-// Gutenberg Config
-require_once('inc/gutenberg.php');
-
 // Menus
 require_once('inc/menus.php');
 require_once('inc/sitemap-walker.class.php');
@@ -42,7 +39,6 @@ require_once('inc/taxonomies/formaingresso-taxonomy.php');
 require_once('inc/taxonomies/trilha-selecao-taxonomy.php');
 
 // Custom Post Types
-require_once('inc/post-types/edital.php');
 require_once('inc/post-types/curso.php');
 require_once('inc/post-types/pergunta.php');
 require_once('inc/post-types/publicacao.php');
