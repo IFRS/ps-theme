@@ -43,7 +43,7 @@
   justify-content: start;
   padding: $card-spacer-y $card-spacer-x;
   background-color: $gray-200;
-  border-radius: $border-radius-lg + $card-spacer-x;
+  border-radius: $border-radius-lg;
 
   &:not(:last-child) {
     margin-bottom: 1.5rem;

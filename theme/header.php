@@ -30,11 +30,11 @@
   <header>
     <h1 class="visually-hidden"><?php bloginfo('name'); ?></h1>
 
-    <section class="container header">
+    <section class="container header-content">
       <?php the_custom_logo(); ?>
       <?php if ($extra_image) : ?>
         <?php list($width, $height, $type, $attr) = getimagesize($extra_image); ?>
-          <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="extra-header-image <?php echo $extra_image_class ?>" <?php echo $attr; ?>>
+        <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="header-content__extra-image <?php echo $extra_image_class ?>" <?php echo $attr; ?>>
       <?php endif; ?>
     </section>
 

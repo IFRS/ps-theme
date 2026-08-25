@@ -46,7 +46,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
         ),
       ),
       array(
-        'text' => __('Realize a prova ou acompanhe o sorteio', 'ifrs-ps-theme'),
+        'text' => __('Realize a Prova ou acompanhe o Sorteio', 'ifrs-ps-theme'),
         'link_url' => get_post_type_archive_link('evento'),
         'link_text' => __('Cronograma', 'ifrs-ps-theme'),
         'icon_paths' => array(
@@ -67,7 +67,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
         ),
       ),
       array(
-        'text' => __('Faça sua Pré-matrícula após os resultados', 'ifrs-ps-theme'),
+        'text' => __('Faça sua Pré-matrícula após os Resultados', 'ifrs-ps-theme'),
         'link_url' => null,
         'link_text' => null,
         'icon_paths' => array(

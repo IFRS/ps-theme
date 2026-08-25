@@ -366,6 +366,11 @@
             "color": {
               "background": "var:custom|bootstrap|color|gray-200"
             }
+          },
+          "link": {
+            "color": {
+              "text": "var:custom|bootstrap|color|light"
+            }
           }
         },
         "css": "width: 100%;"
