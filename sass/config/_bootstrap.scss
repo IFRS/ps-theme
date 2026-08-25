@@ -37,7 +37,8 @@ $body-bg: #f6f6f4;
 
 $link-color: shift-color($primary, 5%);
 
-$font-family-base: "degular-variable", "Open Sans Variable", #{$font-family-sans-serif};
+$font-family-base: "Open Sans Variable", #{$font-family-sans-serif};
+$headings-font-family: "pragmatica-slabserif", #{$font-family-base};
 
 $h2-font-size: $font-size-base * 2.1;
 
