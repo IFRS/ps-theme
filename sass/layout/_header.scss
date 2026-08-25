@@ -35,6 +35,16 @@ header {
     padding-bottom: 1rem;
   }
 
+  &__extra-image {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+
+    @include img-fluid;
+
+    flex: 0 1 auto;
+  }
+
   .custom-logo-link {
     display: inline-block;
     flex: 0 1 auto;
@@ -47,16 +57,6 @@ header {
     .custom-logo {
       @include img-fluid;
     }
-  }
-
-  &__extra-image {
-    @include media-breakpoint-down(lg) {
-      display: none;
-    }
-
-    @include img-fluid;
-
-    flex: 0 1 auto;
   }
 
   p {
