@@ -3,11 +3,10 @@
 @import 'base/wp';
 @import 'base/bootstrap-override';
 @import 'layout/header';
+@import 'layout/menu';
 @import 'layout/main';
 @import 'layout/footer';
-@import 'components/menu';
 @import 'components/menu-social';
-@import 'components/header';
 @import 'components/publicacoes';
 @import 'components/breadcrumb';
 @import 'components/campi-list';

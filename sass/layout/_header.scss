@@ -21,3 +21,52 @@ header {
     background-image: var(--bg-full, none);
   }
 }
+
+.header-content {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: ($spacer * 2);
+  align-items: center;
+  justify-content: center;
+  color: $gray-100;
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .custom-logo-link {
+    display: inline-block;
+    flex: 0 1 auto;
+    text-align: center;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .custom-logo {
+      @include img-fluid;
+    }
+  }
+
+  &__extra-image {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+
+    @include img-fluid;
+
+    flex: 0 1 auto;
+  }
+
+  p {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-weight: 600;
+    text-align: center;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+}
