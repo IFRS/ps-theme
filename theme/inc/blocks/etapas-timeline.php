@@ -7,7 +7,7 @@ add_action("init", function () {
     "attributes" => [
       "title" => [
         "type" => "string",
-        "default" => __("Próximas etapas importantes", "ifrs-ps-theme"),
+        "default" => __("Próximas Etapas Importantes", "ifrs-ps-theme"),
       ],
       "hidePast" => [
         "type" => "boolean",
@@ -26,7 +26,7 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
   {
     $title = !empty($attributes["title"])
       ? wp_kses_post($attributes["title"])
-      : esc_html__("Próximas datas importantes", "ifrs-ps-theme");
+      : esc_html__("Próximas Etapas Importantes", "ifrs-ps-theme");
     $hide_past = !empty($attributes["hidePast"]);
     $agora = current_time("timestamp");
 
