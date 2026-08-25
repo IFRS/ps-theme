@@ -5,7 +5,7 @@ body.admin-bar {
 }
 
 nav.menu {
-  background-color: $gray-100;
+  background-color: $body-bg;
   border-bottom: 2px solid $gray-400;
 
   @include media-breakpoint-up(md) {
