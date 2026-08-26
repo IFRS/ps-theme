@@ -37,7 +37,11 @@ $eventos_js = array();
     <p class="cronograma__meta">Atualizado em <?php echo $atualizacao; ?></p>
   <?php endif; ?>
   <?php if (have_posts()) : ?>
-    <div class="d-grid d-md-flex justify-content-md-end">
+    <div class="d-flex flex-wrap justify-content-md-between align-items-center gap-4">
+      <div class="form-check form-switch fw-medium">
+        <input class="form-check-input" type="checkbox" role="switch" id="cronograma__switch">
+        <label class="form-check-label" for="cronograma__switch">Mostrar eventos passados</label>
+      </div>
       <button id="ics" class="btn btn-dark btn-sm">Exporte para sua agenda</button>
     </div>
     <div class="table-responsive-sm mt-3">
