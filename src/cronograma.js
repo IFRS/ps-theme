@@ -49,30 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let eventos_passados = document.querySelectorAll('.evento--passado');
   eventos_passados.forEach(evento => evento.classList.add('collapse'));
 
-  let evento_passado = Array.from(eventos_passados).pop();
-  if (evento_passado) {
-    let tr = document.createElement('tr');
-    let td = document.createElement('td');
-    td.setAttribute('colspan', '2');
-    td.classList.add('border-0', 'ps-0', 'pe-0');
-    let button = document.createElement('button');
-    button.classList.add('btn', 'btn-block', 'cronograma__toggle');
-    button.setAttribute('type', 'button');
-    button.setAttribute('data-bs-toggle', 'collapse');
-    button.setAttribute('data-bs-target', '.evento--passado');
-    button.setAttribute('aria-expanded', 'false');
-    button.innerText = "Exibir Datas Passadas";
-
-    td.appendChild(button);
-    tr.appendChild(td);
-
-    evento_passado.parentNode.insertBefore(tr, evento_passado.nextSibling);
-
-    evento_passado.addEventListener('shown.bs.collapse', function () {
-      button.innerText = 'Ocultar Datas Passadas';
-    });
-    evento_passado.addEventListener('hidden.bs.collapse', function () {
-      button.innerText = 'Exibir Datas Passadas';
+  const switchElement = document.querySelector('#cronograma__switch');
+  if (switchElement && eventos_passados.length > 0) {
+    switchElement.addEventListener('change', () => {
+      eventos_passados.forEach(evento => {
+        if (switchElement.checked) {
+          evento.classList.add('show');
+        } else {
+          evento.classList.remove('show');
+        }
+      });
     });
   }
 
