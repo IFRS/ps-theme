@@ -37,7 +37,9 @@
         }
         ?>
         <article class="curso">
-          <?php get_template_part('partials/trilha-badge'); ?>
+          <div>
+            <?php get_template_part('partials/trilha-badge'); ?>
+          </div>
           <div class="curso__header">
             <?php
             if (!empty($campi) && !is_wp_error($campi)) {
