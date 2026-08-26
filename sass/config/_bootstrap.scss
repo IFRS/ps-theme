@@ -27,9 +27,13 @@ $breadcrumb-padding-y: 1rem;
 
 $btn-font-weight: 700;
 
+$caret-width: 0.4rem;
+
 $dropdown-padding-y: 0;
 
-$caret-width: 0.4rem;
+$input-bg: #ffffff;
+
+$list-group-bg: #ffffff;
 
 $nav-link-font-weight: 500;
 
@@ -63,16 +67,12 @@ $dropdown-link-hover-bg: $primary;
 $dropdown-link-active-color: color-contrast($primary);
 $dropdown-link-active-bg: $primary;
 
-$list-group-bg: $white;
-
 $navbar-light-color: $body-color;
 $navbar-light-hover-color: $gray-900;
 $navbar-light-active-color: $gray-900;
 
 $nav-pills-link-active-bg: $primary;
 $nav-pills-link-active-color: color-contrast($primary);
-
-$input-bg: $gray-100;
 
 $theme-colors: map.merge($theme-colors, $custom-colors);
 
