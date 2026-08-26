@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .cronograma {
   position: relative;
 
@@ -12,7 +14,7 @@
     @include media-breakpoint-up(md) {
       position: absolute;
       top: 0;
-      right: 0;
+      right: math.div($grid-gutter-width, 2);
       margin-top: 0.5rem;
     }
   }
@@ -28,49 +30,6 @@
       }
     }
   }
-
-  &__toggle {
-    $linha: linear-gradient(90deg, rgba($table-border-color, 1) 0%, rgba($table-border-color, 1) 100%);
-
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    font-size: 0.8rem;
-    border-radius: $border-radius;
-
-    &::before,
-    &::after {
-      flex: 1 1;
-      height: 24px;
-      content: '';
-      background-image: $linha, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'%3E%3Cpath d='M5 15h14l-7-8z'%3E%3C/path%3E%3C/svg%3E");
-      background-repeat: no-repeat, no-repeat;
-      background-size: 100% 1px, 20px;
-    }
-
-    &::before {
-      margin-right: 0.5rem;
-      background-position: center right 24px, center right;
-    }
-
-    &::after {
-      margin-left: 0.5rem;
-      background-position: center left 24px, center left;
-    }
-
-    &:hover {
-      background-color: $gray-200;
-    }
-
-    &[aria-expanded="false"] {
-      &::before,
-      &::after {
-        background-image: $linha, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'%3E%3Cpath d='m11.998 17 7-8h-14z'%3E%3C/path%3E%3C/svg%3E");
-      }
-    }
-  }
 }
 
 .evento {
@@ -79,6 +38,11 @@
   &--passado {
     color: $text-muted;
     opacity: 0.75;
+
+    #{$block}__content,
+    #{$block}__datas {
+      color: inherit;
+    }
   }
 
   &--novo {
