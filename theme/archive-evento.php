@@ -18,8 +18,6 @@ if ($ultimo_evento->have_posts()) {
   $atualizacao = get_the_modified_date();
 }
 wp_reset_postdata();
-
-$eventos_js = array();
 ?>
 
 <?php get_template_part('partials/trilha-switch'); ?>
@@ -53,9 +51,8 @@ $eventos_js = array();
           </tr>
         </thead>
         <tbody>
-          <?php while (have_posts()) : the_post(); ?>
-            <?php $eventos_js[] = get_the_ID(); ?>
-            <?php
+          <?php
+          while (have_posts()) : the_post();
             $data_inicio = get_post_meta(get_the_ID(), '_evento_data-inicio', true);
             $data_fim = get_post_meta(get_the_ID(), '_evento_data-fim', true);
 
@@ -68,8 +65,8 @@ $eventos_js = array();
             $evento_passou = ($data_fim < $agora);
 
             $evento_tipo = get_post_meta(get_the_ID(), '_evento_tipo', true);
-            ?>
-            <tr class="<?php echo ($evento_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>" data-tipo="<?php echo !empty($evento_tipo) ? esc_attr($evento_tipo) : ''; ?>">
+          ?>
+            <tr class="<?php echo ($evento_passou) ? 'evento evento--passado' : 'evento' ?>" id="evento-<?php echo get_the_ID(); ?>" data-tipo="<?php echo !empty($evento_tipo) ? esc_attr($evento_tipo) : ''; ?>">
               <td class="evento__datas<?php echo ($evento_atual) ? ' text-success' : ''; ?>">
                 <?php if (!$evento_mesmo_dia) : ?>
                   <?php echo date_i18n('d/m', $data_inicio); ?> a
@@ -105,7 +102,5 @@ $eventos_js = array();
     </div>
   <?php endif; ?>
 </section>
-
-<script id="cronograma-data" type="application/json"><?php echo wp_json_encode($eventos_js); ?></script>
 
 <?php get_footer(); ?>
