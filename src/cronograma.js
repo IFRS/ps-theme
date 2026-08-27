@@ -8,7 +8,7 @@ import toArray from 'dayjs/plugin/toArray.js';
 dayjs.extend(UTC);
 dayjs.extend(toArray);
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const WP_API = document.querySelector('link[rel="https://api.w.org/"]').getAttribute('href');
 
   let observer = new IntersectionObserver(entries => {
@@ -19,8 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const cronogramaNode = document.querySelector('#cronograma-data');
-  const cronograma = cronogramaNode ? JSON.parse(cronogramaNode.textContent || '[]') : [];
+  let cronograma = [];
+  try {
+    let response = await axios.get(WP_API + 'wp/v2/cronograma?per_page=100&_fields=id');
+    cronograma = response.data.map(evento => evento.id);
+  } catch (error) {
+    console.error('Erro ao buscar Cronograma:', error);
+  }
 
   if (cronograma.length > 0) {
     let cronograma_local = localStorage.getItem('ifrs_ps_cronograma');
@@ -46,85 +51,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  let eventos_atuais = document.querySelectorAll('.evento:not(.evento--passado)');
   let eventos_passados = document.querySelectorAll('.evento--passado');
   eventos_passados.forEach(evento => evento.classList.add('collapse'));
 
-  let evento_passado = Array.from(eventos_passados).pop();
-  if (evento_passado) {
-    let tr = document.createElement('tr');
-    let td = document.createElement('td');
-    td.setAttribute('colspan', '2');
-    td.classList.add('border-0', 'ps-0', 'pe-0');
-    let button = document.createElement('button');
-    button.classList.add('btn', 'btn-block', 'cronograma__toggle');
-    button.setAttribute('type', 'button');
-    button.setAttribute('data-bs-toggle', 'collapse');
-    button.setAttribute('data-bs-target', '.evento--passado');
-    button.setAttribute('aria-expanded', 'false');
-    button.innerText = "Exibir Datas Passadas";
-
-    td.appendChild(button);
-    tr.appendChild(td);
-
-    evento_passado.parentNode.insertBefore(tr, evento_passado.nextSibling);
-
-    evento_passado.addEventListener('shown.bs.collapse', function () {
-      button.innerText = 'Ocultar Datas Passadas';
+  const switchElement = document.querySelector('#cronograma__switch');
+  if (switchElement && eventos_passados.length > 0) {
+    switchElement.addEventListener('change', () => {
+      eventos_passados.forEach(evento => {
+        if (switchElement.checked) {
+          evento.classList.add('show');
+        } else {
+          evento.classList.remove('show');
+        }
+      });
     });
-    evento_passado.addEventListener('hidden.bs.collapse', function () {
-      button.innerText = 'Exibir Datas Passadas';
-    });
+
+    if (eventos_atuais.length === 0) {
+      switchElement.click();
+    }
   }
 
   const btn = document.querySelector('#ics');
 
   if (btn) {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       btn.classList.add('disabled');
+
       let eventos = [];
-      axios.get(WP_API + 'wp/v2/cronograma?per_page=100')
-        .then(response => {
-          if (Array.isArray(response.data)) response.data.forEach((evento) => {
-            let start_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-inicio']).utc().toArray().slice(0, 6);
-            start_date[1]++ // Workaround para correção de comportamento no método toArray, que conta os meses a partir do 0 (zero).
+      try {
+        let response = await axios.get(WP_API + 'wp/v2/cronograma?per_page=100');
+        if (Array.isArray(response.data)) response.data.forEach((evento) => {
+          let start_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-inicio']).utc().toArray().slice(0, 6);
+          start_date[1]++ // Workaround para correção de comportamento no método toArray, que conta os meses a partir do 0 (zero).
 
-            let end_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-fim']).utc().toArray().slice(0, 6);
-            end_date[1]++
+          let end_date = dayjs.unix(evento.cmb2._evento_datas['_evento_data-fim']).utc().toArray().slice(0, 6);
+          end_date[1]++
 
-            let created_date = dayjs(evento.date_gmt).toArray().slice(0, 6);
-            created_date[1]++
+          let created_date = dayjs(evento.date_gmt).toArray().slice(0, 6);
+          created_date[1]++
 
-            let modified_date = dayjs(evento.modified_gmt).toArray().slice(0, 6);
-            modified_date[1]++
+          let modified_date = dayjs(evento.modified_gmt).toArray().slice(0, 6);
+          modified_date[1]++
 
-            eventos.push({
-              start: start_date,
-              startOutputType: 'local',
-              end: end_date,
-              endOutputType: 'local',
-              organizer: { name: 'IFRS', email: 'processoseletivo@ifrs.edu.br' },
-              title: evento.title.rendered,
-              description: evento.content.rendered.replace(/(<([^>]+)>)/gi, '').replace('\n', ''),
-              htmlContent: evento.content.rendered,
-              url: window.location.origin,
-              status: 'CONFIRMED',
-              classification: 'PUBLIC',
-              created: created_date,
-              lastModified: modified_date,
-            });
+          eventos.push({
+            start: start_date,
+            startOutputType: 'local',
+            end: end_date,
+            endOutputType: 'local',
+            organizer: { name: 'Processo Seletivo IFRS', email: 'processoseletivo@ifrs.edu.br' },
+            title: evento.title.rendered,
+            description: evento.content.rendered.replace(/(<([^>]+)>)/gi, '').replace('\n', ''),
+            htmlContent: evento.content.rendered,
+            url: window.location.origin,
+            status: 'CONFIRMED',
+            classification: 'PUBLIC',
+            created: created_date,
+            lastModified: modified_date,
           });
-          ics.createEvents(eventos, (error, calendar) => {
-            if (error) console.error(error);
-            const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
-            FileSaver.saveAs(blob, 'ps.ics');
-          });
-        })
-        .catch(err => {
-          console.error(err);
-        })
-        .finally(() => {
-          btn.classList.remove('disabled');
         });
+        ics.createEvents(eventos, (error, calendar) => {
+          if (error) console.error(error);
+          const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
+          FileSaver.saveAs(blob, 'ps.ics');
+        });
+      } catch (error) {
+        console.error(error);
+      } finally {
+        btn.classList.remove('disabled');
+      }
     });
   }
 });

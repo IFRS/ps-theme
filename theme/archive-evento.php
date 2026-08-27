@@ -18,8 +18,6 @@ if ($ultimo_evento->have_posts()) {
   $atualizacao = get_the_modified_date();
 }
 wp_reset_postdata();
-
-$eventos_js = array();
 ?>
 
 <?php get_template_part('partials/trilha-switch'); ?>
@@ -37,7 +35,11 @@ $eventos_js = array();
     <p class="cronograma__meta">Atualizado em <?php echo $atualizacao; ?></p>
   <?php endif; ?>
   <?php if (have_posts()) : ?>
-    <div class="d-grid d-md-flex justify-content-md-end">
+    <div class="d-flex flex-wrap justify-content-md-between align-items-center gap-4">
+      <div class="form-check form-switch fw-medium">
+        <input class="form-check-input" type="checkbox" role="switch" id="cronograma__switch">
+        <label class="form-check-label" for="cronograma__switch">Mostrar eventos passados</label>
+      </div>
       <button id="ics" class="btn btn-dark btn-sm">Exporte para sua agenda</button>
     </div>
     <div class="table-responsive-sm mt-3">
@@ -49,9 +51,8 @@ $eventos_js = array();
           </tr>
         </thead>
         <tbody>
-          <?php while (have_posts()) : the_post(); ?>
-            <?php $eventos_js[] = get_the_ID(); ?>
-            <?php
+          <?php
+          while (have_posts()) : the_post();
             $data_inicio = get_post_meta(get_the_ID(), '_evento_data-inicio', true);
             $data_fim = get_post_meta(get_the_ID(), '_evento_data-fim', true);
 
@@ -64,8 +65,8 @@ $eventos_js = array();
             $evento_passou = ($data_fim < $agora);
 
             $evento_tipo = get_post_meta(get_the_ID(), '_evento_tipo', true);
-            ?>
-            <tr class="<?php echo ($evento_passou) ? 'evento--passado' : '' ?>" id="evento-<?php echo get_the_ID(); ?>" data-tipo="<?php echo !empty($evento_tipo) ? esc_attr($evento_tipo) : ''; ?>">
+          ?>
+            <tr class="<?php echo ($evento_passou) ? 'evento evento--passado' : 'evento' ?>" id="evento-<?php echo get_the_ID(); ?>" data-tipo="<?php echo !empty($evento_tipo) ? esc_attr($evento_tipo) : ''; ?>">
               <td class="evento__datas<?php echo ($evento_atual) ? ' text-success' : ''; ?>">
                 <?php if (!$evento_mesmo_dia) : ?>
                   <?php echo date_i18n('d/m', $data_inicio); ?> a
@@ -86,8 +87,7 @@ $eventos_js = array();
                 $url = get_post_meta(get_the_ID(), '_evento_programacao_url', true);
                 ?>
                 <?php if ($evento_atual && !empty($url)) : ?>
-                  <br>
-                  <a href="<?php echo esc_url($url); ?>"><?php echo esc_html($url); ?></a>
+                  <a href="<?php echo esc_url($url); ?>" class="d-inline-block mt-3"><?php echo esc_html($url); ?></a>
                 <?php endif; ?>
               </td>
             </tr>
@@ -101,7 +101,5 @@ $eventos_js = array();
     </div>
   <?php endif; ?>
 </section>
-
-<script id="cronograma-data" type="application/json"><?php echo wp_json_encode($eventos_js); ?></script>
 
 <?php get_footer(); ?>
