@@ -37,7 +37,6 @@
 
   &--passado {
     color: $text-muted;
-    opacity: 0.75;
 
     #{$block}__content,
     #{$block}__datas {
@@ -58,6 +57,7 @@
   }
 
   &__datas {
+    font-weight: 500;
     width: 20%;
     min-width: 150px;
     max-width: 250px;
