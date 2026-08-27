@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  let eventos_atuais = document.querySelectorAll('.evento:not(.evento--passado)');
   let eventos_passados = document.querySelectorAll('.evento--passado');
   eventos_passados.forEach(evento => evento.classList.add('collapse'));
 
@@ -60,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    if (eventos_atuais.length === 0) {
+      switchElement.click();
+    }
   }
 
   const btn = document.querySelector('#ics');
