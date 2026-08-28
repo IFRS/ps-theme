@@ -29,6 +29,7 @@ header {
   align-items: center;
   justify-content: center;
   color: $gray-100;
+  height: clamp(200px, 30dvh, 280px);
 
   @include media-breakpoint-down(lg) {
     padding-top: 1rem;
@@ -40,14 +41,17 @@ header {
       display: none;
     }
 
-    @include img-fluid;
+    @include img-fluid();
 
     flex: 0 1 auto;
+    max-height: 100%;
+    object-fit: contain;
   }
 
   .custom-logo-link {
     display: inline-block;
     flex: 0 1 auto;
+    max-height: 100%;
     text-align: center;
 
     &:hover {
@@ -55,7 +59,7 @@ header {
     }
 
     .custom-logo {
-      @include img-fluid;
+      @include img-fluid();
     }
   }
 
