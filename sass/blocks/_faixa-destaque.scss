@@ -3,7 +3,7 @@
   place-content: center center;
   place-items: center center;
   min-height: 60px;
-  padding: 0.5rem 1rem;
+  padding: ($card-spacer-y * 0.5) $card-spacer-x;
   font-size: 1.25rem;
   font-weight: 500;
   color: color-contrast($primary-bg-subtle);
