@@ -6,10 +6,8 @@
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   font-weight: 500;
-  color: color-contrast($primary);
-  text-align: center;
-  background-color: $primary;
+  color: color-contrast($primary-bg-subtle);
+  background-color: $primary-bg-subtle;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-  box-shadow: $box-shadow-sm;
 }
