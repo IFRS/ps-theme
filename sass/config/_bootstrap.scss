@@ -1,6 +1,5 @@
 @use "sass:map";
 @use "sass:math";
-
 @import 'custom-variables';
 @import "bootstrap/scss/functions";
 
@@ -15,10 +14,10 @@ $link-hover-decoration: none;
 $body-bg: #f6f6f4;
 $body-color: #383938;
 
-$border-radius:     0.625rem;
-$border-radius-sm:	math.div($border-radius, 2);
-$border-radius-lg:	$border-radius * 1.5;
-$border-radius-xl:	$border-radius * 2;
+$border-radius: 0.625rem;
+$border-radius-sm: math.div($border-radius, 2);
+$border-radius-lg: $border-radius * 1.5;
+$border-radius-xl: $border-radius * 2;
 $border-radius-xxl: $border-radius * 4;
 
 $breadcrumb-font-size: 0.9rem;
