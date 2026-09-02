@@ -375,17 +375,29 @@
           }
         },
         "elements": {
+          "button": {
+            ":hover": {
+              "border": {
+                "color": "var:custom|bootstrap|color|link-hover"
+              },
+              "color": {
+                "background": "var:custom|bootstrap|color|link-hover"
+              }
+            },
+            "border": {
+              "color": "var:custom|bootstrap|color|primary"
+            },
+            "color": {
+              "background": "var:custom|bootstrap|color|primary",
+              "text": "var:custom|bootstrap|color|white"
+            }
+          },
           "textInput": {
             "border": {
               "radius": "var:custom|bootstrap|radius|base"
             },
             "color": {
               "background": "var:custom|bootstrap|color|gray-200"
-            }
-          },
-          "link": {
-            "color": {
-              "text": "var:custom|bootstrap|color|light"
             }
           }
         },
