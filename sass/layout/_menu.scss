@@ -34,6 +34,7 @@ nav.menu {
 
     &--destaque {
       font-family: $headings-font-family;
+      margin: $nav-link-padding-y $nav-link-padding-x;
     }
   }
 
