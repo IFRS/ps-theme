@@ -36,16 +36,6 @@
   transform: translateX(-50%) !important;
 }
 
-/* Botão */
-.wp-block-button {
-  &__link {
-    &:hover {
-      background-color: var(--bs-primary);
-      border-color: var(--bs-primary);
-    }
-  }
-}
-
 /* Arquivo */
 .wp-block-file:not(.wp-element-button) {
   font-size: 1rem;
