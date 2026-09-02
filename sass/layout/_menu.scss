@@ -31,6 +31,10 @@ nav.menu {
     flex: 0 1 auto;
     margin: 0;
     text-transform: uppercase;
+
+    &--destaque {
+      font-family: $headings-font-family;
+    }
   }
 
   .nav-link {
@@ -47,13 +51,6 @@ nav.menu {
     &.active {
       font-weight: bold;
       border-bottom-color: $primary;
-    }
-
-    &.destaque {
-      &:hover,
-      &:focus {
-        border-bottom-color: transparent;
-      }
     }
   }
 
