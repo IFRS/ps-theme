@@ -55,7 +55,7 @@
     justify-content: center;
     width: 100%;
     margin: 0.5rem 0;
-    color: $primary;
+    color: $accent;
   }
 
   &__step-icon svg {
@@ -73,17 +73,17 @@
     padding: math.div($spacer, 2);
     margin-top: auto;
     font-weight: 500;
-    color: color-contrast($primary);
+    color: color-contrast($accent);
     text-align: center;
     text-decoration: none;
-    background-color: $primary;
+    background-color: $accent;
     border-bottom-right-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
     transition: $transition-base;
 
     &:hover {
-      color: color-contrast(color.adjust($primary, $lightness: -10%));
-      background-color: color.adjust($primary, $lightness: -10%);
+      color: color-contrast(color.adjust($accent, $lightness: -10%));
+      background-color: color.adjust($accent, $lightness: -10%);
     }
   }
 
