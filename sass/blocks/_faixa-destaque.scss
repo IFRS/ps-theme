@@ -3,9 +3,9 @@
   place-content: center center;
   place-items: center center;
   padding: ($card-spacer-y * 0.5) $card-spacer-x;
+  font-family: $headings-font-family;
   font-size: 1.125rem;
   font-weight: 500;
-  font-family: $headings-font-family;
   color: color-contrast($accent);
   background-color: $accent;
 }
