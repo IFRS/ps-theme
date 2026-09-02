@@ -25,7 +25,6 @@ header {
 .header-content {
   display: flex;
   flex-flow: row nowrap;
-  gap: ($spacer * 2);
   align-items: center;
   justify-content: center;
   color: $gray-100;
@@ -38,6 +37,7 @@ header {
     @include img-fluid;
 
     flex: 0 1 auto;
+    height: 17dvw;
     max-height: 250px;
     object-fit: contain;
     object-position: bottom;
