@@ -95,7 +95,7 @@
         </article>
       <?php endwhile; ?>
     </div>
-    <div class="alert alert-light mt-5" role="alert">
+    <div class="alert alert-info mt-5" role="alert">
       <p>Para saber mais sobre a forma de distribui&ccedil;&atilde;o das vagas, confira os <a class="alert-link" href="<?php echo get_post_type_archive_link('publicacao'); ?>">editais</a>.</p>
     </div>
   <?php endif; ?>
