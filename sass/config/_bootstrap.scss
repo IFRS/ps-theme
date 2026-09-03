@@ -1,9 +1,11 @@
+@use "sass:color";
 @use "sass:map";
 @use "sass:math";
 @import 'custom-variables';
 @import "bootstrap/scss/functions";
 
-$primary: #8f4b5f;
+// $primary: #8f4b5f;
+$primary: color.scale(#2f9f41, $lightness: -15%);
 $info: #155BCB;
 $success: #168821;
 $warning: #FFCD07;
@@ -63,11 +65,11 @@ $table-border-color: $gray-400;
 
 $breadcrumb-active-color: $gray-800;
 
-$dropdown-bg: tint-color($primary, 90%);
-$dropdown-link-hover-color: color-contrast($primary);
-$dropdown-link-hover-bg: $primary;
-$dropdown-link-active-color: color-contrast($primary);
-$dropdown-link-active-bg: $primary;
+$dropdown-bg: tint-color($accent, 85%);
+$dropdown-link-hover-color: color-contrast($accent);
+$dropdown-link-hover-bg: $accent;
+$dropdown-link-active-color: color-contrast($accent);
+$dropdown-link-active-bg: $accent;
 
 $navbar-light-color: $body-color;
 $navbar-light-hover-color: $gray-900;

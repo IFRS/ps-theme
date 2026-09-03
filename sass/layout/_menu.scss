@@ -46,12 +46,12 @@ nav.menu {
 
     &:hover,
     &:focus {
-      border-bottom-color: $primary;
+      border-bottom-color: $accent;
     }
 
     &.active {
       font-weight: bold;
-      border-bottom-color: $primary;
+      border-bottom-color: $accent;
     }
   }
 
@@ -75,7 +75,7 @@ nav.menu {
   .current-menu-ancestor {
     > .nav-link {
       font-weight: bold;
-      border-bottom-color: $primary;
+      border-bottom-color: $accent;
     }
   }
 }

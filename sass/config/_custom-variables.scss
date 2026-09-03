@@ -1,7 +1,8 @@
 @use "sass:color";
 
 /* Custom Variables */
-$accent: color.scale(#2f9f41, $lightness: -15%);
+// $accent: color.scale(#2f9f41, $lightness: -15%);
+$accent: #8f4b5f;
 
 $custom-colors: (
   "accent": $accent,
