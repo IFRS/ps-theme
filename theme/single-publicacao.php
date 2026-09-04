@@ -34,9 +34,9 @@
     <div class="row row-cols-1 row-cols-md-2 mt-4">
       <?php if (!empty($arquivos)) : ?>
         <div class="col">
-          <div class="card mb-3">
+          <div class="card border-primary mb-3">
             <div class="card-header">
-              <h3 class="mb-0">Arquivos Principais</h3>
+              <h3 class="fs-5 mb-0">Arquivos Principais</h3>
             </div>
             <div class="list-group list-group-flush">
               <?php foreach ((array) $arquivos as $id => $arquivo) : ?>
@@ -51,7 +51,7 @@
         <div class="col">
           <div class="card mb-3">
             <div class="card-header">
-              <h3 class="mb-0">Anexos</h3>
+              <h3 class="fs-5 mb-0">Anexos</h3>
             </div>
             <div class="list-group list-group-flush">
               <?php foreach ((array) $anexos as $id => $anexo) : ?>
