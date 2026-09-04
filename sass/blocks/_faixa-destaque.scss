@@ -2,14 +2,10 @@
   display: grid;
   place-content: center center;
   place-items: center center;
-  min-height: 60px;
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
+  padding: ($card-spacer-y * 0.5) $card-spacer-x;
+  font-family: $headings-font-family;
+  font-size: 1.125rem;
   font-weight: 500;
   color: color-contrast($primary);
-  text-align: center;
   background-color: $primary;
-  border-top-left-radius: $border-radius;
-  border-top-right-radius: $border-radius;
-  box-shadow: $box-shadow-sm;
 }

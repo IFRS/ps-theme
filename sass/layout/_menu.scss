@@ -31,6 +31,11 @@ nav.menu {
     flex: 0 1 auto;
     margin: 0;
     text-transform: uppercase;
+
+    &--destaque {
+      font-family: $headings-font-family;
+      margin: $nav-link-padding-y $nav-link-padding-x;
+    }
   }
 
   .nav-link {
@@ -41,19 +46,12 @@ nav.menu {
 
     &:hover,
     &:focus {
-      border-bottom-color: $primary;
+      border-bottom-color: $accent;
     }
 
     &.active {
       font-weight: bold;
-      border-bottom-color: $primary;
-    }
-
-    &.destaque {
-      &:hover,
-      &:focus {
-        border-bottom-color: transparent;
-      }
+      border-bottom-color: $accent;
     }
   }
 
@@ -77,7 +75,7 @@ nav.menu {
   .current-menu-ancestor {
     > .nav-link {
       font-weight: bold;
-      border-bottom-color: $primary;
+      border-bottom-color: $accent;
     }
   }
 }

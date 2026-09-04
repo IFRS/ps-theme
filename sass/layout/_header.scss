@@ -2,7 +2,7 @@ header {
   background-color: #ffffff;
   background-image: var(--bg-xs, none);
   background-repeat: repeat-x;
-  background-position: center center;
+  background-position: bottom center;
   background-size: cover;
 
   @include media-breakpoint-up(sm) {
@@ -22,32 +22,42 @@ header {
   }
 }
 
+.header-text {
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  text-align: center;
+}
+
 .header-content {
+  $header-content-height: 260px;
+
   display: flex;
   flex-flow: row nowrap;
-  gap: ($spacer * 2);
   align-items: center;
   justify-content: center;
+  max-height: $header-content-height;
   color: $gray-100;
 
-  @include media-breakpoint-down(lg) {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
   &__extra-image {
-    @include media-breakpoint-down(lg) {
-      display: none;
-    }
-
     @include img-fluid;
 
-    flex: 0 1 auto;
+    display: none;
+    object-fit: contain;
+    object-position: bottom;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+      flex: 0 1 auto;
+      width: auto;
+      height: min(17vw, $header-content-height);
+    }
   }
 
   .custom-logo-link {
-    display: inline-block;
+    display: flex;
     flex: 0 1 auto;
+    max-width: 100%;
     text-align: center;
 
     &:hover {
@@ -56,17 +66,16 @@ header {
 
     .custom-logo {
       @include img-fluid;
-    }
-  }
 
-  p {
-    margin-top: 1rem;
-    margin-bottom: 0;
-    font-weight: 600;
-    text-align: center;
+      width: auto;
+      height: auto;
+      max-height: $header-content-height;
+      object-fit: contain;
+      object-position: bottom;
 
-    @include media-breakpoint-down(md) {
-      display: none;
+      @include media-breakpoint-up(lg) {
+        height: min(17vw, $header-content-height);
+      }
     }
   }
 }

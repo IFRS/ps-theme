@@ -87,7 +87,7 @@ wp_reset_postdata();
                 $url = get_post_meta(get_the_ID(), '_evento_programacao_url', true);
                 ?>
                 <?php if ($evento_atual && !empty($url)) : ?>
-                  <a href="<?php echo esc_url($url); ?>" class="d-inline-block mt-3"><?php echo esc_html($url); ?></a>
+                  <a href="<?php echo esc_url($url); ?>" class="d-inline-block fw-medium mt-3"><?php echo esc_html($url); ?></a>
                 <?php endif; ?>
               </td>
             </tr>

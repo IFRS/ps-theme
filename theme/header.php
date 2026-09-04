@@ -28,21 +28,24 @@
 
   <!-- Cabeçalho -->
   <header>
-    <h1 class="visually-hidden"><?php bloginfo('name'); ?></h1>
 
-    <section class="container header-content">
-      <?php the_custom_logo(); ?>
-      <?php if ($extra_image) : ?>
-        <?php list($width, $height, $type, $attr) = getimagesize($extra_image); ?>
-        <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="header-content__extra-image <?php echo $extra_image_class ?>" <?php echo $attr; ?>>
+    <section class="container">
+      <h1 class="<?php echo display_header_text() ? 'header-text' : 'visually-hidden'; ?>"><?php bloginfo('name'); ?></h1>
+
+      <?php if (display_header_text()) : ?>
+        <p class="header-text"><?php bloginfo('description'); ?></p>
       <?php endif; ?>
+
+      <div class="header-content">
+        <?php the_custom_logo(); ?>
+        <?php if ($extra_image) : ?>
+          <?php list($width, $height, $type, $attr) = getimagesize($extra_image); ?>
+          <img src="<?php echo esc_url($extra_image); ?>" aria-hidden="true" alt="" loading="lazy" class="header-content__extra-image <?php echo $extra_image_class ?>" <?php echo $attr; ?>>
+        <?php endif; ?>
+      </div>
     </section>
 
-    <?php if (display_header_text()) : ?>
-      <div class="container">
-        <p><?php bloginfo('description'); ?></p>
-      </div>
-    <?php endif; ?>
+
 
     <?php if (is_active_sidebar('faixa_destaque')) : ?>
       <?php dynamic_sidebar('faixa_destaque'); ?>

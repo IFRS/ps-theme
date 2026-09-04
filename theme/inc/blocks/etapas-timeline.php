@@ -65,6 +65,8 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
       "ignore_sticky_posts" => true,
     ]);
 
+    $desc = cmb2_get_option('evento_options', 'desc', '');
+
     ob_start();
 ?>
     <section class="etapas-timeline">
@@ -76,6 +78,13 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
         ),
       );
       ?>
+
+      <?php if (!empty($desc)) : ?>
+        <div class="etapas-timeline__text">
+          <?php echo wpautop(wp_kses_post($desc)); ?>
+        </div>
+      <?php endif; ?>
+
       <?php if ($eventos->have_posts()) : ?>
         <ol class="etapas-timeline__list">
           <?php while ($eventos->have_posts()):
