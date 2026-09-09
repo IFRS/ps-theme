@@ -49,7 +49,7 @@ add_action('init', function () {
     'description'         => __('Curso do Portal de Ingresso', 'ifrs-ps-theme'),
     'labels'              => $labels,
     'supports'            => array('title', 'editor', 'revisions'),
-    'taxonomies'          => array('campus', 'turno', 'modalidade', 'formaingresso', 'trilha_selecao'),
+    'taxonomies'          => array('campus', 'formaingresso', 'trilha_selecao'),
     'hierarchical'        => false,
     'public'              => true,
     'show_ui'             => true,
@@ -82,6 +82,23 @@ add_action('cmb2_admin_init', function () {
     'context'       => 'normal',
     'priority'      => 'high',
     'show_names'    => true,
+  ));
+
+  $cmb->add_field(array(
+    'name'    => __('Nível', 'ifrs-ps-theme'),
+    'id'      => $prefix . 'modalidade',
+    'type'    => 'radio',
+    'options' => ifrs_ps_get_modalidades(),
+    'show_option_none' => false,
+    'default' => '',
+  ));
+
+  $cmb->add_field(array(
+    'name'    => __('Turnos', 'ifrs-ps-theme'),
+    'id'      => $prefix . 'turnos',
+    'type'    => 'multicheck',
+    'options' => ifrs_ps_get_turnos(),
+    'select_all_button' => false,
   ));
 
   $cmb->add_field(array(
@@ -118,11 +135,7 @@ add_action('restrict_manage_posts', function ($post_type) {
     return;
   }
 
-  $taxonomies_slugs = array(
-    'campus',
-    'modalidade',
-    'formaingresso',
-  );
+  $taxonomies_slugs = array('campus', 'formaingresso');
 
   foreach ($taxonomies_slugs as $slug) {
     $taxonomy = get_taxonomy($slug);
@@ -147,12 +160,61 @@ add_action('restrict_manage_posts', function ($post_type) {
 
 /* Custom Query */
 add_filter('pre_get_posts', function ($query) {
-  if (!is_admin() && $query->is_main_query() && ($query->is_post_type_archive('curso') || $query->is_tax('modalidade') || $query->is_tax('turno') || $query->is_tax('campus') || $query->is_tax('formaingresso') || $query->is_tax('trilha_selecao'))) {
+  $is_course_filter = !empty($_POST['curso_filter']) && !is_array($_POST['curso_filter']) && sanitize_text_field(wp_unslash($_POST['curso_filter'])) === '1';
+
+  if ($is_course_filter) {
+    $query->set('post_type', 'curso');
+  }
+
+  if (!is_admin() && $query->is_main_query() && ($is_course_filter || $query->is_post_type_archive('curso') || $query->is_tax('campus') || $query->is_tax('formaingresso') || $query->is_tax('trilha_selecao'))) {
     $query->set('posts_per_page', -1);
     $query->set('nopaging', true);
     $query->set('orderby', 'title');
     $query->set('order', 'ASC');
     $query->set('ps_orderby_campus_title', true);
+
+    if (!empty($_POST['s']) && !is_array($_POST['s'])) {
+      $query->set('s', sanitize_text_field(wp_unslash($_POST['s'])));
+    }
+
+    $tax_query = (array) $query->get('tax_query');
+    if (!empty($_POST['campus']) && !is_array($_POST['campus'])) {
+      $campus = sanitize_key(wp_unslash($_POST['campus']));
+
+      if (term_exists($campus, 'campus')) {
+        $tax_query[] = array(
+          'taxonomy' => 'campus',
+          'field' => 'slug',
+          'terms' => $campus,
+        );
+      }
+    }
+
+    if (!empty($tax_query)) {
+      $query->set('tax_query', $tax_query);
+    }
+
+    $meta_query = array();
+    foreach (array('modalidade', 'turno') as $classification) {
+      if (empty($_POST[$classification]) || is_array($_POST[$classification])) {
+        continue;
+      }
+
+      $value = sanitize_key(wp_unslash($_POST[$classification]));
+      $values = 'modalidade' === $classification ? ifrs_ps_get_modalidades() : ifrs_ps_get_turnos();
+
+      if (isset($values[$value])) {
+        $meta_query[] = array(
+          'key' => '_curso_' . ('turno' === $classification ? 'turnos' : 'modalidade'),
+          'value' => 'turno' === $classification ? '"' . $value . '"' : $value,
+          'compare' => 'LIKE',
+        );
+      }
+    }
+
+    if (!empty($meta_query)) {
+      $query->set('meta_query', $meta_query);
+    }
 
     if (function_exists('ifrs_ps_set_trilha_on_query')) {
       ifrs_ps_set_trilha_on_query($query);
@@ -168,6 +230,28 @@ add_filter('pre_get_posts', function ($query) {
   }
 
   return $query;
+});
+
+/* Keep course filter searches on the course archive template */
+add_filter('template_include', function ($template) {
+  if (is_admin() || empty($_POST['curso_filter']) || is_array($_POST['curso_filter'])) {
+    return $template;
+  }
+
+  if (sanitize_text_field(wp_unslash($_POST['curso_filter'])) !== '1') {
+    return $template;
+  }
+
+  $post_type = get_query_var('post_type');
+  if (is_search() && ('curso' === $post_type || (is_array($post_type) && in_array('curso', $post_type, true)))) {
+    $archive_template = locate_template('archive-curso.php');
+
+    if (!empty($archive_template)) {
+      return $archive_template;
+    }
+  }
+
+  return $template;
 });
 
 /* Custom Orderby */

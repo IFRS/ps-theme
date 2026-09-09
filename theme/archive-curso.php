@@ -24,9 +24,8 @@
 
         $campi = get_the_terms(get_the_ID(), 'campus');
         $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
-        $modalidades = get_the_terms(get_the_ID(), 'modalidade');
-
-        $turnos = wp_get_post_terms(get_the_ID(), 'turno', array('orderby' => 'term_order'));
+        $modalidade = ifrs_ps_get_curso_modalidade(get_the_ID());
+        $turnos = ifrs_ps_get_curso_turnos(get_the_ID());
 
         $duracao = get_post_meta(get_the_ID(), '_curso_duracao', true);
         $vagas = get_post_meta(get_the_ID(), '_curso_vagas', true);
@@ -53,12 +52,12 @@
           <div class="curso__content">
             <p>
               <?php
-              if (!empty($modalidades) && !is_wp_error($modalidades)) {
-                echo esc_html(implode(', ', wp_list_pluck($modalidades, 'name')));
+              if (!empty($modalidade)) {
+                echo esc_html($modalidade);
                 echo '&nbsp;&ndash;&nbsp;';
               }
-              if (!empty($turnos) && !is_wp_error($turnos)) {
-                echo esc_html(wp_sprintf_l('%l', wp_list_pluck($turnos, 'name')));
+              if (!empty($turnos)) {
+                echo esc_html(wp_sprintf_l('%l', $turnos));
               }
               ?>
             </p>
@@ -97,6 +96,10 @@
     </div>
     <div class="alert alert-info mt-5" role="alert">
       <p>Para saber mais sobre a forma de distribui&ccedil;&atilde;o das vagas, confira os <a class="alert-link" href="<?php echo get_post_type_archive_link('publicacao'); ?>">editais</a>.</p>
+    </div>
+  <?php else : ?>
+    <div class="alert alert-warning" role="alert">
+      <p><?php _e('Nenhum curso encontrado.', 'ifrs-ps-theme'); ?></p>
     </div>
   <?php endif; ?>
 </section>

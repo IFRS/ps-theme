@@ -39,18 +39,18 @@ $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
     $bancas = get_post_meta(get_the_ID(), '_chamada_bancas');
     $renda = get_post_meta(get_the_ID(), '_chamada_renda');
 
-    $modalidades = get_terms(array('taxonomy' => 'modalidade', 'orderby' => 'term_order'));
+    $modalidades = ifrs_ps_get_modalidades();
   ?>
 
   <div class="row" id="masonry">
     <?php if (!empty($modalidades)) : ?>
-      <?php foreach ($modalidades as $modalidade) : ?>
-        <?php $resultados = (array) get_post_meta(get_the_ID(), '_chamada_modalidade_' . $modalidade->slug); ?>
+      <?php foreach ($modalidades as $slug => $label) : ?>
+        <?php $resultados = (array) get_post_meta(get_the_ID(), '_chamada_modalidade_' . $slug); ?>
         <?php if (!empty($resultados)) : ?>
           <div class="col-auto col-md-6 col-xl-4">
             <div class="card bg-light mb-4">
               <div class="card-header">
-                <strong><?php echo esc_html($modalidade->name); ?></strong>
+                <strong><?php echo esc_html($label); ?></strong>
               </div>
               <div class="list-group list-group-flush" role="list">
                 <?php foreach ($resultados[0] as $id => $url): ?>
@@ -73,10 +73,12 @@ $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
                     array(
                       'taxonomy' => 'formaingresso',
                       'terms' => $formaingresso
-                    ),
+                    )
+                  ),
+                  'meta_query' => array(
                     array(
-                      'taxonomy' => 'modalidade',
-                      'terms' => $modalidade->term_id
+                      'key' => '_documento_modalidade',
+                      'value' => $slug,
                     )
                   )
                 );

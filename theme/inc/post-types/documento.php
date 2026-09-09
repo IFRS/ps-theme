@@ -60,7 +60,7 @@ add_action('init', function () {
     'description'           => __('Documentos comuns a todas as Chamadas', 'ifrs-ps-theme'),
     'labels'                => $labels,
     'supports'              => array('title', 'revisions'),
-    'taxonomies'            => array('formaingresso', 'modalidade'),
+    'taxonomies'            => array('formaingresso'),
     'hierarchical'          => false,
     'public'                => true,
     'show_ui'               => true,
@@ -93,6 +93,15 @@ add_action('cmb2_admin_init', function () {
     'context'       => 'normal',
     'priority'      => 'high',
     'show_names'    => false,
+  ));
+
+  $cmb->add_field(array(
+    'name'    => __('Nível', 'ifrs-ps-theme'),
+    'id'      => $prefix . 'modalidade',
+    'type'    => 'select',
+    'options' => ifrs_ps_get_modalidades(),
+    'show_option_none' => true,
+    'default' => '',
   ));
 
   $cmb->add_field(array(
