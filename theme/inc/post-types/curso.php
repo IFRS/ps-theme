@@ -114,6 +114,30 @@ add_action('cmb2_admin_init', function () {
     'escape_cb'       => 'absint',
   ));
 
+  $trilhas = get_terms(array(
+    'taxonomy'   => 'trilha_selecao',
+    'hide_empty' => false,
+    'orderby'    => 'name',
+    'order'      => 'ASC',
+  ));
+
+  if (!is_wp_error($trilhas)) {
+    foreach ($trilhas as $trilha) {
+      $cmb->add_field(array(
+        'name'          => sprintf(__('Vagas - %s', 'ifrs-ps-theme'), $trilha->name),
+        'desc'          => __('Somente números. Deixe vazio quando não houver distribuição específica.', 'ifrs-ps-theme'),
+        'id'            => $prefix . 'vagas_trilha_' . (int) $trilha->term_id,
+        'type'          => 'text',
+        'attributes'    => array(
+          'inputmode' => 'numeric',
+          'pattern'   => '[0-9]*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb'       => 'absint',
+      ));
+    }
+  }
+
   $cmb->add_field(array(
     'name'    => __('Dura&ccedil;&atilde;o', 'ifrs-ps-theme'),
     'desc'    => __('p.ex.: "2 anos", "4 semestres", "1300 horas", etc.', 'ifrs-ps-theme'),
@@ -128,6 +152,40 @@ add_action('cmb2_admin_init', function () {
     'type'    => 'checkbox',
   ));
 }, 2);
+
+function ifrs_ps_get_curso_vagas_por_trilha($post_id)
+{
+  $post_id = (int) $post_id;
+
+  $trilhas = wp_get_post_terms($post_id, 'trilha_selecao', array('fields' => 'all'));
+  if (empty($trilhas) || is_wp_error($trilhas)) {
+    return array();
+  }
+
+  $trilha_atual = function_exists('ifrs_ps_get_current_trilha') ? ifrs_ps_get_current_trilha() : null;
+  $trilha_atual_id = $trilha_atual && is_object($trilha_atual) ? (int) $trilha_atual->term_id : 0;
+  $resultado = array();
+
+  foreach ($trilhas as $trilha) {
+    $term_id = (int) $trilha->term_id;
+    $vagas = (int) get_post_meta($post_id, '_curso_vagas_trilha_' . $term_id, true);
+
+    if ($vagas <= 0) {
+      continue;
+    }
+
+    if ($trilha_atual_id > 0 && $term_id !== $trilha_atual_id) {
+      continue;
+    }
+
+    $resultado[] = array(
+      'nome'  => $trilha->name,
+      'vagas' => $vagas,
+    );
+  }
+
+  return $resultado;
+}
 
 /* Admin Filter */
 add_action('restrict_manage_posts', function ($post_type) {
