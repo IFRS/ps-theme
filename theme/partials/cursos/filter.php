@@ -1,47 +1,35 @@
 <?php
-$taxonomies = array();
-$taxonomies[] = get_taxonomy('campus');
-$taxonomies[] = get_taxonomy('modalidade');
-$taxonomies[] = get_taxonomy('turno');
-// $taxonomies[] = get_taxonomy( 'formaingresso' );
+$campus = get_taxonomy('campus');
+$modalidades = ifrs_ps_get_modalidades();
+$turnos = ifrs_ps_get_turnos();
 ?>
 <form class="cursos__filters" method="POST" action="<?php echo esc_url(get_post_type_archive_link('curso')); ?>">
+  <input type="hidden" name="curso_filter" value="1">
   <div class="row g-2 align-items-center justify-content-start">
-    <?php foreach ($taxonomies as $taxonomy) : ?>
+    <?php foreach (array('modalidade' => array('label' => __('Todos os Níveis', 'ifrs-ps-theme'), 'options' => $modalidades), 'turno' => array('label' => __('Todos os Turnos', 'ifrs-ps-theme'), 'options' => $turnos)) as $name => $filter) : ?>
       <div class="col-auto">
         <?php $field_id = uniqid(); ?>
-        <label for="<?php echo $field_id; ?>" class="visually-hidden"><?php echo $taxonomy->labels->singular_name ?></label>
-        <?php
-        $selected = 0;
-
-        if (isset($_POST[$taxonomy->name]) && !is_array($_POST[$taxonomy->name])) {
-          $candidate = sanitize_key(wp_unslash($_POST[$taxonomy->name]));
-
-          if (!empty($candidate) && term_exists($candidate, $taxonomy->name)) {
-            $selected = $candidate;
-          }
-        }
-
-        wp_dropdown_categories(array(
-          'show_option_all' => $taxonomy->labels->all_items,
-          'taxonomy'        => $taxonomy->name,
-          'name'            => $taxonomy->name,
-          'orderby'         => 'name',
-          'value_field'     => 'slug',
-          'selected'        => $selected,
-          'hierarchical'    => true,
-          'hide_empty'      => false,
-          'id'              => $field_id,
-          'class'           => 'form-select',
-        ));
-        ?>
+        <label for="<?php echo $field_id; ?>" class="visually-hidden"><?php echo esc_html($filter['label']); ?></label>
+        <select name="<?php echo esc_attr($name); ?>" id="<?php echo $field_id; ?>" class="form-select">
+          <option value=""><?php echo esc_html($filter['label']); ?></option>
+          <?php foreach ($filter['options'] as $value => $label) : ?>
+            <option value="<?php echo esc_attr($value); ?>" <?php selected(isset($_POST[$name]) && !is_array($_POST[$name]) ? sanitize_key(wp_unslash($_POST[$name])) : '', $value); ?>><?php echo esc_html($label); ?></option>
+          <?php endforeach; ?>
+        </select>
       </div>
     <?php endforeach; ?>
+
+    <div class="col-auto">
+      <?php $field_id = uniqid(); ?>
+      <label for="<?php echo $field_id; ?>" class="visually-hidden"><?php echo esc_html($campus->labels->singular_name); ?></label>
+      <?php $campus_selected = isset($_POST['campus']) && !is_array($_POST['campus']) ? sanitize_key(wp_unslash($_POST['campus'])) : ''; ?>
+      <?php wp_dropdown_categories(array('show_option_all' => $campus->labels->all_items, 'taxonomy' => 'campus', 'name' => 'campus', 'orderby' => 'name', 'value_field' => 'slug', 'selected' => $campus_selected, 'hierarchical' => true, 'hide_empty' => false, 'id' => $field_id, 'class' => 'form-select')); ?>
+    </div>
 
     <div class="col">
       <?php $field_id = uniqid(); ?>
       <label class="visually-hidden" for="<?php echo $field_id; ?>">Buscar por:</label>
-      <input class="form-control" type="text" value="<?php echo (get_search_query() ?? ''); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Busque pelo curso..." style="min-width: 250px;" />
+      <input class="form-control" type="text" value="<?php echo isset($_POST['s']) && !is_array($_POST['s']) ? esc_attr(sanitize_text_field(wp_unslash($_POST['s']))) : esc_attr(get_search_query()); ?>" name="s" id="<?php echo $field_id; ?>" placeholder="Busque pelo curso..." style="min-width: 250px;" />
     </div>
 
     <div class="col-auto ms-auto">

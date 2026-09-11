@@ -99,21 +99,12 @@ if (!function_exists('ifrs_ps_get_intro_helper_editor_steps')) {
 if (!function_exists('ifrs_ps_get_intro_helper_editor_modalidades')) {
   function ifrs_ps_get_intro_helper_editor_modalidades()
   {
-    $terms = get_terms(array(
-      'taxonomy'   => 'modalidade',
-      'hide_empty' => false,
-    ));
-
-    if (is_wp_error($terms)) {
-      return array();
-    }
-
-    return array_map(function ($term) {
+    return array_map(function ($name, $slug) {
       return array(
-        'slug' => sanitize_title($term->slug),
-        'name' => sanitize_text_field($term->name),
+        'slug' => sanitize_title($slug),
+        'name' => sanitize_text_field($name),
       );
-    }, $terms);
+    }, ifrs_ps_get_modalidades(), array_keys(ifrs_ps_get_modalidades()));
   }
 }
 
@@ -239,7 +230,7 @@ if (!function_exists('ifrs_ps_render_intro_helper_block')) {
             $modalidade = !empty($item['modalidade']) ? sanitize_title($item['modalidade']) : '';
             $frase = !empty($item['frase']) ? sanitize_text_field($item['frase']) : '';
 
-            if (empty($modalidade) || empty($frase) || !term_exists($modalidade, 'modalidade')) {
+            if (empty($modalidade) || empty($frase) || !isset(ifrs_ps_get_modalidades()[$modalidade])) {
               continue;
             }
             ?>

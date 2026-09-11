@@ -31,10 +31,11 @@ require_once('inc/empty-search.php');
 // Função para mostrar tempo relativo
 require_once('inc/relative-time.php');
 
+// Classificações fixas de cursos
+require_once('inc/course-classifications.php');
+
 // Taxonomies
 require_once('inc/taxonomies/campus-taxonomy.php');
-require_once('inc/taxonomies/modalidade-taxonomy.php');
-require_once('inc/taxonomies/turno-taxonomy.php');
 require_once('inc/taxonomies/formaingresso-taxonomy.php');
 require_once('inc/taxonomies/trilha-selecao-taxonomy.php');
 

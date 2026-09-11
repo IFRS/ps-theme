@@ -122,13 +122,13 @@ add_action('cmb2_admin_init', function () {
     'id'   => $prefix . 'aviso_resultados',
   ));
 
-  $modalidades = get_terms(array('taxonomy' => 'modalidade', 'orderby' => 'term_order'));
+  $modalidades = ifrs_ps_get_modalidades();
 
-  foreach ($modalidades as $modalidade) {
+  foreach ($modalidades as $slug => $label) {
     $resultados->add_field(array(
-      'name' => $modalidade->name,
+      'name' => $label,
       'desc' => 'Selecione os arquivos relacionados a esta modalidade.<br><strong>Lembrete:</strong> preencha corretamente o título de cada arquivo.',
-      'id'   => $prefix . 'modalidade_' . $modalidade->slug,
+      'id'   => $prefix . 'modalidade_' . $slug,
       'type' => 'file_list',
     ));
   }
@@ -338,15 +338,15 @@ add_action('restrict_manage_posts', function ($post_type) {
 add_filter('rest_prepare_chamada', function ($data, $post, $context) {
   $data->data['modalidades'] = array();
 
-  $modalidades = get_terms(array('taxonomy' => 'modalidade', 'orderby' => 'term_order'));
+  $modalidades = ifrs_ps_get_modalidades();
 
-  if (is_wp_error($modalidades) || empty($modalidades)) {
+  if (empty($modalidades)) {
     return $data;
   }
 
-  foreach ($modalidades as $modalidade) {
-    $resultados = (array) get_post_meta($post->ID, '_chamada_modalidade_' . $modalidade->slug);
-    if (!empty($resultados)) $data->data['modalidades'][] = $modalidade->name;
+  foreach ($modalidades as $slug => $label) {
+    $resultados = (array) get_post_meta($post->ID, '_chamada_modalidade_' . $slug);
+    if (!empty($resultados)) $data->data['modalidades'][] = $label;
   }
   return $data;
 }, 10, 3);

@@ -88,7 +88,7 @@ add_action('cmb2_admin_init', function () {
     'title'        => __('Trilha de Seleção', 'ifrs-ps-theme'),
     'object_types' => ifrs_ps_get_trilha_post_types(),
     'context'      => 'side',
-    'priority'     => 'high',
+    'priority'     => 'default',
     'show_names'   => false,
   ));
 
@@ -98,6 +98,7 @@ add_action('cmb2_admin_init', function () {
     'taxonomy'         => 'trilha_selecao',
     'type'             => 'taxonomy_multicheck',
     'remove_default'   => true,
+    'select_all_button' => false,
     'query_args'       => array(
       'orderby'    => 'name',
       'order'      => 'ASC',
