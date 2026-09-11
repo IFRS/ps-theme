@@ -120,7 +120,6 @@ add_action('cmb2_admin_init', function () {
           'pattern'   => '[0-9]*',
         ),
         'sanitization_cb' => 'absint',
-        'escape_cb'       => 'absint',
       ));
     }
   }
@@ -133,8 +132,8 @@ add_action('cmb2_admin_init', function () {
   ));
 
   $cmb->add_field(array(
-    'name'    => __('Carga horária EaD?', 'ifrs-ps-theme'),
-    'desc'    => __('Marque para aparecer um aviso sobre carga horária a distância.', 'ifrs-ps-theme'),
+    'name'    => __('Carga horária parcialmente EaD?', 'ifrs-ps-theme'),
+    'desc'    => __('Marque para aparecer um aviso sobre parte da carga horária ser à distância.', 'ifrs-ps-theme'),
     'id'      => $prefix . 'ead',
     'type'    => 'checkbox',
   ));
