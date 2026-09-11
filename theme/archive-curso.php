@@ -28,7 +28,6 @@
         $turnos = ifrs_ps_get_curso_turnos(get_the_ID());
 
         $duracao = get_post_meta(get_the_ID(), '_curso_duracao', true);
-        $vagas = get_post_meta(get_the_ID(), '_curso_vagas', true);
         $vagas_por_trilha = ifrs_ps_get_curso_vagas_por_trilha(get_the_ID());
 
         // Filtra os Cursos de acordo com as Formas de Ingresso selecionadas nas opções do tema
@@ -89,18 +88,16 @@
               ?>
             </p>
           </div>
-          <div class="curso__footer">
-            <p>
-              <?php echo (!empty($vagas) && !is_wp_error($vagas)) ? esc_html($vagas) : '-'; ?>&nbsp;<?php echo _n('vaga', 'vagas', intval($vagas), 'ifrs-ps-theme'); ?>
-              <?php if (!empty($vagas_por_trilha)) : ?>
-                <span aria-hidden="true">&nbsp;|&nbsp;</span>
+          <?php if (!empty($vagas_por_trilha)) : ?>
+            <div class="curso__footer">
+              <p>
                 <?php foreach ($vagas_por_trilha as $key => $vagas_trilha) : ?>
                   <?php if ($key > 0) : ?><span aria-hidden="true">;&nbsp;</span><?php endif; ?>
                   <span><?php echo esc_html($vagas_trilha['nome']); ?>: <?php echo esc_html($vagas_trilha['vagas']); ?>&nbsp;<?php echo _n('vaga', 'vagas', $vagas_trilha['vagas'], 'ifrs-ps-theme'); ?></span>
                 <?php endforeach; ?>
-              <?php endif; ?>
-            </p>
-          </div>
+              </p>
+            </div>
+          <?php endif; ?>
         </article>
       <?php endwhile; ?>
     </div>

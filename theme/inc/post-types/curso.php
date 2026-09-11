@@ -101,19 +101,6 @@ add_action('cmb2_admin_init', function () {
     'select_all_button' => false,
   ));
 
-  $cmb->add_field(array(
-    'name'    => __('Total de Vagas', 'ifrs-ps-theme'),
-    'desc'    => __('Somente números.', 'ifrs-ps-theme'),
-    'id'      => $prefix . 'vagas',
-    'type'    => 'text',
-    'attributes' => array(
-      'inputmode' => 'numeric',
-      'pattern'   => '[0-9]*',
-    ),
-    'sanitization_cb' => 'absint',
-    'escape_cb'       => 'absint',
-  ));
-
   $trilhas = get_terms(array(
     'taxonomy'   => 'trilha_selecao',
     'hide_empty' => false,
