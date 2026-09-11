@@ -93,7 +93,7 @@
               <p>
                 <?php foreach ($vagas_por_trilha as $key => $vagas_trilha) : ?>
                   <?php if ($key > 0) : ?><span aria-hidden="true">;&nbsp;</span><?php endif; ?>
-                  <span><?php echo esc_html($vagas_trilha['nome']); ?>: <?php echo esc_html($vagas_trilha['vagas']); ?>&nbsp;<?php echo _n('vaga', 'vagas', $vagas_trilha['vagas'], 'ifrs-ps-theme'); ?></span>
+                  <span><strong><?php echo esc_html($vagas_trilha['nome']); ?>:</strong> <?php echo esc_html($vagas_trilha['vagas']); ?>&nbsp;<?php echo _n('vaga', 'vagas', $vagas_trilha['vagas'], 'ifrs-ps-theme'); ?></span>
                 <?php endforeach; ?>
               </p>
             </div>
