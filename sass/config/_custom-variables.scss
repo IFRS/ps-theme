@@ -3,6 +3,9 @@
 /* Custom Variables */
 // $accent: color.scale(#2f9f41, $lightness: -15%);
 $accent: #8f4b5f;
+$accent-text-emphasis: color.scale($accent, $lightness: -60%);
+$accent-bg-subtle: color.scale($accent, $lightness: 80%);
+$accent-border-subtle: color.scale($accent, $lightness: 60%);
 
 $custom-colors: (
   "accent": $accent,
