@@ -29,10 +29,6 @@ add_action('after_switch_theme', function () {
       'edit_cursos'          => true,
       'manage_cursos'        => true,
 
-      'create_documentos'    => true,
-      'edit_documentos'      => true,
-      'manage_documentos'    => true,
-
       'create_eventos'       => true,
       'edit_eventos'         => true,
       'manage_eventos'       => true,
@@ -104,10 +100,6 @@ add_action('after_switch_theme', function () {
   $administrator->add_cap('create_cursos');
   $administrator->add_cap('edit_cursos');
   $administrator->add_cap('manage_cursos');
-
-  $administrator->add_cap('create_documentos');
-  $administrator->add_cap('edit_documentos');
-  $administrator->add_cap('manage_documentos');
 
   $administrator->add_cap('create_eventos');
   $administrator->add_cap('edit_eventos');
