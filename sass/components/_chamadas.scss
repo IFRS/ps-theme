@@ -5,16 +5,17 @@
   margin-block-end: 2rem;
   text-align: center;
   background-color: transparent;
-  background-color: $gray-700;
-  border: 1px solid $gray-600;
+  background-color: $accent-bg-subtle;
+  border: 1px solid $accent-border-subtle;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  color: $accent-text-emphasis;
 
   &__title {
     margin: 0 0 1rem;
     font-size: minmax(1.5rem, 2.5rem);
     font-weight: bold;
-    color: #ffffff;
+    color: inherit;
     text-align: center;
     hyphens: auto;
     overflow-wrap: break-word;
@@ -28,7 +29,7 @@
     font-size: 2rem;
     font-weight: bold;
     line-height: 1;
-    color: $gray-200;
+    color: inherit;
 
     &::before {
       display: inline-block;
@@ -52,7 +53,7 @@
   > p {
     margin-bottom: 1.5rem;
     font-weight: 500;
-    color: #ffffff;
+    color: inherit;
     text-shadow: $shadow;
 
     a {
