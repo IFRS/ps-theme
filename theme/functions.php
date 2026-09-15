@@ -9,6 +9,9 @@ require_once('inc/resource-hints.php');
 require_once('inc/theme-config.php');
 require_once('inc/extra-header-image.php');
 
+// Confuguraçãoes para Plugins
+require_once('inc/plugins-config.php');
+
 // Menus
 require_once('inc/menus.php');
 require_once('inc/sitemap-walker.class.php');
