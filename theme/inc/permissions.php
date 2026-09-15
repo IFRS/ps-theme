@@ -7,80 +7,50 @@ add_action('init', function () {
 });
 
 add_action('after_switch_theme', function () {
-  // Conteúdo Roles
-  if (!get_role('gerente_conteudo')) {
-    add_role('gerente_conteudo', __('Gerente de Conteúdo', 'ifrs-ps-theme'), array(
-      'read'                 => true,
-
-      'upload_files'         => true,
-      'edit_files'           => true,
-      'delete_files'         => true,
-
-      'assign_campus'        => true,
-      'assign_formaingresso' => true,
-      'assign_trilha_selecao' => true,
-      'manage_trilha_selecao' => true,
-
-      'create_chamadas'      => true,
-      'edit_chamadas'        => true,
-      'manage_chamadas'      => true,
-
-      'create_cursos'        => true,
-      'edit_cursos'          => true,
-      'manage_cursos'        => true,
-
-      'create_eventos'       => true,
-      'edit_eventos'         => true,
-      'manage_eventos'       => true,
-
-      'create_publicacoes'   => true,
-      'edit_publicacoes'     => true,
-      'manage_publicacoes'   => true,
-    ));
-  }
-
   if (!get_role('cadastrador_conteudo')) {
     add_role('cadastrador_conteudo', __('Cadastrador de Conteúdo', 'ifrs-ps-theme'), array(
-      'read'                 => true,
+      'read'                  => true,
 
-      'upload_files'         => true,
-      'edit_files'           => true,
-      // 'delete_files'         => false,
+      'upload_files'          => true,
+      'edit_files'            => true,
+      'delete_files'          => false,
 
-      'assign_campus'        => true,
-      'assign_formaingresso' => true,
+      'assign_campus'         => true,
+      'assign_formaingresso'  => true,
       'assign_trilha_selecao' => true,
 
-      'create_cursos'        => true,
-      'edit_cursos'          => true,
-      // 'manage_cursos'        => false,
+      'create_chamadas'       => true,
+      'edit_chamadas'         => true,
+      'manage_chamadas'       => true,
 
-      'create_eventos'       => true,
-      'edit_eventos'         => true,
-      // 'manage_eventos'       => false,
+      'create_cursos'         => true,
+      'edit_cursos'           => true,
+      'manage_cursos'         => true,
 
-      'create_publicacoes'   => true,
-      'edit_publicacoes'     => true,
-      'manage_publicacoes'   => false,
+      'create_eventos'        => true,
+      'edit_eventos'          => true,
+      'manage_eventos'        => true,
+
+      'create_publicacoes'    => true,
+      'edit_publicacoes'      => true,
+      'manage_publicacoes'    => true,
 
     ));
   }
 
-  // Chamadas Role
   if (!get_role('cadastrador_chamadas')) {
     add_role('cadastrador_chamadas', __('Cadastrador de Chamadas', 'ifrs-ps-theme'), array(
-      'read'                 => true,
+      'read'                  => true,
 
-      'upload_files'         => true,
-      'edit_files'           => true,
-      'delete_files'         => true,
+      'upload_files'          => true,
+      'edit_files'            => true,
+      'delete_files'          => false,
 
-      'create_chamadas'      => true,
-      'edit_chamadas'        => true,
-      // 'manage_chamadas'      => false,
+      'create_chamadas'       => true,
+      'edit_chamadas'         => true,
 
-      'assign_campus'        => true,
-      'assign_formaingresso' => true,
+      'assign_campus'         => true,
+      'assign_formaingresso'  => true,
       'assign_trilha_selecao' => true,
     ));
   }
@@ -111,10 +81,6 @@ add_action('after_switch_theme', function () {
 });
 
 add_action('switch_theme', function () {
-  if (get_role('gerente_conteudo')) {
-    remove_role('gerente_conteudo');
-  }
-
   if (get_role('cadastrador_conteudo')) {
     remove_role('cadastrador_conteudo');
   }
