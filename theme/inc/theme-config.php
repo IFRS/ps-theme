@@ -89,9 +89,3 @@ add_action('widgets_init', function () {
     'after_sidebar'  => '</address>',
   ));
 });
-
-// YoastSEO Breadcrumbs
-add_theme_support('yoast-seo-breadcrumbs');
-
-// YoastSEO Metabox Priority
-add_filter( 'wpseo_metabox_prio', function() { return 'low'; } );
