@@ -48,7 +48,7 @@ function ifrs_ps_curso_import_render_upload_form($notice = '')
   $trilhas = get_terms(array('taxonomy' => 'trilha_selecao', 'hide_empty' => false, 'orderby' => 'name'));
   ?>
   <p><?php esc_html_e('Envie um CSV com as colunas: Campus, Modalidade, Descrição da Vaga, Turno, Duração, Carga EAD?, Modo de Ingresso, Total de Vagas.', 'ifrs-ps-theme'); ?></p>
-  <p><?php esc_html_e('Linhas com o mesmo Campus + Descrição da Vaga + Modalidade são agrupadas em um único curso (turnos e vagas somados).', 'ifrs-ps-theme'); ?></p>
+  <p><?php esc_html_e('Cada combinação de Campus + Descrição da Vaga + Modalidade + Turno é uma oferta separada. Só é atualizado um curso já existente se todos esses quatro dados coincidirem.', 'ifrs-ps-theme'); ?></p>
 
   <form method="post" enctype="multipart/form-data">
     <?php wp_nonce_field('ifrs_ps_curso_import_preview'); ?>
@@ -156,7 +156,7 @@ function ifrs_ps_curso_import_handle_preview()
     $acao = esc_html__('Ignorado', 'ifrs-ps-theme');
     if ($ok) {
       $campus_term_id = ifrs_ps_curso_import_find_term_id($group['campus'], 'campus');
-      $existing_id = $campus_term_id ? ifrs_ps_curso_import_find_existing($group['titulo'], $campus_term_id, $group['modalidade']) : 0;
+      $existing_id = $campus_term_id ? ifrs_ps_curso_import_find_existing($group['titulo'], $campus_term_id, $group['modalidade'], $group['turnos']) : 0;
       $acao = $existing_id
         ? sprintf('<a href="%s" target="_blank">%s</a>', esc_url(get_edit_post_link($existing_id)), esc_html(sprintf(__('Atualizar #%d', 'ifrs-ps-theme'), $existing_id)))
         : esc_html__('Criar novo', 'ifrs-ps-theme');
@@ -224,7 +224,7 @@ function ifrs_ps_curso_import_handle_confirm()
     }
 
     $campus_term_id = ifrs_ps_curso_import_get_or_create_term($group['campus'], 'campus');
-    $existing_id = ifrs_ps_curso_import_find_existing($group['titulo'], $campus_term_id, $group['modalidade']);
+    $existing_id = ifrs_ps_curso_import_find_existing($group['titulo'], $campus_term_id, $group['modalidade'], $group['turnos']);
 
     $postarr = array(
       'post_title'  => $group['titulo'],
@@ -347,8 +347,12 @@ function ifrs_ps_curso_import_group_rows($rows)
     $titulo = $row['Descrição da Vaga'];
     $modalidade_raw = isset($row['Modalidade']) ? $row['Modalidade'] : '';
     $modalidade = ifrs_ps_curso_import_map_modalidade($modalidade_raw);
+    $turnos = ifrs_ps_curso_import_parse_turnos(isset($row['Turno']) ? $row['Turno'] : '');
+    $turnos_chave = $turnos;
+    sort($turnos_chave);
 
-    $key = mb_strtolower($campus) . '|' . mb_strtolower($titulo) . '|' . $modalidade;
+    // Turno faz parte da chave: mesma oferta em turnos diferentes é um curso separado.
+    $key = mb_strtolower($campus) . '|' . mb_strtolower($titulo) . '|' . $modalidade . '|' . implode(',', $turnos_chave);
 
     if (!isset($groups[$key])) {
       $groups[$key] = array(
@@ -366,7 +370,7 @@ function ifrs_ps_curso_import_group_rows($rows)
 
     $groups[$key]['turnos'] = array_values(array_unique(array_merge(
       $groups[$key]['turnos'],
-      ifrs_ps_curso_import_parse_turnos(isset($row['Turno']) ? $row['Turno'] : '')
+      $turnos
     )));
 
     $groups[$key]['ingresso'] = array_values(array_unique(array_merge(
@@ -462,11 +466,14 @@ function ifrs_ps_curso_import_get_or_create_term($name, $taxonomy)
   return (int) $created['term_id'];
 }
 
-function ifrs_ps_curso_import_find_existing($title, $campus_term_id, $modalidade)
+function ifrs_ps_curso_import_find_existing($title, $campus_term_id, $modalidade, $turnos = array())
 {
   if (!$campus_term_id) {
     return 0;
   }
+
+  $turnos_ordenados = $turnos;
+  sort($turnos_ordenados);
 
   $query = new WP_Query(array(
     'post_type'      => 'curso',
@@ -485,7 +492,14 @@ function ifrs_ps_curso_import_find_existing($title, $campus_term_id, $modalidade
   ));
 
   foreach ($query->posts as $post_id) {
-    if (get_post_meta($post_id, '_curso_modalidade', true) === $modalidade) {
+    if (get_post_meta($post_id, '_curso_modalidade', true) !== $modalidade) {
+      continue;
+    }
+
+    $post_turnos = (array) get_post_meta($post_id, '_curso_turnos', true);
+    sort($post_turnos);
+
+    if ($post_turnos === $turnos_ordenados) {
       return (int) $post_id;
     }
   }
