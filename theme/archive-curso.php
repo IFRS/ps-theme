@@ -68,6 +68,10 @@
               <?php if (get_post_meta(get_the_ID(), '_curso_ead', 1)) : ?>
                 (<span class="curso__help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Esse Curso possui parte da carga hor&aacute;ria a dist&acirc;ncia.">Parte EaD</span>)
               <?php endif; ?>
+              <!-- Estágio Obrigatório -->
+              <?php if (get_post_meta(get_the_ID(), '_curso_estagio', 1)) : ?>
+                (<span class="curso__help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Esse Curso possui est&aacute;gio obrigat&oacute;rio.">Estágio</span>)
+              <?php endif; ?>
 
               <br>
 

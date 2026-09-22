@@ -47,7 +47,7 @@ function ifrs_ps_curso_import_render_upload_form($notice = '')
 
   $trilhas = get_terms(array('taxonomy' => 'trilha_selecao', 'hide_empty' => false, 'orderby' => 'name'));
   ?>
-  <p><?php esc_html_e('Envie um CSV com as colunas: Campus, Modalidade, Descrição da Vaga, Turno, Duração, Carga EAD?, Modo de Ingresso, Total de Vagas.', 'ifrs-ps-theme'); ?></p>
+  <p><?php esc_html_e('Envie um CSV com as colunas: Campus, Modalidade, Descrição da Vaga, Turno, Duração, Carga EAD?, Estágio, Modo de Ingresso, Total de Vagas.', 'ifrs-ps-theme'); ?></p>
   <p><?php esc_html_e('Cada combinação de Campus + Descrição da Vaga + Modalidade + Turno é uma oferta separada. Só é atualizado um curso já existente se todos esses quatro dados coincidirem.', 'ifrs-ps-theme'); ?></p>
 
   <form method="post" enctype="multipart/form-data">
@@ -144,7 +144,7 @@ function ifrs_ps_curso_import_handle_preview()
   $invalidos = 0;
 
   echo '<table class="widefat striped"><thead><tr>';
-  foreach (array('Ação', 'Campus', 'Curso', 'Modalidade', 'Turnos', 'Modo de Ingresso', 'Duração', 'EAD', 'Vagas') as $col) {
+  foreach (array('Ação', 'Campus', 'Curso', 'Modalidade', 'Turnos', 'Modo de Ingresso', 'Duração', 'EAD', 'Estágio', 'Vagas') as $col) {
     echo '<th>' . esc_html($col) . '</th>';
   }
   echo '</tr></thead><tbody>';
@@ -171,6 +171,7 @@ function ifrs_ps_curso_import_handle_preview()
     echo '<td>' . esc_html(implode(', ', $group['ingresso'])) . '</td>';
     echo '<td>' . esc_html($group['duracao']) . '</td>';
     echo '<td>' . ($group['ead'] ? esc_html__('Sim', 'ifrs-ps-theme') : '-') . '</td>';
+    echo '<td>' . ($group['estagio'] ? esc_html__('Sim', 'ifrs-ps-theme') : '-') . '</td>';
     echo '<td>' . esc_html($group['vagas']) . '</td>';
     echo '</tr>';
   }
@@ -269,6 +270,12 @@ function ifrs_ps_curso_import_handle_confirm()
       delete_post_meta($post_id, '_curso_ead');
     }
 
+    if ($group['estagio']) {
+      update_post_meta($post_id, '_curso_estagio', 'on');
+    } else {
+      delete_post_meta($post_id, '_curso_estagio');
+    }
+
     update_post_meta($post_id, '_curso_vagas_trilha_' . $trilha_term_id, absint($group['vagas']));
 
     // Publica só depois de garantir a trilha, para não cair em rascunho pela checagem obrigatória.
@@ -364,6 +371,7 @@ function ifrs_ps_curso_import_group_rows($rows)
         'ingresso'       => array(),
         'duracao'        => isset($row['Duração']) ? $row['Duração'] : '',
         'ead'            => false,
+        'estagio'        => false,
         'vagas'          => 0,
       );
     }
@@ -380,6 +388,10 @@ function ifrs_ps_curso_import_group_rows($rows)
 
     if (mb_strtolower(trim(isset($row['Carga EAD?']) ? $row['Carga EAD?'] : '')) === 'sim') {
       $groups[$key]['ead'] = true;
+    }
+
+    if (mb_strtolower(trim(isset($row['Estágio']) ? $row['Estágio'] : '')) === 'sim') {
+      $groups[$key]['estagio'] = true;
     }
 
     $vagas = isset($row['Total de Vagas']) ? (int) preg_replace('/\D/', '', $row['Total de Vagas']) : 0;

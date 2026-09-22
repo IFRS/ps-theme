@@ -137,6 +137,13 @@ add_action('cmb2_admin_init', function () {
     'id'      => $prefix . 'ead',
     'type'    => 'checkbox',
   ));
+
+  $cmb->add_field(array(
+    'name'    => __('Possui Estágio Obrigatório?', 'ifrs-ps-theme'),
+    'desc'    => __('Marque para aparecer um aviso de que o curso possui estágio obrigatório.', 'ifrs-ps-theme'),
+    'id'      => $prefix . 'estagio',
+    'type'    => 'checkbox',
+  ));
 }, 2);
 
 function ifrs_ps_get_curso_vagas_por_trilha($post_id)
