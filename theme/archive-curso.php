@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<?php $desc = curso_get_option('desc', ''); ?>
+<?php
+  $desc = curso_get_option('desc', '');
+  $formasingresso_permitidas = curso_get_option('formas', array());
+?>
 
 <?php get_template_part('partials/trilha-switch'); ?>
 
@@ -20,8 +23,6 @@
     <div class="cursos__list">
       <?php while (have_posts()) : the_post(); ?>
         <?php
-        $formasingresso_permitidas = curso_get_option('formas', array());
-
         $campi = get_the_terms(get_the_ID(), 'campus');
         $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
         $modalidade = ifrs_ps_get_curso_modalidade(get_the_ID());
