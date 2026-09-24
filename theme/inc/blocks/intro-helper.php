@@ -109,9 +109,10 @@ if (!function_exists('ifrs_ps_get_intro_helper_editor_modalidades')) {
 }
 
 add_action('enqueue_block_editor_assets', function () {
-  if (!wp_script_is('ps-intro-helper-block', 'enqueued')) {
-    return;
-  }
+  // "ps-intro-helper-block" is enqueued as a script module, so it isn't tracked by
+  // wp_script_is()/wp_add_inline_script(); use a src-less classic script to carry the config.
+  wp_register_script('ps-intro-helper-block-config', false, array(), false, false);
+  wp_enqueue_script('ps-intro-helper-block-config');
 
   $config = array(
     'steps' => ifrs_ps_get_intro_helper_editor_steps(),
@@ -119,11 +120,10 @@ add_action('enqueue_block_editor_assets', function () {
   );
 
   wp_add_inline_script(
-    'ps-intro-helper-block',
-    'window.ifrsPsIntroHelperConfig = ' . wp_json_encode($config) . ';',
-    'before'
+    'ps-intro-helper-block-config',
+    'window.ifrsPsIntroHelperConfig = ' . wp_json_encode($config) . ';'
   );
-}, 100);
+});
 
 if (!function_exists('ifrs_ps_get_intro_helper_step_icon')) {
   function ifrs_ps_get_intro_helper_step_icon($index)
