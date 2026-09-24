@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<?php $desc = curso_get_option('desc', ''); ?>
+<?php
+  $desc = curso_get_option('desc', '');
+  $formasingresso_permitidas = curso_get_option('formas', array());
+?>
 
 <?php get_template_part('partials/trilha-switch'); ?>
 
@@ -20,8 +23,6 @@
     <div class="cursos__list">
       <?php while (have_posts()) : the_post(); ?>
         <?php
-        $formasingresso_permitidas = curso_get_option('formas', array());
-
         $campi = get_the_terms(get_the_ID(), 'campus');
         $formasingresso = get_the_terms(get_the_ID(), 'formaingresso');
         $modalidade = ifrs_ps_get_curso_modalidade(get_the_ID());
@@ -67,6 +68,10 @@
               <!-- Carga Horária EaD -->
               <?php if (get_post_meta(get_the_ID(), '_curso_ead', 1)) : ?>
                 (<span class="curso__help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Esse Curso possui parte da carga hor&aacute;ria a dist&acirc;ncia.">Parte EaD</span>)
+              <?php endif; ?>
+              <!-- Estágio Obrigatório -->
+              <?php if (get_post_meta(get_the_ID(), '_curso_estagio', 1)) : ?>
+                (<span class="curso__help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Esse Curso possui est&aacute;gio obrigat&oacute;rio.">Estágio</span>)
               <?php endif; ?>
 
               <br>

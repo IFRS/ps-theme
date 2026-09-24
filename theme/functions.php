@@ -49,6 +49,9 @@ require_once('inc/post-types/publicacao.php');
 require_once('inc/post-types/chamada.php');
 require_once('inc/post-types/evento.php');
 
+// Importador de Cursos (Ferramentas > Importar Cursos)
+require_once('inc/admin/curso-importer.php');
+
 // Blocks
 require_once('inc/blocks/etapas-timeline.php');
 require_once('inc/blocks/intro-helper.php');

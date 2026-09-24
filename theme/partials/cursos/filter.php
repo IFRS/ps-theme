@@ -33,7 +33,7 @@ $turnos = ifrs_ps_get_turnos();
     </div>
 
     <div class="col-auto ms-auto">
-      <button type="submit" class="btn btn-sm btn-primary me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Filtrar Cursos">
+      <button type="submit" class="btn btn-sm btn-primary me-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -48,7 +48,7 @@ $turnos = ifrs_ps_get_turnos();
         </svg>
         <span>Filtrar Cursos</span>
       </button>
-      <a href="<?php echo get_post_type_archive_link('curso'); ?>" class="btn btn-sm btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Limpar Filtros">
+      <a href="<?php echo get_post_type_archive_link('curso'); ?>" class="btn btn-sm btn-outline-dark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
