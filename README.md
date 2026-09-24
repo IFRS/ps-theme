@@ -1,48 +1,150 @@
 # IFRS PS Theme
 
-Tema [Wordpress](https://wordpress.org/) para os [Processos Seletivos](http://ingresso.ifrs.edu.br/) do [Instituto Federal do Rio Grande do Sul](http://ifrs.edu.br/).
+Tema moderno para [WordPress](https://wordpress.org/) dos [Processos Seletivos](http://ingresso.ifrs.edu.br/) do [Instituto Federal do Rio Grande do Sul (IFRS)](http://ifrs.edu.br/).
 
-## Dependências
+Construído com **Vue 3**, **Bootstrap 5**, **SCSS** e **Vite** para desenvolvimento rápido e produção otimizada.
 
-Esse tema depende obrigatoriamente do plugin [CMB2](https://br.wordpress.org/plugins/cmb2/). Além desse, recomenda-se o uso dos plugins abaixo:
+## Sumário
 
-- [Disable Comments](https://br.wordpress.org/plugins/disable-comments/): Plugin que desabilita a funcionalidade de comentários globalmente, já que este tema não suporta comentários.
-- [Members](https://br.wordpress.org/plugins/members/): Plugin para gerenciamento de funções dos usuários. Permite escolher mais de uma função para um único usuário.
+- [Visão Geral](#visão-geral)
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação](#instalação)
+- [Desenvolvimento](#desenvolvimento)
+- [Build & Produção](#build--produção)
+- [Linting](#linting)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Plugins Necessários](#plugins-necessários)
+- [Configuração do WordPress](#configuração-do-wordpress)
+- [Licença](#licença)
 
-## Utilização
+## Visão Geral
 
-Para a construção desse projeto são necessárias as seguintes ferramentas:
-- [NodeJs](https://nodejs.org/) com [NPM](https://www.npmjs.com/)
-- [Gulp CLI](https://gulpjs.com/)
+Este é um tema WordPress full-site-editing moderno com suporte para:
 
-Primeiramente é preciso instalar as dependências:
+- **Custom Post Types**: Cursos, Chamadas, Eventos, Publicações, Perguntas
+- **Custom Taxonomies**: Campus, Forma de Ingresso, Trilhas
+- **Componentes Vue 3**: Integração completa de componentes interativos
+- **Vite Build Tool**: Compilação rápida e sourcemaps em desenvolvimento
+- **Padrões Modernos**: ESLint, StyleLint, SCSS e Bootstrap 5
+
+## Pré-requisitos
+
+- **Node.js** 18+ com **NPM**
+- **WordPress** 7.1+
+- **PHP** 8.x
+
+## Instalação
+
+Clone o repositório e instale as dependências:
+
+```bash
+npm install
+```
+
+## Desenvolvimento
+
+Para iniciar o modo desenvolvimento com watch automático:
+
+```bash
+npm run dev
+```
+
+Ou, alternativamente:
+
+```bash
+npm start
+```
+
+O Vite observará mudanças em `src/`, `sass/` e `theme/` e compilará automaticamente os arquivos na pasta `build/`.
+
+## Build & Produção
+
+Para gerar a build otimizada para produção (minificada, sem sourcemaps):
+
+```bash
+npm run build
+```
+
+Os arquivos compilados serão salvos em `build/` e estarão prontos para deploy.
+
+## Linting
+
+Verificar qualidade do código JavaScript:
+
+```bash
+npm run lint:js
+```
+
+Verificar estilos SCSS:
+
+```bash
+npm run lint:css
+```
+
+Executar ambos os linters:
+
+```bash
+npm run lint
+```
+
+Corrigir problemas automaticamente:
+
+```bash
+npm run lint:fix
+```
+
+## Estrutura do Projeto
 
 ```
-$ npm install
+theme/                    # Templates PHP e configurações do tema
+├── inc/                  # Funções PHP (post-types, taxonomies, assets)
+├── partials/            # Partials PHP reutilizáveis
+├── parts/               # Blocos/partes do tema
+└── theme.json           # Configuração Full Site Editing
+
+src/                      # Código-fonte JavaScript/Vue
+├── modules/             # Componentes Vue 3
+└── blocks/              # Blocos Gutenberg customizados
+
+sass/                     # Estilos SCSS
+├── base/                # Base e reset
+├── components/          # Componentes SCSS
+├── blocks/              # Estilos de blocos
+├── layout/              # Layout e grid
+└── config/              # Configurações e variáveis
+
+build/                    # Saída compilada (gerada, não commitada)
+├── assets/              # JavaScript e CSS compilados
+└── [arquivos PHP]       # Templates compilados
 ```
 
-Em seguida, para compilar/construir o tema no ambiente de desenvolvimento:
+## Plugins Necessários
 
-```
-$ gulp build
-```
+### Obrigatório
+- **[CMB2](https://br.wordpress.org/plugins/cmb2/)** - Metaboxes e custom fields
 
-*Dessa forma, os arquivos compilados ficam na pasta raiz.*
+### Recomendado
+- **[Disable Comments](https://br.wordpress.org/plugins/disable-comments/)** - Desabilita comentários globalmente (tema não suporta comentários)
+- **[Members](https://br.wordpress.org/plugins/members/)** - Gerenciamento avançado de funções e permissões
 
-Para produção:
+## Configuração do WordPress
 
-```
-$ gulp build --production
-```
+Recomenda-se configurar a opção de **permalinks** como:
 
-*Nesse caso, será criada a pasta `dist/ifrs-ps-theme` com o tema completo e pronto para ser utilizado em produção.*
+**Configurações → Links permanentes → Nome do post**
 
-## Configuração do Wordpress
+Isso garante URLs amigáveis e consistentes com a estrutura do tema.
 
-Recomenda-se utilizar a opção "Nome do post" em "Configurações -> Links permanentes".
+## Convenções de Código
+
+- **Indentação**: 2 espaços (JS/SCSS), PSR-12 (PHP)
+- **JavaScript**: ES2020, ESLint configurado
+- **SCSS**: Bootstrap 5 variables, variáveis customizadas
+- **Vue**: Single-File Components, Composition API preferido
+- **PHP**: WordPress coding standards
 
 ## Licença
 
-Esse código é distribuído sob a licença [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.txt).
+Este código é distribuído sob a licença [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.txt).
 
-A documentação, as imagens e demais mídias são distribuídas sob a licença [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+A documentação, imagens e demais mídias são distribuídas sob a licença [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
