@@ -23,7 +23,19 @@ add_action('init', function () {
 if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
   function ifrs_ps_get_intro_helper_steps()
   {
+    $about_page = get_page_by_path('sobre');
+    $about_page_link = $about_page ? get_permalink($about_page) : null;
     return array(
+      array(
+        'text' => __('Conheça como funciona o Processo Seletivo', 'ifrs-ps-theme'),
+        'link_url' => $about_page_link ?? null,
+        'link_text' => $about_page_link ? __('Sobre o Processo Seletivo', 'ifrs-ps-theme') : null,
+        'icon_paths' => array(
+          'M4 15h16',
+          'M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z',
+          'M4 20h12',
+        ),
+      ),
       array(
         'text' => __('Escolha um Campus e Curso', 'ifrs-ps-theme'),
         'link_url' => get_post_type_archive_link('curso'),
@@ -56,7 +68,7 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
         ),
       ),
       array(
-        'text' => __('Acompanhe os Resultados', 'ifrs-ps-theme'),
+        'text' => __('Acompanhe os Resultados e faça sua Pré-matrícula', 'ifrs-ps-theme'),
         'link_url' => get_post_type_archive_link('chamada'),
         'link_text' => __('Resultados', 'ifrs-ps-theme'),
         'icon_paths' => array(
@@ -66,17 +78,17 @@ if (!function_exists('ifrs_ps_get_intro_helper_steps')) {
           'M9.5 14.5l1.5 1.5l3 -3',
         ),
       ),
-      array(
-        'text' => __('Faça sua Pré-matrícula após os Resultados', 'ifrs-ps-theme'),
-        'link_url' => null,
-        'link_text' => null,
-        'icon_paths' => array(
-          'M14 20h-8a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5',
-          'M11 16h-5a2 2 0 0 0 -2 2',
-          'M15 16l3 -3l3 3',
-          'M18 13v9',
-        ),
-      ),
+      // array(
+      //   'text' => __('Faça sua Pré-matrícula após os Resultados', 'ifrs-ps-theme'),
+      //   'link_url' => null,
+      //   'link_text' => null,
+      //   'icon_paths' => array(
+      //     'M14 20h-8a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5',
+      //     'M11 16h-5a2 2 0 0 0 -2 2',
+      //     'M15 16l3 -3l3 3',
+      //     'M18 13v9',
+      //   ),
+      // ),
     );
   }
 }
