@@ -16,7 +16,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: $grid-gutter-width;
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $grid-gutter-width * 2;
   }
 
   &__step {
