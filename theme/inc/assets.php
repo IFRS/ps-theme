@@ -79,7 +79,7 @@ if (file_exists($manifestFile)) {
     }
 
     if (is_post_type_archive('pergunta')) {
-      wp_enqueue_script_module($manifest['src/faq.js']['name'], get_parent_theme_file_uri($manifest['src/faq.js']['file']), array('jquery'), null, array('in_footer' => true));
+      wp_enqueue_script_module($manifest['src/faq.js']['name'], get_parent_theme_file_uri($manifest['src/faq.js']['file']), array(), null, array('in_footer' => true));
     }
 
     /* Polyfill: DOM4, ES2020, ES2021, ES2022, ES2023 */
