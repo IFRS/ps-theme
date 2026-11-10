@@ -336,18 +336,33 @@ add_action('restrict_manage_posts', function ($post_type) {
 
 // REST API
 add_filter('rest_prepare_chamada', function ($data, $post, $context) {
+  // Modalidades
   $data->data['modalidades'] = array();
 
   $modalidades = ifrs_ps_get_modalidades();
 
-  if (empty($modalidades)) {
-    return $data;
+  if (!empty($modalidades)) {
+    foreach ($modalidades as $slug => $label) {
+      $resultados = (array) get_post_meta($post->ID, '_chamada_modalidade_' . $slug);
+      if (!empty($resultados)) $data->data['modalidades'][] = $label;
+    }
   }
 
-  foreach ($modalidades as $slug => $label) {
-    $resultados = (array) get_post_meta($post->ID, '_chamada_modalidade_' . $slug);
-    if (!empty($resultados)) $data->data['modalidades'][] = $label;
+  // Forma de Ingresso
+  $formas_ingresso = wp_get_post_terms($post->ID, 'formaingresso', array('fields' => 'names'));
+  if (is_wp_error($formas_ingresso)) {
+    return $formas_ingresso;
   }
+  $data->data['formaingresso_nomes'] = $formas_ingresso;
+
+  // Trilha de Seleção
+  $trilhas = wp_get_post_terms($post->ID, 'trilha_selecao', array('fields' => 'names'));
+  if (is_wp_error($trilhas)) {
+    return $trilhas;
+  }
+  $data->data['trilha_selecao_nomes'] = $trilhas;
+
+  // Retorno
   return $data;
 }, 10, 3);
 
