@@ -3,13 +3,13 @@
 
   padding: 1.5rem 2rem;
   margin-block-end: $spacer * 2;
+  color: $gray-100;
   text-align: center;
   background-color: transparent;
   background-color: $gray-700;
   border: 1px solid $gray-600;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
-  color: $gray-100;
 
   &__title {
     margin: 0 0 1rem;
