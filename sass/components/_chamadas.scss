@@ -5,11 +5,11 @@
   margin-block-end: 2rem;
   text-align: center;
   background-color: transparent;
-  background-color: $accent-bg-subtle;
-  border: 1px solid $accent-border-subtle;
+  background-color: $gray-700;
+  border: 1px solid $gray-600;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
-  color: $accent-text-emphasis;
+  color: $gray-100;
 
   &__title {
     margin: 0 0 1rem;
