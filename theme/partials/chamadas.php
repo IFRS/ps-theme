@@ -1,9 +1,9 @@
 <article id="chamadas" class="chamadas" aria-live="polite">
   <h2 class="chamadas__title"><?php echo esc_html(chamada_get_option('title', __('Chamadas', 'ifrs-ps-theme'))); ?></h2>
   <?php echo wpautop(wp_kses_post(chamada_get_option('desc', '')), true); ?>
-  <p>
+  <!-- <p>
     <?php printf(__('Os resultados ser&atilde;o divulgados conforme <a href="%s">Cronograma</a>.', 'ifrs-ps-theme'), esc_url(get_post_type_archive_link('evento'))); ?>
-  </p>
+  </p> -->
 
   <p v-if="!selectedCampus">Selecione seu Campus abaixo.</p>
   <div v-if="campi.length === 0" class="spinner-grow text-light" role="status">
@@ -16,39 +16,43 @@
   <div v-if="loadingChamadas" class="spinner-grow text-light mt-5" role="status">
     <span class="visually-hidden">Carregando Chamadas...</span>
   </div>
-  <div v-if="chamadas && !loadingChamadas" class="row justify-content-center mt-3 text-start">
-    <h3 v-if="selectedCampus" class="visually-hidden">{{ selectedCampus.name }}</h3>
-    <div class="list-group">
-      <a v-for="(chamada, key) in chamadas" :key="key" :href="chamada.link" class="list-group-item list-group-item-action d-flex gap-3 justify-content-between align-items-center">
-        <div class="me-auto">
-          <h4 class="fs-6 mb-1">{{ chamada.title.rendered }}</h4>
+  <div v-if="chamadas && !loadingChamadas" class="mt-3 text-start">
+    <div v-if="selectedCampus && Object.keys(chamadas).length > 0" class="card border-primary">
+      <div class="card-header text-bg-primary">
+        <h3 class="fs-5">Campus {{ selectedCampus.name }}</h3>
+      </div>
+      <div class="list-group list-group-flush">
+        <a v-for="(chamada, key) in chamadas" :key="key" :href="chamada.link" class="list-group-item list-group-item-action d-flex gap-3 justify-content-between align-items-center">
+          <div class="me-auto">
+            <h4 class="fs-6 mb-1">{{ chamada.title.rendered }}</h4>
 
-          <template v-if="chamada.formaingresso_nomes.length">
-            <span class="mt-1 fw-medium">
-              <template v-for="(formaingresso, key) in chamada.formaingresso_nomes">
-                {{ formaingresso }}<template v-if="key !== chamada.formaingresso_nomes.length - 1">,&nbsp;</template>
-              </template>
-            </span>
-          </template>
+            <template v-if="chamada.formaingresso_nomes.length">
+              <span class="mt-1 fw-medium">
+                <template v-for="(formaingresso, key) in chamada.formaingresso_nomes">
+                  {{ formaingresso }}<template v-if="key !== chamada.formaingresso_nomes.length - 1">,&nbsp;</template>
+                </template>
+              </span>
+            </template>
 
-          <span v-if="chamada.modalidades_nomes.length && chamada.formaingresso_nomes.length"> | </span>
+            <span v-if="chamada.modalidades_nomes.length && chamada.formaingresso_nomes.length"> | </span>
 
-          <template v-if="chamada.modalidades_nomes.length">
-            <span class="mt-1">
-              <template v-for="(modalidade, key) in chamada.modalidades_nomes">
-                {{ modalidade }}<template v-if="key !== chamada.modalidades_nomes.length - 1">,&nbsp;</template>
-              </template>
-            </span>
-          </template>
-        </div>
-
-        <div class="text-end">
-          <div class="mb-1">
-            <span v-for="(trilha, key) in chamada.trilha_selecao_nomes" :key="key" class="badge text-bg-accent">{{ trilha }}</span>
+            <template v-if="chamada.modalidades_nomes.length">
+              <span class="mt-1">
+                <template v-for="(modalidade, key) in chamada.modalidades_nomes">
+                  {{ modalidade }}<template v-if="key !== chamada.modalidades_nomes.length - 1">,&nbsp;</template>
+                </template>
+              </span>
+            </template>
           </div>
-          <time :datetime="chamada.modified" class="text-muted small mb-1" :title="dayjs(chamada.modified).format('DD/MM/YYYY HH:mm')">{{ dayjs(chamada.modified).fromNow() }}</time>
-        </div>
-      </a>
+
+          <div class="text-end">
+            <div class="mb-1">
+              <span v-for="(trilha, key) in chamada.trilha_selecao_nomes" :key="key" class="badge text-bg-accent">{{ trilha }}</span>
+            </div>
+            <time :datetime="chamada.modified" class="text-muted small mb-1" :title="dayjs(chamada.modified).format('DD/MM/YYYY HH:mm')">{{ dayjs(chamada.modified).fromNow() }}</time>
+          </div>
+        </a>
+      </div>
     </div>
     <div v-if="selectedCampus && Object.keys(chamadas).length === 0" class="alert alert-warning d-flex align-items-center text-start fw-medium" role="alert">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16">
