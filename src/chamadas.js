@@ -28,7 +28,7 @@ const app = createApp({
     }
   },
   created() {
-    axios.get(this.WP_API + 'wp/v2/campus', { params: { 'per_page': '20' } })
+    axios.get(this.WP_API + 'wp/v2/campus', { params: { 'per_page': '100' } })
       .then((response) => {
         setTimeout(() => {
           this.campi = response.data;
