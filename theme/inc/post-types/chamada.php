@@ -337,14 +337,14 @@ add_action('restrict_manage_posts', function ($post_type) {
 // REST API
 add_filter('rest_prepare_chamada', function ($data, $post, $context) {
   // Modalidades
-  $data->data['modalidades'] = array();
+  $data->data['modalidades_nomes'] = array();
 
   $modalidades = ifrs_ps_get_modalidades();
 
   if (!empty($modalidades)) {
     foreach ($modalidades as $slug => $label) {
       $resultados = (array) get_post_meta($post->ID, '_chamada_modalidade_' . $slug);
-      if (!empty($resultados)) $data->data['modalidades'][] = $label;
+      if (!empty($resultados)) $data->data['modalidades_nomes'][] = $label;
     }
   }
 

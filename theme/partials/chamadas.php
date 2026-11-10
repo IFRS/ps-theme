@@ -31,12 +31,12 @@
             </span>
           </template>
 
-          <span v-if="chamada.modalidades.length && chamada.formaingresso_nomes.length"> | </span>
+          <span v-if="chamada.modalidades_nomes.length && chamada.formaingresso_nomes.length"> | </span>
 
-          <template v-if="chamada.modalidades.length">
+          <template v-if="chamada.modalidades_nomes.length">
             <span class="mt-1">
-              <template v-for="(modalidade, key) in chamada.modalidades">
-                {{ modalidade }}<template v-if="key !== chamada.modalidades.length - 1">,&nbsp;</template>
+              <template v-for="(modalidade, key) in chamada.modalidades_nomes">
+                {{ modalidade }}<template v-if="key !== chamada.modalidades_nomes.length - 1">,&nbsp;</template>
               </template>
             </span>
           </template>
