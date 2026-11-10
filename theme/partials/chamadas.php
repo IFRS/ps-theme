@@ -16,33 +16,45 @@
   <div v-if="loadingChamadas" class="spinner-grow text-light mt-5" role="status">
     <span class="visually-hidden">Carregando Chamadas...</span>
   </div>
-  <div v-if="chamadas && !loadingChamadas" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center mt-1">
-    <h4 v-if="selectedCampus" class="visually-hidden">{{ selectedCampus.name }}</h4>
-    <div v-for="(resultados, key) in chamadas" :key="key" class="col">
-      <div class="card border-primary">
-        <div class="card-header bg-primary text-white">
-          <h5 class="m-0">{{ key }}</h5>
+  <div v-if="chamadas && !loadingChamadas" class="row justify-content-center mt-3 text-start">
+    <h3 v-if="selectedCampus" class="visually-hidden">{{ selectedCampus.name }}</h3>
+    <div class="list-group">
+      <a v-for="(chamada, key) in chamadas" :key="key" :href="chamada.link" class="list-group-item list-group-item-action d-flex gap-3 justify-content-between align-items-center">
+        <div class="me-auto">
+          <h4 class="fs-6 mb-1">{{ chamada.title.rendered }}</h4>
+
+          <template v-if="chamada.formaingresso_nomes.length">
+            <span class="mt-1 fw-medium">
+              <template v-for="(formaingresso, key) in chamada.formaingresso_nomes">
+                {{ formaingresso }}<template v-if="key !== chamada.formaingresso_nomes.length - 1">,&nbsp;</template>
+              </template>
+            </span>
+          </template>
+
+          <span v-if="chamada.modalidades.length && chamada.formaingresso_nomes.length"> | </span>
+
+          <template v-if="chamada.modalidades.length">
+            <span class="mt-1">
+              <template v-for="(modalidade, key) in chamada.modalidades">
+                {{ modalidade }}<template v-if="key !== chamada.modalidades.length - 1">,&nbsp;</template>
+              </template>
+            </span>
+          </template>
         </div>
-        <div class="list-group list-group-flush">
-          <a v-for="resultado in resultados" :key="resultado.id" :href="resultado.link" class="list-group-item list-group-item-action">
-            {{ resultado.title.rendered }}
-            <template v-if="resultado.modalidades">
-              <br>
-              <span class="text-muted">
-                <template v-for="(modalidade, key) in resultado.modalidades">
-                  {{ modalidade }}<template v-if="key !== resultado.modalidades.length - 1">,&nbsp;</template>
-                </template>
-              </span>
-            </template>
-          </a>
+
+        <div class="text-end">
+          <div class="mb-1">
+            <span v-for="(trilha, key) in chamada.trilha_selecao_nomes" :key="key" class="badge text-bg-accent">{{ trilha }}</span>
+          </div>
+          <time :datetime="chamada.modified" class="text-muted small mb-1" :title="dayjs(chamada.modified).format('DD/MM/YYYY HH:mm')">{{ dayjs(chamada.modified).fromNow() }}</time>
         </div>
-      </div>
+      </a>
     </div>
     <div v-if="selectedCampus && Object.keys(chamadas).length === 0" class="alert alert-warning d-flex align-items-center text-start fw-medium" role="alert">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16">
         <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
       </svg>
-      <div>Ainda n&atilde;o h&aacute; conte&uacute;do dispon&iacute;vel para este Campus.</div>
+      <div>Ainda n&atilde;o h&aacute; conte&uacute;do dispon&iacute;vel para este Campus. Verifique novamente mais tarde.</div>
     </div>
   </div>
 </article>

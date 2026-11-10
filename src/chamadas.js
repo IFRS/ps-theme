@@ -1,5 +1,11 @@
-import axios from 'axios';
 import { createApp } from 'vue';
+import axios from 'axios';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime.js';
+import 'dayjs/locale/pt-br.js';
+
+dayjs.extend(relativeTime);
+dayjs.locale('pt-br');
 
 const app = createApp({
   props: {
@@ -8,10 +14,14 @@ const app = createApp({
       default: document.querySelector('link[rel="https://api.w.org/"]').getAttribute('href'),
     },
   },
+  computed: {
+    dayjs() {
+      return dayjs;
+    },
+  },
   data() {
     return {
       campi: [],
-      formasingresso: [],
       chamadas: {},
       selectedCampus: null,
       loadingChamadas: false,
@@ -27,14 +37,6 @@ const app = createApp({
       .catch((error) => {
         console.error(error);
       });
-
-    axios.get(this.WP_API + 'wp/v2/formaingresso')
-      .then((response) => {
-        this.formasingresso = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   },
   methods: {
     async getChamadas(campus) {
@@ -42,21 +44,21 @@ const app = createApp({
       this.loadingChamadas = true;
       this.chamadas = {};
 
-      await this.formasingresso.forEach(async formaingresso => {
-        const params = {
-          campus: campus.id,
-          formaingresso: formaingresso.id,
-        };
-        await axios.get(this.WP_API + 'wp/v2/chamada', { params })
-          .then((response) => {
-            if (Array.isArray(response.data) && response.data.length > 0) {
-              this.chamadas[formaingresso.name] = response.data;
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      });
+      const params = {
+        order: 'desc',
+        orderby: 'date',
+        per_page: 100,
+        campus: campus.id,
+      };
+      await axios.get(this.WP_API + 'wp/v2/chamada', { params })
+        .then((response) => {
+          if (Array.isArray(response.data) && response.data.length > 0) {
+            this.chamadas = response.data;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
       setTimeout(() => {
         this.loadingChamadas = false;
