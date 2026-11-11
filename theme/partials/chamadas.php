@@ -24,7 +24,7 @@
       <div class="list-group list-group-flush">
         <a v-for="(chamada, key) in chamadas" :key="key" :href="chamada.link" class="list-group-item list-group-item-action d-flex gap-3 justify-content-between align-items-center">
           <div class="me-auto">
-            <h4 class="fs-6 mb-1" v-html="chamada.title.rendered"></h4>
+            <span class="d-block fw-bold fs-6 mb-1" v-html="chamada.title.rendered"></span>
 
             <template v-if="chamada.formaingresso_nomes.length">
               <span class="mt-1 fw-medium">
