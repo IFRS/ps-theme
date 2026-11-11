@@ -22,12 +22,12 @@
         <h3 class="fs-5">Campus {{ selectedCampus.name }}</h3>
       </div>
       <div class="list-group list-group-flush">
-        <a v-for="(chamada, key) in chamadas" :key="key" :href="chamada.link" class="list-group-item list-group-item-action d-flex gap-3 justify-content-between align-items-center">
-          <div class="me-auto">
-            <h4 class="fs-6 mb-1" v-html="chamada.title.rendered"></h4>
+        <a v-for="(chamada, key) in chamadas" :key="key" :href="chamada.link" class="list-group-item list-group-item-action d-flex flex-column flex-md-row gap-1 gap-md-3 justify-md-content-between align-md-items-center">
+          <div class="order-1 order-md-0 me-auto">
+            <span class="d-block fw-bold fs-6 mb-1" v-html="chamada.title.rendered"></span>
 
             <template v-if="chamada.formaingresso_nomes.length">
-              <span class="mt-1 fw-medium">
+              <span class="my-1 fw-medium">
                 <template v-for="(formaingresso, key) in chamada.formaingresso_nomes">
                   {{ formaingresso }}<template v-if="key !== chamada.formaingresso_nomes.length - 1">,&nbsp;</template>
                 </template>
@@ -37,7 +37,7 @@
             <span v-if="chamada.modalidades_nomes.length && chamada.formaingresso_nomes.length"> | </span>
 
             <template v-if="chamada.modalidades_nomes.length">
-              <span class="mt-1">
+              <span class="my-1">
                 <template v-for="(modalidade, key) in chamada.modalidades_nomes">
                   {{ modalidade }}<template v-if="key !== chamada.modalidades_nomes.length - 1">,&nbsp;</template>
                 </template>
@@ -45,11 +45,11 @@
             </template>
           </div>
 
-          <div class="text-end">
+          <div class="order-0 order-md-1 text-md-end">
             <div class="mb-1">
               <span v-for="(trilha, key) in chamada.trilha_selecao_nomes" :key="key" class="badge text-bg-accent">{{ trilha }}</span>
             </div>
-            <time :datetime="chamada.modified" class="text-muted small mb-1" :title="dayjs(chamada.modified).format('DD/MM/YYYY HH:mm')">{{ dayjs(chamada.modified).fromNow() }}</time>
+            <time :datetime="chamada.modified" class="text-muted small me-1 mb-1" :title="dayjs(chamada.modified).format('DD/MM/YYYY HH:mm')">{{ dayjs(chamada.modified).fromNow() }}</time>
           </div>
         </a>
       </div>
