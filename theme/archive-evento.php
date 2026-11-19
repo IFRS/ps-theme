@@ -81,7 +81,7 @@ wp_reset_postdata();
               </td>
               <td class="evento__content">
                 <?php get_template_part('partials/trilha-badge'); ?>
-                <strong class="d-block"><?php the_title(); ?></strong>
+                <strong class="d-block mt-2"><?php the_title(); ?></strong>
                 <?php the_content(); ?>
                 <?php
                 $url = get_post_meta(get_the_ID(), '_evento_programacao_url', true);

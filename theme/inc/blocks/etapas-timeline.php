@@ -140,9 +140,12 @@ if (!function_exists("ifrs_ps_render_etapas_timeline_block")) {
                 <h3 class="etapa__titulo">
                   <?php the_title(); ?>
                 </h3>
-                <p class="etapa__periodo">
-                  <?php echo esc_html($periodo); ?>
-                </p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <p class="etapa__periodo">
+                    <?php echo esc_html($periodo); ?>
+                  </p>
+                  <?php get_template_part('partials/trilha-badge'); ?>
+                </div>
               </div>
             </li>
           <?php
