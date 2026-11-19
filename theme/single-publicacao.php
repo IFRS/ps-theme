@@ -5,7 +5,7 @@
 
   <?php get_template_part('partials/trilha-badge'); ?>
 
-  <!-- wp:post-title /-->
+  <!-- wp:post-title {"className":"mt-2"} /-->
 
   <!-- wp:group {"className":"my-4 p-2 border-top border-bottom","layout":{"type":"flex","flexWrap":"nowrap"}} -->
   <div class="wp-block-group my-4 p-2 border-top border-bottom">

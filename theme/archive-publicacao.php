@@ -17,10 +17,10 @@
     <?php while (have_posts()) : the_post(); ?>
       <a href="<?php echo get_the_permalink(); ?>" rel="bookmark" class="flex-column align-items-start list-group-item list-group-item-action" title="<?php the_title(); ?>">
         <?php get_template_part('partials/trilha-badge'); ?>
-        <div class="d-flex w-100 justify-content-between">
+        <div class="d-flex w-100 justify-content-between mt-2">
           <h3 class="mb-1"><?php the_title(); ?></h3>
         </div>
-        <p class="mb-1">
+        <p class="mb-0">
           <small>publicado em <?php the_time('d \d\e F \d\e Y \à\s G\hi'); ?></small>
           <?php if (get_the_modified_time() != get_the_time()) : ?>
             &nbsp;&mdash;&nbsp;

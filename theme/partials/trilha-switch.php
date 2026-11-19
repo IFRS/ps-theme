@@ -17,7 +17,9 @@ $current_url = isset($_SERVER['REQUEST_URI']) ? esc_url_raw(wp_unslash($_SERVER[
     <?php foreach ($trilhas as $trilha) : ?>
       <?php
         $is_active = $current_id > 0 && $trilha->term_id === $current_id;
-        $switch_url = ifrs_ps_get_trilha_switch_url($trilha, $current_url);
+        $switch_url = $is_active
+          ? remove_query_arg('trilha', $current_url)
+          : ifrs_ps_get_trilha_switch_url($trilha, $current_url);
       ?>
       <a
         href="<?php echo esc_url($switch_url); ?>"

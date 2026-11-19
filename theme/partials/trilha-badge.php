@@ -30,8 +30,10 @@ if (empty($visible_terms)) {
   return;
 }
 ?>
+<div class="trilhas-badges">
 <?php foreach ($visible_terms as $term) : ?>
-  <span class="badge rounded-pill text-bg-light border border-accent text-accent mb-2 me-1">
+  <span class="badge rounded-pill text-bg-light border border-accent text-accent me-1">
     <?php echo esc_html($term->name); ?>
   </span>
 <?php endforeach; ?>
+</div>
