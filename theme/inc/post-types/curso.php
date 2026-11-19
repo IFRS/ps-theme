@@ -155,8 +155,10 @@ function ifrs_ps_get_curso_vagas_por_trilha($post_id)
     return array();
   }
 
-  $trilha_atual = function_exists('ifrs_ps_get_current_trilha') ? ifrs_ps_get_current_trilha() : null;
-  $trilha_atual_id = $trilha_atual && is_object($trilha_atual) ? (int) $trilha_atual->term_id : 0;
+  $trilhas_atuais = function_exists('ifrs_ps_get_current_trilhas') ? ifrs_ps_get_current_trilhas() : array();
+  $trilhas_atuais_ids = array_map(function ($trilha) {
+    return (int) $trilha->term_id;
+  }, $trilhas_atuais);
   $resultado = array();
 
   foreach ($trilhas as $trilha) {
@@ -167,7 +169,7 @@ function ifrs_ps_get_curso_vagas_por_trilha($post_id)
       continue;
     }
 
-    if ($trilha_atual_id > 0 && $term_id !== $trilha_atual_id) {
+    if (!empty($trilhas_atuais_ids) && !in_array($term_id, $trilhas_atuais_ids, true)) {
       continue;
     }
 

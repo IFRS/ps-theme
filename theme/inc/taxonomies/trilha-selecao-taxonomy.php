@@ -349,22 +349,31 @@ function ifrs_ps_get_trilhas($args = array())
 }
 
 /**
- * Trilha com data_inicio/data_fim abrangendo o instante atual (pode haver mais de uma; usa a de data_inicio mais recente).
+ * Trilhas com período abrangendo o instante atual.
  */
-function ifrs_ps_get_trilha_vigente()
+function ifrs_ps_get_trilhas_vigentes()
 {
   static $cache = null;
 
   if (null !== $cache) {
-    return false === $cache ? null : $cache;
+    return $cache;
   }
 
   $now = current_time('timestamp');
 
-  $terms = array_filter(ifrs_ps_get_trilhas(), function ($term) use ($now) {
+  $cache = array_values(array_filter(ifrs_ps_get_trilhas(), function ($term) use ($now) {
     return ifrs_ps_is_trilha_vigente($term, $now);
-  });
+  }));
 
+  return $cache;
+}
+
+/**
+ * Trilha vigente com data de início mais recente.
+ */
+function ifrs_ps_get_trilha_vigente()
+{
+  $terms = ifrs_ps_get_trilhas_vigentes();
   usort($terms, function ($left, $right) {
     $left_periodo = ifrs_ps_get_trilha_periodo($left);
     $right_periodo = ifrs_ps_get_trilha_periodo($right);
@@ -372,9 +381,7 @@ function ifrs_ps_get_trilha_vigente()
     return $right_periodo['inicio'] <=> $left_periodo['inicio'];
   });
 
-  $cache = !empty($terms) ? $terms[0] : false;
-
-  return false === $cache ? null : $cache;
+  return !empty($terms) ? $terms[0] : null;
 }
 
 /**
@@ -423,7 +430,7 @@ function ifrs_ps_get_trilha_by_slug($slug)
 
 /**
  * Trilha ativa para a requisição atual: permite troca manual via ?trilha=slug
- * e, quando não houver trilha vigente, mantém a listagem mista sem filtro.
+ * ou seleciona automaticamente a única trilha vigente.
  */
 function ifrs_ps_get_current_trilha()
 {
@@ -440,7 +447,8 @@ function ifrs_ps_get_current_trilha()
   }
 
   if (!$trilha) {
-    $trilha = ifrs_ps_get_trilha_vigente();
+    $vigentes = ifrs_ps_get_trilhas_vigentes();
+    $trilha = count($vigentes) === 1 ? $vigentes[0] : null;
   }
 
   $trilha = apply_filters('ifrs_ps_current_trilha', $trilha);
@@ -448,6 +456,16 @@ function ifrs_ps_get_current_trilha()
   $cache = $trilha ?: false;
 
   return false === $cache ? null : $cache;
+}
+
+/**
+ * Trilhas filtradas na requisição; sem vigentes ou seleção manual, não há filtro.
+ */
+function ifrs_ps_get_current_trilhas()
+{
+  $trilha = ifrs_ps_get_current_trilha();
+
+  return $trilha ? array($trilha) : ifrs_ps_get_trilhas_vigentes();
 }
 
 /**
@@ -469,28 +487,35 @@ function ifrs_ps_get_trilha_switch_url($trilha, $url = '')
 }
 
 /**
- * Acrescenta o tax_query da trilha (atual, por padrão) a um array de argumentos de WP_Query.
+ * Acrescenta o tax_query das trilhas atuais a um array de argumentos de WP_Query.
  */
 function ifrs_ps_apply_trilha_query_args($query_args, $trilha = null)
 {
-  $trilha = null !== $trilha ? $trilha : ifrs_ps_get_current_trilha();
-
-  if (!$trilha) {
+  $trilhas = null !== $trilha ? array($trilha) : ifrs_ps_get_current_trilhas();
+  if (empty($trilhas)) {
     return $query_args;
   }
 
-  $term_id = is_object($trilha) ? $trilha->term_id : (int) $trilha;
-
-  if ($term_id <= 0) {
+  $term_ids = array_map(function ($item) {
+    return is_object($item) ? (int) $item->term_id : (int) $item;
+  }, $trilhas);
+  $term_ids = array_values(array_filter($term_ids, function ($term_id) {
+    return $term_id > 0;
+  }));
+  if (empty($term_ids)) {
     return $query_args;
   }
 
   $tax_query = isset($query_args['tax_query']) && is_array($query_args['tax_query']) ? $query_args['tax_query'] : array();
 
+  if (isset($tax_query['relation']) && strtoupper($tax_query['relation']) === 'OR') {
+    $tax_query = array('relation' => 'AND', $tax_query);
+  }
+
   $tax_query[] = array(
     'taxonomy' => 'trilha_selecao',
     'field'    => 'term_id',
-    'terms'    => $term_id,
+    'terms'    => $term_ids,
   );
 
   $query_args['tax_query'] = $tax_query;
