@@ -135,6 +135,10 @@ Recomenda-se configurar a opção de **permalinks** como:
 
 Isso garante URLs amigáveis e consistentes com a estrutura do tema.
 
+### Trilhas de seleção
+
+O período de cada trilha é determinado pelas datas dos eventos vinculados, com possibilidade de sobrescrever as datas no cadastro da trilha. As listagens exibem as trilhas vigentes em conjunto; se houver apenas uma, ela é selecionada automaticamente. Sem trilhas vigentes, a visão padrão não filtra por trilha. Para retornar à visão padrão após selecionar uma trilha, clique novamente nela.
+
 ## Convenções de Código
 
 - **Indentação**: 2 espaços (JS/SCSS), PSR-12 (PHP)
